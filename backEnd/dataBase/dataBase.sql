@@ -147,7 +147,6 @@ CREATE TABLE Clinica (
 
 CREATE TABLE Medico (
     nome VARCHAR(100) NOT NULL,
-    
     cpf CHAR(11) NOT NULL,
     crm CHAR(9) NOT NULL,
     telefone CHAR(11) NOT NULL,
