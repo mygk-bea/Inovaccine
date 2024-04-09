@@ -16,7 +16,8 @@ return new class extends Migration
             $table->decimal('valor', total: 10, places: 2)->nullable(false);
             $table->string('vacina')->nullable(false);
             $table->date('data_compra')->nullable(false);
-            $table->decimal(total: 10, places: 0)->nullable(false);
+            $table->integer('quantidade');->nullable(false);
+            $table->integer('quantidade_atual');->nullable(false);
             $table->unsignedInteger('fk_fornecedor_codFornecedor')->nullable(false);
             $table->timestamps();
 
