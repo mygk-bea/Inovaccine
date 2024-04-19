@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Postagem', function (Blueprint $table) {
+        Schema::create('postagem', function (Blueprint $table) {
             $table->increments('codPostagem')->unsigned();
             $table->string('titulo', 100)->nullable(false);
-            $table->string('conteudo', 200)->nullable(false);
+            $table->string('conteudo', 100)->nullable(false);
             $table->dateTime('data_hora_postagem')->nullable(false);
             $table->unsignedInteger('fk_postagem_codFuncionario')->nullable(false);
             $table->boolean('curtida')->nullable(false);
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Postagem');
+        Schema::dropIfExists('postagem');
     }
 };

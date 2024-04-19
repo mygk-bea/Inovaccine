@@ -18,7 +18,6 @@ return new class extends Migration
             $table->date('dataValidade')->nullable(false);
             $table->date('periodo')->nullable(false);
             $table->timestamps();
-
         });
     }
 
@@ -30,4 +29,3 @@ return new class extends Migration
         Schema::dropIfExists('Vacina');
     }
 };
-

@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Carteira', function (Blueprint $table) {
-            $table->increments('codCarteira')->unsigned();
-            $table->string('dose', 100)->nullable(false);
+        Schema::create('campanha', function (Blueprint $table) {
+            $table->increments('codCampanha')->unsigned();
+            $table->string('nome')->nullable(false);
             $table->unsignedInteger('fk_vacina_codVacina');
-            $table->unsignedInteger('fk_clinica_codClinica');
+            $table->unsignedInteger('fk_agendamento_codAgendamento');
+            $table->dateTime('dataInicio')->nullable(false);
+            $table->dateTime('dataFim')->nullable(false);
             $table->timestamps();
 
             $table->foreign('fk_vacina_codVacina')->references('codVacina')->on('Vacina');
-            $table->foreign('fk_clinica_codClinica')->references('codClinica')->on('Clinica');
+            $table->foreign('fk_agendamento_codAgendamento')->references('codAgendamento')->on('agendamento');
         });
     }
 
@@ -28,7 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Carteira');
+        Schema::dropIfExists('campanha');
     }
 };
-

@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('relacionamento_documento', function (Blueprint $table) {
+        Schema::create('relacao_func_documento', function (Blueprint $table) {
             $table->increments('codEmissao')->unsigned();
-            $table->unsignedInteger('fk_funcionario_codFuncionario')->nullable(false);
+            $table->unsignedInteger('fk_func_codFuncionario')->nullable(false);
             $table->unsignedInteger('fk_documento_codDocumento')->nullable(false);
             $table->timestamps();
 
-            $table->foreign('fk_funcionario_codFuncionario')->references('codFuncionario')->on('Funcionario');
+            $table->foreign('fk_func_codFuncionario')->references('codFuncionario')->on('Funcionario');
             $table->foreign('fk_documento_codDocumento')->references('codDocumento')->on('Documento');
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('relacionamento_documento');
+        Schema::dropIfExists('relacao_func_documento');
     }
 };

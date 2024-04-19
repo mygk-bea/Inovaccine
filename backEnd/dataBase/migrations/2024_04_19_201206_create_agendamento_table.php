@@ -11,15 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('RelacaoAgendamento', function (Blueprint $table) {
-            $table->unsignedInteger('fk_paciente_codPaciente');
+        Schema::create('agendamento', function (Blueprint $table) {
+            $table->increments('codAgendamento')->unsigned();
+            $table->decimal('valor', 10, 2)->nullable(false);
             $table->unsignedInteger('fk_vacina_codVacina');
-            $table->string('nome', 100)->nullable(false);
+            $table->unsignedInteger('fk_paciente_codPaciente');
+            $table->unsignedInteger('fk_clinica_codClinica');
+            $table->dateTime('dataHora')->nullable(false);
+            $table->boolean('comparecimento');
+            $table->timestamps();
 
             $table->foreign('fk_vacina_codVacina')->references('codVacina')->on('Vacina');
             $table->foreign('fk_paciente_codPaciente')->references('codPaciente')->on('Paciente');
-
-            $table->primary(['fk_paciente_codPaciente', 'fk_vacina_codVacina']);
+            $table->foreign('fk_clinica_codClinica')->references('codClinica')->on('Clinica');
         });
     }
 
@@ -28,7 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('RelacaoAgendamento');
+        Schema::dropIfExists('agendamento');
     }
 };
-

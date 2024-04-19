@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('DiskDenuncia', function (Blueprint $table) {
-            $table->increments('codDenuncia')->unsigned();
-            $table->boolean('anonimo');
+        Schema::create('Dependentes', function (Blueprint $table) {
+            $table->increments('codDependente')->unsigned();
             $table->string('nome', 100)->nullable(false);
-            $table->unsignedBigInteger('fk_endereco_codEndereco');
-            $table->string('observacao', 100)->nullable(false);
+            $table->unsignedInteger('fk_paciente_codPaciente');
             $table->timestamps();
 
-            $table->foreign('fk_endereco_codEndereco')->references('codEndereco')->on('Endereco');
+            $table->foreign('fk_paciente_codPaciente')->references('codPaciente')->on('Paciente');
         });
     }
 
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('DiskDenuncia');
+        Schema::dropIfExists('Dependentes');
     }
 };

@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('RelacaoVacina', function (Blueprint $table) {
+        Schema::create('carteira', function (Blueprint $table) {
+            $table->increments('codCarteira')->unsigned();
+            $table->string('dose', 100)->nullable(false);
             $table->unsignedInteger('fk_vacina_codVacina');
             $table->unsignedInteger('fk_clinica_codClinica');
             $table->timestamps();
-
-            $table->primary(['fk_vacina_codVacina', 'fk_clinica_codClinica']);
 
             $table->foreign('fk_vacina_codVacina')->references('codVacina')->on('Vacina');
             $table->foreign('fk_clinica_codClinica')->references('codClinica')->on('Clinica');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('RelacaoVacina');
+        Schema::dropIfExists('carteira');
     }
 };

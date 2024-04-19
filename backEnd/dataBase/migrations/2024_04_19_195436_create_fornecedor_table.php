@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Dependente', function (Blueprint $table) {
-            $table->increments('codDependente')->unsigned();
+        Schema::create('fornecedor', function (Blueprint $table) {
+            $table->increments('codFornecedor')->unsigned();
             $table->string('nome', 100)->nullable(false);
-            $table->unsignedInteger('fk_paciente_codPaciente');
+            $table->char('telefone', 9)->nullable(false);
+            $table->char('cnpj', 14)->nullable(false);
             $table->timestamps();
-
-            $table->foreign('fk_paciente_codPaciente')->references('codPaciente')->on('Paciente');
         });
     }
 
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Dependente');
+        Schema::dropIfExists('fornecedor');
     }
 };

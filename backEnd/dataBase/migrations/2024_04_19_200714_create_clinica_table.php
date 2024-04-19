@@ -25,7 +25,6 @@ return new class extends Migration
             $table->foreign('fk_clinica_codEndereco')->references('codEndereco')->on('Endereco');
             $table->foreign('fk_clinica_codLogin')->references('codLogin')->on('Usuario');
             $table->foreign('fk_clinica_codMedico')->references('codMedico')->on('Medico');
-
         });
     }
 
