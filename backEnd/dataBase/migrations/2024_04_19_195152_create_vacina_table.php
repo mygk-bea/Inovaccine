@@ -17,6 +17,7 @@ return new class extends Migration
             $table->decimal('preco', 10, 2)->nullable(false);
             $table->date('dataValidade')->nullable(false);
             $table->date('periodo')->nullable(false);
+            $table->string('status', 20)->nullable(false);
             $table->timestamps();
         });
     }
