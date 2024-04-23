@@ -11,15 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Disk_Denuncia', function (Blueprint $table) {
+        Schema::create('disk_Denuncia', function (Blueprint $table) {
             $table->increments('codDenuncia')->unsigned();
             $table->boolean('anonimo');
             $table->string('nome', 100)->nullable(false);
-            $table->unsignedBigInteger('fk_endereco_codEndereco');
+            $table->unsignedInteger('fk_endereco_codEndereco');
             $table->string('observacao', 100)->nullable(false);
-            $table->timestamps();
 
             $table->foreign('fk_endereco_codEndereco')->references('codEndereco')->on('Endereco');
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP')); 
+
         });
     }
 
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Disk_Denuncia');
+        Schema::dropIfExists('disk_Denuncia');
     }
 };

@@ -14,12 +14,15 @@ return new class extends Migration
         Schema::create('relacao_vacina_clinica', function (Blueprint $table) {
             $table->unsignedInteger('fk_vacina_codVacina');
             $table->unsignedInteger('fk_clinica_codClinica');
-            $table->timestamps();
 
             $table->primary(['fk_vacina_codVacina', 'fk_clinica_codClinica']);
 
             $table->foreign('fk_vacina_codVacina')->references('codVacina')->on('Vacina');
             $table->foreign('fk_clinica_codClinica')->references('codClinica')->on('Clinica');
+
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+
         });
     }
 

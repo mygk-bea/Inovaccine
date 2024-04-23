@@ -18,7 +18,10 @@ return new class extends Migration
             $table->date('dataValidade')->nullable(false);
             $table->date('periodo')->nullable(false);
             $table->string('status', 20)->nullable(false);
-            $table->timestamps();
+            
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+
         });
     }
 

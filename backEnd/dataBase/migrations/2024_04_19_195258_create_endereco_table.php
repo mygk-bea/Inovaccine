@@ -19,7 +19,11 @@ return new class extends Migration
             $table->string('cidade', 100)->nullable(false);
             $table->string('complemento', 100)->nullable();
             $table->char('cep', 8)->nullable();
-            $table->timestamps();
+            
+            
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+
         });
     }
 
