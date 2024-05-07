@@ -10,7 +10,11 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },  {
+    path: 'cadastro-clinica',
+    loadChildren: () => import('./pages-admin/cadastro-clinica/cadastro-clinica.module').then( m => m.CadastroClinicaPageModule)
   },
+
 ];
 
 @NgModule({
