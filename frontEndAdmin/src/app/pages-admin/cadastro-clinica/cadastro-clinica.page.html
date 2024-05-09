@@ -5,11 +5,61 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-row class="form__container ion-justify-content-center">
+  <ion-row class="ion-justify-content-center">
     <ion-col size="10">
-      <ion-title class="form__title">Cadastro Clínica</ion-title>
+
+      <ion-row class="form__container ion-margin-bottom">
+        <ion-col>
+          <ion-title class="form__title">Cadastro Clínica</ion-title>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-padding-top">
+        <ion-col>
+          <ion-label>Nome da Clínica</ion-label>
+          <ion-input fill="outline" placeholder="Insira o nome da clínica"></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-padding-top">
+        <ion-col>
+          <ion-label>Nome do Médico</ion-label>
+          <ion-input fill="outline" placeholder="Selecione..."></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-padding-top">
+        <ion-col>
+          <ion-label>CNPJ</ion-label>
+          <ion-input fill="outline" placeholder="00.000.000/0000-00"></ion-input>
+        </ion-col>
+        <ion-col>
+          <ion-label>Telefone</ion-label>
+          <ion-input fill="outline" placeholder="(00) 00000-0000"></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-padding-top">
+        <ion-col size="12">
+          <ion-label>Horário de funcionamento</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-align-items-center">
+        <ion-col>
+          <ion-input fill="outline" placeholder="Início"></ion-input>
+        </ion-col>
+        <ion-text class="ion-padding">à</ion-text>
+        <ion-col>
+          <ion-input fill="outline" placeholder="Fim"></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="form__container">
+        <ion-col>
+          <ion-title class="form__title">Cadastro Clínica</ion-title>
+        </ion-col>
+      </ion-row>
     </ion-col>
-
-
   </ion-row>
 </ion-content>
