@@ -18,7 +18,8 @@ return new class extends Migration
             $table->unsignedInteger('fk_clinica_codEndereco')->nullable(false);
             $table->char('telefone', 9)->nullable(false);
             $table->unsignedInteger('fk_clinica_codLogin')->nullable(false);
-            $table->dateTime('periodo_funcionamento')->nullable(false);
+            $table->time('periodoFunc_inicio')->nullable(false);
+            $table->time('periodoFunc_fim')->nullable(false);
             $table->unsignedInteger('fk_clinica_codMedico')->nullable(false);
 
             $table->foreign('fk_clinica_codEndereco')->references('codEndereco')->on('Endereco');

@@ -62,8 +62,12 @@
     <input type="text" name="telefone" id="telefone">
 </div>
 <div>
-<label for="">Periodo de funcionamento</label>
-    <input type="datetime-local" name="periodo_funcionamento" id="periodo_funcionamento">
+<label for="">Periodo de funcionamento: Inicio</label>
+    <input type="time" name="periodoFunc_inicio" id="periodoFunc_inicio">
+</div>
+<div>
+<label for="">Periodo de funcionamento: Fim</label>
+    <input type="time" name="periodoFunc_fim" id="periodoFunc_fim">
 </div>
 <div>
 <select name="fk_clinica_codMedico" id="fk_clinica_codMedico">

@@ -16,7 +16,8 @@ class Clinica extends Model
         'fk_clinica_codEndereco',
         'telefone',
         'fk_clinica_codLogin',
-        'periodo_funcionamento',
+        'periodoFunc_inicio',
+        'periodoFunc_fim',
         'fk_clinica_codMedico'
     ]; 
 

@@ -39,37 +39,40 @@ class ClinicaController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        $endereco = $this->objEndereco->create([
-            'logradouro'=>$request->logradouro,
-            'bairro'=>$request->bairro,
-            'numero'=>$request->numero,
-            'cidade'=>$request->cidade,
-            'complemento'=>$request->complemento,
-            'cep'=>$request->cep
-        ]);
+            // Criação do endereço
+            $endereco = $this->objEndereco->create([
+                'logradouro' => $request->logradouro,
+                'bairro' => $request->bairro,
+                'numero' => $request->numero,
+                'cidade' => $request->cidade,
+                'complemento' => $request->complemento,
+                'cep' => $request->cep
+            ]);
 
-        $usuario = $this->objUsuario->create([
-            'tipo'=>'medico',
-            'email'=>$request->email,
-            'senha'=>$request->senha
-        ]);
+            // Criação do usuário
+            $usuario = $this->objUsuario->create([
+                'tipo' => 'clinica',
+                'email' => $request->email,
+                'senha' => $request->senha
+            ]);
 
-        $clinica = $this->objClinica->create([
-            'nome'=>$request->nome,
-            'cnpj'=>$request->cnpj,
-            'telefone'=>$request->telefone,
-            'periodo_funcionamento'=>$request->periodo_funcionamento,
-            'fk_clinica_codMedico'=>$request->fk_clinica_codMedico,
-            'fk_clinica_codEndereco'=>$endereco->codEndereco,
-            'fk_clinica_codLogin'=>$usuario->codLogin
-        ]);
+            $enderecoId = $endereco->id;
+            $usuarioId = $usuario->id;
 
-        return redirect()->route('cadClinica');
+            $clinica = $this->objClinica->create([
+                'nome' => $request->nome,
+                'cnpj' => $request->cnpj,
+                'telefone' => $request->telefone,
+                'periodoFunc_inicio' => $request->periodoFunc_inicio,
+                'periodoFunc_fim' => $request->periodoFunc_fim,
+                'fk_clinica_codMedico' => $request->fk_clinica_codMedico,
+                'fk_clinica_codEndereco' => $enderecoId,
+                'fk_clinica_codLogin' => $usuarioId
+            ]);
+
+            return redirect()->route('cadClinica');
     }
 
     /**
