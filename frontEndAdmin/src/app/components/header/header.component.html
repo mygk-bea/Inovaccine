@@ -1,3 +1,36 @@
-<p>
-  header works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar class="header">
+    <ion-row class="ion-align-items-center ion-justify-content-center">
+      <ion-col size="4">
+        <ion-row class="">
+          <ion-img class="header__logo" src="../../../assets/images/logo_light.svg" alt="Profile_Icon"></ion-img>
+        </ion-row>
+      </ion-col>
+
+      <ion-col size="4">
+        <ion-row class="header__nav ion-justify-content-between">
+          <ion-item lines="none" class="header__nav__item">
+            <a href="">Listagens</a>
+          </ion-item>
+          <ion-item lines="none" class="header__nav__item">
+            <a href="">Listagens</a>
+          </ion-item>
+          <ion-item lines="none" class="header__nav__item">
+            <a href="">Listagens</a>
+          </ion-item>
+          <ion-item lines="none" class="header__nav__item">
+            <a href="">Listagens</a>
+          </ion-item>
+        </ion-row>
+      </ion-col>
+
+      <ion-col size="4">
+        <ion-row class="header__icons ion-justify-content-end">
+          <ion-img class="header__icon" src="../../../assets/icon/icon_profile.svg" alt="Profile_Icon"></ion-img>
+          <ion-img class="header__icon" src="../../../assets/icon/icon_sign-out.svg" alt="Profile_Icon"></ion-img>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+  </ion-toolbar>
+</ion-header>

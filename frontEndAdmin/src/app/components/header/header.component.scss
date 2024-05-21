@@ -1,0 +1,29 @@
+.header{
+    --background: var(--blue-primary-color);
+    padding: 0 100px;
+
+    &__logo{
+        height: 70px;
+    }
+
+    &__nav{
+        &__item{
+            &::part(native){
+                background: transparent;
+            }
+
+            a{
+                font-size: 20px;
+                text-decoration: none;
+                text-align: center;
+                color: var(--green-light-color);
+            }
+        }
+
+    }
+
+
+    &__icon{
+        height: 40px;
+    }
+}

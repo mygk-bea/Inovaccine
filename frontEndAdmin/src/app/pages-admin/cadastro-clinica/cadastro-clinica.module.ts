@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { CadastroClinicaPageRoutingModule } from './cadastro-clinica-routing.module';
 
 import { CadastroClinicaPage } from './cadastro-clinica.page';
+import { HeaderModule } from 'src/app/components/header/header.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CadastroClinicaPageRoutingModule
+    CadastroClinicaPageRoutingModule,
+    HeaderModule
   ],
   declarations: [CadastroClinicaPage]
 })
