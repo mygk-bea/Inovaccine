@@ -21,8 +21,7 @@ return new class extends Migration
 
             $table->primary(['fk_paciente_codPaciente', 'fk_vacina_codVacina']);
 
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps();
 
         });
     }

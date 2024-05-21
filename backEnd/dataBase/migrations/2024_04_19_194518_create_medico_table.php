@@ -20,8 +20,7 @@ return new class extends Migration
             $table->unsignedInteger('fk_medico_codLogin')->nullable(false);
 
             $table->foreign('fk_medico_codLogin')->references('codLogin')->on('Usuario');
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps();
         });
     }
 

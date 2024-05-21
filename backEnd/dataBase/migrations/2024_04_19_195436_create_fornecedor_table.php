@@ -17,9 +17,7 @@ return new class extends Migration
             $table->char('telefone', 9)->nullable(false);
             $table->char('cnpj', 14)->nullable(false);
             
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-
+            $table->timestamps();
         });
     }
 

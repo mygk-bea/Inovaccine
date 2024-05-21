@@ -24,8 +24,7 @@ return new class extends Migration
             $table->boolean('responsavel');
 
             $table->foreign('fk_endereco_codEndereco')->references('codEndereco')->on('Endereco');
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps();
 
         });
     }

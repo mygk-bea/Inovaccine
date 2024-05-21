@@ -22,8 +22,7 @@ return new class extends Migration
             $table->foreign('fk_vacina_codVacina')->references('codVacina')->on('Vacina');
             $table->foreign('fk_agendamento_codAgendamento')->references('codAgendamento')->on('agendamento');
 
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps();
 
         });
     }

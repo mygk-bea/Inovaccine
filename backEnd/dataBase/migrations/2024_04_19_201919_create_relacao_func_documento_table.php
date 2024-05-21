@@ -19,9 +19,7 @@ return new class extends Migration
             $table->foreign('fk_func_codFuncionario')->references('codFuncionario')->on('Funcionario');
             $table->foreign('fk_documento_codDocumento')->references('codDocumento')->on('Documento');
 
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-
+            $table->timestamps();
         });
     }
 

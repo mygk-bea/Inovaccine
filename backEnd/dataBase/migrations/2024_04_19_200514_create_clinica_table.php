@@ -25,8 +25,7 @@ return new class extends Migration
             $table->foreign('fk_clinica_codLogin')->references('codLogin')->on('Usuario');
             $table->foreign('fk_clinica_codMedico')->references('codMedico')->on('Medico');
 
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps();
 
         });
     }

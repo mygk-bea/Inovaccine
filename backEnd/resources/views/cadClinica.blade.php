@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,44 +9,71 @@
 </head>
 <body>
     
-<form action="{{route('cadClinica')}}" method="GET">
-
-    <label for="">Nome</label>
+<form action={{ route('cadClinica/create') }} method="POST">
+    @csrf
+<div>
+<label for="">Nome</label>
     <input type="text" name="nome" id="nome">
-
-    <label for="">CNPJ</label>
+</div>
+<div>
+<label for="">CNPJ</label>
     <input type="text" name="cnpj" id="cnpj">
+</div>
+<div>
+<hr>
 
-    <label for="">Endereço - logradouro</label>
+<h1>Endereço</h1>
+<label for="">Endereço - logradouro</label>
     <input type="text" name="logradouro" id="logradouro">
-
-    <label for="">Endereço - bairro</label>
+</div>
+<div>
+<label for="">Endereço - bairro</label>
     <input type="text" name="bairro" id="bairro">
-
-    <label for="">Endereço - numero</label>
+</div>
+<div>
+<label for="">Endereço - numero</label>
     <input type="text" name="numero" id="numero">
-
-    <label for="">Endereço - cidade</label>
+</div>
+<div>
+<label for="">Endereço - cidade</label>
     <input type="text" name="cidade" id="cidade">
-
-    <label for="">Endereço - complemento</label>
+</div>
+<div>
+<label for="">Endereço - complemento</label>
     <input type="text" name="complemento" id="complemento">
-
-    <label for="">Endereço - Cep</label>
+</div>
+<div>
+<label for="">Endereço - Cep</label>
     <input type="text" name="cep" id="cep">
+</div>
+<hr>
+<h1>Login</h1>
+<div>
+<label for="">Email</label>
+    <input type="text" name="email" id="email">
+</div>
+<label for="">senha</label>
+    <input type="text" name="senha" id="senha">
+</div>
 
-    <label for="">Cod_Login</label>
-    <input type="text" name="codLogin" id="codLogin">
-
-    <label for="">Telefone</label>
+<hr>
+<div>
+<label for="">Telefone</label>
     <input type="text" name="telefone" id="telefone">
+</div>
+<div>
+<label for="">Periodo de funcionamento</label>
+    <input type="datetime-local" name="periodo_funcionamento" id="periodo_funcionamento">
+</div>
+<div>
+<select name="fk_clinica_codMedico" id="fk_clinica_codMedico">
+    <option value="">Selecione um médico</option>
+    @foreach($medicos as $medico)
+    <option value="{{$medico->codMedico}}">{{$medico->nome}}</option>
+    @endforeach
+</select>
 
-    <label for="">Periodo de funcionamento</label>
-    <input type="text" name="periodoFunc" id="periodoFunc">
-
-    <label for="">Medico</label>
-    <input type="text" name="codMedico" id="codMedico">
-
+<button type="submit">Enviar</button>
 
 </form>
 

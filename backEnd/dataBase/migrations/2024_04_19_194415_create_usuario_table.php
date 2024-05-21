@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string('email', 100)->nullable(false);
             $table->char('senha', 10)->nullable(false);
             
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamps();
         });
     }
 
