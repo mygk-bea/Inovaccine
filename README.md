@@ -1,4 +1,4 @@
-# Inovaccine
+![logo](https://github.com/mygk-bea/Inovaccine/assets/100007869/1a07a530-a52e-4fb9-a745-0cfd78cb523f)
 
 ## Comandos para rodar o backEnd - Laravel:
 - *Tenha o composer instalado*
