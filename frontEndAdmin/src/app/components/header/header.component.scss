@@ -1,29 +1,30 @@
+@import '../../../theme/variables.scss';
+
 .header{
-    --background: var(--blue-primary-color);
-    padding: 0 100px;
+  padding: 0 100px;
 
-    &__logo{
-        height: 70px;
+  &__logo{
+    height: 50px;
+  }
+
+  &__nav{
+    // padding: 0 80px;
+    &__item{
+      &::part(native){
+        background: transparent;
+      }
+
+      a{
+        font-size: 18px;
+        text-decoration: none;
+        text-align: center;
+        color: $green-light-color;
+      }
     }
+  }
 
-    &__nav{
-        &__item{
-            &::part(native){
-                background: transparent;
-            }
-
-            a{
-                font-size: 20px;
-                text-decoration: none;
-                text-align: center;
-                color: var(--green-light-color);
-            }
-        }
-
-    }
-
-
-    &__icon{
-        height: 40px;
-    }
+  &__icon{
+    height: 35px;
+    padding: 0 5px;
+  }
 }

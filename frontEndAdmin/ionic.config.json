@@ -1,5 +1,7 @@
 {
-  "name": "ionic-app-base",
-  "integrations": {},
-  "type": "angular"
+  "name": "frontEndAdmin",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
 }
