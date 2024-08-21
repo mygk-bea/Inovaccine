@@ -15,6 +15,6 @@ export class HeaderComponent  implements OnInit {
 
   ngOnInit() {}
 
-  @Input() pagesMenu: {name:string}[] = [];
+  @Input() pagesMenu: {name:string; route:string}[] = [];
   @Input() backgroundColor:string = '';
 }

@@ -1,5 +1,22 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
 
-$blue-primary-color: #035AA6;
-$green-light-color: #EBF8F6;
+// Main Palette 
+$green-primary-color   : #04BFAD;
+$green-secondary-color : #027368;
+$green-dark-color      : #001A17;
+$green-light-color     : #EBF8F6;
+
+// Admin Palette
+$blue-primary-color   : #035AA6;
+$blue-secondary-color : #759CBF;
+
+// Warning Palette
+$red-primary-color : #FF6A6A;
+$red-light-color   : #FFEEEE;
+
+// Grayscale 
+$grayscale-color       : #B8B8B8;
+$grayscale-light-color : #E8E8E8;
+$light-color : #FFFFFF;
+$dark-color  : #000000;
