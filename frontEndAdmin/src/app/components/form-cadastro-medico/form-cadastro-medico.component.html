@@ -1,0 +1,49 @@
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <ion-row>
+    <ion-col>
+      <ion-item class="form__item">
+        <ion-label position="stacked">Nome do Médico</ion-label>
+        <ion-input 
+          fill="solid" 
+          formControlName="nome" 
+          placeholder="Digite o nome"
+        ></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col size="4">
+      <ion-item class="form__item">
+        <ion-label position="stacked">Telefone</ion-label>
+        <ion-input 
+          fill="solid" 
+          formControlName="telefone" 
+          placeholder="(00) 00000-0000"
+        ></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item class="form__item">
+        <ion-label position="stacked">CPF</ion-label>
+        <ion-input 
+          fill="solid" 
+          formControlName="cpf" 
+          placeholder="000.000.000-00"
+        ></ion-input>
+      </ion-item>
+    </ion-col>
+    <ion-col>
+      <ion-item class="form__item">
+        <ion-label position="stacked">CRM</ion-label>
+        <ion-input 
+          fill="solid" 
+          formControlName="crm" 
+          placeholder="CRM/SP 000000"
+        ></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-justify-content-end">
+    <ion-button type="ngSubmit">Cadastrar</ion-button>
+  </ion-row>
+</form>
