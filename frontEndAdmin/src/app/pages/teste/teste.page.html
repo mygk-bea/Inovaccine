@@ -22,7 +22,7 @@ UTILIZE ESSE ESPAÇO COMO DESEJAR
           <ion-title class="form__title">Cadastro Clínica</ion-title>
         </ion-col>
       </ion-row>
-
+      <form #clinicaForm="ngForm" (ngSubmit)="this.cadastrarClin()">
       <ion-row class="ion-padding-top">
         <ion-col>
           <ion-label>Nome da Clínica</ion-label>
@@ -118,7 +118,7 @@ UTILIZE ESSE ESPAÇO COMO DESEJAR
           <ion-button>Cadastrar</ion-button>
         </ion-col>
       </ion-row>
-
+    </form>
     </ion-col>
   </ion-row>
 </ion-content>
