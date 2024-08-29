@@ -10,12 +10,17 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
+  // {
+  //   path: 'teste',
+  //   loadComponent: () => import('./pages/teste/teste.page').then( m => m.TestePage)
+  // },
   {
-    path: 'teste',
-    loadComponent: () => import('./pages/teste/teste.page').then( m => m.TestePage)
-  },  {
     path: 'cadastro-medico',
     loadComponent: () => import('./pages/cadastro-medico/cadastro-medico.page').then( m => m.CadastroMedicoPage)
+  },  {
+    path: 'cadastro-clinica',
+    loadComponent: () => import('./pages/cadastro-clinica/cadastro-clinica.page').then( m => m.CadastroClinicaPage)
   },
+
 
 ];

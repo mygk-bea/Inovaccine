@@ -4,22 +4,21 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { HeaderComponent } from 'src/app/components/header/header.component';
-import { FormCadastroMedicoComponent } from 'src/app/components/_forms/form-cadastro-medico/form-cadastro-medico.component';
+import { FormCadastroClinicaComponent } from 'src/app/components/_forms/form-cadastro-clinica/form-cadastro-clinica.component';
 
 @Component({
-  selector: 'app-cadastro-medico',
-  templateUrl: './cadastro-medico.page.html',
-  styleUrls: ['./cadastro-medico.page.scss'],
+  selector: 'app-cadastro-clinica',
+  templateUrl: './cadastro-clinica.page.html',
+  styleUrls: ['./cadastro-clinica.page.scss'],
   standalone: true,
   imports: [
     HeaderComponent, 
-    FormCadastroMedicoComponent, 
+    FormCadastroClinicaComponent, 
     IonicModule, 
     CommonModule, 
     FormsModule
-  ]
-})
-export class CadastroMedicoPage implements OnInit {
+  ]})
+export class CadastroClinicaPage implements OnInit {
 
   constructor() { }
 

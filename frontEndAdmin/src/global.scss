@@ -57,26 +57,20 @@
     &__item{
         --border-color: transparent;
 
-        .label-stacked.sc-ion-label-md-h{
-            --color: red;
-        }
-
-        .input-fill-solid.sc-ion-input-md-h {
-            --highlight-color-valid: red;
-            .input-wrapper.sc-ion-input-md{
-                border: 0;
-                background: transparent;
-            }
-        }
-
-        // ion-input:focus ~.input-fill-solid.sc-ion-input-md-h{
-        //     border: 2px solid red;
-        // }
-
         ion-input{
             border-radius: 10px;
             background: $grayscale-light-color;
             margin-top: 10px;
         }
+
+        .input-fill-outline.sc-ion-input-md-h {
+            
+            .input-outline-start.sc-ion-input-md {
+                border-radius: 10px 0 0 10px;
+            }
+            .input-outline-end.sc-ion-input-md {
+                border-radius: 0 10px 10px 0;
+            }
+        } 
     }
 }

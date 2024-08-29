@@ -1,0 +1,19 @@
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <ion-toolbar>
+    <ion-title  class="form__title">
+      Cadastro Clínica
+    </ion-title>
+  </ion-toolbar>
+
+  <app-input-text-list [inputs]="inputsDataGeral" [formGroup]="form"></app-input-text-list>
+
+  <ion-toolbar>
+    <ion-title>Endereço</ion-title>
+  </ion-toolbar>
+
+  <app-input-text-list [inputs]="inputsDataEndereco" [formGroup]="form"></app-input-text-list>
+
+  <ion-row class="ion-justify-content-end">
+    <ion-button type="ngSubmit">Cadastrar</ion-button>
+  </ion-row>
+</form>
