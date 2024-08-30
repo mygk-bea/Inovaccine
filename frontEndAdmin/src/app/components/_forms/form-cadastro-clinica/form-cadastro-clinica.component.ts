@@ -2,13 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { InputTextListComponent } from '../../input-text-list/input-text-list.component';
+import { ClinicaService } from 'src/app/core/service/clinica.service';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-form-cadastro-clinica',
   templateUrl: './form-cadastro-clinica.component.html',
   standalone: true,
   styleUrls: ['./form-cadastro-clinica.component.scss'],
-  imports: [IonicModule, ReactiveFormsModule, InputTextListComponent]
+  imports: [IonicModule, ReactiveFormsModule, InputTextListComponent, HttpClientModule],
+  providers:[ClinicaService]
 })
 export class FormCadastroClinicaComponent  implements OnInit {
   form: FormGroup;
@@ -32,7 +36,7 @@ export class FormCadastroClinicaComponent  implements OnInit {
     {size: 4, name: "complemento", label: "Complemento", placeholder: "ex: Casa, Ap..."}
   ];
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder, private clini: ClinicaService) { 
     this.form = new FormGroup({});
   }
 
@@ -53,6 +57,9 @@ export class FormCadastroClinicaComponent  implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value);
+    const clinica = this.form.value;
+    console.log(clinica);
+    this.clini.cadastrarClinica(clinica);
+    console.log("batata");
   }
 }

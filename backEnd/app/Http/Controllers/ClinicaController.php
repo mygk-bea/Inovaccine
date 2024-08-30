@@ -72,7 +72,7 @@ class ClinicaController extends Controller
                 'fk_clinica_codLogin' => $usuarioId
             ]);
 
-            return redirect()->route('cadClinica');
+            // return redirect()->route('cadClinica');
     }
 
     /**

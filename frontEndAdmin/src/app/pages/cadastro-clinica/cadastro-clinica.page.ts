@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
+
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { FormCadastroClinicaComponent } from 'src/app/components/_forms/form-cadastro-clinica/form-cadastro-clinica.component';
 
@@ -23,6 +24,8 @@ export class CadastroClinicaPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+
   }
 
 }

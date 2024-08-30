@@ -13,5 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\ClinicaController::class, 'index'])->name('cadClinica');
-Route::post('/', [App\Http\Controllers\ClinicaController::class, 'store'])->name('cadClinica/create');
+// Route::get('/', [App\Http\Controllers\ClinicaController::class, 'index'])->name('cadClinica');
