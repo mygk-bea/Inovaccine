@@ -87,5 +87,11 @@
         }
     }
 
-    
+    &__button{
+        font-size: 1.15rem;
+        margin: 20px;
+        --padding-top: 15px;
+        --padding-bottom: 15px;
+        --background: var(--primary-color);
+    }
 }

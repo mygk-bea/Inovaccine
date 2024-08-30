@@ -1,0 +1,13 @@
+.input__time{
+  &__title{
+    margin-right: 10px;
+    font-weight: 500;
+    color: var(--primary-color);
+  }
+
+  &__text{
+    margin: 10px;
+    color: var(--primary-color);
+  }
+}
+

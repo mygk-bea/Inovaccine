@@ -20,15 +20,14 @@ export class FormCadastroClinicaComponent  implements OnInit {
   inputsDataGeral = [
     {size: 12, name: "nome_cli", label: "Nome da Clínica", placeholder: "Insira o nome da clínica"},
     {size: 12, name: "nome_medico", label: "Nome do Médico", placeholder: "Selecione..."},
-    {size: 6, name: "email", label: "E-mail", placeholder: "Insira o e-mail da clínica"},
-    {size: 6, name: "senha", label: "Senha", placeholder: "Insira uma senha forte"},
-    {size: 6, name: "cnpj", label: "CNPJ", placeholder: "00.000.000/0000-00"},
-    {size: 6, name: "telefone", label: "Telefone", placeholder: "(00) 00000-0000"},
-    {size: 6, name: "hora_inicio", label: "Início", placeholder: "00:00"},
-    {size: 6, name: "hora_fim", label: "Fim", placeholder: "00:00"}
+    {size: 3, name: "cnpj", label: "CNPJ", placeholder: "00.000.000/0000-00"},
+    {size: 3, name: "telefone", label: "Telefone", placeholder: "(00) 00000-0000"}
   ];
 
-  // ADICIONAR O TÍTULO HORARIO DE FUNCIONAMENTO PARA O INPUT
+  inputsDataLogin = [
+    {size: 6, name: "email", label: "E-mail", placeholder: "Insira o e-mail da clínica"},
+    {size: 6, name: "senha", label: "Senha", placeholder: "Insira uma senha forte"}
+  ];
 
   inputsDataEndereco = [
     {size: 4, name: "cep", label: "CEP", placeholder: "00000-000"},

@@ -5,15 +5,43 @@
     </ion-title>
   </ion-toolbar>
 
-  <app-input-text-list [inputs]="inputsDataGeral" [formGroup]="form"></app-input-text-list>
+  <app-input-text-list [inputs]="inputsDataGeral" [formGroup]="form">
+    <ion-col size="6">
+
+      <ion-item class="form__item input__time">
+        <ion-text class="input__time__title ion-text-nowrap">Horário de Funcionamento</ion-text>
+        <ion-input 
+          id="start"
+          label="Início"
+          labelPlacement="floating"
+          fill="outline"
+          formControlName="hora_inicio"
+          placeholder="00:00">
+        </ion-input>
+        <ion-text class="input__time__text">às</ion-text>
+        <ion-input 
+          id="end"
+          label="Fim"
+          labelPlacement="floating"
+          fill="outline"
+          formControlName="hora_fim"
+          placeholder="00:00">
+        </ion-input>
+      </ion-item>
+    </ion-col>
+  </app-input-text-list>
 
   <ion-toolbar>
     <ion-title>Endereço</ion-title>
   </ion-toolbar>
-
   <app-input-text-list [inputs]="inputsDataEndereco" [formGroup]="form"></app-input-text-list>
 
+  <ion-toolbar>
+    <ion-title>Informações de Login</ion-title>
+  </ion-toolbar>
+  <app-input-text-list [inputs]="inputsDataLogin" [formGroup]="form"></app-input-text-list>
+
   <ion-row class="ion-justify-content-end">
-    <ion-button type="ngSubmit">Cadastrar</ion-button>
+    <ion-button class="form__button" type="ngSubmit">Cadastrar</ion-button>
   </ion-row>
 </form>
