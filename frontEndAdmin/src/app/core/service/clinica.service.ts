@@ -6,12 +6,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ClinicaService {
-  private url: string = "http://localhost:4200";
+  private url: string = "http://localhost:4200/api";
   constructor(private http : HttpClient) { }
   
 
 cadastrarClinica (clinica: Clinica){
-  this.http.post(`${ this.url }/cadastro-clinica`, clinica);
+  console.log(clinica);
+  this.http.post(`${ this.url }/cadClinica`, clinica);
 }
 
 }

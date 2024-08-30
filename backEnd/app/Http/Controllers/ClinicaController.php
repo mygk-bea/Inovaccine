@@ -27,20 +27,12 @@ class ClinicaController extends Controller
      */
     public function index()
     {
-        $medicos= $this->objMedico->all();
-        return view('cadClinica', compact('medicos'));
+        // $medicos= $this->objMedico->all();
+        // return view('cadClinica', compact('medicos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    public function store(Request $request)
-    {
+    public function store(Request $request){
             // Criação do endereço
             $endereco = $this->objEndereco->create([
                 'logradouro' => $request->logradouro,
@@ -73,37 +65,5 @@ class ClinicaController extends Controller
             ]);
 
             // return redirect()->route('cadClinica');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/cadastro-clinica', [App\Http\Controllers\ClinicaController::class, 'store']);
+Route::post('/cadClinica', [App\Http\Controllers\ClinicaController::class, 'store']);
