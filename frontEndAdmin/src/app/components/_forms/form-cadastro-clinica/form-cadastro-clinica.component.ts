@@ -16,6 +16,8 @@ export class FormCadastroClinicaComponent  implements OnInit {
   inputsDataGeral = [
     {size: 12, name: "nome_cli", label: "Nome da Clínica", placeholder: "Insira o nome da clínica"},
     {size: 12, name: "nome_medico", label: "Nome do Médico", placeholder: "Selecione..."},
+    {size: 6, name: "email", label: "E-mail", placeholder: "Insira o e-mail da clínica"},
+    {size: 6, name: "senha", label: "Senha", placeholder: "Insira uma senha forte"},
     {size: 6, name: "cnpj", label: "CNPJ", placeholder: "00.000.000/0000-00"},
     {size: 6, name: "telefone", label: "Telefone", placeholder: "(00) 00000-0000"},
     {size: 6, name: "hora_inicio", label: "Início", placeholder: "00:00"},
@@ -40,6 +42,8 @@ export class FormCadastroClinicaComponent  implements OnInit {
     this.form = this.formBuilder.group({
       nome_cli: [null],
       nome_medico: [null],
+      email: [null],
+      senha: [null],
       cnpj: [null],
       telefone: [null],
       hora_inicio: [null],
