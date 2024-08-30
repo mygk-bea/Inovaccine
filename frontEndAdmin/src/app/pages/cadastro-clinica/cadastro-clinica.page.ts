@@ -17,7 +17,7 @@ import { FormCadastroClinicaComponent } from 'src/app/components/_forms/form-cad
     FormCadastroClinicaComponent, 
     IonicModule, 
     CommonModule, 
-    FormsModule
+    FormsModule,
   ]})
 export class CadastroClinicaPage implements OnInit {
 

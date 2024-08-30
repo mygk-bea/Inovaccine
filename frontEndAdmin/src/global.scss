@@ -49,6 +49,10 @@
 }
 
 .form{
+    ion-title{
+        --color: var(--primary-color);
+    }
+
     &__title{
         font-size: 2rem;
         font-weight: 600;
@@ -62,9 +66,8 @@
             background: $grayscale-light-color;
             margin-top: 10px;
         }
-
+        
         .input-fill-outline.sc-ion-input-md-h {
-            
             .input-outline-start.sc-ion-input-md {
                 border-radius: 10px 0 0 10px;
             }
@@ -73,4 +76,16 @@
             }
         } 
     }
+
+    ion-item.form__item{
+        &:focus-within ion-input{
+            --highlight-color-valid: var(--secondary-color); 
+        }
+
+        &:hover ion-input{
+            --border-color: var(--secondary-color);
+        }
+    }
+
+    
 }
