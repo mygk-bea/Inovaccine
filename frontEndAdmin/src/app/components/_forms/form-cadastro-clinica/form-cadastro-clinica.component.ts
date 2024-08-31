@@ -30,9 +30,10 @@ export class FormCadastroClinicaComponent  implements OnInit {
   ];
 
   inputsDataEndereco = [
-    {size: 4, name: "cep", label: "CEP", placeholder: "00000-000"},
-    {size: 8, name: "logradouro", label: "Logradouro", placeholder: "ex: Rua..."},
-    {size: 5, name: "bairro", label: "Bairro", placeholder: "ex: Vila..."},
+    {size: 3, name: "cep", label: "CEP", placeholder: "00000-000"},
+    {size: 5, name: "logradouro", label: "Logradouro", placeholder: "ex: Rua..."},
+    {size: 4, name: "bairro", label: "Bairro", placeholder: "ex: Vila..."},
+    {size: 5, name: "cidade", label: "Cidade", placeholder: "ex: São..."},
     {size: 3, name: "numero", label: "Número", placeholder: "00000"},
     {size: 4, name: "complemento", label: "Complemento", placeholder: "ex: Casa, Ap..."}
   ];
@@ -54,6 +55,7 @@ export class FormCadastroClinicaComponent  implements OnInit {
       cep: [null],
       logradouro: [null],
       bairro: [null],
+      cidade: [null],
       numero: [null],
       complemento: [null]
     });
