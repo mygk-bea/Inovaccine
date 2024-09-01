@@ -33,7 +33,8 @@ export class FormCadastroClinicaComponent  implements OnInit {
     {size: 3, name: "cep", label: "CEP", placeholder: "00000-000"},
     {size: 5, name: "logradouro", label: "Logradouro", placeholder: "ex: Rua..."},
     {size: 4, name: "bairro", label: "Bairro", placeholder: "ex: Vila..."},
-    {size: 5, name: "cidade", label: "Cidade", placeholder: "ex: São..."},
+    {size: 3, name: "cidade", label: "Cidade", placeholder: "ex: São..."},
+    {size: 2, name: "uf", label: "UF", placeholder: "SP"},
     {size: 3, name: "numero", label: "Número", placeholder: "00000"},
     {size: 4, name: "complemento", label: "Complemento", placeholder: "ex: Casa, Ap..."}
   ];
@@ -56,6 +57,7 @@ export class FormCadastroClinicaComponent  implements OnInit {
       logradouro: [null],
       bairro: [null],
       cidade: [null],
+      uf: [null],
       numero: [null],
       complemento: [null]
     });
