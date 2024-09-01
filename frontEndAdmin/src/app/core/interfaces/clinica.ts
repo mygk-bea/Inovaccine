@@ -1,12 +1,16 @@
 export interface Clinica {
-    codClinica: number;
-    nome: string;
+    nome_cli: string;
+    nome_medico: number;
+    email: string;
+    senha: string;
     cnpj: string;
-    fk_clinica_codEndereco: number;
     telefone: string;
-    email:string;
-    senha: number;
-    periodoFunc_inicio: string;
-    periodoFunc_fim: string;
-    fk_clinica_codMedico: number;
+    hora_inicio: string;
+    hora_fim: string;
+    cep: string;
+    logradouro: string;
+    bairro: string;
+    numero: number;
+    complemento: string;
+    cidade: string;
 }
