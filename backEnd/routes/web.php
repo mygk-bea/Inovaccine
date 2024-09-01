@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 
 // Route::get('/', [App\Http\Controllers\ClinicaController::class, 'index'])->name('cadClinica');
+// Route::get('/', [App\Http\Controllers\MedicoController::class, 'index'])->name('cadMedico');
