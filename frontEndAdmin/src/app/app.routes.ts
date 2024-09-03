@@ -16,10 +16,15 @@ export const routes: Routes = [
   // },
   {
     path: 'cadastro-medico',
-    loadComponent: () => import('./pages/cadastro-medico/cadastro-medico.page').then( m => m.CadastroMedicoPage)
-  },  {
+    loadComponent: () => import('./pages/admin/cadastro-medico/cadastro-medico.page').then( m => m.CadastroMedicoPage)
+  },
+  {
     path: 'cadastro-clinica',
-    loadComponent: () => import('./pages/cadastro-clinica/cadastro-clinica.page').then( m => m.CadastroClinicaPage)
+    loadComponent: () => import('./pages/admin/cadastro-clinica/cadastro-clinica.page').then( m => m.CadastroClinicaPage)
+  },
+  {
+    path: 'listagem-clinicas',
+    loadComponent: () => import('./pages/admin/listagem-clinicas/listagem-clinicas.page').then( m => m.ListagemClinicasPage)
   },
 
 

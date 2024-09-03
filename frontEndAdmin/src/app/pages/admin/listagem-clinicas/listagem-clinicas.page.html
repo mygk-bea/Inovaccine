@@ -1,0 +1,22 @@
+<app-header 
+[backgroundColor]="'admin__palette'"
+[pagesMenu]="[
+  {name:'Listagens', route:'listagem'},
+  {name:'Médicos',   route:'cad-medicos'},
+  {name:'Clínicas',  route:'cad-clinica'}
+]"></app-header>
+
+<ion-content [fullscreen]="true" class="admin__palette">
+  <ion-row class="container ion-justify-content-center">
+    <ion-col size="10">
+      <ion-toolbar>
+        <ion-title  class="container__title">
+          Listagem Clínicas
+        </ion-title>
+      </ion-toolbar>
+
+      <app-tabela-accordion></app-tabela-accordion>
+
+    </ion-col>
+  </ion-row>
+</ion-content>
