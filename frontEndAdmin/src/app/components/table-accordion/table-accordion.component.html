@@ -1,9 +1,8 @@
-<ion-row>
+<ion-row class="table">
   <ion-col>
-    <ion-item color="light">
-      <ion-label>First Accordion</ion-label>
-      <ion-label>First Accordion</ion-label>
-      <ion-label>First Accordion</ion-label>
+    <ion-item lines="none">
+      <ion-label *ngFor="let item of itemsTable">{{ item.name }}</ion-label>
+      <span class="table__space"></span>
     </ion-item>
   </ion-col>
 </ion-row>

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { TabelaAccordionComponent } from './tabela-accordion.component';
+import { TableAccordionComponent } from './table-accordion.component';
 
-describe('TabelaAccordionComponent', () => {
-  let component: TabelaAccordionComponent;
-  let fixture: ComponentFixture<TabelaAccordionComponent>;
+describe('TableAccordionComponent', () => {
+  let component: TableAccordionComponent;
+  let fixture: ComponentFixture<TableAccordionComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TabelaAccordionComponent ],
+      declarations: [ TableAccordionComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TabelaAccordionComponent);
+    fixture = TestBed.createComponent(TableAccordionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -67,6 +67,5 @@ export class FormCadastroClinicaComponent  implements OnInit {
     const clinica = this.form.value;
     console.log(clinica);
     this.clini.cadastrarClinica(clinica);
-    console.log("batata");
   }
 }

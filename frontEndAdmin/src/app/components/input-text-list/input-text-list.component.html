@@ -1,6 +1,6 @@
 <ion-row>
   <ion-col *ngFor="let input of inputs" size="{{ input.size }}">
-    <ion-item class="form__item" [formGroup]="formGroup">
+    <ion-item class="form__item" lines="none" [formGroup]="formGroup">
       <ion-input 
         [label]="input.label"
         labelPlacement="floating"

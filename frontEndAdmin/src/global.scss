@@ -59,8 +59,6 @@
 
 .form{
     &__item{
-        --border-color: transparent;
-
         ion-input{
             border-radius: 10px;
             background: $grayscale-light-color;
