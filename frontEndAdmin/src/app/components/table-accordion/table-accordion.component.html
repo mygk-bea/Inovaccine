@@ -1,7 +1,7 @@
 <ion-row class="table">
   <ion-col>
     <ion-item lines="none">
-      <ion-label *ngFor="let item of itemsTable">{{ item.name }}</ion-label>
+      <ion-label *ngFor="let title of titlesTable">{{ title.name }}</ion-label>
       <span class="table__space"></span>
     </ion-item>
   </ion-col>
@@ -10,24 +10,10 @@
 <ion-accordion-group expand="inset">
   <ion-accordion value="first">
     <ion-item slot="header" color="light">
-      <ion-label>First Accordion</ion-label>
-      <ion-label>First Accordion</ion-label>
-      <ion-label>First Accordion</ion-label>
+      <ion-label *ngFor="let data of dataTable">{{ data.value }}</ion-label>
     </ion-item>
-    <div class="ion-padding" slot="content">First Content</div>
-    <div class="ion-padding" slot="content">First Content</div>
-    <div class="ion-padding" slot="content">First Content</div>
-  </ion-accordion>
-  <ion-accordion value="second">
-    <ion-item slot="header" color="light">
-      <ion-label>Second Accordion</ion-label>
-    </ion-item>
-    <div class="ion-padding" slot="content">Second Content</div>
-  </ion-accordion>
-  <ion-accordion value="third">
-    <ion-item slot="header" color="light">
-      <ion-label>Third Accordion</ion-label>
-    </ion-item>
-    <div class="ion-padding" slot="content">Third Content</div>
+    <div class="ion-padding" slot="content" *ngFor="let info of infoDataTable">
+      {{ info.name }}: {{ info.value }}
+    </div>
   </ion-accordion>
 </ion-accordion-group>

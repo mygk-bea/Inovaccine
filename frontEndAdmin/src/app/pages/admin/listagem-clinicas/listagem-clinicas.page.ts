@@ -18,5 +18,25 @@ export class ListagemClinicasPage implements OnInit {
 
   ngOnInit() {
   }
+  
+  titlesTable = [
+    {name:'aa'},
+    {name:'aaaaaaa'},
+    {name:'aaaaaaa'},
+    {name:'aaaaa e aaaaaaa'}
+  ];
 
+  contentTable = [
+    {value:'bbbb'},
+    {value:'bbbb'},
+    {value:'bbbb'},
+    {value:'bbbb'}
+  ];
+
+  infoContentTable = [
+    {name:'aa', value:'bbbasdsdab'},
+    {name:'aa', value:'bbasdqweqwebb'},
+    {name:'aa', value:'bb123123bb'},
+    {name:'aa', value:'bbqweeqwqwbb'}
+  ];
 }

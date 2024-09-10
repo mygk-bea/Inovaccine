@@ -15,7 +15,11 @@
         </ion-title>
       </ion-toolbar>
 
-      <app-table-accordion [itemsTable]="[{name:'aa'},{name:'aaaaaaa'},{name:'aaaaa e aaaaaaa'}]"></app-table-accordion>
+      <app-table-accordion 
+        [titlesTable]="titlesTable"
+        [dataTable]="contentTable"
+        [infoDataTable]="infoContentTable"
+      ></app-table-accordion>
 
     </ion-col>
   </ion-row>
