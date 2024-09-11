@@ -19,7 +19,7 @@ class Clinica extends Model
         'periodoFunc_inicio',
         'periodoFunc_fim',
         'fk_clinica_codMedico',
-        'uf'
+        // 'uf'
     ]; 
 
     use HasFactory;

@@ -50,6 +50,7 @@ class ClinicaController extends Controller
             $endereco->cidade = $request->input('cidade');
             $endereco->complemento = $request->input('complemento');
             $endereco->cep = $request->input('cep');
+            $endereco->uf = $request->input('uf');
             $endereco->save();
 
 

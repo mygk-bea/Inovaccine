@@ -11,6 +11,9 @@ export class ClinicaService {
 
   cadastrarClinica (clinica: Clinica){
     console.log(clinica);
-    this.http.post(`${ this.url }/cadClinica`, clinica);
+    this.http.post(`${ this.url }/cadClinica`, clinica)
+    .subscribe(response => {
+      console.log(response)
+    })
   }
 }

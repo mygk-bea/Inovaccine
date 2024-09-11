@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClinicaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', [App\Http\Controllers\ClinicaController::class, 'index'])->name('cadClinica');
 // Route::get('/', [App\Http\Controllers\MedicoController::class, 'index'])->name('cadMedico');
+
+Route::post('/cadClinica', [App\Http\Controllers\ClinicaController::class, 'store']);

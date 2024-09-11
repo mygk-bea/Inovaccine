@@ -16,7 +16,8 @@ class Endereco extends Model
         'numero',
         'cidade',
         'complemento',
-        'cep'
+        'cep',
+        'uf'
     ]; 
 
     use HasFactory;
