@@ -2,13 +2,16 @@ import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { InputTextListComponent } from '../../input-text-list/input-text-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MedicoService } from 'src/app/core/service/medico.service';
 
 @Component({
   selector: 'app-form-cadastro-medico',
   templateUrl: './form-cadastro-medico.component.html',
   standalone: true,
   styleUrls: ['./form-cadastro-medico.component.scss'],
-  imports: [IonicModule, ReactiveFormsModule, InputTextListComponent],
+  imports: [IonicModule, ReactiveFormsModule, InputTextListComponent, HttpClientModule],
+  providers: [MedicoService]
 })
 export class FormCadastroMedicoComponent  implements OnInit {
   form: FormGroup;
@@ -20,7 +23,7 @@ export class FormCadastroMedicoComponent  implements OnInit {
     {size: 6, name: 'crm', label: 'CRM', placeholder: 'CRM/SP 000000'}
   ];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private medico: MedicoService) {
     this.form = new FormGroup({});
   }
 
@@ -34,6 +37,8 @@ export class FormCadastroMedicoComponent  implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value);
+    const medico = this.form.value;
+    console.log(medico);
+    this.medico.cadastrarMedico(medico);
   }
 }

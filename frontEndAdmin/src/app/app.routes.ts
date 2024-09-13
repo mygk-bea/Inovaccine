@@ -26,6 +26,11 @@ export const routes: Routes = [
     path: 'listagem-clinicas',
     loadComponent: () => import('./pages/admin/listagem-clinicas/listagem-clinicas.page').then( m => m.ListagemClinicasPage)
   },
+  {
+    path: 'cadastro-funcionario',
+    loadComponent: () => import('./pages/clinica/cadastro-funcionario/cadastro-funcionario.page').then( m => m.CadastroFuncionarioPage)
+  },
+
 
 
 ];

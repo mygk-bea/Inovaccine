@@ -10,6 +10,7 @@ $green-light-color     : #EBF8F6;
 // Admin Palette
 $blue-primary-color   : #035AA6;
 $blue-secondary-color : #759CBF;
+$blue-light-color     : #EAF5FF;
 
 // Warning Palette
 $red-primary-color : #FF6A6A;
@@ -24,9 +25,11 @@ $dark-color  : #000000;
 .main__palette {
   --primary-color: #{$green-primary-color};
   --secondary-color: #{$green-secondary-color};
+  --tertiary-color: #{$green-light-color};
 }
 
 .admin__palette {
   --primary-color: #{$blue-primary-color};
   --secondary-color: #{$blue-secondary-color};
+  --tertiary-color: #{$blue-light-color};
 }

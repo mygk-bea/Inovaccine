@@ -1,0 +1,13 @@
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <ion-toolbar>
+    <ion-title  class="container__title">
+      Cadastro Funcionário
+    </ion-title>
+  </ion-toolbar>
+
+  <app-input-text-list [inputs]="inputsData" [formGroup]="form"></app-input-text-list>
+
+  <ion-row class="ion-justify-content-end">
+    <ion-button class="form__button" type="ngSubmit">Cadastrar</ion-button>
+  </ion-row>
+</form>

@@ -10,24 +10,23 @@
 
       <ion-item class="form__item input__time" lines="none">
         <ion-text class="input__time__title ion-text-nowrap">Horário de Funcionamento</ion-text>
-        <ion-input 
-          id="start"
+        <app-input-time
           label="Início"
-          labelPlacement="floating"
-          fill="outline"
-          formControlName="hora_inicio"
-          placeholder="00:00">
-        </ion-input>
+          placeholder="00:00"
+          name="hora_inicio"
+          id="hora"
+          [formGroup]="form"
+        ></app-input-time>
         <ion-text class="input__time__text">às</ion-text>
-        <ion-input 
-          id="end"
+        <app-input-time
           label="Fim"
-          labelPlacement="floating"
-          fill="outline"
-          formControlName="hora_fim"
-          placeholder="00:00">
-        </ion-input>
+          placeholder="00:00"
+          name="hora_fim"
+          id="horaa"
+          [formGroup]="form"
+        ></app-input-time>
       </ion-item>
+
     </ion-col>
   </app-input-text-list>
 

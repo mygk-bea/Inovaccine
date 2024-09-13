@@ -17,4 +17,9 @@
         height: 24px;
         margin-left: 15px;
     }
+
+}
+
+ion-accordion-group.accordion-group-expand-inset ion-item{
+    --background: var(--tertiary-color);
 }
