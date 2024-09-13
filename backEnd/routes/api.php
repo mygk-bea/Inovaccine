@@ -15,3 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/cadClinica', [App\Http\Controllers\ClinicaController::class, 'store']);
+
+Route::post('/cadMedico', [App\Http\Controllers\MedicoController::class, 'store']);
+Route::post('/cadFuncionario', [App\Http\Controllers\FuncionarioController::class, 'store']);
