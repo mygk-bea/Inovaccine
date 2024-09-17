@@ -10,12 +10,14 @@ class Estoque extends Model
     protected $table = "Estoque";
 
     protected $fillable = [
-        'codEstoque',
-        'fk_estoque_codLote',
+        'codLote',
+        'valor',
         'qtd_minimo',
         'qtd',
-        'fk_estoque_codClinica',
-        'fk_estoque_codVacina'
+        'fk_clinica_codClinica',
+        'fk_fornecedor_codFornecedor',
+        'fk_vacina_codVacina',
+        'dataCompra'
     ]; 
 
     use HasFactory;

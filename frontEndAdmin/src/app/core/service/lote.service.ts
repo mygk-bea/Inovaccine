@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Estoque } from '../interfaces/estoque';
+import { Lote } from '../interfaces/lote';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EstoqueService {
+export class LoteService {
   private url: string = "http://localhost:8000/api";
   constructor(private http : HttpClient) { }
 
-  cadastrarEstoque (estoque: Estoque){
-    console.log(estoque);
-    this.http.post(`${ this.url }/estoque`, estoque)
+  cadastrarLote(lote: Lote){
+    console.log(lote);
+    this.http.post(`${ this.url }/cadLote`, lote)
     .subscribe(response => {
       console.log(response)
     })
