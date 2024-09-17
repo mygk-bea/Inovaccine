@@ -11,20 +11,6 @@ use App\Models\Usuario;
 class ClinicaController extends Controller
 {
 
-    // private $objMedico;
-    // private $objClinica;
-    // private $objEndereco;
-    // private $objUsuario;
-
-    // public function __construct(){
-    //     $this->objMedico = new Medico();
-    //     $this->objClinica = new Clinica();
-    //     $this->objEndereco = new Endereco();
-    //     $this->objUsuario = new Usuario();
-    // }
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         // $medicos= $this->objMedico->all();
@@ -33,16 +19,7 @@ class ClinicaController extends Controller
 
 
     public function store(Request $request){
-            // Criação do endereço
-            // $endereco = $this->objEndereco->create([
-            //     'logradouro' => $request->logradouro,
-            //     'bairro' => $request->bairro,
-            //     'numero' => $request->numero,
-            //     'cidade' => $request->cidade,
-            //     'complemento' => $request->complemento,
-            //     'cep' => $request->cep
-            // ]);
-
+            // cadastro endereco
             $endereco = new Endereco();
             $endereco->logradouro = $request->input('logradouro');
             $endereco->bairro = $request->input('bairro');
@@ -53,13 +30,7 @@ class ClinicaController extends Controller
             $endereco->uf = $request->input('uf');
             $endereco->save();
 
-
-            // Criação do usuário
-            // $usuario = $this->objUsuario->create([
-            //     'tipo' => 'clinica',
-            //     'email' => $request->email,
-            //     'senha' => $request->senha
-            // ]);
+            // cadastro login
             $usuario = new Usuario();
             $usuario->tipo = 'clinica';
             $usuario->email = $request->input('email');
@@ -69,16 +40,7 @@ class ClinicaController extends Controller
             $enderecoId = $endereco->id;
             $usuarioId = $usuario->id;
 
-            // $clinica = $this->objClinica->create([
-            //     'nome' => $request->nome,
-            //     'cnpj' => $request->cnpj,
-            //     'telefone' => $request->telefone,
-            //     'periodoFunc_inicio' => $request->periodoFunc_inicio,
-            //     'periodoFunc_fim' => $request->periodoFunc_fim,
-            //     'fk_clinica_codMedico' => $request->fk_clinica_codMedico,
-            //     'fk_clinica_codEndereco' => $enderecoId,
-            //     'fk_clinica_codLogin' => $usuarioId
-            // ]);
+            // cadastro clinica
             $clinica = new Clinica();
             $clinica->nome = $request->input('nome_cli');
             $clinica->cnpj = $request->input('cnpj');
@@ -89,7 +51,5 @@ class ClinicaController extends Controller
             $clinica->fk_clinica_codEndereco = $enderecoId;
             $clinica->fk_clinica_codLogin = $usuarioId;
             $clinica->save();
-
-            // return redirect()->route('cadClinica');
     }
 }
