@@ -29,7 +29,11 @@ export const routes: Routes = [
   {
     path: 'cadastro-funcionario',
     loadComponent: () => import('./pages/clinica/cadastro-funcionario/cadastro-funcionario.page').then( m => m.CadastroFuncionarioPage)
+  },  {
+    path: 'cadastro-vacina',
+    loadComponent: () => import('./pages/clinica/cadastro-vacina/cadastro-vacina.page').then( m => m.CadastroVacinaPage)
   },
+
 
 
 

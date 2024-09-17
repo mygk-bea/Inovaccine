@@ -1,0 +1,39 @@
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <ion-toolbar>
+    <ion-title  class="container__title">
+      Cadastro Vacina
+    </ion-title>
+  </ion-toolbar>
+
+  <app-input-text-list [inputs]="inputsData" [formGroup]="form">
+    <ion-col size="6">
+      <ion-item class="form__item" lines="none">
+        <ion-textarea 
+          label="Informações" 
+          labelPlacement="floating" 
+          fill="outline" 
+          formControlName="informacoes"
+          placeholder="Descreva para que serve a vacina e quando deve ser aplicada.">
+        </ion-textarea>
+      </ion-item>
+
+      <ion-label>Período</ion-label>
+      <ion-item class="form__item__radio" lines="none">
+        <ion-radio-group [allowEmptySelection]="true" value="turtles">
+          <ion-radio value="dogs">Dogs</ion-radio><br />
+          <ion-radio value="dogs">Dogs</ion-radio><br />
+          <ion-radio value="dogs">Dogs</ion-radio><br />
+        </ion-radio-group>
+      </ion-item>
+    </ion-col>
+    <ion-col size="6">
+      aaaaaaaaaaaa
+    </ion-col>
+  </app-input-text-list>
+
+
+
+  <ion-row class="ion-justify-content-end">
+    <ion-button class="form__button" type="ngSubmit">Cadastrar</ion-button>
+  </ion-row>
+</form>

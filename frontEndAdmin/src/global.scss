@@ -59,16 +59,32 @@
 
 .form{
     &__item{
-        ion-input{
+        &__radio{
+            &::part(native){
+                background: transparent;
+            }
+        }
+
+        ion-input, ion-textarea{
             border-radius: 10px;
             background: $grayscale-light-color;
             margin-top: 10px;
         }
-        
+
+        ion-textarea{
+            min-height: 300px;
+        }
+        .textarea-fill-outline.sc-ion-textarea-md-h {
+            height: 100px;
+        }
+
+        .textarea-fill-outline.sc-ion-textarea-md-h,
         .input-fill-outline.sc-ion-input-md-h {
+            .textarea-outline-start.sc-ion-textarea-md,
             .input-outline-start.sc-ion-input-md {
                 border-radius: 10px 0 0 10px;
             }
+            .textarea-outline-end.sc-ion-textarea-md,
             .input-outline-end.sc-ion-input-md {
                 border-radius: 0 10px 10px 0;
             }
@@ -76,11 +92,14 @@
     }
 
     ion-item.form__item{
-        &:focus-within ion-input{
+        &:focus-within ion-input,
+        &:focus-within ion-textarea {
             --highlight-color-valid: var(--secondary-color); 
+            --highlight-color: var(--secondary-color); 
         }
 
-        &:hover ion-input{
+        &:hover ion-input,
+        &:hover ion-textarea {
             --border-color: var(--secondary-color);
         }
     }
@@ -92,4 +111,8 @@
         --padding-bottom: 15px;
         --background: var(--primary-color);
     }
+}
+
+.radio-wrapper{
+    flex-direction: row-reverse!important;
 }
