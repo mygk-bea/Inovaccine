@@ -33,4 +33,9 @@ class MedicoController extends Controller
         $medico->save();
     
     }
+
+    public function list() {
+        $medico = Medico::all();
+        return response()->json($medico);
+    }
 }

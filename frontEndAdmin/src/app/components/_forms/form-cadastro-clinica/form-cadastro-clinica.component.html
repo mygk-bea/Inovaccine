@@ -5,9 +5,24 @@
     </ion-title>
   </ion-toolbar>
 
+  <ion-row>
+    <ion-col size="12">
+      <ion-item class="form__item" lines="none">
+        <ion-input 
+          label="Médico Responsável"
+          labelPlacement="floating"
+          fill="outline"
+          formControlName="nome_medico"
+          placeholder="Selecione..."
+          [(ngModel)]="inputValue"
+          (ngModelChange)="onSearch($event)">
+        </ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
   <app-input-text-list [inputs]="inputsDataGeral" [formGroup]="form">
     <ion-col size="6">
-
       <ion-item class="form__item input__time" lines="none">
         <ion-text class="input__time__title ion-text-nowrap">Horário de Funcionamento</ion-text>
         <app-input-time

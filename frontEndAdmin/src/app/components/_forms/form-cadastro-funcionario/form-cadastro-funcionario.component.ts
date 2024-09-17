@@ -17,7 +17,7 @@ export class FormCadastroFuncionarioComponent  implements OnInit {
   form: FormGroup;
 
   inputsData = [
-    {size: 12, name: "nome_func", label: "Nome do Funcionário", placeholder: "Insira o nome do funcionário..."},
+    {size: 12, name: "nome", label: "Nome do Funcionário", placeholder: "Insira o nome do funcionário..."},
     {size: 6, name: "cpf", label: "CPF", placeholder: "000.000.000-00"},
     {size: 6, name: "telefone", label: "Telefone", placeholder: "(00) 00000-0000"},
     {size: 6, name: "email", label: "E-mail", placeholder: "email@exemplo.com"},
@@ -30,7 +30,7 @@ export class FormCadastroFuncionarioComponent  implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      nome_func: [null],
+      nome: [null],
       cpf: [null],
       telefone: [null],
       email: [null],

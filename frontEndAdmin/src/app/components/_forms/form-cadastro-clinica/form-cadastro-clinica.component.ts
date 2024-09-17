@@ -5,6 +5,7 @@ import { InputTextListComponent } from '../../input-text-list/input-text-list.co
 import { ClinicaService } from 'src/app/core/service/clinica.service';
 import { HttpClientModule } from '@angular/common/http';
 import { InputTimeComponent } from '../../input-time/input-time.component';
+import { MedicoService } from 'src/app/core/service/medico.service';
 
 @Component({
   selector: 'app-form-cadastro-clinica',
@@ -12,14 +13,14 @@ import { InputTimeComponent } from '../../input-time/input-time.component';
   standalone: true,
   styleUrls: ['./form-cadastro-clinica.component.scss'],
   imports: [IonicModule, ReactiveFormsModule, InputTextListComponent, InputTimeComponent, HttpClientModule],
-  providers:[ClinicaService]
+  providers:[ClinicaService, MedicoService]
 })
 export class FormCadastroClinicaComponent  implements OnInit {
   form: FormGroup;
+  dados: any;
 
   inputsDataGeral = [
     {size: 12, name: "nome_cli", label: "Nome da Clínica", placeholder: "Insira o nome da clínica"},
-    {size: 12, name: "nome_medico", label: "Nome do Médico", placeholder: "Selecione..."},
     {size: 3, name: "cnpj", label: "CNPJ", placeholder: "00.000.000/0000-00"},
     {size: 3, name: "telefone", label: "Telefone", placeholder: "(00) 00000-0000"}
   ];
@@ -39,7 +40,7 @@ export class FormCadastroClinicaComponent  implements OnInit {
     {size: 4, name: "complemento", label: "Complemento", placeholder: "ex: Casa, Ap..."}
   ];
 
-  constructor(private formBuilder: FormBuilder, private clini: ClinicaService) { 
+  constructor(private formBuilder: FormBuilder, private clini: ClinicaService, private dadosMedico: MedicoService) { 
     this.form = new FormGroup({});
   }
 
@@ -67,5 +68,19 @@ export class FormCadastroClinicaComponent  implements OnInit {
     const clinica = this.form.value;
     console.log(clinica);
     this.clini.cadastrarClinica(clinica);
+  }
+
+  inputValue: string = '';
+  onSearch(value: string) {
+    console.log(value);
+    this.dadosMedico.pesquisarMedico().subscribe(
+      (response) => {
+        this.dados = response;
+        console.log(this.dados);
+      },
+      (error) => {
+        console.error("ERRO: ", error);
+      }
+    );
   }
 }

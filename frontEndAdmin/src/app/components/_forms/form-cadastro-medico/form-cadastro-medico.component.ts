@@ -20,7 +20,9 @@ export class FormCadastroMedicoComponent  implements OnInit {
     {size: 8, name: 'nome', label: 'Nome do Médico', placeholder: 'Digite o nome'},
     {size: 4, name: 'telefone', label: 'Telefone', placeholder: '(00) 00000-0000'},
     {size: 6, name: 'cpf', label: 'CPF', placeholder: '000.000.000-00'},
-    {size: 6, name: 'crm', label: 'CRM', placeholder: 'CRM/SP 000000'}
+    {size: 6, name: 'crm', label: 'CRM', placeholder: 'CRM/SP 000000'},
+    {size: 6, name: 'email', label: 'E-mail', placeholder: 'ex@dominio.com'},
+    {size: 6, name: 'senha', label: 'Senha', placeholder: 'Insira uma senha forte...'},
   ];
 
   constructor(private formBuilder: FormBuilder, private medico: MedicoService) {
@@ -32,7 +34,9 @@ export class FormCadastroMedicoComponent  implements OnInit {
       nome: [null],
       telefone: [null],
       cpf: [null],
-      crm: [null]
+      crm: [null],
+      email: [null],
+      senha: [null],
     });
   }
 
