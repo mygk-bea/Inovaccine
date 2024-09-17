@@ -15,10 +15,11 @@ return new class extends Migration
             $table->increments('codLote')->unsigned();
             $table->decimal('valor', 10, 2)->nullable(false);
             $table->unsignedInteger('fk_fornecedor_codFornecedor');
-            $table->string('vacina')->nullable(false);
+            $table->unsignedInteger('fk_vacina_codVacina');
             $table->date('dataCompra')->nullable(false);
 
             $table->foreign('fk_fornecedor_codFornecedor')->references('codFornecedor')->on('Fornecedor');
+            $table->foreign('fk_vacina_codVacina')->references('codVacina')->on('Vacina');
 
             $table->timestamps();
 
