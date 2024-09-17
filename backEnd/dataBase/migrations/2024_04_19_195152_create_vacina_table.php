@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('Vacina', function (Blueprint $table) {
             $table->increments('codVacina')->unsigned();
+            $table->string('nome', 100)->nullable(false);
             $table->string('informacao', 100)->nullable(false);
             $table->decimal('preco', 10, 2)->nullable(false);
-            $table->date('dataValidade')->nullable(false);
-            $table->date('periodo')->nullable(false);
-            $table->string('status', 20)->nullable(false);
+            // idade, gestante :)
+            $table->string('periodo')->nullable(false);
+            $table->string('diasAplicacao')->nullable(false);
             
             $table->timestamps();
 
