@@ -12,17 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lote', function (Blueprint $table) {
-            $table->increments('codAgendamento')->unsigned();
+            $table->increments('codLote')->unsigned();
             $table->decimal('valor', 10, 2)->nullable(false);
-            $table->unsignedInteger('fk_vacina_codVacina');
-            $table->unsignedInteger('fk_paciente_codPaciente');
-            $table->unsignedInteger('fk_clinica_codClinica');
-            $table->dateTime('dataHora')->nullable(false);
-            $table->boolean('comparecimento');
+            $table->unsignedInteger('fk_fornecedor_codFornecedor');
+            $table->string('vacina')->nullable(false);
+            $table->date('dataCompra')->nullable(false);
 
-            $table->foreign('fk_vacina_codVacina')->references('codVacina')->on('Vacina');
-            $table->foreign('fk_paciente_codPaciente')->references('codPaciente')->on('Paciente');
-            $table->foreign('fk_clinica_codClinica')->references('codClinica')->on('Clinica');
+            $table->foreign('fk_fornecedor_codFornecedor')->references('codFornecedor')->on('Fornecedor');
 
             $table->timestamps();
 
