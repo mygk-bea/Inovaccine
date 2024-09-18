@@ -21,5 +21,12 @@ class Clinica extends Model
         'fk_clinica_codMedico'
     ]; 
 
+    public function endereco(){
+        return $this->belongsTo(Endereco::class, 'fk_clinica_codEndereco');
+    }
+    public function medico(){
+        return $this->belongsTo(Medico::class, 'fk_clinica_codMedico');
+    }
+
     use HasFactory;
 }

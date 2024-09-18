@@ -8,28 +8,5 @@
 </ion-row>
 
 <ion-accordion-group expand="inset">
-  <ion-accordion value="first">
-    <ion-item slot="header" >
-      <ion-label *ngFor="let data of dataTable">{{ data.value }}</ion-label>
-    </ion-item>
-    <div class="ion-padding" slot="content" *ngFor="let info of infoDataTable">
-      {{ info.name }}: {{ info.value }}
-    </div>
-  </ion-accordion>
-  <ion-accordion value="ss">
-    <ion-item slot="header">
-      <ion-label *ngFor="let data of dataTable">{{ data.value }}</ion-label>
-    </ion-item>
-    <div class="ion-padding" slot="content" *ngFor="let info of infoDataTable">
-      {{ info.name }}: {{ info.value }}
-    </div>
-  </ion-accordion>
-  <ion-accordion value="rr">
-    <ion-item slot="header">
-      <ion-label *ngFor="let data of dataTable">{{ data.value }}</ion-label>
-    </ion-item>
-    <div class="ion-padding" slot="content" *ngFor="let info of infoDataTable">
-      {{ info.name }}: {{ info.value }}
-    </div>
-  </ion-accordion>
+  <ng-content></ng-content>
 </ion-accordion-group>

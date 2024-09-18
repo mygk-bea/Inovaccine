@@ -109,3 +109,7 @@
         --background: var(--primary-color);
     }
 }
+
+.accordion__item ion-item.item.md.item-lines-full.ion-activatable.ion-focusable.item-label{
+    --background: var(--tertiary-color);
+  }

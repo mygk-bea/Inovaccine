@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Clinica } from '../interfaces/clinica';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,9 @@ export class ClinicaService {
     .subscribe(response => {
       console.log(response)
     })
+  }
+
+  listarClinica (): Observable<any>{
+    return this.http.get<any>(`${ this.url }/listagemClinica`)
   }
 }

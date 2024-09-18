@@ -1,0 +1,16 @@
+.info{
+  &__title{
+    min-width: 250px;
+    &::after{
+      content: '';
+      display: inline-block;
+      padding: 15px 1px;
+      background: var(--secondary-color);
+    }
+  }
+
+  &__complemento{
+    margin-left: 5px;
+  }
+
+}

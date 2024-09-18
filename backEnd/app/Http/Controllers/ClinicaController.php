@@ -52,4 +52,9 @@ class ClinicaController extends Controller
             $clinica->fk_clinica_codLogin = $usuarioId;
             $clinica->save();
     }
+
+    public function list() {
+        $clinica = Clinica::with(['endereco', 'medico'])->get();
+        return response()->json($clinica);
+    }
 }

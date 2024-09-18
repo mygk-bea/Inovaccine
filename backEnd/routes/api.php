@@ -23,3 +23,7 @@ Route::post('/cadLote', [App\Http\Controllers\LoteController::class, 'store']);
 
 // pesquisa
 Route::get('/pesquisaMedico', [App\Http\Controllers\MedicoController::class, 'pesquisa']);
+
+// listagens
+Route::get('/listagemClinica', [App\Http\Controllers\ClinicaController::class, 'list']);
+Route::get('/listagemMedico', [App\Http\Controllers\MedicoController::class, 'list']);

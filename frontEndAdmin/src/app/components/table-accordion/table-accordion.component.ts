@@ -16,6 +16,4 @@ export class TableAccordionComponent  implements OnInit {
   ngOnInit() {}
 
   @Input() titlesTable: {name:string}[] = [];
-  @Input() dataTable: {value:string}[] = [];
-  @Input() infoDataTable: {name:string; value:string}[] = [];
 }
