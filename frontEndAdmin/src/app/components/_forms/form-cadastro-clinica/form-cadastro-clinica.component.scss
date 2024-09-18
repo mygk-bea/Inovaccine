@@ -1,3 +1,33 @@
+@import '../../../../theme/variables.scss';
+
+.form{
+  &__dropdown{
+    ion-list{
+      max-height: 300px;
+      width: 50%;
+      margin: 15px;
+      border: 1px solid var(--secondary-color);
+      border-radius: 10px;
+      background: $grayscale-light-color;
+      overflow-y: scroll;
+      position: absolute;
+      z-index: 99;
+
+      .disabled-item {
+        cursor: not-allowed;
+      }
+
+      ion-item{
+        cursor: pointer;
+        --background: #{$grayscale-light-color};
+        &:hover{
+          --background: #{$grayscale-color};
+        }
+      }
+    }
+  }
+}
+
 .input__time{
   &__title{
     margin-right: 10px;
@@ -11,3 +41,18 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  margin: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: $grayscale-color;
+  &:hover {
+    background: var(--primary-color);
+  }
+}

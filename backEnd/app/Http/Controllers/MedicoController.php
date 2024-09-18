@@ -38,4 +38,10 @@ class MedicoController extends Controller
         $medico = Medico::all();
         return response()->json($medico);
     }
+
+    public function pesquisa(Request $request) {
+        $search = $request->input('search');
+        $medico = Medico::where('nome', 'like', '%'.$search.'%')->get();
+        return response()->json($medico);
+    }
 }

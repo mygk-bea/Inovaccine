@@ -1,23 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { InputTextListComponent } from '../../input-text-list/input-text-list.component';
 import { ClinicaService } from 'src/app/core/service/clinica.service';
 import { HttpClientModule } from '@angular/common/http';
 import { InputTimeComponent } from '../../input-time/input-time.component';
 import { MedicoService } from 'src/app/core/service/medico.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-form-cadastro-clinica',
   templateUrl: './form-cadastro-clinica.component.html',
   standalone: true,
   styleUrls: ['./form-cadastro-clinica.component.scss'],
-  imports: [IonicModule, ReactiveFormsModule, InputTextListComponent, InputTimeComponent, HttpClientModule],
+  imports: [IonicModule, CommonModule, ReactiveFormsModule, InputTextListComponent, InputTimeComponent, HttpClientModule],
   providers:[ClinicaService, MedicoService]
 })
 export class FormCadastroClinicaComponent  implements OnInit {
   form: FormGroup;
   dados: any;
+  inputValue: string = '';
+  showDropdown: boolean = false;
+  medicoId!: number;
 
   inputsDataGeral = [
     {size: 12, name: "nome_cli", label: "Nome da Clínica", placeholder: "Insira o nome da clínica"},
@@ -40,7 +44,7 @@ export class FormCadastroClinicaComponent  implements OnInit {
     {size: 4, name: "complemento", label: "Complemento", placeholder: "ex: Casa, Ap..."}
   ];
 
-  constructor(private formBuilder: FormBuilder, private clini: ClinicaService, private dadosMedico: MedicoService) { 
+  constructor(private formBuilder: FormBuilder, private clinica: ClinicaService, private dadosMedico: MedicoService) { 
     this.form = new FormGroup({});
   }
 
@@ -65,22 +69,39 @@ export class FormCadastroClinicaComponent  implements OnInit {
   }
 
   onSubmit() {
+    this.form.patchValue({
+      nome_medico: this.medicoId
+    });
     const clinica = this.form.value;
     console.log(clinica);
-    this.clini.cadastrarClinica(clinica);
+    this.clinica.cadastrarClinica(clinica);
+    this.form.reset();
   }
 
-  inputValue: string = '';
   onSearch(value: string) {
-    console.log(value);
-    this.dadosMedico.pesquisarMedico().subscribe(
-      (response) => {
-        this.dados = response;
-        console.log(this.dados);
-      },
-      (error) => {
-        console.error("ERRO: ", error);
-      }
-    );
+    if(value.length > 0) {
+      this.dadosMedico.pesquisarMedico(value).subscribe(
+        (response) => {
+          (response.length > 0) 
+          ? this.dados = response 
+          : this.dados = [{"nome": "Nenhum médico encontrado..."}];
+
+          this.showDropdown = true;
+        },
+        (error) => {console.error("ERRO: ", error);}
+      );
+    } else {
+      this.showDropdown = false;
+    }
+  }
+
+  selectValue(medico: any) {
+    if (medico.nome === 'Nenhum médico encontrado...') {
+      return;
+    }
+
+    this.inputValue = medico.nome;
+    this.medicoId = medico.codMedico;
+    this.showDropdown = false;
   }
 }

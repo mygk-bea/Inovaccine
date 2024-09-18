@@ -22,4 +22,4 @@ Route::post('/cadVacina', [App\Http\Controllers\VacinaController::class, 'store'
 Route::post('/cadLote', [App\Http\Controllers\LoteController::class, 'store']);
 
 // pesquisa
-Route::get('/pesquisaMedico', [App\Http\Controllers\MedicoController::class, 'list']);
+Route::get('/pesquisaMedico', [App\Http\Controllers\MedicoController::class, 'pesquisa']);

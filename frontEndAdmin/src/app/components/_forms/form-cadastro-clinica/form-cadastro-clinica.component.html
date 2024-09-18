@@ -18,6 +18,14 @@
           (ngModelChange)="onSearch($event)">
         </ion-input>
       </ion-item>
+
+      <div *ngIf="showDropdown && dados.length > 0" class="form__dropdown">
+        <ion-list>
+          <ion-item *ngFor="let medico of dados" [ngClass]="{'disabled-item': medico.nome === 'Nenhum médico encontrado...'}" (click)="selectValue(medico)">
+            {{ medico.nome }}
+          </ion-item>
+        </ion-list>
+      </div>
     </ion-col>
   </ion-row>
 
