@@ -12,25 +12,45 @@
           label="Informações" 
           labelPlacement="floating" 
           fill="outline" 
-          formControlName="informacoes"
+          formControlName="informacao"
           placeholder="Descreva para que serve a vacina e quando deve ser aplicada.">
         </ion-textarea>
       </ion-item>
 
-      <ion-label>Período</ion-label>
+      <ion-toolbar>
+        <ion-title class="form__title">Período</ion-title>
+      </ion-toolbar>
       <ion-item class="form__item__radio" lines="none">
-        <ion-radio-group [allowEmptySelection]="true" value="turtles">
-          <ion-radio value="dogs">Dogs</ion-radio><br />
-          <ion-radio value="dogs">Dogs</ion-radio><br />
-          <ion-radio value="dogs">Dogs</ion-radio><br />
+        <ion-radio-group formControlName="periodo">
+          <ion-radio 
+            class="form__item__radio__option" 
+            *ngFor="let radio of radioValues" 
+            labelPlacement="end" 
+            justify="start"
+            value="{{ radio.value }}">
+            {{ radio.text }}
+          </ion-radio>
         </ion-radio-group>
       </ion-item>
     </ion-col>
     <ion-col size="6">
-      aaaaaaaaaaaa
+      <ion-toolbar>
+        <ion-title class="form__title">Dias de Aplicação</ion-title>
+      </ion-toolbar>
+      <ion-item class="form__item__checkbox" lines="none">
+        <ion-list>
+          <ion-checkbox 
+            class="form__item__checkbox__option" 
+            *ngFor="let checkbox of checkboxValues" 
+            labelPlacement="end" 
+            justify="start">
+            {{ checkbox.text }}
+          </ion-checkbox>
+        </ion-list>
+      </ion-item>
     </ion-col>
   </app-input-text-list>
-
+  
 
 
   <ion-row class="ion-justify-content-end">

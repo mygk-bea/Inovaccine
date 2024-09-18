@@ -4,13 +4,14 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { InputTextListComponent } from '../../input-text-list/input-text-list.component';
 import { VacinaService } from 'src/app/core/service/vacina.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-form-cadastro-vacina',
   templateUrl: './form-cadastro-vacina.component.html',
   standalone: true,
   styleUrls: ['./form-cadastro-vacina.component.scss'],
-  imports: [IonicModule, ReactiveFormsModule, InputTextListComponent, HttpClientModule],
+  imports: [IonicModule, CommonModule, ReactiveFormsModule, InputTextListComponent, HttpClientModule],
   providers: [VacinaService]
 })
 export class FormCadastroVacinaComponent  implements OnInit {
@@ -20,6 +21,22 @@ export class FormCadastroVacinaComponent  implements OnInit {
     {size: 6, name: "nome", label: "Nome da Vacina", placeholder: "Insira o nome da vacina..."},
     {size: 6, name: "preco", label: "Valor", placeholder: "R$ 000,00"}
   ];
+
+  radioValues = [
+    {text: "Entre 0 a 10 anos",   value: "1"},
+    {text: "Entre 11 a 19 anos",  value: "2"},
+    {text: "Entre 20 a 59 anos",  value: "3"},
+    {text: "Período Gestacional", value: "4"},
+    {text: "Mais de 60 anos",     value: "5"},
+  ];
+
+  checkboxValues = [
+    {text: "Segunda-feira"},
+    {text: "Terça-feira"},
+    {text: "Quarta-feira"},
+    {text: "Quinta-feira"},
+    {text: "Sexta-feira"},
+  ]
 
   constructor(private formBuilder: FormBuilder, private vacina: VacinaService) { 
     this.form = new FormGroup({});

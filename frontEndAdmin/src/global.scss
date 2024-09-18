@@ -50,7 +50,7 @@
     ion-title{
         --color: var(--primary-color);
     }
-    
+
     &__title{
         font-size: 2rem;
         font-weight: 600;
@@ -59,12 +59,6 @@
 
 .form{
     &__item{
-        &__radio{
-            &::part(native){
-                background: transparent;
-            }
-        }
-
         ion-input, ion-textarea{
             border-radius: 10px;
             background: $grayscale-light-color;
@@ -74,16 +68,19 @@
         ion-textarea{
             min-height: 300px;
         }
+
         .textarea-fill-outline.sc-ion-textarea-md-h {
             height: 100px;
         }
 
         .textarea-fill-outline.sc-ion-textarea-md-h,
         .input-fill-outline.sc-ion-input-md-h {
+
             .textarea-outline-start.sc-ion-textarea-md,
             .input-outline-start.sc-ion-input-md {
                 border-radius: 10px 0 0 10px;
             }
+
             .textarea-outline-end.sc-ion-textarea-md,
             .input-outline-end.sc-ion-input-md {
                 border-radius: 0 10px 10px 0;
@@ -111,8 +108,4 @@
         --padding-bottom: 15px;
         --background: var(--primary-color);
     }
-}
-
-.radio-wrapper{
-    flex-direction: row-reverse!important;
 }

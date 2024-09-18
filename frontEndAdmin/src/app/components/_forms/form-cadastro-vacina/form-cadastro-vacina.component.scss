@@ -1,0 +1,20 @@
+.form{
+  &__title{
+    color: var(--secondary-color);
+  }
+  &__item{
+    &__radio{
+      &__option{
+        --color: var(--secondary-color);
+        --color-checked: var(--secondary-color);
+      }
+    }
+    &__checkbox{
+      &__option{
+        --border-color: var(--secondary-color);
+        --border-color-checked: var(--secondary-color);
+        --checkbox-background-checked: var(--secondary-color);
+      }
+    }
+  }
+}
