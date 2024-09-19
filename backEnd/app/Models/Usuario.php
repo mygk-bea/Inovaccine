@@ -9,6 +9,8 @@ class Usuario extends Model
 {
     protected $table = "Usuario";
 
+    protected $primaryKey = 'codLogin';
+
     protected $fillable = [
         'codLogin',
         'tipo',

@@ -17,13 +17,14 @@ return new class extends Migration
             $table->date('dataNasc')->nullable(false);
             $table->char('cpf', 11)->unique()->nullable(false);
             $table->char('telefone', 9)->nullable(false);
-            $table->unsignedInteger('fk_endereco_codEndereco')->nullable();
-            $table->string('login', 50)->unique()->nullable(false);
+            $table->unsignedInteger('fk_paciente_codEndereco')->nullable();
+            $table->unsignedInteger('fk_paciente_codLogin')->nullable();
             $table->string('senha', 10)->nullable(false);
             $table->string('email', 100)->unique()->nullable(false);
             $table->boolean('responsavel');
 
-            $table->foreign('fk_endereco_codEndereco')->references('codEndereco')->on('Endereco');
+            $table->foreign('fk_paciente_codEndereco')->references('codEndereco')->on('Endereco');
+            $table->foreign('fk_paciente_codLogin')->references('codLogin')->on('Usuario');
             $table->timestamps();
 
         });

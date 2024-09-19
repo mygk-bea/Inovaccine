@@ -21,5 +21,9 @@ export class MedicoService {
   pesquisarMedico(value: string): Observable<any>{
     return this.http.get<any>(`${ this.url }/pesquisaMedico?search=${value}`)
   }
+
+  listarMedico (): Observable<any>{
+    return this.http.get<any>(`${ this.url }/listagemMedico`)
+  }
 }
 

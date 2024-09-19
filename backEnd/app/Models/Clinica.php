@@ -9,6 +9,8 @@ class Clinica extends Model
 {
     protected $table = "Clinica";
 
+    protected $primaryKey = 'codClinica';
+
     protected $fillable = [
         'codClinica',
         'nome',
