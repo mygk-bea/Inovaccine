@@ -40,19 +40,3 @@
     color: var(--primary-color);
   }
 }
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  margin: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: $grayscale-color;
-  &:hover {
-    background: var(--primary-color);
-  }
-}

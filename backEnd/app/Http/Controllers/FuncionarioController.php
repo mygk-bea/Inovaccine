@@ -27,4 +27,9 @@ class FuncionarioController extends Controller
         $funcionario->fk_funcionario_codLogin = $usuarioId;
         $funcionario->save();
     }
+
+    public function list(){
+        $funcionario = Funcionario::all();
+        return response()->json($funcionario);
+    }
 }   

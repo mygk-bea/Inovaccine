@@ -1,0 +1,42 @@
+<app-header 
+[backgroundColor]="'main__palette'"
+[pagesMenu]="[
+  {name:'Home', route:' '},
+  {name:'Vacinas',   route:' '},
+  {name:'Funcionários',  route:' '},
+  {name:'Estoque',  route:' '},
+]"></app-header>
+
+<ion-content [fullscreen]="true" class="main__palette">
+  <ion-row class="container ion-justify-content-center">
+    <ion-col size="10">
+      <ion-toolbar>
+        <ion-row>
+          <ion-title  class="container__title">
+            Listagem Funcionários
+          </ion-title>
+
+          <ion-item lines="none">
+            <app-input-search></app-input-search>
+            <app-button-add [message]="'Novo Funcionario'" [imgPath]="'assets/icon/icon_user.svg'"></app-button-add>
+          </ion-item>
+        </ion-row>
+      </ion-toolbar>
+
+      <app-table-accordion [titlesTable]="titlesTable">
+        <ion-row class="accordion">
+          <ion-col>
+            <ion-item class="accordion__item" lines="none" *ngFor="let item of dados">
+              <ion-label>{{ item.codFuncionario }}</ion-label>
+              <ion-label>{{ item.nome }}</ion-label>
+              <ion-label>{{ item.cpf }}</ion-label>
+              <ion-label>{{ item.telefone }}</ion-label>
+              <span class="accordion__item__space"></span>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </app-table-accordion>
+
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,28 @@
+@import '../../../theme/variables.scss';
+
+.input__search{
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+
+  &__inner{
+    max-width: 0;
+    overflow: hidden;
+    transition: .5s all;
+  }
+
+  &:hover &__inner{
+    max-width: 300px;
+    transition: .5s all;
+  }
+
+  label{
+    padding: 5px;
+
+    img{
+      min-width: 30px;
+      max-width: 30px;
+      cursor: pointer;
+    }
+  }
+}
