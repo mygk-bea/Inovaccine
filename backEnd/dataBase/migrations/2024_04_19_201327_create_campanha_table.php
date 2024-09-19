@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('campanha', function (Blueprint $table) {
             $table->increments('codCampanha')->unsigned();
             $table->string('nome')->nullable(false);
-            $table->unsignedInteger('fk_vacina_codVacina');
-            $table->unsignedInteger('fk_agendamento_codAgendamento');
+            $table->unsignedInteger('fk_campanha_codVacina');
+            $table->unsignedInteger('fk_campanha_codAgendamento');
             $table->dateTime('dataInicio')->nullable(false);
             $table->dateTime('dataFim')->nullable(false);
 
-            $table->foreign('fk_vacina_codVacina')->references('codVacina')->on('Vacina');
-            $table->foreign('fk_agendamento_codAgendamento')->references('codAgendamento')->on('agendamento');
+            $table->foreign('fk_campanha_codVacina')->references('codVacina')->on('Vacina');
+            $table->foreign('fk_campanha_codAgendamento')->references('codAgendamento')->on('Agendamento');
 
             $table->timestamps();
 
