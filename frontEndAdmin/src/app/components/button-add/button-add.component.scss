@@ -16,7 +16,7 @@
   &__inner{
     max-width: 0;
     overflow: hidden;
-    transition: .5s all;
+    transition: .2s all;
   }
 
   &:hover &__inner{
@@ -36,7 +36,7 @@
     height: 30px;
   }
 
-  &:focus{
+  &:hover{
     background: var(--primary-color);
     color: var(--tertiary-color);
 

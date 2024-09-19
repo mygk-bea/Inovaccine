@@ -11,18 +11,52 @@
     transition: .5s all;
   }
 
-  &:hover &__inner{
-    max-width: 300px;
+  &:hover label{
+    border-radius: 20px;
+    background: $grayscale-light-color;
     transition: .5s all;
   }
 
+  input{
+    width: 300px;
+    height: 50px;
+    border: 0;
+    background: $grayscale-light-color;
+    padding-left: 10px;
+    border-radius: 20px 0 0 20px;
+
+    &:focus-visible{
+      outline: 0;
+    }
+  }
+
+  input.toggle {
+    display: none;
+  }
+
   label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
     padding: 5px;
+    transition: .5s all;
 
     img{
       min-width: 30px;
       max-width: 30px;
       cursor: pointer;
     }
+  }
+
+  input.toggle:checked ~ &__inner{
+    max-width: 400px;
+    transition: .5s all;
+  }
+
+  input.toggle:checked ~ label{
+    border-radius: 0 20px 20px 0;
+    background: $grayscale-light-color;
   }
 }

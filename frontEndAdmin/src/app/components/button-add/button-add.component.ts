@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -10,10 +11,15 @@ import { IonicModule } from '@ionic/angular';
 })
 export class ButtonAddComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
 
+  redirectButton(route: string) {
+    this.router.navigate([route]);
+  }
+
   @Input() message!:string;
   @Input() imgPath!:string;
+  @Input() route!:string;
 }
