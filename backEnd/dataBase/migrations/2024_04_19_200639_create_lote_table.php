@@ -16,14 +16,14 @@ return new class extends Migration
             $table->decimal('valor', 10, 2)->nullable(false);
             $table->decimal('qtd', 10, 2)->nullable(false);
             $table->decimal('qtd_minimo', 10, 2)->nullable(false);
-            $table->unsignedInteger('fk_fornecedor_codFornecedor');
-            $table->unsignedInteger('fk_clinica_codClinica');
-            $table->unsignedInteger('fk_vacina_codVacina');
+            $table->unsignedInteger('fk_lote_codFornecedor');
+            $table->unsignedInteger('fk_lote_codClinica');
+            $table->unsignedInteger('fk_lote_codVacina');
             $table->date('dataCompra')->nullable(false);
 
-            $table->foreign('fk_fornecedor_codFornecedor')->references('codFornecedor')->on('Fornecedor');
-            $table->foreign('fk_clinica_codClinica')->references('codClinica')->on('Clinica');
-            $table->foreign('fk_vacina_codVacina')->references('codVacina')->on('Vacina');
+            $table->foreign('fk_lote_codFornecedor')->references('codFornecedor')->on('Fornecedor');
+            $table->foreign('fk_lote_codClinica')->references('codClinica')->on('Clinica');
+            $table->foreign('fk_lote_codVacina')->references('codVacina')->on('Vacina');
 
             $table->timestamps();
 

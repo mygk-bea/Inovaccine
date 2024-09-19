@@ -16,22 +16,22 @@ class Lote extends Model
         'valor',
         'qtd_minimo',
         'qtd',
-        'fk_clinica_codClinica',
-        'fk_fornecedor_codFornecedor',
-        'fk_vacina_codVacina',
+        'fk_lote_codClinica',
+        'fk_lote_codFornecedor',
+        'fk_lote_codVacina',
         'dataCompra'
     ]; 
 
     public function clinica(){
-        return $this->belongsTo(Clinica::class, 'fk_clinica_codClinica');
+        return $this->belongsTo(Clinica::class, 'fk_lote_codClinica');
     }
 
     public function fornecedor(){
-        return $this->belongsTo(Fornecedor::class, 'fk_fornecedor_codFornecedor');
+        return $this->belongsTo(Fornecedor::class, 'fk_lote_codFornecedor');
     }
 
     public function vacina(){
-        return $this->belongsTo(Vacina::class, 'fk_vacina_codVacina');
+        return $this->belongsTo(Vacina::class, 'fk_lote_codVacina');
     }
 
     use HasFactory;

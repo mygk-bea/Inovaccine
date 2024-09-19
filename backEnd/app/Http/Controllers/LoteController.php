@@ -17,9 +17,9 @@ class LoteController extends Controller
         $lote->valor = $request->input('valor');
         $lote->qtd_minimo = $request->input('qtd_minimo');
         $lote->qtd = $request->input('qtd');
-        $lote->fk_clinica_codClinica = $request->input('codClinica');
-        $lote->fk_fornecedor_codFornecedor = $request->input('codFornecedor');
-        $lote->fk_vacina_codVacina = $request->input('codVacina');
+        $lote->fk_lote_codClinica = $request->input('codClinica');
+        $lote->fk_lote_codFornecedor = $request->input('codFornecedor');
+        $lote->fk_lote_codVacina = $request->input('codVacina');
         $lote->dataCompra = $request->input('dataCompra');
         $lote->save();
     }

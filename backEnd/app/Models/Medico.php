@@ -13,11 +13,8 @@ class Medico extends Model
 
     protected $fillable = ['codMedico', 'nome', 'cpf', 'crm', 'telefone', 'fk_medico_codLogin']; // Campos que podem ser atribuídos em massa
 
-    public function endereco(){
-        return $this->belongsTo(Endereco::class, 'fk_clinica_codEndereco');
-    }
-    public function medico(){
-        return $this->belongsTo(Medico::class, 'fk_clinica_codMedico');
+    public function usuario(){
+        return $this->belongsTo(Usuario::class, 'fk_medico_codLogin');
     }
     
     use HasFactory;
