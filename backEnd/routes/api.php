@@ -26,4 +26,6 @@ Route::get('/pesquisaMedico', [App\Http\Controllers\MedicoController::class, 'pe
 
 // listagens
 Route::get('/listagemClinica', [App\Http\Controllers\ClinicaController::class, 'list']);
+Route::get('/listagemFuncionario', [App\Http\Controllers\FuncionarioController::class, 'list']);
+
 Route::get('/listagemMedico', [App\Http\Controllers\MedicoController::class, 'list']);

@@ -33,6 +33,10 @@ export const routes: Routes = [
     path: 'cadastro-vacina',
     loadComponent: () => import('./pages/clinica/cadastro-vacina/cadastro-vacina.page').then( m => m.CadastroVacinaPage)
   },
+  {
+    path: 'listagem-funcionarios',
+    loadComponent: () => import('./pages/clinica/listagem-funcionarios/listagem-funcionarios.page').then( m => m.ListagemFuncionariosPage)
+  },
 
 
 

@@ -1,0 +1,47 @@
+.button__add{
+  height: 45px;
+  padding: 0 5px;
+  border: 3px solid var(--primary-color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1rem;
+  text-wrap: nowrap;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  background: transparent;
+  transition: .2s all;
+
+  &__inner{
+    max-width: 0;
+    overflow: hidden;
+    transition: .5s all;
+  }
+
+  &:hover &__inner{
+    max-width: 300px;
+    transition: .5s all;
+  }
+
+  p{
+    font-weight: 600;
+  }
+
+  span{
+    font-size: 2.5rem;
+  }
+
+  img{
+    height: 30px;
+  }
+
+  &:focus{
+    background: var(--primary-color);
+    color: var(--tertiary-color);
+
+    img {
+      filter: brightness(0) saturate(100%) invert(90%) sepia(19%) saturate(155%) hue-rotate(159deg) brightness(108%) contrast(94%);    
+    }
+  }
+}

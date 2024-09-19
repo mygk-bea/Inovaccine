@@ -16,35 +16,37 @@
       </ion-toolbar>
 
       <app-table-accordion [titlesTable]="titlesTable">
-        <ion-accordion class="accordion__item" *ngFor="let item of dados" value="{{ item.codClinica }}">
-          <ion-item slot="header" >
-            <ion-label>{{ item.nome }}</ion-label>
-            <ion-label>{{ item.medico.nome }}</ion-label>
-            <ion-label>{{ item.telefone }}</ion-label>
-            <ion-label>{{ item.periodoFunc_inicio }} - {{ item.periodoFunc_fim }}</ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content">
-            <ion-row class="info ion-align-items-center">
-              <ion-item lines="none">
-                <ion-title class="info__title">CNPJ</ion-title>
-                <p>{{ item.cnpj }}</p>
-              </ion-item>
-            </ion-row>
-            <ion-row class="info ion-align-items-center">
-              <ion-item lines="none">
-                <ion-title class="info__title">Dados do Médico</ion-title>
-                <p>CRM: {{ item.medico.crm }} | CPF: {{ item.medico.cpf }} | Telefone: {{ item.medico.telefone }}</p>
-              </ion-item>
-            </ion-row>
-            <ion-row class="info ion-align-items-center">
-              <ion-item lines="none">
-                <ion-title class="info__title">Endereço da Clínica</ion-title>
-                <p>CEP: {{ item.endereco.cep }} - {{ item.endereco.logradouro }}, {{ item.endereco.numero }} - {{ item.endereco.bairro }}, {{ item.endereco.cidade }}-{{ item.endereco.uf }}</p>
-                <p class="info__complemento" *ngIf="item.endereco.complemento">Complemento: {{ item.endereco.complemento }}</p>
-              </ion-item>
-            </ion-row>
-          </div>
-        </ion-accordion>
+        <ion-accordion-group class="accordion" expand="inset">
+          <ion-accordion class="accordion__item" *ngFor="let item of dados" value="{{ item.codClinica }}">
+            <ion-item slot="header" >
+              <ion-label>{{ item.nome }}</ion-label>
+              <ion-label>{{ item.medico.nome }}</ion-label>
+              <ion-label>{{ item.telefone }}</ion-label>
+              <ion-label>{{ item.periodoFunc_inicio }} - {{ item.periodoFunc_fim }}</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+              <ion-row class="info ion-align-items-center">
+                <ion-item lines="none">
+                  <ion-title class="info__title">CNPJ</ion-title>
+                  <p>{{ item.cnpj }}</p>
+                </ion-item>
+              </ion-row>
+              <ion-row class="info ion-align-items-center">
+                <ion-item lines="none">
+                  <ion-title class="info__title">Dados do Médico</ion-title>
+                  <p>CRM: {{ item.medico.crm }} | CPF: {{ item.medico.cpf }} | Telefone: {{ item.medico.telefone }}</p>
+                </ion-item>
+              </ion-row>
+              <ion-row class="info ion-align-items-center">
+                <ion-item lines="none">
+                  <ion-title class="info__title">Endereço da Clínica</ion-title>
+                  <p>CEP: {{ item.endereco.cep }} - {{ item.endereco.logradouro }}, {{ item.endereco.numero }} - {{ item.endereco.bairro }}, {{ item.endereco.cidade }}-{{ item.endereco.uf }}</p>
+                  <p class="info__complemento" *ngIf="item.endereco.complemento">Complemento: {{ item.endereco.complemento }}</p>
+                </ion-item>
+              </ion-row>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
       </app-table-accordion>
 
     </ion-col>
