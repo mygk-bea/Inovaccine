@@ -13,7 +13,7 @@ class VacinaController extends Controller
         $vacina->informacao = $request->input('informacao');
         $vacina->preco = $request->input('preco');
         $vacina->periodo = $request->input('periodo');
-        $vacina->diasAplicacao = implode(',', $request->diasAplicacao);
+        $vacina->diasAplicacao = implode(',',$request->input('diasAplicacao', []));
         $vacina->save();
     }
 }

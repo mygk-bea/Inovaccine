@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, FormArray } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { InputTextListComponent } from '../../input-text-list/input-text-list.component';
 import { VacinaService } from 'src/app/core/service/vacina.service';
@@ -31,11 +31,11 @@ export class FormCadastroVacinaComponent  implements OnInit {
   ];
 
   checkboxValues = [
-    {text: "Segunda-feira"},
-    {text: "Terça-feira"},
-    {text: "Quarta-feira"},
-    {text: "Quinta-feira"},
-    {text: "Sexta-feira"},
+    {text: "Segunda-feira", value: "Segunda-feira"},
+    {text: "Terça-feira", value:"Terça-feira"},
+    {text: "Quarta-feira", value:"Quarta-feira"},
+    {text: "Quinta-feira", value:"Quinta-feira"},
+    {text: "Sexta-feira", value:"Sexta-feira"},
   ]
 
   constructor(private formBuilder: FormBuilder, private vacina: VacinaService) { 
@@ -48,12 +48,14 @@ export class FormCadastroVacinaComponent  implements OnInit {
       informacao:[null],
       preco:[null],
       periodo:[null],
-      diasAplicacao:[null]
+      diasAplicacao: this.formBuilder.array(this.checkboxValues.map(() => false)) 
     });
   }
+  
 
   onSubmit() {
     const vacina = this.form.value;
+    vacina.diasAplicacao = this.checkboxValues.filter((_, index) => vacina.diasAplicacao[index]).map(option => option.value); 
     console.log(vacina);
     this.vacina.cadastrarVacina(vacina);
   }

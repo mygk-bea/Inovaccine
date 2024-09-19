@@ -17,6 +17,7 @@ export class CadastroVacinaPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

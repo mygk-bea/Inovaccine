@@ -3,5 +3,5 @@ export interface Vacina {
     informacao: string;
     preco: string;
     periodo: string;
-    diasAplicacao: number[];
+    diasAplicacao: string[];
 }

@@ -37,13 +37,15 @@
       <ion-toolbar>
         <ion-title class="form__title">Dias de Aplicação</ion-title>
       </ion-toolbar>
-      <ion-item class="form__item__checkbox" lines="none">
+      <ion-item formArrayName="diasAplicacao" class="form__item__checkbox" lines="none">
         <ion-list>
           <ion-checkbox 
-            class="form__item__checkbox__option" 
-            *ngFor="let checkbox of checkboxValues" 
+          class="form__item__checkbox__option" 
+          *ngFor="let checkbox of checkboxValues; let i = index" 
             labelPlacement="end" 
-            justify="start">
+            justify="start"
+            [formControlName]="i"
+            value="{{ checkbox.value }}">
             {{ checkbox.text }}
           </ion-checkbox>
         </ion-list>
