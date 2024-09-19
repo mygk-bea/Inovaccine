@@ -38,7 +38,7 @@ class ClinicaController extends Controller
             $usuario->save();
 
             $enderecoId = $endereco->codEndereco;
-            $usuarioId = $usuario->id; 
+            $usuarioId = $usuario->codLogin; 
 
 
             // cadastro clinica

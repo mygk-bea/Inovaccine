@@ -30,7 +30,7 @@ class PacienteController extends Controller
         $usuario->save();
 
         $enderecoId = $endereco->codEndereco;
-        $usuarioId = $usuario->id; 
+        $usuarioId = $usuario->codLogin; 
 
 
         // cadastro paciente

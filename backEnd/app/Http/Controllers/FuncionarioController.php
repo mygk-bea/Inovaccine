@@ -18,7 +18,7 @@ class FuncionarioController extends Controller
         $usuario->senha = $request->input('senha');
         $usuario->save();
 
-        $usuarioId = $usuario->id;
+        $usuarioId = $usuario->codLogin;
 
         $funcionario = new Funcionario();
         $funcionario->nome = $request->input('nome');

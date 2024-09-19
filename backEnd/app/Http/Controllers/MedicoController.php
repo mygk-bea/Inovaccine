@@ -22,7 +22,7 @@ class MedicoController extends Controller
         $usuario->senha = $request->input('senha');
         $usuario->save();
 
-        $usuarioId = $usuario->id;
+        $usuarioId = $usuario->codLogin;
 
         $medico = new Medico();
         $medico->nome = $request->input('nome');
