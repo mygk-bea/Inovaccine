@@ -1,0 +1,38 @@
+<div class="btn_clinicas">
+    <span>Consulte as Clínicas Disponíveis Aqui</span>
+  <ion-button id="clinicas_disponiveis" expand="block">Clinicas Disponíveis</ion-button>
+  <ion-modal id="example-modal" #modal trigger="clinicas_disponiveis">
+    <ng-template>
+      <div class="wrapper">
+        <h1>Clínicas Disponíveis</h1>
+
+        <ion-list lines="none">
+          <ion-item button="false" detail="false" (click)="modal.dismiss()">
+            <img src="./assets/img/hospital.png" alt="" srcset="">
+            <ion-label>Hospital Santa Luzia</ion-label>
+          </ion-item>
+          <ion-item button="false" detail="false" (click)="modal.dismiss()">
+            <img src="./assets/img/hospital.png" alt="" srcset="">
+            <ion-label>Hospital São Miguel Arcanjo</ion-label>
+          </ion-item>
+          <ion-item button="false" detail="false" (click)="modal.dismiss()">
+            <img src="./assets/img/hospital.png" alt="" srcset="">
+            <ion-label>Hospital Maria da Conceição</ion-label>
+          </ion-item>
+          <ion-item button="false" detail="false" (click)="modal.dismiss()">
+            <img src="./assets/img/hospital.png" alt="" srcset="">
+            <ion-label>Hospital Santa Maria</ion-label>
+          </ion-item>
+          <ion-item button="false" detail="false" (click)="modal.dismiss()">
+            <img src="./assets/img/hospital.png" alt="" srcset="">
+            <ion-label>Hospital Albert Estein</ion-label>
+          </ion-item>
+          <ion-item button="false" detail="false" (click)="modal.dismiss()">
+            <img src="./assets/img/hospital.png" alt="" srcset="">
+            <ion-label>Hospital Clínica Unimed</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ng-template>
+  </ion-modal>
+</div>

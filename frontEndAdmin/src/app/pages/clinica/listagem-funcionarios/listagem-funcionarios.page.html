@@ -17,7 +17,7 @@
           </ion-title>
 
           <ion-item lines="none">
-            <app-input-search></app-input-search>
+            <app-input-search [searchFunction]="pesquisarFuncionario" (searchResults)="onSearchFuncionario($event)"></app-input-search>
             <app-button-add [message]="'Novo Funcionario'" [imgPath]="'assets/icon/icon_user.svg'" [route]="'/cadastro-funcionario'"></app-button-add>
           </ion-item>
         </ion-row>

@@ -1,7 +1,7 @@
 <div class="input__search">
   <input type="checkbox" class="toggle" id="search">
   <div class="input__search__inner">
-    <input type="text" placeholder="Pesquisar...">
+    <input type="text" placeholder="Pesquisar..." [(ngModel)]="inputValue" (ngModelChange)="onSearch($event)">
   </div>
   <label for="search">
     <img src="assets/icon/icon_search.svg" alt="imgSearchLabel">

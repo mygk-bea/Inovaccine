@@ -1,0 +1,28 @@
+<div class="component">
+  <form action="" class="formulario">
+    <div class="texto_dengue">
+      Denuncie um possível criadouro da Dengue
+    </div>
+    <div class="inputs">
+      <label for="custom">Nome Completo*</label>
+      <ion-input placeholder="Nome" class="custom "  [counter]="true"></ion-input>
+      <label for="custom">Descrição</label>
+      <ion-input  placeholder="Escreva mais detalhes aqui" class="custom desc"  [counter]="true"></ion-input>
+      <label for="custom">Localização* <ion-icon name="location-sharp"></ion-icon></label>
+      <ion-input placeholder="Coloque aqui sua localização" class="custom localizacao"  [counter]="true"></ion-input>
+      <i class="i_style">Imagem* <ion-icon name="cloud-upload-sharp"></ion-icon></i>
+      <i class="i_style">
+        <ion-checkbox style="padding: 3px;" ></ion-checkbox>
+        Concordo e Aceito os Termos de Uso e Política de Privacidade
+      </i>
+      <i class="i_style">* Obrigatório</i>
+    </div>
+    <ion-button class="btn_enviar" size="small" (click)="openModal()">
+      Enviar
+    </ion-button>    
+    <i class="i_style">
+      Saiba mais o que acontecerá após fazer a denúncia
+    </i>
+
+  </form>
+</div>

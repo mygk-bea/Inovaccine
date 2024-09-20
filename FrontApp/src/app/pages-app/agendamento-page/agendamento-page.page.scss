@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+  
+.logo{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.ajuste_logo{
+width: 35%;
+height: 35%;
+}
+.cards{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 5vw;
+}
+@media (max-width: 480px){
+    .ajuste_logo{
+        width: 75%;
+    }
+}
+@media (max-width: 1024px){
+    .ajuste_logo{
+        width: 100%;
+    }
+}

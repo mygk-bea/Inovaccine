@@ -1,0 +1,18 @@
+<ion-footer collapse="fade" class="menuApp">
+  <div class="icons" (click)="navigateTo('tela-inicial', 'forward')">
+    <ion-icon name="home" class="home_icon"></ion-icon>
+    <label for="home_icon" style="color: white;">Início</label>
+  </div>
+  <div class="icons" (click)="navigateTo('tela-servicos', 'forward')">
+    <ion-icon name="receipt" class="denuncia_icon"></ion-icon>
+    <label for="denuncia_icon" style="color: white;">Disk Denúncia</label>
+  </div>
+  <div class="icons" (click)="navigateTo('agendamento-page', 'forward')">
+    <ion-icon src="assets/icon/syringe.svg" class="seringa_icon"></ion-icon>
+    <label for="seringa_icon" style="color: white;">Serviços</label>
+  </div>
+  <div class="icons" (click)="navigateTo('perfil', 'forward')">
+    <ion-icon name="person-circle-outline" class="user_icon"></ion-icon>
+    <label for="user_icon" style="color: white;">Perfil</label>
+  </div>
+</ion-footer>

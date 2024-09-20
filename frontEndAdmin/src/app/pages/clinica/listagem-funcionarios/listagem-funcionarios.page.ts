@@ -20,23 +20,31 @@ import { InputSearchComponent } from 'src/app/components/input-search/input-sear
 export class ListagemFuncionariosPage implements OnInit {
   dados: any;
 
-  constructor(private dadosFuncionario: FuncionarioService) { }
-
-  ngOnInit() {
-    this.dadosFuncionario.listarFuncionario().subscribe(
-      (response) => {
-        this.dados = response;
-        console.log(this.dados);
-
-      },
-      (error) => {console.error("ERRO: ", error);}
-    )
-  }
-
   titlesTable = [
     {name:'Código'},
     {name:'Nome'},
     {name:'CPF'},
     {name:'Telefone'},
   ];
+
+  constructor(private dadosFuncionario: FuncionarioService) { }
+
+  pesquisarFuncionario = (value: string) => {
+    return this.dadosFuncionario.pesquisarFuncionario(value);
+  };
+
+  ngOnInit() {
+    this.dadosFuncionario.listarFuncionario().subscribe(
+      (response) => {
+        this.dados = response;
+        console.log(this.dados);
+      },
+      (error) => {console.error("ERRO: ", error);}
+    )
+  }
+
+  onSearchFuncionario(results: any[]) {
+    console.log(results);
+    this.dados = results;
+  }
 }

@@ -32,4 +32,10 @@ class FuncionarioController extends Controller
         $funcionario = Funcionario::all();
         return response()->json($funcionario);
     }
+
+    public function pesquisa(Request $request) {
+        $search = $request->input('search');
+        $funcionario = Funcionario::where('nome', 'like', '%'.$search.'%')->get();
+        return response()->json($funcionario);
+    }
 }   

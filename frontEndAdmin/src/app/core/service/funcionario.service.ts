@@ -18,7 +18,12 @@ export class FuncionarioService {
     })
   }
 
+  pesquisarFuncionario (value: string): Observable<any>{
+    return this.http.get<any>(`${ this.url }/pesquisaFuncionario?search=${value}`)
+  }
+
   listarFuncionario (): Observable<any>{
     return this.http.get<any>(`${ this.url }/listagemFuncionario`)
   }
+
 }

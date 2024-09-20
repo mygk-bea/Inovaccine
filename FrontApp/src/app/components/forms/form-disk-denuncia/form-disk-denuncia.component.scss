@@ -1,0 +1,111 @@
+ion-input.custom {
+    --background: #fff;
+    --color: #000;
+    --placeholder-color: #000;
+    --placeholder-opacity: 0.5;
+  
+    --padding-bottom: 10px;
+    --padding-end: 10px;
+    --padding-start: 10px;
+    --padding-top: 10px;
+    --border-radius:15px;
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+   
+
+  }
+  .component{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+    padding: 6%;
+  }
+  .formulario{
+    background-color: #d9d9dd;
+    width: 30%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .texto_dengue{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+    padding: 10px;
+    width: 100%;
+  }
+  label{
+    display: flex;
+    padding: 10px;
+    font-size: 18px;
+  }
+  .inputs{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 90%;
+  }
+  .desc{
+    height: 10vh;
+  }
+  .i_style{
+    display: flex;
+    align-items: center; 
+    padding: 10px;
+  }
+  .checkbox{
+    width: 70%;
+  }
+  .btn_enviar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    --background: var(--primary-color);
+  }
+  @media (max-width: 480px) {
+    .formulario {
+      width: 100%;
+    }
+  
+    .texto_dengue {
+      font-size: 20px;
+    }
+  
+    label {
+      font-size: 13px;
+      padding: 5px;
+    }
+  
+    .btn_enviar {
+      width: 50%;
+    }
+  }
+  @media (max-width: 1024px) {
+    .formulario {
+      width: 100%;
+    }
+  
+    .texto_dengue {
+      font-size: 20px;
+    }
+  
+    label {
+      font-size: 13px;
+      padding: 5px;
+    }
+  
+    .btn_enviar {
+      width: 50%;
+    }
+  }
+
+  

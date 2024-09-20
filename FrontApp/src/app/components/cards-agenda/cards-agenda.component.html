@@ -1,0 +1,39 @@
+
+<div class="cardsAgenda">
+  <h1 style="display: flex;justify-content: center;">Serviços</h1>
+  <ion-button class="Vacina" (click)="navigateTo('vacina-em-casa-page', 'forward')">
+    <div class="alinha_conteudo">
+      <div class="conteudo_btn">
+        <ion-icon name="home" style="font-size: 16px;"></ion-icon>
+        <div><strong>Tomar Vacina em Casa</strong></div>
+        <ion-icon name="arrow-forward" style="display: flex;color: var(--secondary-color); font-size: 24px;"></ion-icon>
+      </div>
+      <div>Descrição: Agende um dia e horário para os 
+        profissionais irem em sua casa aplicar a vacina.</div>
+      </div>
+  </ion-button>
+
+  <ion-button class="Vacina" (click)="navigateTo('vacina-clinica-page', 'forward')">
+    <div class="alinha_conteudo">
+      <div class="conteudo_btn">
+        <ion-icon name="help-buoy" style="font-size: 16px;"></ion-icon>
+        <i style="display: flex;justify-content: center;"><strong>Agendamento na Clínica</strong></i>
+        <ion-icon name="arrow-forward" style="display: flex;color: var(--secondary-color); font-size: 24px;"></ion-icon>
+      </div>
+      <div>Descrição: Selecione a Clínica para Tomar a Vacina</div>
+    </div>
+  </ion-button>
+
+  <h1 style="display: flex;justify-content: center;">Consultas</h1>
+  <ion-button class="Vacina">
+    <div class="alinha_conteudo">
+      <div class="conteudo_btn">
+        <ion-icon name="calendar-number" style="font-size: 16px;"></ion-icon>
+        <i style="display: flex;justify-content: center;"> <strong>Ver Consultas Futuras </strong></i>
+        <ion-icon name="arrow-forward" style="display: flex;color: var(--secondary-color); font-size: 24px;"></ion-icon>
+      </div>
+      <div>Descrição: Veja suas Consultas Futuras Agendadas</div>
+    </div>
+  </ion-button>
+  <modal-clinicas></modal-clinicas>
+</div>
