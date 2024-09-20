@@ -19,6 +19,7 @@ Route::post('/cadClinica', [App\Http\Controllers\ClinicaController::class, 'stor
 Route::post('/cadMedico', [App\Http\Controllers\MedicoController::class, 'store']);
 Route::post('/cadFuncionario', [App\Http\Controllers\FuncionarioController::class, 'store']);
 Route::post('/cadVacina', [App\Http\Controllers\VacinaController::class, 'store']);
+Route::post('/cadFornecedor', [App\Http\Controllers\FornecedorController::class, 'store']);
 Route::post('/cadLote', [App\Http\Controllers\LoteController::class, 'store']);
 Route::post('/cadPaciente', [App\Http\Controllers\PacienteController::class, 'store']);
 Route::post('/cadCampanha', [App\Http\Controllers\CampanhaController::class, 'store']);

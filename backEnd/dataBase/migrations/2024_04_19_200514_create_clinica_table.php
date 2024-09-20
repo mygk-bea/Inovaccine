@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nome', 100)->nullable(false);
             $table->char('cnpj', 14)->nullable(false);
             $table->unsignedInteger('fk_clinica_codEndereco')->nullable(false);
-            $table->char('telefone', 9)->nullable(false);
+            $table->char('telefone', 11)->nullable(false);
             $table->unsignedInteger('fk_clinica_codLogin')->nullable(false);
             $table->time('periodoFunc_inicio')->nullable(false);
             $table->time('periodoFunc_fim')->nullable(false);

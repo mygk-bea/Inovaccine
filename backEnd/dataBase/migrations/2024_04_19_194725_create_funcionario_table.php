@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('codFuncionario')->unsigned();
             $table->string('nome', 100)->nullable(false);
             $table->char('cpf', 11)->nullable(false);
-            $table->char('telefone', 9)->nullable(false);
+            $table->char('telefone', 11)->nullable(false);
             $table->unsignedInteger('fk_funcionario_codLogin')->nullable(false);
 
             $table->foreign('fk_funcionario_codLogin')->references('codLogin')->on('Usuario');
