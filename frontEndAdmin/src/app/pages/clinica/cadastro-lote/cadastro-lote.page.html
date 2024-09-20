@@ -1,0 +1,18 @@
+<app-header 
+[backgroundColor]="'main__palette'"
+[pagesMenu]="[
+  {name:'Home', route:' '},
+  {name:'Vacinas',   route:' '},
+  {name:'Funcionários',  route:' '},
+  {name:'Estoque',  route:' '},
+]"></app-header>
+
+<ion-content [fullscreen]="true" class="main__palette">
+  <ion-row class="container ion-justify-content-center">
+    <ion-col size="10">
+
+      <app-form-cadastro-lote></app-form-cadastro-lote>
+
+    </ion-col>
+  </ion-row>
+</ion-content>
