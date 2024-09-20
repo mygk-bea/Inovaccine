@@ -38,4 +38,5 @@ Route::get('/listagemCampanha', [App\Http\Controllers\CampanhaController::class,
 
 Route::get('/listagemMedico', [App\Http\Controllers\MedicoController::class, 'list']);
 Route::get('/listagemPaciente', [App\Http\Controllers\PacienteController::class, 'list']);
+Route::get('/listagemVacina', [App\Http\Controllers\VacinaController::class, 'list']);
 

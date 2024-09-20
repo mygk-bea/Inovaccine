@@ -16,4 +16,9 @@ class VacinaController extends Controller
         $vacina->diasAplicacao = implode(',',$request->input('diasAplicacao', []));
         $vacina->save();
     }
+
+    public function list() {
+        $vacina = Vacina::all();
+        return response()->json($vacina);
+    }
 }
