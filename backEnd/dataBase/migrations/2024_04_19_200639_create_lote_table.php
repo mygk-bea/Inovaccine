@@ -20,7 +20,8 @@ return new class extends Migration
             $table->unsignedInteger('fk_lote_codClinica');
             $table->unsignedInteger('fk_lote_codVacina');
             $table->date('dataCompra')->nullable(false);
-
+            $table->date('dataValidade')->nullable(false);
+            
             $table->foreign('fk_lote_codFornecedor')->references('codFornecedor')->on('Fornecedor');
             $table->foreign('fk_lote_codClinica')->references('codClinica')->on('Clinica');
             $table->foreign('fk_lote_codVacina')->references('codVacina')->on('Vacina');

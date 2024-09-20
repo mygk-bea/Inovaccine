@@ -20,6 +20,7 @@ class LoteController extends Controller
         $lote->fk_lote_codFornecedor = $request->input('fk_lote_codFornecedor');
         $lote->fk_lote_codVacina = $request->input('fk_lote_codVacina');
         $lote->dataCompra = $request->input('dataCompra');
+        $lote->dataValidade = $request->input('dataValidade');
         $lote->save();
     }
 
