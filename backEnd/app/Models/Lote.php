@@ -19,7 +19,8 @@ class Lote extends Model
         'fk_lote_codClinica',
         'fk_lote_codFornecedor',
         'fk_lote_codVacina',
-        'dataCompra'
+        'dataCompra',
+        'dataValidade'
     ]; 
 
     public function clinica(){
