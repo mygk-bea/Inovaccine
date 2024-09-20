@@ -27,6 +27,7 @@ Route::post('/cadCampanha', [App\Http\Controllers\CampanhaController::class, 'st
 Route::get('/pesquisaMedico', [App\Http\Controllers\MedicoController::class, 'pesquisa']);
 Route::get('/pesquisaPaciente', [App\Http\Controllers\PacienteController::class, 'pesquisa']);
 Route::get('/pesquisaCampanha', [App\Http\Controllers\CampanhaController::class, 'pesquisa']);
+Route::get('/pesquisaFuncionario', [App\Http\Controllers\FuncionarioController::class, 'pesquisa']);
 
 // listagens
 Route::get('/listagemClinica', [App\Http\Controllers\ClinicaController::class, 'list']);
