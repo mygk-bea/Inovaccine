@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('fornecedor', function (Blueprint $table) {
             $table->increments('codFornecedor')->unsigned();
             $table->string('nome', 100)->nullable(false);
-            $table->char('telefone', 9)->nullable(false);
+            $table->char('telefone', 11)->nullable(false);
             $table->char('cnpj', 14)->nullable(false);
             
             $table->timestamps();

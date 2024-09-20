@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nome', 100)->nullable(false);
             $table->date('dataNasc')->nullable(false);
             $table->char('cpf', 11)->unique()->nullable(false);
-            $table->char('telefone', 9)->nullable(false);
+            $table->char('telefone', 11)->nullable(false);
             $table->unsignedInteger('fk_paciente_codEndereco')->nullable();
             $table->unsignedInteger('fk_paciente_codLogin')->nullable();
             $table->string('senha', 10)->nullable(false);
