@@ -7,3 +7,5 @@ export interface Lote {
     fk_lote_codVacina: number,
     dataCompra: string
 }
+
+
