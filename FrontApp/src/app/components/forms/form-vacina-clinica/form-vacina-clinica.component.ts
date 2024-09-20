@@ -4,7 +4,7 @@ import {arrowBack} from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { InputDataComponent } from '../form-vacina-em-casa/input-data/input-data.component';
 import { NavController, AnimationController, AnimationBuilder } from '@ionic/angular';
-import { ShareDataClinicaService } from 'src/app/services/share-data-clinica.service';
+import { ShareDataClinicaService } from 'src/app/core/services/share-data-clinica.service';
 
 @Component({
   selector: 'app-form-vacina-clinica',

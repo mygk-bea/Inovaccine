@@ -6,8 +6,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import { DataSharingService } from 'src/app/services/data-sharing.service'; 
-import { ShareDataClinicaService } from 'src/app/services/share-data-clinica.service';
+import { DataSharingService } from 'src/app/core/services/data-sharing.service'; 
+import { ShareDataClinicaService } from 'src/app/core/services/share-data-clinica.service';
 
 @Component({
   selector: 'app-input-data',

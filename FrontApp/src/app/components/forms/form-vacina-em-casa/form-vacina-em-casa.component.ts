@@ -3,7 +3,7 @@ import { IonDatetime, IonItem, IonLabel, IonSelect, IonSelectOption, IonButton,I
 import {arrowBack} from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { InputDataComponent } from './input-data/input-data.component';
-import { DataSharingService } from 'src/app/services/data-sharing.service';
+import { DataSharingService } from 'src/app/core/services/data-sharing.service';
 import { NavController, AnimationController, AnimationBuilder } from '@ionic/angular';
 
 

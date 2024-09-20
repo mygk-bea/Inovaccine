@@ -21,12 +21,11 @@
     </div>
     <div class="vacinas_pendentes">
       <div class="txt_vacina_pendente">VACINAS PENDENTES</div>
-      <ion-card class="card_vacPendente">
+      <ion-card class="card_vacPendente" *ngFor="let vacinas of vacina">
         <ion-card-header>
           <ion-card-title
             class="title_VacPendente">
-            [Nome
-            da Vacina]-1ª Dose
+            {{vacinas.nome}} 
             <ion-button class="btn-agendar" size="small">Agendar
               <ion-icon name="calendar" size="medium" style="color: white; margin-left: 5px;"></ion-icon>
             </ion-button>
@@ -34,18 +33,17 @@
         </ion-card-header>
         <div class="centraliza_infovac">
           <ion-card-content class="dados_vacPendentes">
-            Previne as formas graves da tuberculose,principalmente
-            miliar e meníngea
+            {{vacinas.informacao}} 
             <div class="info_vacPendentes">
-              <i>Doses: Única</i>
-              <i>Período: Crianças(0 a 10 Anos)</i>
-              <i>Valor: [R$ 0000,00]</i>
+              <i>Doses:{{vacinas.diasAplicacao}} </i>
+              <i>Período: {{vacinas.periodo}}</i>
+              <i>Valor: R${{vacinas.preco}} </i>
             </div>
           </ion-card-content>
         </div>
       </ion-card>
 
-      <ion-card class="card_vacPendente">
+      <!-- <ion-card class="card_vacPendente">
         <ion-card-header>
           <ion-card-title
           class="title_VacPendente">[Nome
@@ -66,9 +64,9 @@
             </div>
           </ion-card-content>
         </div>
-      </ion-card>
+      </ion-card> -->
 
-      <ion-card class="card_vacPendente">
+      <!-- <ion-card class="card_vacPendente">
         <ion-card-header>
           <ion-card-title class="title_VacPendente">
             [Nome da Vacina]-1ª Dose
@@ -88,17 +86,17 @@
             </div>
           </ion-card-content>
         </div>
-      </ion-card>
+      </ion-card> -->
     </div>
   </div>
   <div class="minhas_vacinas">
     <i class="text_MyVacina">
       MINHAS VACINAS
     </i>
-    <ion-accordion-group expand="inset" class="card_vacina">
+    <ion-accordion-group expand="inset" class="card_vacina" *ngFor="let vacinas of vacina">
       <ion-accordion value="first">
         <ion-item slot="header" color="green" class="dropdown_MyVacina">
-          <ion-card-title class="dados_MyVacina">[Minha Vacina] 1ª Dose
+          <ion-card-title class="dados_MyVacina">{{vacinas.nome}} 
             <div class="info_MyVacina">
               <i class="info_MyVacina">Lote: #0004</i>
               <i class="info_MyVacina">Ass: DR.Chico Moedas</i>
@@ -109,12 +107,11 @@
         <div class="ion-padding" slot="content">
           <div class="centraliza_MyVacina">
             <div class="sobre_vacina">
-              Previne as formas graves da tuberculose,principalmente
-              miliar e meníngea
+              {{vacinas.informacao}} 
               <div class="info_vacina">
-                <i>Doses: Única</i>
-                <i>Período: Crianças(0 a 10 Anos)</i>
-                <i>Valor: [R$ 0000,00]</i>
+                <i>Doses: {{vacinas.diasAplicacao}}</i>
+                <i>Período: {{vacinas.periodo}}</i>
+                <i>Valor: R${{vacinas.preco}}</i>
               </div>
             </div>
           </div>
@@ -122,7 +119,7 @@
       </ion-accordion>
     </ion-accordion-group>
 
-    <ion-accordion-group expand="inset" class="card_vacina">
+    <!-- <ion-accordion-group expand="inset" class="card_vacina">
       <ion-accordion value="second">
         <ion-item slot="header" color="green" class="dropdown_MyVacina">
           <ion-card-title class="dados_MyVacina">[Minha Vacina] 1ª Dose
@@ -147,9 +144,9 @@
           </div>
         </div>
       </ion-accordion>
-    </ion-accordion-group>
+    </ion-accordion-group> -->
 
-    <ion-accordion-group expand="inset" class="card_vacina">
+    <!-- <ion-accordion-group expand="inset" class="card_vacina">
       <ion-accordion value="third">
         <ion-item slot="header" color="green" class="dropdown_MyVacina">
           <ion-card-title class="dados_MyVacina">[Minha Vacina] 1ª Dose
@@ -174,7 +171,7 @@
           </div>
         </div>
       </ion-accordion>
-    </ion-accordion-group>
+    </ion-accordion-group> -->
 
 
   </div>
