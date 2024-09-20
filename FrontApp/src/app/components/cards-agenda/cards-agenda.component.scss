@@ -1,0 +1,48 @@
+.cardsAgenda{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width:100%;
+}
+.Vacina{
+    --background:var(--background-services);
+    border-radius:10px;
+    display: flex;
+    flex-direction: column;
+    width:20vw;
+    color: var(--dark-text);
+}
+.alinha_conteudo{
+    display: flex;
+    font-size: 12px;
+    flex-direction: column;
+    justify-content: center;
+}
+.conteudo_btn{
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center;
+}
+@media (min-width: 268px) {
+    .Vacina {
+        width:85%; 
+        /* Ajuste para telas médias, como tablets */
+    }
+
+    .alinha_conteudo {
+        font-size: 14px; /* Aumenta o tamanho da fonte para telas maiores */
+    }
+}
+
+@media (min-width: 1024px) {
+    .Vacina {
+        width:55%; /* Restaura a largura original para desktops */
+    }
+
+    .alinha_conteudo {
+        font-size: 16px; /* Fonte ainda maior para desktops */
+    }
+}

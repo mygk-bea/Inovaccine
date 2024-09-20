@@ -1,0 +1,28 @@
+ion-modal#example-modal {
+    --width: fit-content;
+    --min-width: 250px;
+    --height: fit-content;
+    --border-radius: 6px;
+    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+  }
+  ion-button{
+    --background: var(--primary-color);
+  }
+  
+  ion-modal#example-modal h1 {
+    margin: 20px 20px 10px 20px;
+  }
+  
+  ion-modal#example-modal img {
+    margin-right: 6px;
+  
+    width: 48px;
+    height: 48px;
+  
+    padding: 4px 0;
+  
+  }
+  
+  ion-modal#example-modal .wrapper {
+    margin-bottom: 10px;
+  }

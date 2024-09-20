@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.menuApp {
+    display: flex;
+    background-color: var(--primary-color);
+    height: 5%;
+    position: sticky; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    justify-content: space-around;
+    flex-direction: row;
+    z-index: 1000;
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home_icon, .denuncia_icon, .seringa_icon, .user_icon {
+    color: var(--color-icon-menu);
+    width: 24px;
+    height: 24px;
+}
+/* Media Queries para responsividade */
+@media (max-width: 980px) {
+    .menuApp {
+        height: 5%;
+        position: sticky; /* Faz o menu ficar fixo na tela */
+        bottom: 0;
+        left: 0; /* Alinha o menu à parte inferior da tela */
+        width: 100%;
+    }
+
+    .home_icon, .denuncia_icon, .seringa_icon, .user_icon {
+        width: 80px;
+        height: 80px;
+    }
+    label{
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 320px) {
+    .menuApp {
+        height: 6%;
+        position:sticky;
+    }
+
+    .home_icon, .denuncia_icon, .seringa_icon, .user_icon {
+        width: 80px;
+        height: 80px;
+    }
+    label{
+        font-size: 12px;
+    }
+    
+}
+
+
