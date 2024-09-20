@@ -1,4 +1,5 @@
 export interface Lote {
+    codLote: string,
     valor:number,
     qtd_minimo: number,
     qtd: number,
@@ -8,5 +9,3 @@ export interface Lote {
     dataCompra: string,
     dataValidade: string
 }
-
-
