@@ -1,0 +1,22 @@
+<ion-row>
+  <ion-col size="12">
+    <ion-item class="form__item" lines="none" [formGroup]="formGroup">
+      <ion-input 
+        label="{{ label }}"
+        labelPlacement="floating"
+        fill="outline"
+        placeholder="Selecione..."
+        name="{{ name }}"
+        [formControl]="searchControl">
+      </ion-input>
+    </ion-item>
+
+    <div *ngIf="showDropdown && datas.length > 0" class="form__dropdown">
+      <ion-list>
+        <ion-item *ngFor="let data of datas" [ngClass]="{'disabled-item': data.nome === 'Pesquisa não encontrada...'}" (click)="selectValue(data)">
+          {{ data.nome }}
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-col>
+</ion-row>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Vacina } from '../interfaces/vacina';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -17,5 +18,9 @@ export class VacinaService {
     .subscribe(response => {
       console.log(response)
     })
+  }
+
+  pesquisarVacina(value: string): Observable<any>{
+    return this.http.get<any>(`${ this.url }/pesquisaVacina?search=${value}`)
   }
 }

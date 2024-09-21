@@ -21,4 +21,10 @@ class VacinaController extends Controller
         $vacina = Vacina::all();
         return response()->json($vacina);
     }
+
+    public function pesquisa(Request $request) {
+        $search = $request->input('search');
+        $vacina = Vacina::where('nome', 'like', '%'.$search.'%')->get();
+        return response()->json($vacina);
+    }
 }

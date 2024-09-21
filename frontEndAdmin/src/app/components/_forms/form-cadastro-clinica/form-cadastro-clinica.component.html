@@ -5,29 +5,13 @@
     </ion-title>
   </ion-toolbar>
 
-  <ion-row>
-    <ion-col size="12">
-      <ion-item class="form__item" lines="none">
-        <ion-input 
-          label="Médico Responsável"
-          labelPlacement="floating"
-          fill="outline"
-          formControlName="nome_medico"
-          placeholder="Selecione..."
-          [(ngModel)]="inputValue"
-          (ngModelChange)="onSearch($event)">
-        </ion-input>
-      </ion-item>
-
-      <div *ngIf="showDropdown && dados.length > 0" class="form__dropdown">
-        <ion-list>
-          <ion-item *ngFor="let medico of dados" [ngClass]="{'disabled-item': medico.nome === 'Nenhum médico encontrado...'}" (click)="selectValue(medico)">
-            {{ medico.nome }}
-          </ion-item>
-        </ion-list>
-      </div>
-    </ion-col>
-  </ion-row>
+  <app-input-search-cadastro 
+    [formGroup]="form"
+    [label]="'Médico Responsável'"
+    [name]="'nome_medico'"
+    [searchFunction]="pesquisarMedico"
+    (codigoSelecionado)="medicoId = $event">
+  </app-input-search-cadastro>
 
   <app-input-text-list [inputs]="inputsDataGeral" [formGroup]="form">
     <ion-col size="6">

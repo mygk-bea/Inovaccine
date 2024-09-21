@@ -7,8 +7,19 @@
 
   <ion-row>
     <ion-col size="6">
+      <app-input-search-cadastro 
+        [formGroup]="form"
+        [label]="'Vacina'"
+        [name]="'fk_lote_codVacina'"
+        [searchFunction]="pesquisarVacina"
+        (codigoSelecionado)="vacinaId = $event">
+      </app-input-search-cadastro>
+
       <app-input-text-list [inputs]="inputsDataLote" [formGroup]="formLote">
-  
+
+        <app-input-date [formGroup]="formLote" [label]="'Data de Compra'" [name]="'dataCompra'"></app-input-date>
+        <app-input-date [formGroup]="formLote" [label]="'Data de Validade'" [name]="'dataValidade'"></app-input-date>
+
       </app-input-text-list>
     </ion-col>
   

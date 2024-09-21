@@ -29,14 +29,15 @@ Route::get('/pesquisaMedico', [App\Http\Controllers\MedicoController::class, 'pe
 Route::get('/pesquisaPaciente', [App\Http\Controllers\PacienteController::class, 'pesquisa']);
 Route::get('/pesquisaCampanha', [App\Http\Controllers\CampanhaController::class, 'pesquisa']);
 Route::get('/pesquisaFuncionario', [App\Http\Controllers\FuncionarioController::class, 'pesquisa']);
+Route::get('/pesquisaVacina', [App\Http\Controllers\VacinaController::class, 'pesquisa']);
 
 // listagens
 Route::get('/listagemClinica', [App\Http\Controllers\ClinicaController::class, 'list']);
 Route::get('/listagemFuncionario', [App\Http\Controllers\FuncionarioController::class, 'list']);
 Route::get('/listagemLote', [App\Http\Controllers\LoteController::class, 'list']);
 Route::get('/listagemCampanha', [App\Http\Controllers\CampanhaController::class, 'list']);
+Route::get('/listagemVacina', [App\Http\Controllers\VacinaController::class, 'list']);
 
 Route::get('/listagemMedico', [App\Http\Controllers\MedicoController::class, 'list']);
 Route::get('/listagemPaciente', [App\Http\Controllers\PacienteController::class, 'list']);
-Route::get('/listagemVacina', [App\Http\Controllers\VacinaController::class, 'list']);
 

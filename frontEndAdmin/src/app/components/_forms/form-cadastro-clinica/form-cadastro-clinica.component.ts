@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { InputTextListComponent } from '../../input-text-list/input-text-list.component';
 import { ClinicaService } from 'src/app/core/service/clinica.service';
@@ -7,20 +7,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { InputTimeComponent } from '../../input-time/input-time.component';
 import { MedicoService } from 'src/app/core/service/medico.service';
 import { CommonModule } from '@angular/common';
+import { InputSearchCadastroComponent } from '../../input-search-cadastro/input-search-cadastro.component';
 
 @Component({
   selector: 'app-form-cadastro-clinica',
   templateUrl: './form-cadastro-clinica.component.html',
   standalone: true,
   styleUrls: ['./form-cadastro-clinica.component.scss'],
-  imports: [IonicModule, CommonModule, ReactiveFormsModule, InputTextListComponent, InputTimeComponent, HttpClientModule],
+  imports: [
+    IonicModule, 
+    CommonModule, 
+    FormsModule,
+    ReactiveFormsModule, 
+    InputTextListComponent, 
+    InputTimeComponent, 
+    InputSearchCadastroComponent,
+    HttpClientModule
+  ],
   providers:[ClinicaService, MedicoService]
 })
 export class FormCadastroClinicaComponent  implements OnInit {
   form: FormGroup;
-  dados: any;
   inputValue: string = '';
-  showDropdown: boolean = false;
+  showDropdown!: boolean;
   medicoId!: number;
 
   inputsDataGeral = [
@@ -47,6 +56,10 @@ export class FormCadastroClinicaComponent  implements OnInit {
   constructor(private formBuilder: FormBuilder, private clinica: ClinicaService, private dadosMedico: MedicoService) { 
     this.form = new FormGroup({});
   }
+
+  pesquisarMedico = (value: string) => {
+    return this.dadosMedico.pesquisarMedico(value);
+  };
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -75,33 +88,5 @@ export class FormCadastroClinicaComponent  implements OnInit {
     const clinica = this.form.value;
     console.log(clinica);
     this.clinica.cadastrarClinica(clinica);
-    this.form.reset();
-  }
-
-  onSearch(value: string) {
-    if(value.length > 0) {
-      this.dadosMedico.pesquisarMedico(value).subscribe(
-        (response) => {
-          (response.length > 0) 
-          ? this.dados = response 
-          : this.dados = [{"nome": "Nenhum médico encontrado..."}];
-
-          this.showDropdown = true;
-        },
-        (error) => {console.error("ERRO: ", error);}
-      );
-    } else {
-      this.showDropdown = false;
-    }
-  }
-
-  selectValue(medico: any) {
-    if (medico.nome === 'Nenhum médico encontrado...') {
-      return;
-    }
-
-    this.inputValue = medico.nome;
-    this.medicoId = medico.codMedico;
-    this.showDropdown = false;
   }
 }

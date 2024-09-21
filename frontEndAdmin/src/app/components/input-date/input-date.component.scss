@@ -1,0 +1,46 @@
+@import '../../../theme/variables.scss';
+
+.form{
+  &__item{
+    .inner__date{
+      display: flex;
+      flex-direction: column;
+
+      label{
+        margin-left: 5px;
+        margin-bottom: 3px;
+        transition: .2s all;
+      }
+
+      &:focus-within {
+        label {
+          color: var(--secondary-color); 
+          transition: .2s all;
+        }
+      }
+    }
+
+    &__date{
+      width: 235px;
+      height: 56px;
+      padding: 10px;
+      border: 1px solid $grayscale-color;
+      border-radius: 10px;
+      background: $grayscale-light-color;
+
+      &:hover{
+        border-color: var(--secondary-color);
+      }
+
+      &:focus {
+        outline: 0;
+        border: 2px solid var(--secondary-color);
+      }
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      -webkit-appearance: none;
+      background-image: url(../../../assets/icon/icon_calendar.svg);
+    }
+  }
+}
