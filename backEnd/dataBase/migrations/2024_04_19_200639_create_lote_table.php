@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lote', function (Blueprint $table) {
-            $table->increments('codLote')->unsigned();
+            $table->string('codLote')->nullable(false);
             $table->decimal('valor', 10, 2)->nullable(false);
             $table->decimal('qtd', 10, 2)->nullable(false);
             $table->decimal('qtd_minimo', 10, 2)->nullable(false);
