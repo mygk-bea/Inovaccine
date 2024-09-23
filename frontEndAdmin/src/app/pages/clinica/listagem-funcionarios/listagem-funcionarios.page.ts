@@ -14,7 +14,16 @@ import { InputSearchComponent } from 'src/app/components/input-search/input-sear
   templateUrl: './listagem-funcionarios.page.html',
   styleUrls: ['./listagem-funcionarios.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, HeaderComponent, TableAccordionComponent, HttpClientModule, ButtonAddComponent, InputSearchComponent],
+  imports: [
+    IonicModule, 
+    CommonModule, 
+    FormsModule, 
+    HeaderComponent, 
+    TableAccordionComponent, 
+    HttpClientModule, 
+    ButtonAddComponent, 
+    InputSearchComponent
+  ],
   providers: [FuncionarioService]
 })
 export class ListagemFuncionariosPage implements OnInit {

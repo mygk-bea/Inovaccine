@@ -1,0 +1,43 @@
+@import '../../../theme/variables.scss';
+
+.card{
+    padding: 10px;
+    border-radius: 5px;
+    background: var(--tertiary-color);
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+
+    &__title{
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    &__footer{
+        button{
+            background: transparent;
+        }
+
+        ion-text p{
+            margin: 0;
+        }
+    }
+
+    .show__info{
+        display: block;
+    }
+
+    &__info{
+        margin-top: 10px;
+        display: none;
+        
+        &__desc{
+            width: 100%;
+            border-radius: 10px;
+            background: $light-color;
+        }
+
+        p span{
+            font-weight: bold;
+        }
+    }
+    
+}

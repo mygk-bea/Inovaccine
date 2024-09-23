@@ -10,10 +10,6 @@ export const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
-  // {
-  //   path: 'teste',
-  //   loadComponent: () => import('./pages/teste/teste.page').then( m => m.TestePage)
-  // },
   {
     path: 'cadastro-medico',
     loadComponent: () => import('./pages/admin/cadastro-medico/cadastro-medico.page').then( m => m.CadastroMedicoPage)
@@ -29,7 +25,8 @@ export const routes: Routes = [
   {
     path: 'cadastro-funcionario',
     loadComponent: () => import('./pages/clinica/cadastro-funcionario/cadastro-funcionario.page').then( m => m.CadastroFuncionarioPage)
-  },  {
+  },
+  {
     path: 'cadastro-vacina',
     loadComponent: () => import('./pages/clinica/cadastro-vacina/cadastro-vacina.page').then( m => m.CadastroVacinaPage)
   },
@@ -41,8 +38,8 @@ export const routes: Routes = [
     path: 'cadastro-lote',
     loadComponent: () => import('./pages/clinica/cadastro-lote/cadastro-lote.page').then( m => m.CadastroLotePage)
   },
-
-
-
-
+  {
+    path: 'listagem-vacinas',
+    loadComponent: () => import('./pages/clinica/listagem-vacinas/listagem-vacinas.page').then( m => m.ListagemVacinasPage)
+  },
 ];

@@ -1,0 +1,19 @@
+@import '../../../../theme/variables.scss';
+
+.container__vacinas{
+    box-sizing: border-box;
+    margin: 40px 20px;
+    padding: 20px;
+    border-radius: 10px;
+    height:70vh;
+    background: $grayscale-light-color;
+
+    &__content{
+        .accordion__item {
+            ion-item.item.md.item-lines-full.ion-activatable.ion-focusable.item-label{
+                height: 80px;
+                --background: #{$light-color};
+            }
+        }
+    }
+}

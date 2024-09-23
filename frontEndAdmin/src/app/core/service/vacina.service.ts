@@ -23,4 +23,8 @@ export class VacinaService {
   pesquisarVacina(value: string): Observable<any>{
     return this.http.get<any>(`${ this.url }/pesquisaVacina?search=${value}`)
   }
+
+  listarVacina(): Observable<any>{
+    return this.http.get<any>(`${ this.url }/listagemVacina`)
+  }
 }
