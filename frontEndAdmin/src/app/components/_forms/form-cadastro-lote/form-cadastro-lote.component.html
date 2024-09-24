@@ -15,10 +15,10 @@
         (codigoSelecionado)="vacinaId = $event">
       </app-input-search-cadastro>
 
-      <app-input-text-list [inputs]="inputsDataLote" [formGroup]="formLote">
+      <app-input-text-list [inputs]="inputsDataLote" [formGroup]="form">
 
-        <app-input-date [formGroup]="formLote" [label]="'Data de Compra'" [name]="'dataCompra'"></app-input-date>
-        <app-input-date [formGroup]="formLote" [label]="'Data de Validade'" [name]="'dataValidade'"></app-input-date>
+        <app-input-date [formGroup]="form" [label]="'Data de Compra'" [name]="'dataCompra'"></app-input-date>
+        <app-input-date [formGroup]="form" [label]="'Data de Validade'" [name]="'dataValidade'"></app-input-date>
 
       </app-input-text-list>
     </ion-col>
@@ -27,7 +27,7 @@
       <ion-toolbar>
         <ion-title>Informações do Fornecedor</ion-title>
       </ion-toolbar>
-      <app-input-text-list [inputs]="inputsDataFornecedor" [formGroup]="formFornecedor"></app-input-text-list>
+      <app-input-text-list [inputs]="inputsDataFornecedor" [formGroup]="form"></app-input-text-list>
     </ion-col>
   </ion-row>
 

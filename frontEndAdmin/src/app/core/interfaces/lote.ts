@@ -4,8 +4,10 @@ export interface Lote {
     qtd_minimo: number,
     qtd: number,
     fk_lote_codClinica: number,
-    fk_lote_codFornecedor: number,
     fk_lote_codVacina: number,
     dataCompra: string,
-    dataValidade: string
+    dataValidade: string,
+    nome: string;
+    telefone: string;
+    cnpj: string;
 }
