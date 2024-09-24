@@ -1,0 +1,19 @@
+.container{
+    margin: 20px 0;
+
+    &__title{
+        text-align: center;
+        font-size: 3rem;
+    }
+    
+    .form{
+        margin: 40px 0;
+    
+        &__title{
+            text-align: center;
+            font-weight: normal;
+            font-size: 2rem;
+            color: var(--secondary-color);
+        }
+    }
+}

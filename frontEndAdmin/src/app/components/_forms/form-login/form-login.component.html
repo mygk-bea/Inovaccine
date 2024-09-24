@@ -1,0 +1,19 @@
+<ion-row class="container ion-justify-content-center ion-align-items-center">
+  <ion-col size="4">
+    <img src="{{ imgPath }}" alt="logo">
+    <ion-toolbar>
+      <ion-title class="container__title">{{ title }}</ion-title>
+    </ion-toolbar>
+
+    <form class="form" [formGroup]="form">
+      <ion-toolbar>
+        <ion-title class="form__title">Fazer Login</ion-title>
+      </ion-toolbar>    
+      <app-input-text-list [inputs]="inputsData" [formGroup]="form"></app-input-text-list>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-button class="form__button" type="ngSubmit">Entrar</ion-button>
+      </ion-row>
+    </form>
+  </ion-col>
+</ion-row>
