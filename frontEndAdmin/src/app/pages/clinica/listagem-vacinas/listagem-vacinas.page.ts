@@ -27,7 +27,7 @@ import { CardVacinaComponent } from 'src/app/components/card-vacina/card-vacina.
   providers: [VacinaService]
 })
 export class ListagemVacinasPage implements OnInit {
-  dados: any;
+  dados: any[] = [];
 
   constructor(private dadosVacina: VacinaService) { }
 
@@ -36,7 +36,14 @@ export class ListagemVacinasPage implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.dadosVacina.listarVacina().subscribe(
+      (response) => {
+        this.dados = response;
+      },
+      (error) => {
+        console.error("ERRO: ", error);
+      }
+    );
   }
 
   onSearchVacina(results: any[]) {

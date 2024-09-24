@@ -18,8 +18,8 @@
           </ion-title>
 
           <ion-item lines="none">
-            <!-- <app-input-search [searchFunction]="pesquisarFuncionario" (searchResults)="onSearchFuncionario($event)"></app-input-search>
-            <app-button-add [message]="'Novo Funcionario'" [imgPath]="'assets/icon/icon_user.svg'" [route]="'/cadastro-funcionario'"></app-button-add> -->
+            <app-input-search [searchFunction]="pesquisarVacina" (searchResults)="onSearchVacina($event)"></app-input-search>
+            <app-button-add [message]="'Nova Vacina'" [imgPath]="'assets/icon/icon_vacina.svg'" [route]="'/cadastro-vacina'"></app-button-add>
           </ion-item>
         </ion-row>
       </ion-toolbar>
@@ -27,8 +27,8 @@
       <ion-row class="container__vacinas">
         <ion-col size="12">
           <ion-row class="container__vacinas__content">
-            <ion-col size="3">
-              <app-card-vacina></app-card-vacina>
+            <ion-col size="4" *ngFor="let vacina of dados">
+              <app-card-vacina [dados]="vacina"></app-card-vacina>
             </ion-col>
           </ion-row>
         </ion-col>

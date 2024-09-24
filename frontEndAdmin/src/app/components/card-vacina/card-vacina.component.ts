@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { VacinaService } from 'src/app/core/service/vacina.service';
 
@@ -14,21 +14,21 @@ import { VacinaService } from 'src/app/core/service/vacina.service';
   providers: [VacinaService]
 })
 export class CardVacinaComponent  implements OnInit {
-  dados: any;
+  @Input() dados: any;
 
   constructor(private dadosVacina: VacinaService) { }
 
   ngOnInit() {}
 
-  listarDados() {
-    this.dadosVacina.listarVacina().subscribe(
-      (response) => {
-        this.dados = response;
-        console.log(this.dados);
-      },
-      (error) => {console.error("ERRO: ", error);}
-    )
-  }
+  // listarDados() {
+  //   this.dadosVacina.listarVacina().subscribe(
+  //     (response) => {
+  //       this.dados = response;
+  //       console.log(this.dados);
+  //     },
+  //     (error) => {console.error("ERRO: ", error);}
+  //   )
+  // }
 
   showInfo = false;
 }
