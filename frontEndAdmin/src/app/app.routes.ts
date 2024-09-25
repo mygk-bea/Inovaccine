@@ -54,6 +54,10 @@ export const routes: Routes = [
         path: 'listagem-vacinas',
         loadComponent: () => import('./pages/clinica/listagem-vacinas/listagem-vacinas.page').then( m => m.ListagemVacinasPage)
       },
+      {
+        path: 'login',
+        loadComponent: () => import('./pages/clinica/login/login.page').then( m => m.LoginPage)
+      }
     ]
-  }
+  },
 ];

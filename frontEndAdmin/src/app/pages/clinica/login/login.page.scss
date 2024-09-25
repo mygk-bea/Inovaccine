@@ -1,3 +1,15 @@
+.header{
+  &__nav{
+    ion-item{
+      a{
+        margin: 0 10px;
+        color: var(--secondary-color);
+        text-decoration: none;
+      }
+    }
+  }
+}
+
 .footer{
   height: 30vh;
   background: var(--primary-color);

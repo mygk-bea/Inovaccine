@@ -1,0 +1,28 @@
+<ion-content [fullscreen]="true" class="main__palette">
+  <ion-row class="header ion-align-items-center ion-justify-content-center">
+    <ion-col>
+      <ion-row class="header__nav ion-justify-content-center">
+        <ion-item lines="none" class="header__nav__item">
+          <a href="">Sobre Nós</a>
+          <a href="">Planos</a>
+          <a href="">Contato</a>
+        </ion-item>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="container ion-justify-content-center">
+    <ion-col size="10">
+      <app-form-login 
+        [imgPath]="'assets/images/logo_main.svg'"
+        [title]="'Administrador'"
+      ></app-form-login>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="footer">
+    <ion-col size="12">
+      <img src="assets/images/footer_main.svg" alt="img-footer">
+    </ion-col>
+  </ion-row>
+</ion-content>
