@@ -93,7 +93,6 @@ ion-header{
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    width: 95%;
     padding: 10px; /* Adicione um espaçamento entre as colunas */
 }
 
@@ -152,7 +151,6 @@ ion-header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%; /* Ajuste para manter uma largura mais proporcional */
     margin-top: 45px;
 }
 
@@ -167,7 +165,6 @@ ion-header{
     border-radius: 10px;
     padding: 15px;
     margin-bottom: 10px;
-    width: 100%; /* Ajuste a largura dos cartões para 100% */
 }
 
 .ion-color-green {
@@ -327,7 +324,6 @@ div[slot='content'] {
     }
 
     .card_vacPendente {
-        width: 90%;
         height: 20vh;
     }
 

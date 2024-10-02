@@ -1,14 +1,14 @@
 <ion-header class="header">
   <img src="./assets/img/logo_branca.png" class="logo">
   <div class="menu_header">
- <i>Home</i>
- <i>Agendamentos</i>
- <i>Disk Denúncia</i>
- <i>Redes</i>
+    <i>Home</i>
+    <i>Agendamentos</i>
+    <i>Disk Denúncia</i>
+    <i>Redes</i>
   </div>
   <div class="icons_header">
     <ion-icon name="person-outline" size="large"></ion-icon>
-    <ion-icon name="log-out-outline"size="large"></ion-icon>
+    <ion-icon name="log-out-outline" size="large"></ion-icon>
   </div>
 </ion-header>
 
@@ -25,66 +25,66 @@
   </div>
 </div>
 
-<div class="cards">
-  
-  <div class="minhas_vacinas">
-    <i class="text_MyVacina">
-      MINHAS VACINAS
-      <ion-icon name="checkmark-outline" size="large"></ion-icon>
-    </i>
-    <ion-accordion-group  class="card_vacina " *ngFor="let vacinas of vacina">
-      <ion-accordion value="first">
-        <ion-item slot="header" color="green" class="dropdown_MyVacina">
-          <ion-card-title class="dados_MyVacina">{{vacinas.nome}} 
-            <div class="info_MyVacina">
-              <i class="info_MyVacina">Lote: #0004</i>
-              <i class="info_MyVacina">Ass: DR.Chico Moedas</i>
-              <i class="info_MyVacina">00/00/0000</i>
-            </div>
-          </ion-card-title>
-        </ion-item>
-        <div class="ion-padding" slot="content">
-          <div class="centraliza_MyVacina">
-            <div class="sobre_vacina">
-              {{vacinas.informacao}} 
-              <div class="info_vacina">
-                <i>Doses: {{vacinas.diasAplicacao}}</i>
-                <i>Período: {{vacinas.periodo}}</i>
-                <i>Valor: R${{vacinas.preco}}</i>
+<ion-row class="cards">
+  <ion-col size="6">
+    <div class="minhas_vacinas">
+      <i class="text_MyVacina">
+        MINHAS VACINAS
+        <ion-icon name="checkmark-outline" size="large"></ion-icon>
+      </i>
+      <ion-accordion-group class="card_vacina " *ngFor="let vacinas of vacina">
+        <ion-accordion value="first">
+          <ion-item slot="header" color="green" class="dropdown_MyVacina">
+            <ion-card-title class="dados_MyVacina">{{vacinas.nome}}
+              <div class="info_MyVacina">
+                <i class="info_MyVacina">Lote: #0004</i>
+                <i class="info_MyVacina">Ass: DR.Chico Moedas</i>
+                <i class="info_MyVacina">00/00/0000</i>
+              </div>
+            </ion-card-title>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+            <div class="centraliza_MyVacina">
+              <div class="sobre_vacina">
+                {{vacinas.informacao}}
+                <div class="info_vacina">
+                  <i>Doses: {{vacinas.diasAplicacao}}</i>
+                  <i>Período: {{vacinas.periodo}}</i>
+                  <i>Valor: R${{vacinas.preco}}</i>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </ion-accordion>
-    </ion-accordion-group>
-  </div>
-  
-  <div class="vacinas_pendentes">
-  <div class="txt_vacina_pendente" >VACINAS PENDENTES
-    <ion-icon name="alert-circle-outline" size="large"></ion-icon>
-  </div>
-  <ion-card class="card_vacPendente" *ngFor="let vacinas of vacina">
-    <ion-card-header>
-      <ion-card-title
-        class="title_VacPendente">
-        {{vacinas.nome}} 
-        <ion-button class="btn-agendar" size="small">Agendar
-          <ion-icon name="calendar" size="medium" style="color: white; margin-left: 5px;"></ion-icon>
-        </ion-button>
-      </ion-card-title>
-    </ion-card-header>
-    <div class="centraliza_infovac">
-      <ion-card-content class="dados_vacPendentes">
-        {{vacinas.informacao}} 
-        <div class="info_vacPendentes">
-          <i>Doses:{{vacinas.diasAplicacao}} </i>
-          <i>Período: {{vacinas.periodo}}</i>
-          <i>Valor: R${{vacinas.preco}} </i>
-        </div>
-      </ion-card-content>
+        </ion-accordion>
+      </ion-accordion-group>
     </div>
-  </ion-card>
-</div>
+  </ion-col>
+  <ion-col size="6">
+    <div class="vacinas_pendentes">
 
-
-</div>
+      <div class="txt_vacina_pendente">VACINAS PENDENTES
+        <ion-icon name="alert-circle-outline" size="large"></ion-icon>
+      </div>
+      <ion-card class="card_vacPendente" *ngFor="let vacinas of vacina">
+        <ion-card-header>
+          <ion-card-title class="title_VacPendente">
+            {{vacinas.nome}}
+            <ion-button class="btn-agendar" size="small">Agendar
+              <ion-icon name="calendar" size="medium" style="color: white; margin-left: 5px;"></ion-icon>
+            </ion-button>
+          </ion-card-title>
+        </ion-card-header>
+        <div class="centraliza_infovac">
+          <ion-card-content class="dados_vacPendentes">
+            {{vacinas.informacao}}
+            <div class="info_vacPendentes">
+              <i>Doses:{{vacinas.diasAplicacao}} </i>
+              <i>Período: {{vacinas.periodo}}</i>
+              <i>Valor: R${{vacinas.preco}} </i>
+            </div>
+          </ion-card-content>
+        </div>
+      </ion-card>
+    </div>
+  </ion-col>
+</ion-row>
