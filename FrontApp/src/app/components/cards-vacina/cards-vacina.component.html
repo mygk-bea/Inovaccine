@@ -1,16 +1,3 @@
-<ion-header class="header">
-  <img src="./assets/img/logo_branca.png" class="logo">
-  <div class="menu_header">
-    <i>Home</i>
-    <i>Agendamentos</i>
-    <i>Disk Denúncia</i>
-    <i>Redes</i>
-  </div>
-  <div class="icons_header">
-    <ion-icon name="person-outline" size="large"></ion-icon>
-    <ion-icon name="log-out-outline" size="large"></ion-icon>
-  </div>
-</ion-header>
 
 <div class="ultilidades">
   <div class="input_pesquisa">
@@ -69,14 +56,16 @@
         <ion-card-header>
           <ion-card-title class="title_VacPendente">
             {{vacinas.nome}}
-            <ion-button class="btn-agendar" size="small">Agendar
+            <ion-button class="btn-agendar" size="medium">Agendar
               <ion-icon name="calendar" size="medium" style="color: white; margin-left: 5px;"></ion-icon>
             </ion-button>
           </ion-card-title>
         </ion-card-header>
         <div class="centraliza_infovac">
           <ion-card-content class="dados_vacPendentes">
-            {{vacinas.informacao}}
+            <i>
+              {{vacinas.informacao}}
+            </i>
             <div class="info_vacPendentes">
               <i>Doses:{{vacinas.diasAplicacao}} </i>
               <i>Período: {{vacinas.periodo}}</i>

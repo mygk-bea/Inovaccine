@@ -32,7 +32,7 @@
 @media (max-width: 980px) {
     .menuApp {
         height: 5%;
-        position: sticky; /* Faz o menu ficar fixo na tela */
+        position: block; /* Faz o menu ficar fixo na tela */
         bottom: 0;
         left: 0; /* Alinha o menu à parte inferior da tela */
         width: 100%;

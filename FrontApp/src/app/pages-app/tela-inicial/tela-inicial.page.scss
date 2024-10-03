@@ -37,5 +37,44 @@ body{
 app-menu{
     display: none;
 }
+@media (max-width:875px) {
+    .parte_superior {
+        width: 100%;
+        display: flex;
+    }
+
+    .texto {
+        display: flex;
+        flex-direction: column;
+        font-size: 15px;
+        width: 100%;
+        text-align: start;
+    }
+
+    .cpf {
+        color: gray;
+    }
+
+    .add_user {
+        //div onde está o icone
+        width: 11%;
+        height: 11%;
+    }
+
+    .user_add {
+        // icone 
+        color: var(--primary-color);
+        width: 32px;
+        height: 32px;
+    }
+    app-header-component{
+        display: none;
+    }
+    app-menu{
+    display: flex;
+    position: relative;
+    }
+    
+}
 
 

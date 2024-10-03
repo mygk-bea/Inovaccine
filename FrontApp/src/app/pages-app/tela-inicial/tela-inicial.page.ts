@@ -10,6 +10,7 @@ import { VacinaService } from 'src/app/core/services/vacina.service';
 import { Vacina } from 'src/app/core/interfaces/vacina';
 import { HttpClientModule } from '@angular/common/http';
 import { CardsVacinaComponent } from 'src/app/components/cards-vacina/cards-vacina.component';
+import { HeaderComponentComponent } from 'src/app/components/header-component/header-component.component';
 
 
 @Component({
@@ -17,7 +18,7 @@ import { CardsVacinaComponent } from 'src/app/components/cards-vacina/cards-vaci
   templateUrl: './tela-inicial.page.html',
   styleUrls: ['./tela-inicial.page.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, MenuComponent, IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonButton,IonIcon,IonAccordionGroup,IonItem,IonAccordion,HttpClientModule,CardsVacinaComponent],
+  imports: [CommonModule, FormsModule, MenuComponent, IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonButton,IonIcon,IonAccordionGroup,IonItem,IonAccordion,HttpClientModule,CardsVacinaComponent,HeaderComponentComponent],
   providers: [VacinaService]
 
 })

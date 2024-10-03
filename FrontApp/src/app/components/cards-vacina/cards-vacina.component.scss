@@ -1,26 +1,3 @@
-ion-header{
-    display: flex;
-    background-color: var(--primary-color);
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-.logo{
-    width: 20%;
-}
-.menu_header{
-    width: 40%;
-    display: flex;
-    gap: 10px;
-    color: var(--color-text-ligth);
-    font-size: 18px;
-    font-weight: bold;
-}
-.icons_header{
-    display: flex;
-    width: 5%;
-    color: var(--color-text-ligth);
-}
 .ultilidades {
     display: flex;
     justify-content: center;
@@ -78,7 +55,7 @@ ion-header{
 
 .txt_vacina_pendente {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .title_VacPendente {
@@ -87,13 +64,16 @@ ion-header{
     align-items: start;
     gap: 10px;
     justify-content: space-between;
+    font-size: 18px;
+    font-weight: bold;
 }
 .cards {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 10px; /* Adicione um espaçamento entre as colunas */
+    align-items: flex-start;/* Adicione um espaçamento entre as colunas */
+    width: 100%;
+    overflow-y: scroll;
 }
 
 .vacinas_pendentes {
@@ -101,15 +81,14 @@ ion-header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 50%; /* Ajuste para manter uma largura mais proporcional */
     color: var(--vacinas-pendentes);
+    width: 100%;
 }
 
 .card_vacPendente {
     background-color: var(--card-vacPendentes);
     border-radius: 20px;
-    width: 20%;
-    height: 10vh; /* Ajuste a largura dos cartões para 100% */
+    width: 100%;
 }
 
 .dados_vacPendentes {
@@ -117,11 +96,17 @@ ion-header{
     flex-direction: column;
     flex-wrap: wrap;
     background-color: var(--color-text-ligth);
-    border-radius: 15px;
+    margin-bottom: 20px;
+    border-radius: 45px;
     justify-content: center;
     align-items: center;
     color: var(--color-text-dark);
-    width: 20%;
+    width: 90%;
+    height: 8vh;
+
+    & i{
+        font-size: 15px;
+    }
 }
 
 .btn-agendar {
@@ -137,7 +122,6 @@ ion-header{
     align-items: center;
     color: var(--color-text-dark);
     font-weight: bold;
-    width: 15%;
 }
 
 .centraliza_infovac {
@@ -151,20 +135,24 @@ ion-header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 45px;
+    width: 100%;
 }
 
 .text_MyVacina {
     color: var(--primary-color);
-    font-size: 15px;
+    font-size: 25px;
     font-weight: bold;
 }
 
 .card_vacina {
+    display: flex;
+    flex-direction: column;
     background-color: var(--primary-color-light);
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 10px;
+    border-radius: 15px;
+    margin-top: 20px;
+    padding: 25px;
+    width: 100%;
+    
 }
 
 .ion-color-green {
@@ -184,6 +172,7 @@ div[slot='content'] {
     flex-direction: column;
     color: var(--primary-color);
     font-weight: bold;
+    font-size: 18px;
 }
 .dropdown_MyVacina{
     color: var(--primary-color);
@@ -195,9 +184,13 @@ div[slot='content'] {
     gap: 10px;
     color: var(--color-text-dark);
     font-weight: normal;
-    font-size: 15px;
+    font-size: 55px;
     justify-content: center;
     align-items: center;
+
+    & i{
+        font-size: 15px;
+    }
 }
 
 .centraliza_MyVacina {
@@ -212,10 +205,15 @@ div[slot='content'] {
     background-color: var(--color-text-ligth);
     border-radius: 15px;
     padding: 1%;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     color: var(--color-text-dark);
     width: 100%;
+    height: auto;
+
+    & i{
+        font-size: 15px;
+    }
 }
 
 .info_vacina {
@@ -226,215 +224,19 @@ div[slot='content'] {
     align-items: center;
     color: var(--color-text-dark);
     font-weight: bold;
-    width: 30%;
-    font-size: 15px;
+    font-size: 20px;
+    width: 100%;
 }
-/* Media Queries para responsividade */
-@media (max-width: 1080px) {
-    app-menu{
-        display: flex;
-    }
+
+@media (min-width: 180px) and (max-width: 868px) {
     body {
         width: 100%;
     }
 
-    .parte_superior {
-        width: 100%;
-    }
-
-    .texto {
-        display: flex;
-        flex-direction: column;
-        font-size: 30px;
-        width: 100%;
-        text-align: start;
-    }
-
-    .cpf {
-        color: gray;
-    }
-
-    .add_user {
-        //div onde está o icone
-        width: 8%;
-        height: 8%;
-    }
-
-    .user_add {
-        // icone 
-        color: var(--primary-color);
-        width: 64px;
-        height: 64px;
-    }
-
     .ultilidades {
         width: 100%;
-
-    }
-
-    .input_pesquisa {
-        font-size: 35px;
-        padding: 10px;
-    }
-
-    .search-input {
-        border-radius: 10px;
-        width: 100%;
-    }
-
-    .search-icon {
-        width: 64px;
-        height: 64px;
-    }
-
-    .btn_services {
-        gap: 5px;
-        width: 100%;
-    }
-
-    .btn_serviços {
-        width: 15%;
-        font-size: 25px;
-        --border-radius: 40px;
-    }
-
-    .btn_carteirinha {
-        width: 25%;
-        --background: var(--secondary-color);
-        --border-radius: 40px;
-        font-size: 25px;
-    }
-    ion-card-title{
-        font-size: 40px;
-    }
-
-    .txt_vacina_pendente {
-        font-weight: bold;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        font-size: 40px;
-    }
-
-    .vacinas_pendentes {
-        padding: 2%;
-        gap: 30px;
-
-    }
-
-    .card_vacPendente {
-        height: 20vh;
-    }
-
-    .dados_vacPendentes {
-
-        width: 90%;
-        font-size: 30px;
-    }
-
-    .btn-agendar {
-        font-size: 30px;
-        --border-radius: 15px;
-        height: 3%;
-    }
-
-    .info_vacPendentes {
-        width: 100%;
-    }
-
-    .minhas_vacinas {
-        margin-top: -500px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-
-    .text_MyVacina {
-        color: var(--primary-color);
-        font-size: 40px;
-        font-weight: bold;
-    }
-    .dropdown_MyVacina{
-        font-size: 15px;
-    }
-
-    .card_vacina {
-        width: 85%;
-
-    }
-
-    .ion-color-green {
-        --ion-color-base: var(--primary-color-light);
-    }
-
-    div[slot='content'] {
-        background: var(--primary-color-light);
-    }
-
-    .ion-padding {
-        --background: var(--primary-color-light)
-    }
-
-    .info_MyVacina {
-        font-size: 30px;
-    }
-
-    .sobre_vacina {
-        font-size: 30px;
-    }
-
-    .info_vacina {
-        font-size: 30px;
-    }
-}
-@media (max-width: 375px) {
-    app-menu{
-        display: flex;
-        
-    }
-    .card_vacPendente {
-        width: 90%;
-        height: 22vh;
-    }
-    body {
-        width: 100%;
-        
-    }
-
-    .parte_superior {
-        width: 100%;
-    }
-
-    .texto {
-        display: flex;
-        flex-direction: column;
-        font-size: 15px;
-        width: 100%;
-        text-align: start;
-    }
-
-    .cpf {
-        color: gray;
-    }
-
-    .add_user {
-        //div onde está o icone
-        width: 12%;
-        height: 12%;
-    }
-
-    .user_add {
-        // icone 
-        color: var(--primary-color);
-        width: 32px;
-        height: 32px;
-    }
-
-    .ultilidades {
-        width: 100%;
 
     }
 
@@ -456,6 +258,7 @@ div[slot='content'] {
     .btn_services {
         gap: 5px;
         width: 100%;
+        display: flex;
     }
 
     .btn_serviços {
@@ -484,166 +287,25 @@ div[slot='content'] {
         gap: 15px;
 
     }
-    .dados_vacPendentes {
-
-        width: 90%;
-        font-size: 12px;
-    }
-
-    .btn-agendar {
-        font-size: 12px;
-        --border-radius: 15px;
-        height: 3%;
-    }
-
-    .info_vacPendentes {
-        width: 100%;
-    }
-
-    .minhas_vacinas {
+    .cards{
         display: flex;
         flex-direction: column;
+        width: 100%;
         justify-content: center;
         align-items: center;
-        width: 100%;
-        gap: 10px;
-    }
-
-    .text_MyVacina {
-        color: var(--primary-color);
-        font-size: 25px;
-        font-weight: bold;
-    }
-    .dropdown_MyVacina{
-        font-size: 12px;
-    }
-
-    .card_vacina {
-        width: 85%;
-
-    }
-
-    .ion-color-green {
-        --ion-color-base: var(--primary-color-light);
-    }
-
-    div[slot='content'] {
-        background: var(--primary-color-light);
-    }
-
-    .ion-padding {
-        --background: var(--primary-color-light)
-    }
-
-    .info_MyVacina {
-        font-size: 12px;
-    }
-
-    .sobre_vacina {
-        font-size: 15px;
-    }
-
-    .info_vacina {
-        font-size: 12px;
-    }
-
-}
-@media (min-width: 380px) {
-    body {
-        width: 100%;
-        
-    }
-
-    .parte_superior {
-        width: 100%;
-    }
-
-    .texto {
-        display: flex;
-        flex-direction: column;
-        font-size: 15px;
-        width: 100%;
-        text-align: start;
-    }
-
-    .cpf {
-        color: gray;
-    }
-
-    .add_user {
-        //div onde está o icone
-        width: 12%;
-        height: 12%;
-    }
-
-    .user_add {
-        // icone 
-        color: var(--primary-color);
-        width: 32px;
-        height: 32px;
-    }
-
-    .ultilidades {
-        width: 100%;
-
-    }
-
-    .input_pesquisa {
-        font-size: 25px;
-        padding: 10px;
-    }
-
-    .search-input {
-        border-radius: 10px;
-        width: 100%;
-    }
-
-    .search-icon {
-        width: 40px;
-        height: 40px;
-    }
-
-    .btn_services {
-        gap: 5px;
-        width: 100%;
-    }
-
-    .btn_serviços {
-        width: 25%;
-        font-size: 15px;
-        --border-radius: 40px;
-    }
-
-    .btn_carteirinha {
-        width: 40%;
-        --background: var(--secondary-color);
-        --border-radius: 40px;
-        font-size: 15px;
-    }
-    ion-card-title{
-        font-size: 15px;
-    }
-
-    .txt_vacina_pendente {
-        font-weight: bold;
-        font-size: 25px;
-    }
-
-    .vacinas_pendentes {
-        padding: 2%;
-        gap: 15px;
-
     }
 
     .card_vacPendente {
-        width: 90%;
+        width: 200%;
         height: 18vh;
     }
 
     .dados_vacPendentes {
 
-        width: 90%;
-        font-size: 12px;
+        width: 95%;
+        & i{
+            font-size: 12px;
+        }
     }
 
     .btn-agendar {
@@ -654,6 +316,9 @@ div[slot='content'] {
 
     .info_vacPendentes {
         width: 100%;
+        & i{
+            font-size: 6px;
+        }
     }
 
     .minhas_vacinas {

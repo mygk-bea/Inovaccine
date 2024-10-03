@@ -1,0 +1,23 @@
+ion-header{
+    display: flex;
+    background-color: var(--primary-color);
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    width: 20%;
+}
+.menu_header{
+    width: 40%;
+    display: flex;
+    gap: 10px;
+    color: var(--color-text-ligth);
+    font-size: 18px;
+    font-weight: bold;
+}
+.icons_header{
+    display: flex;
+    width: 5%;
+    color: var(--color-text-ligth);
+}
