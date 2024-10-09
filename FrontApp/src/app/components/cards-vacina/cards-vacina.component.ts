@@ -7,6 +7,7 @@ import { Vacina } from 'src/app/core/interfaces/vacina';
 import { HttpClientModule } from '@angular/common/http';
 import { addIcons } from 'ionicons';
 import { alertCircleOutline, calendar, documentTextSharp, logOutOutline, personOutline, searchOutline } from 'ionicons/icons';
+import { MenuComponent } from '../menu/menu.component';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { alertCircleOutline, calendar, documentTextSharp, logOutOutline, personO
   templateUrl: './cards-vacina.component.html',
   styleUrls: ['./cards-vacina.component.scss'],
   standalone:true,
-  imports: [CommonModule, FormsModule, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonButton,IonIcon,IonAccordionGroup,IonItem,IonAccordion,HttpClientModule,IonRow,IonCol],
+  imports: [CommonModule, FormsModule, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonButton,IonIcon,IonAccordionGroup,IonItem,IonAccordion,HttpClientModule,IonRow,IonCol,MenuComponent],
   providers: [VacinaService]
 })
 export class CardsVacinaComponent  implements OnInit {

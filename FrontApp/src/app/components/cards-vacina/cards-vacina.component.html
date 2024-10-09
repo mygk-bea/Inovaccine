@@ -13,31 +13,31 @@
 </div>
 
 <ion-row class="cards">
-  <ion-col size="6">
+  <ion-col size-md="10" size-sm="12" size-lg="6">
     <div class="minhas_vacinas">
-      <i class="text_MyVacina">
+      <div class="text_MyVacina">
         MINHAS VACINAS
         <ion-icon name="checkmark-outline" size="large"></ion-icon>
-      </i>
+      </div>
       <ion-accordion-group class="card_vacina " *ngFor="let vacinas of vacina">
         <ion-accordion value="first">
           <ion-item slot="header" color="green" class="dropdown_MyVacina">
             <ion-card-title class="dados_MyVacina">{{vacinas.nome}}
               <div class="info_MyVacina">
-                <i class="info_MyVacina">Lote: #0004</i>
-                <i class="info_MyVacina">Ass: DR.Chico Moedas</i>
-                <i class="info_MyVacina">00/00/0000</i>
+                <p class="info_MyVacina">Lote: #0004</p>
+                <p class="info_MyVacina">Ass: DR.Chico Moedas</p>
+                <p class="info_MyVacina">00/00/0000</p>
               </div>
             </ion-card-title>
           </ion-item>
-          <div class="ion-padding" slot="content">
+          <div slot="content">
             <div class="centraliza_MyVacina">
               <div class="sobre_vacina">
                 {{vacinas.informacao}}
                 <div class="info_vacina">
-                  <i>Doses: {{vacinas.diasAplicacao}}</i>
-                  <i>Período: {{vacinas.periodo}}</i>
-                  <i>Valor: R${{vacinas.preco}}</i>
+                  <p>Doses: {{vacinas.diasAplicacao}}</p>
+                  <p>Período: {{vacinas.periodo}}</p>
+                  <p>Valor: R${{vacinas.preco}}</p>
                 </div>
               </div>
             </div>
@@ -46,7 +46,8 @@
       </ion-accordion-group>
     </div>
   </ion-col>
-  <ion-col size="6">
+
+  <ion-col  size-md="10" size-sm="10" size-lg="6">
     <div class="vacinas_pendentes">
 
       <div class="txt_vacina_pendente">VACINAS PENDENTES
@@ -63,13 +64,13 @@
         </ion-card-header>
         <div class="centraliza_infovac">
           <ion-card-content class="dados_vacPendentes">
-            <i>
+            <p>
               {{vacinas.informacao}}
-            </i>
+            </p>
             <div class="info_vacPendentes">
-              <i>Doses:{{vacinas.diasAplicacao}} </i>
-              <i>Período: {{vacinas.periodo}}</i>
-              <i>Valor: R${{vacinas.preco}} </i>
+              <p>Doses:{{vacinas.diasAplicacao}} </p>
+              <p>Período: {{vacinas.periodo}}</p>
+              <p>Valor: R${{vacinas.preco}} </p>
             </div>
           </ion-card-content>
         </div>
@@ -77,3 +78,4 @@
     </div>
   </ion-col>
 </ion-row>
+<app-menu></app-menu>

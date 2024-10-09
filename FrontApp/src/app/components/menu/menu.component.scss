@@ -13,7 +13,7 @@
     width: 100%;
     justify-content: space-around;
     flex-direction: row;
-    z-index: 1000;
+    z-index: 1001;
 }
 
 .icons {
@@ -49,13 +49,13 @@
 
 @media (min-width: 320px) {
     .menuApp {
-        height: 6%;
+        width: 100%;
         position:sticky;
     }
 
     .home_icon, .denuncia_icon, .seringa_icon, .user_icon {
-        width: 80px;
-        height: 80px;
+        width: 32px;
+        height: 32px;
     }
     label{
         font-size: 12px;

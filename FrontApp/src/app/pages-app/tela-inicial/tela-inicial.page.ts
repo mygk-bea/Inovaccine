@@ -5,7 +5,7 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, Io
 
 import { addIcons } from 'ionicons';
 import { calendar, checkmarkOutline, documentTextSharp, personAddSharp, searchOutline } from 'ionicons/icons';
-import { MenuComponent } from 'src/app/components/menu/menu.component';
+
 import { VacinaService } from 'src/app/core/services/vacina.service';
 import { Vacina } from 'src/app/core/interfaces/vacina';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,7 +18,7 @@ import { HeaderComponentComponent } from 'src/app/components/header-component/he
   templateUrl: './tela-inicial.page.html',
   styleUrls: ['./tela-inicial.page.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, MenuComponent, IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonButton,IonIcon,IonAccordionGroup,IonItem,IonAccordion,HttpClientModule,CardsVacinaComponent,HeaderComponentComponent],
+  imports: [CommonModule, FormsModule, IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonButton,IonIcon,IonAccordionGroup,IonItem,IonAccordion,HttpClientModule,CardsVacinaComponent,HeaderComponentComponent],
   providers: [VacinaService]
 
 })
