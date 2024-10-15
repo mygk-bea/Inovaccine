@@ -13,8 +13,9 @@ ion-input.custom {
     width: 100%;
     display: flex;
     flex-direction: column;
-   
-
+  }
+  app-menu{
+    display: none;
   }
   .component{
     display: flex;
@@ -24,7 +25,7 @@ ion-input.custom {
   }
   .formulario{
     background-color: #d9d9dd;
-    width: 30%;
+    width: 100%;
     height: 100%;
     border-radius: 10px;
     display: flex;
@@ -71,41 +72,69 @@ ion-input.custom {
     width: 30%;
     --background: var(--primary-color);
   }
-  @media (max-width: 480px) {
-    .formulario {
-      width: 100%;
+  .css_grandient{
+    background: linear-gradient(90deg, rgba(4,191,173,1) 0%, rgba(3,90,166,1) 37%, rgba(2,115,104,1) 60%);
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .text_css{
+        color: var(--color-text-ligth);
+        font-weight: bolder;
+        font-size: 40px;
     }
-  
-    .texto_dengue {
-      font-size: 20px;
+}
+.info_campanha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .img_virus_div{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+        .virus_img{
+            width: 80%;
+            
+        }
     }
-  
-    label {
-      font-size: 13px;
-      padding: 5px;
-    }
-  
-    .btn_enviar {
-      width: 50%;
-    }
+}
+@media (min-width: 320px) and (max-width: 980px) {
+  ion-row {
+    display: flex;
+    flex-direction: column; /* Permite que as colunas empilhem em telas pequenas */
+    align-items: center;    /* Centraliza horizontalmente */
   }
-  @media (max-width: 1024px) {
-    .formulario {
-      width: 100%;
-    }
-  
-    .texto_dengue {
-      font-size: 20px;
-    }
-  
-    label {
-      font-size: 13px;
-      padding: 5px;
-    }
-  
-    .btn_enviar {
-      width: 50%;
-    }
+  .css_grandient {
+    padding: 15px;
   }
 
-  
+  .text_css p {
+    font-size: 25px;
+  }
+
+  .texto_dengue {
+    font-size: 16px;
+  }
+
+  .inputs label {
+    font-size: 14px;
+  }
+
+  .inputs .custom {
+    font-size: 14px;
+  }
+
+  .btn_enviar {
+    width: 95%;
+  }
+  app-menu{
+    display: flex;
+position: sticky; 
+bottom: 0;
+left: 0;
+width: 100%;
+z-index: 1000;
+}
+}

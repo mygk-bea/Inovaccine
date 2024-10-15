@@ -1,11 +1,30 @@
-<div class="component">
-  <form action="" class="formulario">
-    <div class="texto_dengue">
-      Denuncie um possível criadouro da Dengue
+<div class="css_grandient">
+  <div class="text_css">
+    <p>
+      #TODOSCONTRAOMOSQUITO  
+    </p>
+  </div>
+</div>
+
+<ion-row>
+  <ion-col size-md="10" size-sm="12" size-lg="6" size-xs="12">
+    <div class="info_campanha">
+      <div class="img_virus_div">
+        <p style="font-size: 35px; color: gray;font-weight: bolder;">Denuncie um Posível Criadouro de Dengue:</p>
+        <img class="virus_img" src="./assets/img/Virus Disinfection-pana.png" alt="">
+      </div>
     </div>
-    <div class="inputs">
-      <label for="custom">Nome Completo*</label>
-      <ion-input placeholder="Nome" class="custom "  [counter]="true"></ion-input>
+  </ion-col>
+
+<ion-col size-md="10" size-sm="12" size-lg="6" size-xs="12">
+  <div class="component">
+    <form action="" class="formulario">
+      <div class="texto_dengue">
+        Deixe Aqui Sua Denúncia
+      </div>
+      <div class="inputs">
+        <label for="custom">Nome Completo*</label>
+        <ion-input placeholder="Nome" class="custom "  [counter]="true"></ion-input>
       <label for="custom">Descrição</label>
       <ion-input  placeholder="Escreva mais detalhes aqui" class="custom desc"  [counter]="true"></ion-input>
       <label for="custom">Localização* <ion-icon name="location-sharp"></ion-icon></label>
@@ -23,6 +42,9 @@
     <i class="i_style">
       Saiba mais o que acontecerá após fazer a denúncia
     </i>
-
+    
   </form>
 </div>
+</ion-col>
+</ion-row>
+<app-menu></app-menu> 
