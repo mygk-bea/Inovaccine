@@ -1,10 +1,10 @@
 <ion-header class="header">
   <img src="./assets/img/logo_branca.png" class="logo">
   <div class="menu_header">
-    <i>Home</i>
-    <i>Agendamentos</i>
-    <i>Disk Denúncia</i>
-    <i>Redes</i>
+    <i (click)="navigateTo('tela-inicial', 'forward')">Home</i>
+    <i (click)="navigateTo('agendamento-page', 'forward')">Agendamentos</i>
+    <i (click)="navigateTo('tela-servicos', 'forward')" >Disk Denúncia</i>
+    <i (click)="navigateTo('vacina-em-casa-page', 'forward')">Redes</i>
   </div>
   <div class="icons_header">
     <ion-icon name="person-outline" size="large"></ion-icon>
