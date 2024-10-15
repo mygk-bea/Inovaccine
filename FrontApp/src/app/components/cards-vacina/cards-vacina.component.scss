@@ -94,16 +94,16 @@ app-menu{
     .dados_vacPendentes {
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
         background-color: var(--color-text-ligth);
         border-radius: 10px;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         color: var(--color-text-dark);
+        width: 100%;
     
-        & i{
-            font-size: 15px;
-        }
+    .vacPendente_info{
+        font-size: 16px;
+    }
     }
 
     .btn-agendar {
@@ -118,7 +118,11 @@ app-menu{
         justify-content: space-between;
         align-items: center;
         color: var(--color-text-dark);
-        font-weight: bold;
+        width: 100%;
+        p{
+            font-size: 15px;
+            font-weight: bolder;
+        }
     }
 }
 
@@ -223,7 +227,7 @@ div[slot='content'] {
     align-items: center;
     color: var(--color-text-dark);
     font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
     width: 100%;
 }
 
@@ -296,9 +300,6 @@ div[slot='content'] {
     .dados_vacPendentes {
 
         width: 100%;
-        & p{
-            font-size: 0.8em;
-        }
     }
 
     .btn-agendar {
@@ -309,9 +310,6 @@ div[slot='content'] {
 
     .info_vacPendentes {
         width: 100%;
-        & p{
-            font-size: 0.8em;
-        }
     }
 
     .minhas_vacinas {
