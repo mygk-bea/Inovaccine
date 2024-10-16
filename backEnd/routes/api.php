@@ -41,3 +41,4 @@ Route::get('/listagemVacina', [App\Http\Controllers\VacinaController::class, 'li
 Route::get('/listagemMedico', [App\Http\Controllers\MedicoController::class, 'list']);
 Route::get('/listagemPaciente', [App\Http\Controllers\PacienteController::class, 'list']);
 
+Route::post('/login', [App\Http\Controllers\LoginController::class, 'autenticar']);
