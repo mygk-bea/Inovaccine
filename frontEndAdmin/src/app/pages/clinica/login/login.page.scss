@@ -1,4 +1,5 @@
 .header{
+  height: 10vh;
   &__nav{
     ion-item{
       a{
@@ -10,8 +11,12 @@
   }
 }
 
+.container{
+  min-height: 80vh;
+}
+
 .footer{
-  height: 30vh;
+  height: 10vh;
   background: var(--primary-color);
   img{
     margin: 0 20px;
