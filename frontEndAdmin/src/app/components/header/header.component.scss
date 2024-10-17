@@ -19,6 +19,15 @@
         text-decoration: none;
         text-align: center;
         color: $green-light-color;
+
+        &:hover{
+          transition: .2s all;
+          box-shadow: 0 2px 0 $green-light-color;
+        }
+
+        &.active-link {
+          box-shadow: 0 2px 0 $green-light-color;
+        }
       }
     }
   }

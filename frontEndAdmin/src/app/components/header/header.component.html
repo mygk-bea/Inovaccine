@@ -17,7 +17,12 @@
       <ion-col>
         <ion-row class="header__nav ion-justify-content-center">
           <ion-item *ngFor="let page of pagesMenu" lines="none" class="header__nav__item">
-            <a href="">{{ page.name }}</a>
+            <a 
+              [routerLink]="page.route"
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{ exact: true }">
+              {{ page.name }}
+            </a>
           </ion-item>
         </ion-row>
       </ion-col>

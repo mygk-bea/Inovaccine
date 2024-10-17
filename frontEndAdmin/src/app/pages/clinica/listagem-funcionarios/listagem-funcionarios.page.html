@@ -1,10 +1,10 @@
 <app-header 
 [backgroundColor]="'main__palette'"
 [pagesMenu]="[
-  {name:'Home', route:' '},
-  {name:'Vacinas',   route:' '},
-  {name:'Funcionários',  route:' '},
-  {name:'Estoque',  route:' '},
+  {name:'Home', route:'/clinica/home'},
+  {name:'Vacinas', route:'/clinica/listagem-vacinas'},
+  {name:'Funcionários', route:'/clinica/listagem-funcionarios'},
+  {name:'Estoque', route:'/clinica/listagem-funcionarios'}
 ]"></app-header>
 
 <ion-content [fullscreen]="true" class="main__palette">
@@ -18,7 +18,7 @@
 
           <ion-item lines="none">
             <app-input-search [searchFunction]="pesquisarFuncionario" (searchResults)="onSearchFuncionario($event)"></app-input-search>
-            <app-button-add [message]="'Novo Funcionario'" [imgPath]="'assets/icon/icon_user.svg'" [route]="'/cadastro-funcionario'"></app-button-add>
+            <app-button-add [message]="'Novo Funcionario'" [imgPath]="'assets/icon/icon_user.svg'" [route]="'/clinica/cadastro-funcionario'"></app-button-add>
           </ion-item>
         </ion-row>
       </ion-toolbar>

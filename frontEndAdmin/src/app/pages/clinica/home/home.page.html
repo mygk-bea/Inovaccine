@@ -1,9 +1,10 @@
 <app-header 
 [backgroundColor]="'main__palette'"
 [pagesMenu]="[
-  {name:'Listagens', route:'listagem'},
-  {name:'Médicos',   route:'cad-medicos'},
-  {name:'Clínicas',  route:'cad-clinica'}
+  {name:'Home', route:'/clinica/home'},
+  {name:'Vacinas', route:'/clinica/listagem-vacinas'},
+  {name:'Funcionários', route:'/clinica/listagem-funcionarios'},
+  {name:'Estoque', route:'/clinica/listagem-funcionarios'}
 ]"></app-header>
 
 <ion-content [fullscreen]="true">
