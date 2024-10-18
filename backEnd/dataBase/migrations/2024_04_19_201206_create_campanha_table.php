@@ -15,12 +15,11 @@ return new class extends Migration
             $table->increments('codCampanha')->unsigned();
             $table->string('nome')->nullable(false);
             $table->unsignedInteger('fk_campanha_codVacina');
-            $table->unsignedInteger('fk_campanha_codAgendamento');
             $table->dateTime('dataInicio')->nullable(false);
             $table->dateTime('dataFim')->nullable(false);
+            $table->boolean('status')->nullable(false);
 
             $table->foreign('fk_campanha_codVacina')->references('codVacina')->on('Vacina');
-            $table->foreign('fk_campanha_codAgendamento')->references('codAgendamento')->on('Agendamento');
 
             $table->timestamps();
 
