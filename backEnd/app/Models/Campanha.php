@@ -15,16 +15,13 @@ class Campanha extends Model
         'codCampanha',
         'nome',
         'fk_campanha_codVacina',
-        'fk_campanha_codAgendamento',
+        'status',
         'dataInicio',
         'dataFim'
     ]; 
 
     public function vacina(){
         return $this->belongsTo(Vacina::class, 'fk_campanha_codVacina');
-    }
-    public function agendamento(){
-        return $this->belongsTo(Agendamento::class, 'fk_campanha_codAgendamento');
     }
     use HasFactory;
 }
