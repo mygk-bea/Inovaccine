@@ -1,0 +1,16 @@
+@import '../../../../theme/variables.scss';
+
+.content{
+  &__modal{
+    --border-radius: 10px;
+    --height: fit-content;
+
+    .btn__exit{
+      margin: 0 5px;
+      cursor: pointer;
+      img{
+        height: 35px;
+      }
+    }
+  }
+}

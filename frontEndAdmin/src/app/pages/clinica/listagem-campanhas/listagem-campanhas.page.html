@@ -18,7 +18,7 @@
 
           <ion-item lines="none">
             <app-input-search [searchFunction]="pesquisarCampanha" (searchResults)="onSearchCampanha($event)"></app-input-search>
-            <button class="button__add" (click)="openModal()">
+            <button id="open-modal" class="button__add">
               <span>+</span>
               <div class="button__add__inner">
                 <p>Adicionar Campanha</p>
@@ -37,4 +37,6 @@
 
     </ion-col>
   </ion-row>
+
+  <app-modal-form-cadastro-campanha></app-modal-form-cadastro-campanha>
 </ion-content>

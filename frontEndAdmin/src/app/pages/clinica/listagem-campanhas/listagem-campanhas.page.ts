@@ -8,6 +8,7 @@ import { ButtonAddComponent } from 'src/app/components/button-add/button-add.com
 import { InputDateComponent } from 'src/app/components/_inputs/input-date/input-date.component';
 import { InputSearchComponent } from 'src/app/components/_inputs/input-search/input-search.component';
 import { ItemCampanhaComponent } from 'src/app/components/item-campanha/item-campanha.component';
+import { ModalFormCadastroCampanhaComponent } from 'src/app/components/_forms/modal-form-cadastro-campanha/modal-form-cadastro-campanha.component';
 
 @Component({
   selector: 'app-listagem-campanhas',
@@ -23,7 +24,8 @@ import { ItemCampanhaComponent } from 'src/app/components/item-campanha/item-cam
     ButtonAddComponent,
     InputDateComponent,
     InputSearchComponent,
-    ItemCampanhaComponent
+    ItemCampanhaComponent,
+    ModalFormCadastroCampanhaComponent
   ]
 })
 export class ListagemCampanhasPage implements OnInit {
@@ -42,9 +44,4 @@ export class ListagemCampanhasPage implements OnInit {
     console.log(results);
     this.dados = results;
   }
-
-  openModal() {
-    console.log("oi")
-  }
-
 }
