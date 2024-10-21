@@ -1,0 +1,68 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f8f8; /* Cor do fundo */
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-left .logo {
+  width: 150px;
+  margin-bottom: 10px;
+}
+
+.website-links a {
+  margin-right: 15px;
+  color: #000;
+  text-decoration: none;
+}
+
+.website-align {
+  margin: 10px;
+}
+
+.footer-social-and-rights {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-right {
+  text-align: left;
+  flex-direction: column;
+}
+
+.footer-right h5 {
+  margin-bottom: 10px;
+}
+
+.social-media {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.social-media ion-icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.footer-bottom-rights {
+  text-align: right;
+  font-size: 14px;
+}
+
+.footer-bottom-rights a {
+  color: #000;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.footer-bottom-rights p {
+  margin: 0;
+}

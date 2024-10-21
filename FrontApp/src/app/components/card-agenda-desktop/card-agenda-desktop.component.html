@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Serviços de Saúde</h1>
+
+  <div class="button-group">
+    <ion-button class="btn agenda-btn" (click)="navigateTo('vacina-em-casa-page', 'forward')">
+      <ion-icon name="calendar" slot="start"></ion-icon>
+      <span>Agendar Vacina</span>
+    </ion-button>
+    
+    <ion-button class="btn consultas-btn" (click)="navigateTo('ver-consultas-page', 'forward')">
+      <ion-icon name="document-text" slot="start"></ion-icon>
+      <span>Ver Consultas Futuras</span>
+    </ion-button>
+
+  </div>
+</div>
+<modal-clinicas></modal-clinicas>

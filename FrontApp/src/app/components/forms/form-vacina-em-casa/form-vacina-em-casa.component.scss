@@ -1,119 +1,85 @@
-body{
-    overflow-y: scroll;
+/* Geral */
+body {
+  overflow-y: scroll; /* Permite rolagem vertical se necessário */
 }
+
+/* Animações */
 .page-content {
-  transition: opacity 0.5s ease-out; /* Define uma transição suave de 0.5 segundos */
-  opacity: 1; /* Começa com opacidade total */
+  transition: opacity 0.5s ease-out; /* Animação de transição de opacidade */
+  opacity: 1;
 }
 
-.page-content.fade-out {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+/* Parte Superior */
+.parte_superior {
+  display: none;
+  justify-content: space-between; /* Espaço entre os itens */
+  align-items: center; /* Alinha verticalmente os itens */
+  padding: 10px; /* Padding para a parte superior */
+  background-color: #ffffff; /* Fundo branco para destacar os elementos */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
 }
 
+/* Ícone de Navegação */
+.icon {
+  display: flex;
+  justify-content: flex-start; /* Alinha ícone à esquerda */
+}
 
-  .parte_superior {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+/* Logo */
+.ajuste_logo {
+  max-width: 120px; /* Largura máxima do logo */
+  height: auto; /* Mantém a proporção do logo */
+}
 
-    & .icone_seta{
-      font-size: 32px;
-      display: flex;
-       justify-content:center;
-        align-items: center;
-         color: var(--primary-color);
-         
-    }
+/* Formulário */
+.div_form {
+  display: flex;
+  justify-content: center; 
+  flex-direction: column; /* Coloca os elementos na vertical */
+  align-items: center; /* Centraliza os elementos horizontalmente */
+  padding: 20px; /* Padding interno do formulário */
+ /* Fundo cinza claro */
+  border-radius: 10px; /* Bordas arredondadas */
+ /* Sombra para profundidade */
+  width: 100%; /* Ocupa toda a largura disponível */
+  max-width: 600px; /* Largura máxima do formulário */
+  margin: auto; /* Centraliza horizontalmente na tela */
+}
 
-    & .icon{
-      display: flex;
-      justify-content: flex-start;
-    }
+/* Grupos de Formulário */
+.form-group {
+  width: 100%; /* Ocupa toda a largura do formulário */
+  margin: 10px 0; /* Margem vertical entre grupos */
+}
 
-    & .logo {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-    
-    & .ajuste_logo {
-      width: 25%;
-      height: 25%;
-    }
+/* Campos Adicionais */
+.additional-fields {
+  width: 100%; /* Ocupa toda a largura do formulário */
+  transition: max-height 0.3s ease-in-out; /* Transição suave ao exibir campos */
+  overflow: hidden; /* Esconde campos excedentes */
+}
+
+.show-fields {
+  max-height: 1000px; /* Altura máxima quando os campos estão visíveis */
+}
+
+/* Botão de Agendamento */
+.agd_btn {
+  width: 100%; /* Ocupa toda a largura do formulário */
+  --background: var(--primary-color)
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  .ajuste_logo {
+    max-width: 100%; /* Logo ocupa 100% em telas menores */
   }
-  .div_form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 3vw;
 
-    & .form_consulta{
-      display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    }
-
-    & .form-group{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2vw;
-    }
+  .div_form {
+    padding: 15px; /* Reduz padding em telas menores */
   }
-  ion-select {
-    --background: #e0e2ec;
-    width: 12vw;
-    justify-content: center;
+
+  .form-group {
+    margin: 8px 0; /* Reduz margem em telas menores */
   }
-  .agd_btn{
-    --background: var(--primary-color);
-
-  }
-  
-  @media (min-width: 275px) and (max-width: 768px) {
-    .parte_superior {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between; /* Adicionado para espaçar corretamente os itens */
-        width: 100%;
-        padding: 0 10px; /* Adiciona algum espaço nas laterais */
-    }
-
-    .logo {
-        width: 100%; 
-        display: flex;
-        justify-content: center;
-    }
-
-    .ajuste_logo {
-        width: 100%; 
-        scale: 2; 
-    }
-
-    .icone_seta {
-        font-size: 32px;
-        display: flex;
-        justify-content: center;
-        align-items: center;   
-    }
-    ion-select {
-      --background: #e0e2ec;
-      width: 68vw;
-      justify-content: center;
-    }
-    .div_form{
-      padding: 15vw;
-      & .form-group{
-        padding: 5vw;
-      }
-    }
-    .agd_btn{
-      width: 100%;
-    }
 }

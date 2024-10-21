@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { IonDatetime, IonItem, IonLabel, IonSelect, IonSelectOption, IonButton,IonHeader,IonToolbar,IonContent,IonTitle,IonIcon} from '@ionic/angular/standalone';
-import {arrowBack} from 'ionicons/icons';
+import { IonDatetime, IonItem, IonLabel, IonSelect, IonSelectOption, IonButton, IonHeader, IonToolbar, IonContent, IonTitle, IonIcon } from '@ionic/angular/standalone';
+import { CommonModule } from '@angular/common';
+import { arrowBack } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
 import { InputDataComponent } from './input-data/input-data.component';
 import { DataSharingService } from 'src/app/core/services/data-sharing.service';
 import { NavController, AnimationController, AnimationBuilder } from '@ionic/angular';
-
-
+import { HeaderComponentComponent } from '../../header-component/header-component.component';
+import { FooterComponent } from '../../footer/footer.component';
 
 @Component({
   selector: 'FormVacinaEmCasa',
@@ -14,6 +15,7 @@ import { NavController, AnimationController, AnimationBuilder } from '@ionic/ang
   styleUrls: ['./form-vacina-em-casa.component.scss'],
   standalone: true,
   imports: [
+    CommonModule,
     IonDatetime,
     IonItem,
     IonLabel,
@@ -26,6 +28,8 @@ import { NavController, AnimationController, AnimationBuilder } from '@ionic/ang
     IonTitle,
     IonIcon,
     InputDataComponent,
+    HeaderComponentComponent,
+    FooterComponent
   ]
 })
 export class FormVacinaEmCasaComponent implements OnInit {
@@ -33,14 +37,36 @@ export class FormVacinaEmCasaComponent implements OnInit {
   selectedTime: string | undefined;
   selectedVaccine: string | undefined;
   selectedPaymentMethod: string | undefined;
+  selectedClinic: string | undefined;
 
-  constructor(private dataSharingService: DataSharingService, private navCtrl: NavController, private animationCtrl: AnimationController){
-    addIcons({arrowBack});
-    
+  public selectedMode: string | undefined; // Modalidade de agendamento
+  public showAdditionalFields: boolean = false; // Exibir campos adicionais
+  public isHomeVisit: boolean = false; // Indica se a modalidade é "vacina em casa"
+  public clinics: string[] = []; // Adiciona uma lista de clínicas
+  public showPaymentMethodLabel: boolean = false; // Controla a exibição da label de forma de pagamento
+
+  constructor(
+    private dataSharingService: DataSharingService,
+    private navCtrl: NavController,
+    private animationCtrl: AnimationController
+  ) {
+    addIcons({ arrowBack });
   }
+
+  ngOnInit() {
+    // Inicializa as clínicas disponíveis
+    this.clinics = ['Clínica A', 'Clínica B', 'Clínica C']; // Você pode preencher com dados reais
+    
+    // Assinatura dos dados compartilhados
+    this.dataSharingService.date$.subscribe(date => this.selectedDate = date);
+    this.dataSharingService.time$.subscribe(time => this.selectedTime = time);
+    this.dataSharingService.vaccine$.subscribe(vaccine => this.selectedVaccine = vaccine);
+    this.dataSharingService.payment$.subscribe(payment => this.selectedPaymentMethod = payment);
+  }
+
+  // Método para navegar para uma nova página
   navigateTo(path: string, direction: 'back') {
-    // Use o NavController para navegação com animação
-    const animation: AnimationBuilder | undefined = direction === 'back' ? this. createBackwardAnimation() : undefined;
+    const animation: AnimationBuilder | undefined = direction === 'back' ? this.createBackwardAnimation() : undefined;
     this.navCtrl.navigateForward(path, { animation });
   }
 
@@ -64,49 +90,40 @@ export class FormVacinaEmCasaComponent implements OnInit {
         .addAnimation([enterAnimation, leaveAnimation]);
     };
   }
-  ngOnInit() {
-    this.dataSharingService.date$.subscribe(date => this.selectedDate = date);
-    this.dataSharingService.time$.subscribe(time => this.selectedTime = time);
-    this.dataSharingService.vaccine$.subscribe(vaccine => this.selectedVaccine = vaccine);
-    this.dataSharingService.payment$.subscribe(payment => this.selectedPaymentMethod = payment);
+
+  // Método para lidar com a mudança de modalidade
+  onModalityChange(event: any) {
+    this.selectedMode = event.detail.value; // Atualiza a modalidade selecionada
+    this.isHomeVisit = this.selectedMode === 'casa'; // Verifica se é "vacina em casa"
+    this.showAdditionalFields = true; // Mostra os campos adicionais
   }
 
   handleDateChange(event: any) {
-    this.dataSharingService.setDate(event.detail.value);
+    this.dataSharingService.setDate(event.detail.value); // Atualiza a data no serviço
   }
 
   handleTimeChange(event: any) {
-    this.dataSharingService.setTime(event.detail.value);
+    this.dataSharingService.setTime(event.detail.value); // Atualiza a hora no serviço
   }
 
   handleVaccineChange(event: any) {
-    this.dataSharingService.setVaccine(event.detail.value);
+    this.dataSharingService.setVaccine(event.detail.value); // Atualiza a vacina no serviço
   }
 
   handlePaymentChange(event: any) {
-    this.dataSharingService.setPayment(event.detail.value);
+    this.dataSharingService.setPayment(event.detail.value); // Atualiza a forma de pagamento no serviço
+  }
+
+  handleClinicChange(event: any) {
+    this.selectedClinic = event.detail.value; // Atualiza a clínica selecionada
   }
 
   onSubmit() {
     if (this.selectedDate && this.selectedTime) {
-      const formattedDateTime = this.formatDate(this.selectedDate) + ' ' + this.selectedTime;
-      console.log('Data e Hora a serem enviadas para o banco de dados:', formattedDateTime);
-      console.log('Vacina:', this.selectedVaccine);
-      console.log('Forma de Pagamento:', this.selectedPaymentMethod);
-      // Aqui você enviaria os dados para o backend
+      // Lógica para enviar o formulário
+      console.log('Formulário enviado com sucesso!');
     } else {
-      console.error('Dados insuficientes para o envio!');
+      console.log('Por favor, preencha todos os campos obrigatórios.');
     }
   }
-  
-  private formatDate(dateString: string): string {
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const day = date.getDate().toString().padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  }
-
 }
-
-

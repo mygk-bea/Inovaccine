@@ -1,4 +1,6 @@
 .data-input{
+    display: flex;
+    flex-direction: column;
 margin-bottom: -15px;
 }
 @media (min-width: 275px) and (max-width: 768px)  {

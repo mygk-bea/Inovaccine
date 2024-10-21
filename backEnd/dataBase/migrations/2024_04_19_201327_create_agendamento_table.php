@@ -19,10 +19,12 @@ return new class extends Migration
             $table->unsignedInteger('fk_clinica_codClinica');
             $table->dateTime('dataHora')->nullable(false);
             $table->boolean('comparecimento');
+            $table->unsignedInteger('fk_campanha_codCampanha')->nullable();
 
             $table->foreign('fk_vacina_codVacina')->references('codVacina')->on('Vacina');
             $table->foreign('fk_paciente_codPaciente')->references('codPaciente')->on('Paciente');
             $table->foreign('fk_clinica_codClinica')->references('codClinica')->on('Clinica');
+            $table->foreign('fk_campanha_codCampanha')->references('codCampanha')->on('campanha');
 
             $table->timestamps();
         });
