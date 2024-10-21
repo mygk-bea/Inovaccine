@@ -1,0 +1,26 @@
+@import '../../../theme/variables.scss';
+
+.item__container {
+  width: 100%;
+  margin: 5px 0;
+  padding: 0 10px;
+  background: $grayscale-light-color;
+  font-weight: bold;
+  box-sizing: border-box;
+  border-radius: 10px;
+
+  &__status{
+    .dot{
+      margin: 0 15px;
+      padding: 8px;
+      width: 10px;
+      height: 10px;
+      background: $green-primary-color;
+      border-radius: 50%;
+    }
+  }
+
+  &__img {
+    height: 25px;
+  }
+}

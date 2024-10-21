@@ -17,11 +17,23 @@
           </ion-title>
 
           <ion-item lines="none">
-            <!-- <app-input-search [searchFunction]="pesquisarFuncionario" (searchResults)="onSearchFuncionario($event)"></app-input-search>-->
-            <!-- <app-button-add [message]="'Novo Funcionario'" [imgPath]="'assets/icon/icon_user.svg'" [route]="'/cadastro-funcionario'"></app-button-add>  -->
+            <app-input-search [searchFunction]="pesquisarCampanha" (searchResults)="onSearchCampanha($event)"></app-input-search>
+            <button class="button__add" (click)="openModal()">
+              <span>+</span>
+              <div class="button__add__inner">
+                <p>Adicionar Campanha</p>
+              </div>
+            </button>
           </ion-item>
         </ion-row>
       </ion-toolbar>
+
+      <ion-row class="container__listagem">
+        <ion-col>
+          <app-item-campanha></app-item-campanha>
+          <app-item-campanha></app-item-campanha>
+        </ion-col>
+      </ion-row>
 
     </ion-col>
   </ion-row>
