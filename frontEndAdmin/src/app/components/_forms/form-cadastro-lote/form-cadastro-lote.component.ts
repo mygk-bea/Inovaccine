@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { InputTextListComponent } from '../../input-text-list/input-text-list.component';
+import { InputTextListComponent } from '../../_inputs/input-text-list/input-text-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoteService } from 'src/app/core/service/lote.service';
 import { VacinaService } from 'src/app/core/service/vacina.service';
-import { InputSearchCadastroComponent } from '../../input-search-cadastro/input-search-cadastro.component';
-import { InputDateComponent } from '../../input-date/input-date.component';
+import { InputSearchCadastroComponent } from '../../_inputs/input-search-cadastro/input-search-cadastro.component';
+import { InputDateComponent } from '../../_inputs/input-date/input-date.component';
 
 @Component({
   selector: 'app-form-cadastro-lote',

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { InputTextListComponent } from '../../input-text-list/input-text-list.component';
+import { InputTextListComponent } from '../../_inputs/input-text-list/input-text-list.component';
 import { ClinicaService } from 'src/app/core/service/clinica.service';
 import { HttpClientModule } from '@angular/common/http';
-import { InputTimeComponent } from '../../input-time/input-time.component';
+import { InputTimeComponent } from '../../_inputs/input-time/input-time.component';
 import { MedicoService } from 'src/app/core/service/medico.service';
 import { CommonModule } from '@angular/common';
-import { InputSearchCadastroComponent } from '../../input-search-cadastro/input-search-cadastro.component';
+import { InputSearchCadastroComponent } from '../../_inputs/input-search-cadastro/input-search-cadastro.component';
 
 @Component({
   selector: 'app-form-cadastro-clinica',

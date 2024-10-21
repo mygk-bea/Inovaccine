@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonAddComponent } from 'src/app/components/button-add/button-add.component';
-import { InputSearchComponent } from 'src/app/components/input-search/input-search.component';
+import { InputSearchComponent } from 'src/app/components/_inputs/input-search/input-search.component';
 import { VacinaService } from 'src/app/core/service/vacina.service';
 import { CardVacinaComponent } from 'src/app/components/card-vacina/card-vacina.component';
 

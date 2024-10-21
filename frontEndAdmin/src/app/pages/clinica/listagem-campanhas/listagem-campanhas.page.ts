@@ -5,8 +5,8 @@ import { IonicModule } from '@ionic/angular';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonAddComponent } from 'src/app/components/button-add/button-add.component';
-import { InputDateComponent } from 'src/app/components/input-date/input-date.component';
-import { InputSearchComponent } from 'src/app/components/input-search/input-search.component';
+import { InputDateComponent } from 'src/app/components/_inputs/input-date/input-date.component';
+import { InputSearchComponent } from 'src/app/components/_inputs/input-search/input-search.component';
 import { ItemCampanhaComponent } from 'src/app/components/item-campanha/item-campanha.component';
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { InputTextListComponent } from '../../input-text-list/input-text-list.component';
+import { InputTextListComponent } from '../../_inputs/input-text-list/input-text-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FuncionarioService } from 'src/app/core/service/funcionario.service';
 

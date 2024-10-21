@@ -7,7 +7,7 @@ import { TableAccordionComponent } from 'src/app/components/table-accordion/tabl
 import { HttpClientModule } from '@angular/common/http';
 import { FuncionarioService } from 'src/app/core/service/funcionario.service';
 import { ButtonAddComponent } from 'src/app/components/button-add/button-add.component';
-import { InputSearchComponent } from 'src/app/components/input-search/input-search.component';
+import { InputSearchComponent } from 'src/app/components/_inputs/input-search/input-search.component';
 
 @Component({
   selector: 'app-listagem-funcionarios',

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { InputTextListComponent } from '../../input-text-list/input-text-list.component';
+import { InputTextListComponent } from '../../_inputs/input-text-list/input-text-list.component';
 
 @Component({
   selector: 'app-form-login',
