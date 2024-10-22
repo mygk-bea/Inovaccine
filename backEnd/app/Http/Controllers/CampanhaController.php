@@ -21,13 +21,16 @@ class CampanhaController extends Controller
     }
 
     public function list() {
-        $campanha = Campanha::with('vacina')->get();
+        $campanha = Campanha::with('vacina')->orderBy('created_at', 'desc')->get();
         return response()->json($campanha);
     }
 
     public function pesquisa(Request $request) {
         $search = $request->input('search');
-        $campanha = Campanha::where('nome', 'like', '%'.$search.'%')->get();
+        $campanha = Campanha::with('vacina')
+        ->where('nome', 'like', '%'.$search.'%')
+        ->orderBy('created_at', 'desc')
+        ->get();
         return response()->json($campanha);
     }
 }

@@ -46,13 +46,16 @@ class PacienteController extends Controller
     }
 
     public function list() {
-        $paciente = Paciente::all();
+        $paciente = Paciente::with('endereco')->orderBy('created_at', 'desc')->get();
         return response()->json($paciente);
     }
 
     public function pesquisa(Request $request) {
         $search = $request->input('search');
-        $paciente = Paciente::where('nome', 'like', '%'.$search.'%')->get();
+        $paciente = Paciente::with('endereco')
+        ->where('nome', 'like', '%'.$search.'%')
+        ->orderBy('created_at', 'desc')
+        ->get();
         return response()->json($paciente);
     }
 }

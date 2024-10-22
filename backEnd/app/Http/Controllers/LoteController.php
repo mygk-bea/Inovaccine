@@ -54,7 +54,7 @@ class LoteController extends Controller
     }
 
     public function list(){
-        $lote = Lote::with(['fornecedor', 'clinica', 'vacina'])->get();
+        $lote = Lote::with(['fornecedor', 'clinica', 'vacina'])->orderBy('created_at', 'desc')->get();
         return response()->json($lote);
     }
 }

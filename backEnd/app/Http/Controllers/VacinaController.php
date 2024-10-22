@@ -18,13 +18,13 @@ class VacinaController extends Controller
     }
 
     public function list() {
-        $vacina = Vacina::all();
+        $vacina = Vacina::orderBy('created_at', 'desc')->get();;
         return response()->json($vacina);
     }
 
     public function pesquisa(Request $request) {
         $search = $request->input('search');
-        $vacina = Vacina::where('nome', 'like', '%'.$search.'%')->get();
+        $vacina = Vacina::where('nome', 'like', '%'.$search.'%')->orderBy('created_at', 'desc')->get();
         return response()->json($vacina);
     }
 }

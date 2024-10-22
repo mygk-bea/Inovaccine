@@ -7,9 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ButtonAddComponent } from 'src/app/components/button-add/button-add.component';
 import { InputDateComponent } from 'src/app/components/_inputs/input-date/input-date.component';
 import { InputSearchComponent } from 'src/app/components/_inputs/input-search/input-search.component';
-import { ItemCampanhaComponent } from 'src/app/components/item-campanha/item-campanha.component';
 import { ModalFormCadastroCampanhaComponent } from 'src/app/components/_forms/modal-form-cadastro-campanha/modal-form-cadastro-campanha.component';
 import { CampanhaService } from 'src/app/core/service/campanha.service';
+import { ItemCampanhaComponent } from 'src/app/components/item-campanha/item-campanha.component';
 
 @Component({
   selector: 'app-listagem-campanhas',
@@ -32,6 +32,14 @@ import { CampanhaService } from 'src/app/core/service/campanha.service';
 })
 export class ListagemCampanhasPage implements OnInit {
   dados: any;
+
+  titlesTable = [
+    {size:'1', name:'Id'},
+    {size:'3', name:'Nome'},
+    {size:'3', name:'Vacina'},
+    {size:'3', name:'Data de Atividade'},
+    {size:'', name:'Status'}
+  ];
 
   constructor(private dadosCampanha: CampanhaService) { }
 

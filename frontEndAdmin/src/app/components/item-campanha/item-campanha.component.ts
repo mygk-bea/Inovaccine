@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
@@ -7,11 +8,12 @@ import { IonicModule } from '@ionic/angular';
   standalone: true,
   styleUrls: ['./item-campanha.component.scss'],
   imports: [
-    IonicModule
+    IonicModule,
+    CommonModule
   ],
 })
 export class ItemCampanhaComponent  implements OnInit {
-  // @Input() dados: {name:string; route:string}[] = [];
+  @Input() dados: any;
 
   constructor() { }
 

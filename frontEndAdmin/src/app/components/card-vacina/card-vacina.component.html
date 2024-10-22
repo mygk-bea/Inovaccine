@@ -1,9 +1,9 @@
-<div class="card">
+<div class="card" (click)="showInfo = !showInfo">
   <ion-title class="card__title">
     {{ dados.nome }}
   </ion-title>
   <ion-row class="card__footer ion-align-items-center ion-justify-content-between">
-    <button class="card__footer__icon__info" (click)="showInfo = !showInfo">
+    <button class="card__footer__icon__info">
       <img src="assets/icon/icon_info.svg" alt="">
     </button>
     <ion-text>

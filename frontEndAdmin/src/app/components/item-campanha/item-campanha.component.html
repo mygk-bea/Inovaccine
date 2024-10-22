@@ -1,22 +1,25 @@
 <ion-item lines="none">
   <ion-row class="item__container ion-justify-content-between ion-align-items-center">
-    <ion-col>
-      <p>ID</p>
+    <ion-col size="1">
+      <p>{{ dados.codCampanha }}</p>
     </ion-col>
-    <ion-col size="4">
-      <p>VACINA</p>
+    <ion-col size="3">
+      <p>{{ dados.nome }}</p>
     </ion-col>
-    <ion-col size="4">
-      <ion-row class="ion-justify-content-around">
-        <p>INICIO</p>
-        <p>-</p>
-        <p>FIM</p>
+    <ion-col size="3">
+      <p>{{ dados.vacina.nome }}</p>
+    </ion-col>
+    <ion-col size="3">
+      <ion-row>
+        <p>{{ dados.dataInicio | date:'dd/MM/yyyy' }}</p>
+        <p class="ion-padding-horizontal">-</p>
+        <p>{{ dados.dataFim | date:'dd/MM/yyyy' }}</p>
       </ion-row>
     </ion-col>
-    <ion-col>
+    <ion-col size="">
       <ion-row class="item__container__status ion-align-items-center">
         <span class="dot"></span>
-        <p>STATUS</p>
+        <p>{{ dados.status }}</p>
       </ion-row>
     </ion-col>
     <img class="item__container__img" src="../../../assets/icon/icon_edit.svg" alt="">

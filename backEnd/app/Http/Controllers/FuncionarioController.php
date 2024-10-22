@@ -29,13 +29,13 @@ class FuncionarioController extends Controller
     }
 
     public function list(){
-        $funcionario = Funcionario::all();
+        $funcionario = Funcionario::orderBy('created_at', 'desc')->get();
         return response()->json($funcionario);
     }
 
     public function pesquisa(Request $request) {
         $search = $request->input('search');
-        $funcionario = Funcionario::where('nome', 'like', '%'.$search.'%')->get();
+        $funcionario = Funcionario::where('nome', 'like', '%'.$search.'%')->orderBy('created_at', 'desc')->get();
         return response()->json($funcionario);
     }
 }   
