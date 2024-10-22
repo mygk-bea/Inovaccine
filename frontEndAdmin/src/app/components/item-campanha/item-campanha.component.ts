@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -11,6 +11,7 @@ import { IonicModule } from '@ionic/angular';
   ],
 })
 export class ItemCampanhaComponent  implements OnInit {
+  // @Input() dados: {name:string; route:string}[] = [];
 
   constructor() { }
 

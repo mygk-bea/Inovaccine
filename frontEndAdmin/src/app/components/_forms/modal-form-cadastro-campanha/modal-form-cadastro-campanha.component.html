@@ -1,8 +1,8 @@
 <ion-modal #modal trigger="open-modal" class="content__modal">
   <ng-template>
-    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <form class="form__modal" [formGroup]="form" (ngSubmit)="onSubmit()">
       <ion-toolbar>
-        <ion-title class="container__title">
+        <ion-title class="content__title">
           Nova Campanha
         </ion-title>
         <ion-buttons slot="end">
@@ -11,28 +11,26 @@
           </div>
         </ion-buttons>
       </ion-toolbar>
+    
+      <app-input-search-cadastro 
+        [formGroup]="form"
+        [label]="'Vacina'"
+        [name]="'fk_campanha_codVacina'"
+        [searchFunction]="pesquisarVacina"
+        (codigoSelecionado)="vacinaId = $event">
+      </app-input-search-cadastro>
 
-      <ion-row>
-        <ion-col size="12">
-          <app-input-search-cadastro 
-            [formGroup]="form"
-            [label]="'Vacina'"
-            [name]="'fk_campanha_codVacina'"
-            [searchFunction]="pesquisarVacina"
-            (codigoSelecionado)="vacinaId = $event">
-          </app-input-search-cadastro>
-        </ion-col>
-
+      <app-input-text-list [inputs]="inputsData" [formGroup]="form">
         <ion-col size="6">
           <app-input-date [formGroup]="form" [label]="'Data de Início'" [name]="'dataInicio'"></app-input-date>
         </ion-col>
         <ion-col size="6">
           <app-input-date [formGroup]="form" [label]="'Data de Finalização'" [name]="'dataFim'"></app-input-date>
         </ion-col>
-      </ion-row>
+      </app-input-text-list>
 
       <ion-row class="ion-justify-content-end">
-        <ion-button class="form__button" type="ngSubmit">Cadastrar</ion-button>
+        <ion-button class="form__modal__button" type="ngSubmit">Cadastrar</ion-button>
       </ion-row>
     </form>
   </ng-template>
