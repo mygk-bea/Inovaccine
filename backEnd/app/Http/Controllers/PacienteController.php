@@ -46,7 +46,7 @@ class PacienteController extends Controller
     }
 
     public function list() {
-        $paciente = Paciente::all();
+        $paciente = Paciente::with('endereco')->get();
         return response()->json($paciente);
     }
 
