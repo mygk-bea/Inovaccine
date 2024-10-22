@@ -29,8 +29,23 @@
       </ion-toolbar>
 
       <ion-row class="container__listagem">
-        <ion-col>
-          <app-item-campanha></app-item-campanha>
+        <ion-col size="12">
+          <ion-row class="table">
+            <ion-col>
+              <ion-item lines="none">
+                <ion-col *ngFor="let title of titlesTable" size="{{ title.size }}">
+                  <ion-label >{{ title.name }}</ion-label>
+                </ion-col>
+                <span class="table__space"></span>
+              </ion-item>
+            </ion-col>
+          </ion-row>          
+
+          <ion-row>
+            <ion-col size="12" *ngFor="let campanha of dados">
+              <app-item-campanha [dados]="campanha"></app-item-campanha>
+            </ion-col>
+          </ion-row>
         </ion-col>
       </ion-row>
 

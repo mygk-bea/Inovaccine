@@ -3,8 +3,10 @@
 .card{
     padding: 10px;
     border-radius: 5px;
-    background: var(--tertiary-color);
+    background: $light-color;
     box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+    border: 3px solid var(--tertiary-color);
+    cursor: pointer;
 
     &__title{
         padding: 0;
@@ -32,7 +34,7 @@
         &__desc{
             width: 100%;
             border-radius: 10px;
-            background: $light-color;
+            border: 3px solid $grayscale-light-color;
         }
 
         p span{

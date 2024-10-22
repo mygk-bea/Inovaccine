@@ -14,16 +14,6 @@
     }
 
     .form__modal{
-      ion-item.form__item{
-          &:focus-within ion-input{
-            --highlight-color-valid: #{$green-secondary-color}; 
-            --highlight-color: #{$green-secondary-color}; 
-          }
-
-          &:hover ion-input{
-            --border-color: #{$green-secondary-color};
-          }
-      }
 
       &__button{
         font-size: 1.15rem;
