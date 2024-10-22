@@ -27,8 +27,33 @@ height: 35%;
     .ajuste_logo{
         width: 75%;
     }
+    card-agenda-desktop{
+      display: none;
+    }
+    app-header-component{
+      display: none;
+    }
+    app-footer{
+      display: none;
+    }
+    app-menu{
+      display: flex;
+      position: sticky; 
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    .logo{
+      display: flex;
+    }
+    app-cards-agenda{
+      display: flex;
+      height: 100vh;
+      margin-top: -15vh;
+    }
 }
-@media (max-width: 1024px){
+@media (max-width: 868px){
     .ajuste_logo{
         width: 100%;
     }
