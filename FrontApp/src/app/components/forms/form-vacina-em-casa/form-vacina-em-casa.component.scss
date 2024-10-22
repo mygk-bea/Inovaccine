@@ -1,85 +1,117 @@
 /* Geral */
 body {
   overflow-y: scroll; /* Permite rolagem vertical se necessário */
+  margin: 0; /* Remove margens padrão */
+  font-family: Arial, sans-serif; /* Define uma fonte padrão */
 }
 
 /* Animações */
 .page-content {
-  transition: opacity 0.5s ease-out; /* Animação de transição de opacidade */
+  transition: opacity 0.5s ease-out;
   opacity: 1;
 }
 
 /* Parte Superior */
 .parte_superior {
-  display: none;
-  justify-content: space-between; /* Espaço entre os itens */
-  align-items: center; /* Alinha verticalmente os itens */
-  padding: 10px; /* Padding para a parte superior */
-  background-color: #ffffff; /* Fundo branco para destacar os elementos */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+  display: flex; /* Muda para flex para que o conteúdo possa ser alinhado */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Ícone de Navegação */
 .icon {
+  width: 32px;
+  color:var( --secondary-color);
   display: flex;
-  justify-content: flex-start; /* Alinha ícone à esquerda */
+  justify-content: flex-start;
 }
 
 /* Logo */
 .ajuste_logo {
-  max-width: 120px; /* Largura máxima do logo */
-  height: auto; /* Mantém a proporção do logo */
+  max-width: 120px;
+  height: auto;
 }
 
 /* Formulário */
 .div_form {
   display: flex;
-  justify-content: center; 
-  flex-direction: column; /* Coloca os elementos na vertical */
-  align-items: center; /* Centraliza os elementos horizontalmente */
-  padding: 20px; /* Padding interno do formulário */
- /* Fundo cinza claro */
-  border-radius: 10px; /* Bordas arredondadas */
- /* Sombra para profundidade */
-  width: 100%; /* Ocupa toda a largura disponível */
-  max-width: 600px; /* Largura máxima do formulário */
-  margin: auto; /* Centraliza horizontalmente na tela */
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: auto;
+  width: 100%; /* Garante que ocupe toda a largura */
+}
+
+.form_consulta {
+  width: 100%;
 }
 
 /* Grupos de Formulário */
 .form-group {
-  width: 100%; /* Ocupa toda a largura do formulário */
-  margin: 10px 0; /* Margem vertical entre grupos */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  margin: 10px 0;
+}
+
+ion-select, ion-input {
+  width: 100%; /* Garante que os inputs ocupem 100% */
+  --background: #E0E2EC;
+  min-width: 300px; /* Reduz a largura mínima para dispositivos menores */
+  max-width: 500px; /* Define uma largura máxima para inputs */
+  padding: 10px; /* Adiciona padding para melhor usabilidade */
 }
 
 /* Campos Adicionais */
 .additional-fields {
-  width: 100%; /* Ocupa toda a largura do formulário */
-  transition: max-height 0.3s ease-in-out; /* Transição suave ao exibir campos */
-  overflow: hidden; /* Esconde campos excedentes */
+  width: 100%;
+  transition: max-height 0.3s ease-in-out;
+  overflow: hidden;
 }
 
 .show-fields {
-  max-height: 1000px; /* Altura máxima quando os campos estão visíveis */
+  max-height: 1000px;
 }
 
 /* Botão de Agendamento */
 .agd_btn {
-  width: 100%; /* Ocupa toda a largura do formulário */
-  --background: var(--primary-color)
+  width: 100%;
+  --background: var(--primary-color);
+  padding: 12px; /* Aumenta o padding do botão para maior área clicável */
+  font-size: 16px; /* Aumenta o tamanho da fonte do botão */
 }
 
-/* Estilos Responsivos */
-@media (max-width: 768px) {
+
+@media (min-width: 480px) and (max-width: 868px) {
+  app-header-component{
+    display: none;
+  }
+  app-footer{
+    display: none;
+  }
   .ajuste_logo {
-    max-width: 100%; /* Logo ocupa 100% em telas menores */
+    max-width: 100%; /* Logo ocupa 100% em telas muito pequenas */
   }
 
   .div_form {
-    padding: 15px; /* Reduz padding em telas menores */
+    padding: 10px; /* Reduz o padding em telas pequenas */
   }
 
   .form-group {
-    margin: 8px 0; /* Reduz margem em telas menores */
+    margin: 6px 0; /* Diminui a margem em telas pequenas */
+  }
+
+  ion-select, ion-input {
+    width: 100%; /* Garante que os inputs ocupem 100% em telas pequenas */
+  }
+
+  .agd_btn {
+    padding: 10px; /* Ajusta o padding do botão para telas menores */
+    font-size: 12px; /* Ajusta o tamanho da fonte do botão para telas menores */
   }
 }

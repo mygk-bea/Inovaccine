@@ -1,114 +1,139 @@
 <body class="page-content">
   <app-header-component></app-header-component>
+
+  <!-- Parte Superior -->
   <div class="parte_superior">
     <div class="icon">
-      <ion-icon name="arrow-back" class="icone_seta" (click)="navigateTo('agendamento-page', 'back')" style="cursor: pointer;"></ion-icon>
+      <ion-icon
+        name="arrow-back"
+        class="icone_seta"
+        size="large"
+        (click)="navigateTo('agendamento-page', 'back')"
+        style="cursor: pointer;width: 64px;">
+      </ion-icon>
     </div>
     <div class="logo">
-      <img src=".\assets\img\logo_inovaccine.png" alt="" class="ajuste_logo">
+      <img src="./assets/img/logo_inovaccine.png" alt="Logo" class="ajuste_logo">
     </div>
   </div>
+
+  <!-- Formulário de Agendamento -->
   <div class="div_form">
     <form id="form_consulta">
-      <div class="form-group">
-        <label for="modalidade">Modalidade de Agendamento</label>
-        <ion-select
-          fill="solid"
-          aria-label="Modalidade"
-          (ionChange)="onModalityChange($event)"
-        >
-          <ion-select-option value="casa">Vacina em Casa</ion-select-option>
-          <ion-select-option value="clinica">Vacina na Clínica</ion-select-option>
-        </ion-select>
-      </div>
+      <!-- Modalidade de Agendamento -->
+      <ion-row>
+        <ion-col size="12">
+            <label for="modalidade">Modalidade de Agendamento</label>
+            <ion-select
+              fill="solid"
+              aria-label="Modalidade"
+              placeholder="Escolha a forma do Agendamento"
+              (ionChange)="onModalityChange($event)">
+              <ion-select-option value="casa">Vacina em Casa</ion-select-option>
+              <ion-select-option value="clinica">Vacina na Clínica</ion-select-option>
+            </ion-select>
+        </ion-col>
+      </ion-row>
 
-      <!-- Campos adicionais exibidos com base na modalidade selecionada -->
-      <div class="form-group" *ngIf="selectedMode">
-        <div *ngIf="isHomeVisit">
-          <label for="data">Escolha o Dia</label>
-          <app-input-data name="data" (ionChange)="handleDateChange($event)"></app-input-data>
+      <!-- Campos adicionais exibidos com base na modalidade -->
+      <ion-row *ngIf="selectedMode">
+    
+          <ion-row *ngIf="isHomeVisit">
+            <!-- Agendamento em Casa -->
+            <div class="form-group">
+              <label for="data">Escolha o Dia</label>
+              <app-input-data name="data" (ionChange)="handleDateChange($event)"></app-input-data>
+            </div>
 
-          <label for="Hora">Horários Disponíveis</label>
-          <ion-select
-            fill="solid"
-            aria-label="Hora"
-            placeholder="Selecione o Horário"
-            (ionChange)="handleTimeChange($event)"
-          >
-            <ion-select-option value="11:00">11:00</ion-select-option>
-            <ion-select-option value="15:00">15:00</ion-select-option>
-            <ion-select-option value="17:30">17:30</ion-select-option>
-          </ion-select>
+            <div class="form-group">
+              <label for="Hora">Horários Disponíveis</label>
+              <ion-select
+                fill="solid"
+                aria-label="Hora"
+                placeholder="Selecione o Horário"
+                (ionChange)="handleTimeChange($event)">
+                <ion-select-option value="11:00">11:00</ion-select-option>
+                <ion-select-option value="15:00">15:00</ion-select-option>
+                <ion-select-option value="17:30">17:30</ion-select-option>
+              </ion-select>
+            </div>
 
-          <label for="vacina">Vacina</label>
-          <ion-select
-            fill="solid"
-            aria-label="Vacina"
-            placeholder="Selecione a vacina"
-            (ionChange)="handleVaccineChange($event)"
-          >
-            <ion-select-option value="vacina1">Vacina 1</ion-select-option>
-            <ion-select-option value="vacina2">Vacina 2</ion-select-option>
-          </ion-select>
+            <div class="form-group">
+              <label for="vacina">Vacina</label>
+              <ion-select
+                fill="solid"
+                aria-label="Vacina"
+                placeholder="Selecione a vacina"
+                (ionChange)="handleVaccineChange($event)">
+                <ion-select-option value="vacina1">Vacina 1</ion-select-option>
+                <ion-select-option value="vacina2">Vacina 2</ion-select-option>
+              </ion-select>
+            </div>
 
-          <label for="FormaPagamento">Formas de Pagamento</label>
-          <ion-select
-            aria-label="Forma de Pagamento"
-            fill="solid"
-            placeholder="Selecione a Forma de Pagamento"
-            (ionChange)="handlePaymentChange($event)"
-          >
-            <ion-select-option value="cartao">Cartão de Crédito/Débito</ion-select-option>
-            <ion-select-option value="boleto">Boleto Bancário</ion-select-option>
-            <ion-select-option value="pix">PIX</ion-select-option>
-          </ion-select>
+            <div class="form-group">
+              <label for="FormaPagamento">Formas de Pagamento</label>
+              <ion-select
+                fill="solid"
+                aria-label="Forma de Pagamento"
+                placeholder="Selecione a Forma de Pagamento"
+                (ionChange)="handlePaymentChange($event)">
+                <ion-select-option value="cartao">Cartão de Crédito/Débito</ion-select-option>
+                <ion-select-option value="boleto">Boleto Bancário</ion-select-option>
+                <ion-select-option value="pix">PIX</ion-select-option>
+              </ion-select>
+            </div>
+          </ion-row>
 
-        </div>
+          <ion-row *ngIf="!isHomeVisit">
+            <!-- Agendamento na Clínica -->
+            <div class="form-group">
+              <label for="clinica">Clínicas Disponíveis</label>
+              <ion-select
+                fill="solid"
+                placeholder="Selecione a Clínica"
+                (ionChange)="handleClinicChange($event)">
+                <ion-select-option *ngFor="let clinic of clinics" [value]="clinic">{{ clinic }}</ion-select-option>
+              </ion-select>
+            </div>
 
-        <div *ngIf="!isHomeVisit">
-          <label for="clinica">Clínicas Disponíveis</label>
-          <ion-select
-            fill="solid"
-            placeholder="Selecione a Clínica"
-            (ionChange)="handleClinicChange($event)"
-          >
-            <ion-select-option *ngFor="let clinic of clinics" [value]="clinic">{{ clinic }}</ion-select-option>
-          </ion-select>
-          
-          <label for="data">Escolha o Dia</label>
-          <app-input-data name="data" (ionChange)="handleDateChange($event)"></app-input-data>
+            <div class="form-group">
+              <label for="data">Escolha o Dia</label>
+              <app-input-data name="data" (ionChange)="handleDateChange($event)"></app-input-data>
+            </div>
 
-          <label for="Hora">Horários Disponíveis</label>
-          <ion-select
-            fill="solid"
-            aria-label="Hora"
-            placeholder="Selecione o Horário"
-            (ionChange)="handleTimeChange($event)"
-          >
-            <ion-select-option value="11:00">11:00</ion-select-option>
-            <ion-select-option value="15:00">15:00</ion-select-option>
-            <ion-select-option value="17:30">17:30</ion-select-option>
-          </ion-select>
+            <div class="form-group">
+              <label for="Hora">Horários Disponíveis</label>
+              <ion-select
+                fill="solid"
+                aria-label="Hora"
+                placeholder="Selecione o Horário"
+                (ionChange)="handleTimeChange($event)">
+                <ion-select-option value="11:00">11:00</ion-select-option>
+                <ion-select-option value="15:00">15:00</ion-select-option>
+                <ion-select-option value="17:30">17:30</ion-select-option>
+              </ion-select>
+            </div>
 
-          <label for="vacina">Vacina</label>
-          <ion-select
-            fill="solid"
-            aria-label="Vacina"
-            placeholder="Selecione a Vacina"
-            (ionChange)="handleVaccineChange($event)"
-          >
-            <ion-select-option value="vacina1">Vacina 1</ion-select-option>
-            <ion-select-option value="vacina2">Vacina 2</ion-select-option>
-          </ion-select>
-        </div>
-      </div>
+            <div class="form-group">
+              <label for="vacina">Vacina</label>
+              <ion-select
+                fill="solid"
+                aria-label="Vacina"
+                placeholder="Selecione a Vacina"
+                (ionChange)="handleVaccineChange($event)">
+                <ion-select-option value="vacina1">Vacina 1</ion-select-option>
+                <ion-select-option value="vacina2">Vacina 2</ion-select-option>
+              </ion-select>
+            </div>
+          </ion-row>
+      </ion-row>
 
-      <div class="form-group">
-        <ion-button class="agd_btn" (click)="onSubmit()">
-          Agendar
-        </ion-button>
-      </div>
+      <!-- Botão de Agendamento -->
+      <ion-row>
+            <ion-button class="agd_btn" (click)="onSubmit()">Agendar</ion-button>
+      </ion-row>
     </form>
   </div>
+
   <app-footer></app-footer>
 </body>

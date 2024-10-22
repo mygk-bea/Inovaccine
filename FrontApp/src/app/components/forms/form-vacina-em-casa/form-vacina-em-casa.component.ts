@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonDatetime, IonItem, IonLabel, IonSelect, IonSelectOption, IonButton, IonHeader, IonToolbar, IonContent, IonTitle, IonIcon } from '@ionic/angular/standalone';
+import { IonDatetime, IonItem, IonLabel, IonSelect, IonSelectOption, IonButton, IonHeader, IonToolbar, IonContent, IonTitle, IonIcon, IonRow, IonCol } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
 import { arrowBack } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
@@ -27,6 +27,8 @@ import { FooterComponent } from '../../footer/footer.component';
     IonContent,
     IonTitle,
     IonIcon,
+    IonRow,
+    IonCol,
     InputDataComponent,
     HeaderComponentComponent,
     FooterComponent
