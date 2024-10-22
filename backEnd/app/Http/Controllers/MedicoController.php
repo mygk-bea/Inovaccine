@@ -35,13 +35,13 @@ class MedicoController extends Controller
     }
 
     public function list() {
-        $medico = Medico::all();
+        $medico = Medico::orderBy('created_at', 'desc')->get();
         return response()->json($medico);
     }
 
     public function pesquisa(Request $request) {
         $search = $request->input('search');
-        $medico = Medico::where('nome', 'like', '%'.$search.'%')->get();
+        $medico = Medico::where('nome', 'like', '%'.$search.'%')->orderBy('created_at', 'desc')->get();
         return response()->json($medico);
     }
 }

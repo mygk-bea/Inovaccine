@@ -55,7 +55,7 @@ class ClinicaController extends Controller
     }
 
     public function list() {
-        $clinica = Clinica::with(['endereco', 'medico'])->get();
+        $clinica = Clinica::with(['endereco', 'medico'])->orderBy('created_at', 'desc')->get();
         return response()->json($clinica);
     }
 }
