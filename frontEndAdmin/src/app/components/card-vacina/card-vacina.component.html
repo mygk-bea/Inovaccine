@@ -1,24 +1,12 @@
-<div class="card" (click)="showInfo = !showInfo">
+<div class="card">
   <ion-title class="card__title">
     {{ dados.nome }}
   </ion-title>
   <ion-row class="card__footer ion-align-items-center ion-justify-content-between">
-    <button class="card__footer__icon__info">
-      <img src="assets/icon/icon_info.svg" alt="">
-    </button>
+    <app-modal-info-vacina [dados]="dados"></app-modal-info-vacina>
     <ion-text>
       <p>R$ {{ dados.preco }}</p>
     </ion-text>
   </ion-row>
-
-  <div class="card__info" [ngClass]="{'show__info': showInfo}">
-    <ion-row class="card__info__desc">
-      <ion-col size="12">
-        <p>{{ dados.informacao }}</p>
-      </ion-col>
-    </ion-row>
-    <p><span>Período:</span> {{ dados.periodo }}</p>
-    <p><span>Dias de Aplicação:</span> {{ dados.diasAplicacao }}</p>
-  </div>
 </div>
 

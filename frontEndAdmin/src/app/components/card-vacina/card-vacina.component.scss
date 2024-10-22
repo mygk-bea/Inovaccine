@@ -14,32 +14,8 @@
     }
 
     &__footer{
-        button{
-            background: transparent;
-        }
-
         ion-text p{
             margin: 0;
         }
     }
-
-    .show__info{
-        display: block;
-    }
-
-    &__info{
-        margin-top: 10px;
-        display: none;
-        
-        &__desc{
-            width: 100%;
-            border-radius: 10px;
-            border: 3px solid $grayscale-light-color;
-        }
-
-        p span{
-            font-weight: bold;
-        }
-    }
-    
 }

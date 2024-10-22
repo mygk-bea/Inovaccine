@@ -8,6 +8,7 @@ import { ButtonAddComponent } from 'src/app/components/button-add/button-add.com
 import { InputSearchComponent } from 'src/app/components/_inputs/input-search/input-search.component';
 import { VacinaService } from 'src/app/core/service/vacina.service';
 import { CardVacinaComponent } from 'src/app/components/card-vacina/card-vacina.component';
+import { ModalInfoVacinaComponent } from 'src/app/components/modal-info-vacina/modal-info-vacina.component';
 
 @Component({
   selector: 'app-listagem-vacinas',

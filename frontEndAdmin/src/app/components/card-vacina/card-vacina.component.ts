@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { VacinaService } from 'src/app/core/service/vacina.service';
+import { ModalInfoVacinaComponent } from '../modal-info-vacina/modal-info-vacina.component';
 
 @Component({
   selector: 'app-card-vacina',
@@ -9,26 +10,15 @@ import { VacinaService } from 'src/app/core/service/vacina.service';
   standalone: true,
   styleUrls: ['./card-vacina.component.scss'],
   imports: [
-    IonicModule, CommonModule
-  ],
-  providers: [VacinaService]
+    IonicModule, 
+    CommonModule,
+    ModalInfoVacinaComponent
+  ]
 })
 export class CardVacinaComponent  implements OnInit {
   @Input() dados: any;
 
-  constructor(private dadosVacina: VacinaService) { }
+  constructor() { }
 
   ngOnInit() {}
-
-  // listarDados() {
-  //   this.dadosVacina.listarVacina().subscribe(
-  //     (response) => {
-  //       this.dados = response;
-  //       console.log(this.dados);
-  //     },
-  //     (error) => {console.error("ERRO: ", error);}
-  //   )
-  // }
-
-  showInfo = false;
 }
