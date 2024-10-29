@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usuario;
+use App\Models\Medico;
 
 class LoginController extends Controller
 {
@@ -33,6 +34,10 @@ class LoginController extends Controller
             session_start();
             $_SESSION['email'] = $usuario->email;
             $_SESSION['senha'] = $usuario->senha;
+
+            $codigo_login = $usuario->codLogin;
+            $medico = new Medico();
+            // $codigo_medico = $medico->where('fk_medico_codLogin', $codigo_login)
             
             return response()->json(['validado' => true, 'id' => $usuario->codLogin]);
         } 
