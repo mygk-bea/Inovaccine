@@ -1,0 +1,31 @@
+.header{
+    height: 10vh;
+    &__nav{
+      ion-item{
+        a{
+          margin: 0 10px;
+          color: var(--primary-color);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  
+  .container{
+    min-height: 80vh;
+  }
+  
+  .footer{
+    height: 10vh;
+    background: var(--primary-color);
+    img{
+      margin: 0 20px;
+      width: 390px;
+      top: -280px;
+      position: absolute;
+    }
+  
+    .end{
+      right: 0;
+    }
+  }

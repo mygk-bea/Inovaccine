@@ -13,7 +13,7 @@ body {
 
 /* Parte Superior */
 .parte_superior {
-  display: flex; /* Muda para flex para que o conteúdo possa ser alinhado */
+  display: none; /* Muda para flex para que o conteúdo possa ser alinhado */
   justify-content: space-between;
   align-items: center;
   padding: 10px;
@@ -55,6 +55,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
   margin: 10px 0;
 }
@@ -63,7 +64,7 @@ ion-select, ion-input {
   width: 100%; /* Garante que os inputs ocupem 100% */
   --background: #E0E2EC;
   min-width: 300px; /* Reduz a largura mínima para dispositivos menores */
-  max-width: 500px; /* Define uma largura máxima para inputs */
+  max-width: 1000px; /* Define uma largura máxima para inputs */
   padding: 10px; /* Adiciona padding para melhor usabilidade */
 }
 
@@ -87,12 +88,15 @@ ion-select, ion-input {
 }
 
 
-@media (min-width: 480px) and (max-width: 868px) {
+@media (min-width: 370px) and (max-width: 868px) {
   app-header-component{
     display: none;
   }
   app-footer{
     display: none;
+  }
+  .parte_superior{
+    display: flex;
   }
   .ajuste_logo {
     max-width: 100%; /* Logo ocupa 100% em telas muito pequenas */
@@ -104,10 +108,11 @@ ion-select, ion-input {
 
   .form-group {
     margin: 6px 0; /* Diminui a margem em telas pequenas */
+    width: 100%;
   }
 
   ion-select, ion-input {
-    width: 100%; /* Garante que os inputs ocupem 100% em telas pequenas */
+    width: 30%; /* Garante que os inputs ocupem 100% em telas pequenas */
   }
 
   .agd_btn {

@@ -23,15 +23,17 @@
       <!-- Modalidade de Agendamento -->
       <ion-row>
         <ion-col size="12">
+          <div class="form-group">
             <label for="modalidade">Modalidade de Agendamento</label>
             <ion-select
-              fill="solid"
-              aria-label="Modalidade"
-              placeholder="Escolha a forma do Agendamento"
-              (ionChange)="onModalityChange($event)">
-              <ion-select-option value="casa">Vacina em Casa</ion-select-option>
-              <ion-select-option value="clinica">Vacina na Clínica</ion-select-option>
-            </ion-select>
+            fill="solid"
+            aria-label="Modalidade"
+            placeholder="Escolha a forma do Agendamento"
+            (ionChange)="onModalityChange($event)">
+            <ion-select-option value="casa">Vacina em Casa</ion-select-option>
+            <ion-select-option value="clinica">Vacina na Clínica</ion-select-option>
+          </ion-select>
+        </div>
         </ion-col>
       </ion-row>
 
@@ -42,7 +44,7 @@
             <!-- Agendamento em Casa -->
             <div class="form-group">
               <label for="data">Escolha o Dia</label>
-              <app-input-data name="data" (ionChange)="handleDateChange($event)"></app-input-data>
+              <app-data-input></app-data-input>
             </div>
 
             <div class="form-group">
@@ -98,7 +100,7 @@
 
             <div class="form-group">
               <label for="data">Escolha o Dia</label>
-              <app-input-data name="data" (ionChange)="handleDateChange($event)"></app-input-data>
+              <app-data-input></app-data-input>
             </div>
 
             <div class="form-group">

@@ -3,11 +3,11 @@ import { IonDatetime, IonItem, IonLabel, IonSelect, IonSelectOption, IonButton, 
 import { CommonModule } from '@angular/common';
 import { arrowBack } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
-import { InputDataComponent } from './input-data/input-data.component';
 import { DataSharingService } from 'src/app/core/services/data-sharing.service';
 import { NavController, AnimationController, AnimationBuilder } from '@ionic/angular';
 import { HeaderComponentComponent } from '../../header-component/header-component.component';
 import { FooterComponent } from '../../footer/footer.component';
+import { DataInputComponent } from './data-input/data-input.component';
 
 @Component({
   selector: 'FormVacinaEmCasa',
@@ -29,9 +29,9 @@ import { FooterComponent } from '../../footer/footer.component';
     IonIcon,
     IonRow,
     IonCol,
-    InputDataComponent,
     HeaderComponentComponent,
-    FooterComponent
+    FooterComponent,
+    DataInputComponent,
   ]
 })
 export class FormVacinaEmCasaComponent implements OnInit {

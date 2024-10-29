@@ -1,0 +1,32 @@
+.date-input-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    width: 985px;
+    height: 2.5em;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.custom-date-input {
+    padding: 20px;
+    border: none; /* Cor da borda */
+    border-radius: 5px; /* Cantos arredondados */
+    font-size: 16px;
+    background-color: var(--background-input); /* Fundo branco */
+}
+
+.custom-date-input::-webkit-calendar-picker-indicator {
+    border-radius: 5px; /* Cantos arredondados do ícone */
+}
+@media  (min-width: 370px) and (max-width: 868px){
+.date-input-container {
+        width: 100%;
+    }
+    .custom-date-input{
+        width: 285px;
+    }
+}

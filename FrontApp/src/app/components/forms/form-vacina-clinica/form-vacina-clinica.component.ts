@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IonDatetime, IonItem, IonLabel, IonSelect, IonSelectOption, IonButton,IonHeader,IonToolbar,IonContent,IonTitle,IonIcon} from '@ionic/angular/standalone';
 import {arrowBack} from 'ionicons/icons';
 import { addIcons } from 'ionicons';
-import { InputDataComponent } from '../form-vacina-em-casa/input-data/input-data.component';
+
 import { NavController, AnimationController, AnimationBuilder } from '@ionic/angular';
 import { ShareDataClinicaService } from 'src/app/core/services/share-data-clinica.service';
 
@@ -23,7 +23,6 @@ import { ShareDataClinicaService } from 'src/app/core/services/share-data-clinic
     IonContent,
     IonTitle,
     IonIcon,
-    InputDataComponent,
   ]
 })
 export class FormVacinaClinicaComponent  implements OnInit {
