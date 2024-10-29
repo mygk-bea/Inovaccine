@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { InputTextListComponent } from '../../_inputs/input-text-list/input-text-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FuncionarioService } from 'src/app/core/service/funcionario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-cadastro-funcionario',
@@ -24,7 +25,7 @@ export class FormCadastroFuncionarioComponent  implements OnInit {
     {size: 6, name: "senha", label: "Senha", placeholder: "Insira uma senha forte..."},
   ];
 
-  constructor(private formBuilder: FormBuilder, private funcionario: FuncionarioService) { 
+  constructor(private formBuilder: FormBuilder, private funcionario: FuncionarioService, private router: Router) { 
     this.form = new FormGroup({});
   }
 
@@ -42,5 +43,6 @@ export class FormCadastroFuncionarioComponent  implements OnInit {
     const funcionario = this.form.value;
     console.log(funcionario);
     this.funcionario.cadastrarFuncionario(funcionario);
+    this.router.navigate(['/clinica/listagem-funcionarios'])
   }
 }
