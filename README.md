@@ -4,6 +4,7 @@
 - *Tenha o composer instalado*
 - composer i ou composer update -> para criar as dependências
 - php artisan serve -> roda o servidor
+- php artisan db:seed -> para gerar os dados!
 
 ## Comandos para rodar o frontEnd - Angular:
 - *Tenha o node instalado*
