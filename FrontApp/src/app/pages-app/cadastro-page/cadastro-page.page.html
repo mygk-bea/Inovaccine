@@ -1,13 +1,38 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>cadastro-page</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cadastro-page</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content>
+<ion-row class="container ion-justify-content-center ion-align-items-center">
+  <ion-col size="4 xs-8">
+    <img src="./assets/img/logo_inovaccine.png" alt="">
+
+    <div class="container">
+      <h1>Cadastre-se</h1>
+      <div class="form-group">
+          <label for="nome">Nome Completo<span class="required">*</span></label>
+          <input type="text" id="nome" placeholder="0000-0000-0000">
+      </div>
+      <div class="form-group">
+          <label for="cpf">CPF<span class="required">*</span></label>
+          <input type="text" id="cpf" placeholder="0000-0000-0000">
+      </div>
+      <div class="form-group">
+          <label for="email">E-mail<span class="required">*</span></label>
+          <input type="email" id="email" placeholder="0000-0000-0000">
+      </div>
+      <div class="form-group">
+          <label for="senha">Senha<span class="required">*</span></label>
+          <input type="password" id="senha" placeholder="0000-0000-0000">
+      </div>
+      <div class="note">
+          <span>* Obrigatório</span>
+      </div>
+      <button class="btn">PRÓXIMO</button>
+  </div>
+  </ion-col>
+</ion-row>
+
+<ion-footer>
+  <ion-row class="footer">
+    <ion-col size="12">
+      <img src=".\assets\img\footer-register.png" alt="img-footer">
+    </ion-col>
+  </ion-row>
+  </ion-footer>
