@@ -8,6 +8,7 @@ import { InputTimeComponent } from '../../_inputs/input-time/input-time.componen
 import { MedicoService } from 'src/app/core/service/medico.service';
 import { CommonModule } from '@angular/common';
 import { InputSearchCadastroComponent } from '../../_inputs/input-search-cadastro/input-search-cadastro.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-cadastro-clinica',
@@ -53,7 +54,7 @@ export class FormCadastroClinicaComponent  implements OnInit {
     {size: 4, name: "complemento", label: "Complemento", placeholder: "ex: Casa, Ap..."}
   ];
 
-  constructor(private formBuilder: FormBuilder, private clinica: ClinicaService, private dadosMedico: MedicoService) { 
+  constructor(private formBuilder: FormBuilder, private clinica: ClinicaService, private dadosMedico: MedicoService, private router: Router) { 
     this.form = new FormGroup({});
   }
 
@@ -88,5 +89,6 @@ export class FormCadastroClinicaComponent  implements OnInit {
     const clinica = this.form.value;
     console.log(clinica);
     this.clinica.cadastrarClinica(clinica);
+    this.router.navigate(['/super-user/listagem-clinicas']);
   }
 }

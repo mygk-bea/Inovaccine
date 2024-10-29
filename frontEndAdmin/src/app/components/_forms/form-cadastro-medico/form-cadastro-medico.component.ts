@@ -1,3 +1,4 @@
+import {Router} from "@angular/router"
 import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
@@ -25,7 +26,7 @@ export class FormCadastroMedicoComponent  implements OnInit {
     {size: 6, name: 'senha', label: 'Senha', placeholder: 'Insira uma senha forte...'},
   ];
 
-  constructor(private formBuilder: FormBuilder, private medico: MedicoService) {
+  constructor(private formBuilder: FormBuilder, private medico: MedicoService, private router: Router) {
     this.form = new FormGroup({});
   }
 
@@ -44,5 +45,6 @@ export class FormCadastroMedicoComponent  implements OnInit {
     const medico = this.form.value;
     console.log(medico);
     this.medico.cadastrarMedico(medico);
+    this.router.navigate(['/super-user/cadastro-clinica']);
   }
 }

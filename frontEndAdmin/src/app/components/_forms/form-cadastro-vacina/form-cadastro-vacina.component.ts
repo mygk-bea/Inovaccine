@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { InputTextListComponent } from '../../_inputs/input-text-list/input-text-list.component';
 import { VacinaService } from 'src/app/core/service/vacina.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-cadastro-vacina',
@@ -38,7 +39,7 @@ export class FormCadastroVacinaComponent  implements OnInit {
     {text: "Sexta-feira", value:"Sexta-feira"},
   ]
 
-  constructor(private formBuilder: FormBuilder, private vacina: VacinaService) { 
+  constructor(private formBuilder: FormBuilder, private vacina: VacinaService, private router: Router) { 
     this.form = new FormGroup({});
   }
 
@@ -58,5 +59,6 @@ export class FormCadastroVacinaComponent  implements OnInit {
     vacina.diasAplicacao = this.checkboxValues.filter((_, index) => vacina.diasAplicacao[index]).map(option => option.value); 
     console.log(vacina);
     this.vacina.cadastrarVacina(vacina);
+    this.router.navigate(['/clinica/listagem-vacinas']);
   }
 }
