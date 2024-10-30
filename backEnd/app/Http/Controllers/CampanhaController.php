@@ -23,6 +23,17 @@ class CampanhaController extends Controller
     public function list() {
         $campanha = Campanha::with('vacina')->orderBy('created_at', 'desc')->get();
         return response()->json($campanha);
+    } 
+
+    public function listCampanhaVacina(Request $request) {
+        $codVacina = $request->input('fk_campanha_codVacina');
+    
+        $campanha = Campanha::with('vacina')
+                    ->where('fk_campanha_codVacina', $codVacina)
+                    ->orderBy('created_at', 'desc')
+                    ->first();
+    
+        return response()->json($campanha);
     }
 
     public function pesquisa(Request $request) {
