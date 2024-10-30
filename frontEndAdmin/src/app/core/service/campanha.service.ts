@@ -29,6 +29,6 @@ export class CampanhaService {
   listarCampanhaVacina(codVacina: string): Observable<any>{
     const params = new HttpParams().set('fk_lote_codVacina', codVacina);
 
-    return this.http.get<any>(`${ this.url }/listagemCampanhaVacina#${params}`)
+    return this.http.get<any>(`${ this.url }/listagemCampanhaVacina?codvacina=${params}`)
   }
 }

@@ -21,6 +21,6 @@ export class LoteService {
   listarLote(codVacina: string): Observable<Lote[]> {
     const params = new HttpParams().set('fk_lote_codVacina', codVacina);
 
-    return this.http.get<Lote[]>(`${ this.url }/listagemLote#${ params }`);
+    return this.http.get<Lote[]>(`${ this.url }/listagemLote?codvacina=${ params }`);
   }
 }
