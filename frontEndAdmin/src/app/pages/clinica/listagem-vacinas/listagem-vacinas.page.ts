@@ -7,8 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ButtonAddComponent } from 'src/app/components/button-add/button-add.component';
 import { InputSearchComponent } from 'src/app/components/_inputs/input-search/input-search.component';
 import { VacinaService } from 'src/app/core/service/vacina.service';
-import { CardVacinaComponent } from 'src/app/components/card-vacina/card-vacina.component';
-import { ModalInfoVacinaComponent } from 'src/app/components/modal-info-vacina/modal-info-vacina.component';
+import { ListCardsVacinaComponent } from 'src/app/components/list-cards-vacina/list-cards-vacina.component';
+import { CampanhaService } from 'src/app/core/service/campanha.service';
 
 @Component({
   selector: 'app-listagem-vacinas',
@@ -23,7 +23,7 @@ import { ModalInfoVacinaComponent } from 'src/app/components/modal-info-vacina/m
     HttpClientModule,
     ButtonAddComponent,
     InputSearchComponent,
-    CardVacinaComponent
+    ListCardsVacinaComponent
   ],
   providers: [VacinaService]
 })
@@ -40,6 +40,7 @@ export class ListagemVacinasPage implements OnInit {
     this.dadosVacina.listarVacina().subscribe(
       (response) => {
         this.dados = response;
+        console.log(this.dados)
       },
       (error) => {
         console.error("ERRO: ", error);
@@ -51,5 +52,4 @@ export class ListagemVacinasPage implements OnInit {
     console.log(results);
     this.dados = results;
   }
-
 }

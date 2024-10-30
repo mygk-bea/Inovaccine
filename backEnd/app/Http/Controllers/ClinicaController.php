@@ -40,7 +40,6 @@ class ClinicaController extends Controller
             $enderecoId = $endereco->codEndereco;
             $usuarioId = $usuario->codLogin; 
 
-
             // cadastro clinica
             $clinica = new Clinica();
             $clinica->nome = $request->input('nome_cli');

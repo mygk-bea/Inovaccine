@@ -7,15 +7,44 @@
   {name:'Estoque', route:'/clinica/listagem-funcionarios'}
 ]"></app-header>
 
-<ion-content [fullscreen]="true">
-  <!-- <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header> -->
+<ion-content [fullscreen]="true" class="main__palette">
+  <ion-row class="container ion-justify-content-center">
+    <ion-col size="10">
+      <ion-toolbar>
+        <ion-row>
+          <ion-title  class="container__title">
+            Agendamentos do dia
+          </ion-title>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+        </ion-row>
+      </ion-toolbar>
+
+      <ion-row>
+    
+      </ion-row>
+    
+      <ion-row>
+        <ion-toolbar>
+          <ion-row>
+            <ion-title  class="content__title">
+              Campanha(s) Ativa(s)
+            </ion-title>
+    
+            <a 
+              class=""
+              [routerLink]="'/clinica/listagem-campanhas'"
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{ exact: true }">
+              Ver todas as campanhas
+            </a>
+          </ion-row>
+        </ion-toolbar>
+        <ion-row>
+          <ion-col size="12" *ngFor="let campanha of dados">
+            <app-item-campanha [dados]="campanha"></app-item-campanha>
+          </ion-col>
+        </ion-row>
+      </ion-row>
+    </ion-col>
+  </ion-row>
 </ion-content>

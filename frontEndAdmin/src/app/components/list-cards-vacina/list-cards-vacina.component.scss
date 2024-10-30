@@ -1,0 +1,53 @@
+@import '../../../theme/variables.scss';
+
+.card{
+    padding: 10px;
+    border-radius: 5px;
+    background: $light-color;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+    border: 3px solid var(--tertiary-color);
+    cursor: pointer;
+
+    &__title{
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    &__footer{
+        ion-text p{
+            margin: 0;
+        }
+
+        &__icon__info{
+            background: transparent;
+        }   
+    }
+}
+
+.modal{
+    --border-radius: 10px;
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 0;
+        color: $green-primary-color;
+    }
+
+    &__card__info{
+        padding: 0 20px;
+        background: $light-color;
+        margin-top: 10px;
+        height: fit-content;
+        
+        &__desc{
+            width: 100%;
+            border-radius: 10px;
+            border: 3px solid $grayscale-light-color;
+        }
+    
+        p span{
+            font-weight: bold;
+        }
+    }
+}
