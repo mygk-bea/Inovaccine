@@ -1,0 +1,76 @@
+<div class="container">
+  <h1>Cadastre-se</h1>
+
+  <div *ngIf="etapaAtual === 1">
+    <div class="form-group">
+      <label for="endereco">Endereço<span class="required">*</span></label>
+      <input type="text" id="endereco" [(ngModel)]="dados.logradouro" placeholder="Digite Seu Endereço">
+      <div class="error-message" *ngIf="campoEstaVazio('lograodouro')">O campo Endereço é obrigatório.</div>
+    </div>
+    <div class="form-group">
+      <label for="bairro">Bairro<span class="required">*</span></label>
+      <input type="text" id="bairro" [(ngModel)]="dados.bairro" placeholder="Digite Seu Endereço">
+      <div class="error-message" *ngIf="campoEstaVazio('bairro')">O campo Bairro é obrigatório.</div>
+    </div>
+    <div class="form-group">
+      <label for="estado">Número<span class="required">*</span></label>
+      <input type="text" id="estado" [(ngModel)]="dados.numero" placeholder="Digite Seu Número">
+      <div class="error-message" *ngIf="campoEstaVazio('numero')">O campo Numero é obrigatório.</div>
+    </div>
+    <div class="form-group">
+      <label for="cidade">Cidade<span class="required">*</span></label>
+      <input type="text" id="cidade" [(ngModel)]="dados.cidade" placeholder="Digite Sua Cidade">
+      <div class="error-message" *ngIf="campoEstaVazio('cidade')">O campo Cidade é obrigatório.</div>
+    </div>
+    <div class="form-group">
+      <label for="UF">UF<span class="required">*</span></label>
+      <input type="text" id="UF" [(ngModel)]="dados.uf" placeholder="Digite Seu CEP">
+      <div class="error-message" *ngIf="campoEstaVazio('uf')">O campo UF é obrigatório.</div>
+    </div>
+  </div>
+
+  <div *ngIf="etapaAtual === 2">
+    <div class="form-group">
+      <label for="nome">Nome Completo<span class="required">*</span></label>
+      <input type="text" id="nome" [(ngModel)]="dados.nome" placeholder="Digite Seu Nome">
+      <div class="error-message" *ngIf="campoEstaVazio('nome')">O campo Nome Completo é obrigatório.</div>
+    </div>
+    <div class="form-group">
+      <label for="dataNasc">Data de Nascimento<span class="required">*</span></label>
+      <input type="date" id="dataNasc" [(ngModel)]="dados.dataNasc" placeholder="12/12/1980">
+      <div class="error-message" *ngIf="campoEstaVazio('dataNasc')">O campo Data de Nascimento é obrigatório.</div>
+    </div>
+    <div class="form-group">
+      <label for="cpf">CPF<span class="required">*</span></label>
+      <input type="text" id="cpf" [(ngModel)]="dados.cpf" placeholder="123.456.789-10">
+      <div class="error-message" *ngIf="campoEstaVazio('cpf')">O campo CPF é obrigatório.</div>
+    </div>
+    <div class="form-group">
+      <label for="telefone">Telefone<span class="required">*</span></label>
+      <input type="text" id="telefone" [(ngModel)]="dados.telefone" placeholder="15 99999-9999">
+      <div class="error-message" *ngIf="campoEstaVazio('telefone')">O campo Telefone é obrigatório.</div>
+    </div>
+  </div>
+
+  <div *ngIf="etapaAtual === 3">
+    <div class="form-group">
+      <label for="email">Email<span class="required">*</span></label>
+      <input type="email" id="email" [(ngModel)]="dados.email" placeholder="Digite Seu Email">
+      <div class="error-message" *ngIf="campoEstaVazio('email')">O campo Email é obrigatório.</div>
+    </div>
+    <div class="form-group">
+      <label for="senha">Senha<span class="required">*</span></label>
+      <input type="password" id="senha" [(ngModel)]="dados.senha" placeholder="Digite Sua Senha">
+      <div class="error-message" *ngIf="campoEstaVazio('senha')">O campo Senha é obrigatório.</div>
+    </div>
+  </div>
+
+  <div class="button-group" style="display: flex; justify-content: center;gap: 20px;">
+    <button (click)="voltarEtapa()" [disabled]="etapaAtual === 1" class="btn">VOLTAR</button>
+    <button (click)="avancarEtapa()" class="btn">{{ etapaAtual < 3 ? 'PRÓXIMO' : 'FINALIZAR' }}</button>
+  </div>
+
+  <div class="note">
+    <span>* Obrigatório</span>
+  </div>
+</div>
