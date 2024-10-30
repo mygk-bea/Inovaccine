@@ -36,6 +36,7 @@ Route::get('/listagemClinica', [App\Http\Controllers\ClinicaController::class, '
 Route::get('/listagemFuncionario', [App\Http\Controllers\FuncionarioController::class, 'list']);
 Route::get('/listagemLote', [App\Http\Controllers\LoteController::class, 'list']);
 Route::get('/listagemCampanha', [App\Http\Controllers\CampanhaController::class, 'list']);
+Route::get('/listagemCampanhaVacina', [App\Http\Controllers\CampanhaController::class, 'listCampanhaVacina']);
 Route::get('/listagemVacina', [App\Http\Controllers\VacinaController::class, 'list']);
 
 Route::get('/listagemMedico', [App\Http\Controllers\MedicoController::class, 'list']);

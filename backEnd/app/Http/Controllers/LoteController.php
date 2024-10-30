@@ -53,8 +53,20 @@ class LoteController extends Controller
         }
     }
 
-    public function list(){
-        $lote = Lote::with(['fornecedor', 'clinica', 'vacina'])->orderBy('created_at', 'desc')->get();
+    // public function list(){
+    //     $lote = Lote::with(['fornecedor', 'clinica', 'vacina'])->orderBy('created_at', 'desc')->get();
+    //     return response()->json($lote);
+    // } 
+
+    public function list(Request $request) {
+        $codVacina = $request->input('fk_lote_codVacina');
+    
+        $lote = Lote::with(['fornecedor', 'clinica', 'vacina'])
+                    ->where('fk_lote_codVacina', $codVacina)
+                    ->orderBy('created_at', 'desc')
+                    ->get();
+    
         return response()->json($lote);
     }
+    
 }
