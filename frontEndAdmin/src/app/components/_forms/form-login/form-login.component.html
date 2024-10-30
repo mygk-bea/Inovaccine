@@ -7,7 +7,7 @@
       <ion-title class="container__title">{{ title }}</ion-title>
     </ion-toolbar>
 
-    <form class="form" [formGroup]="form">
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
       <ion-toolbar>
         <ion-title class="form__title">Fazer Login</ion-title>
       </ion-toolbar>    

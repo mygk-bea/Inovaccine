@@ -25,7 +25,8 @@ class FuncionarioSeeder extends Seeder
         'nome' => 'Ana Paula Silva',
         'cpf' => '12345678900',
         'telefone' => '11912345678',
-        'fk_funcionario_codLogin' => 11
+        'fk_funcionario_codLogin' => 11,
+        'fk_funcionario_codClinica' => 1
        ]); 
 
        Usuario::create([
@@ -39,7 +40,8 @@ class FuncionarioSeeder extends Seeder
         'nome' => 'Carlos Eduardo Santos',
         'cpf' => '98765432100',
         'telefone' => '21998765432',
-        'fk_funcionario_codLogin' => 12
+        'fk_funcionario_codLogin' => 12,
+        'fk_funcionario_codClinica' => 2
        ]); 
 
        Usuario::create([
@@ -53,7 +55,8 @@ class FuncionarioSeeder extends Seeder
         'nome' => 'Maria Clara Oliveira',
         'cpf' => '45678912300',
         'telefone' => '31934567890',
-        'fk_funcionario_codLogin' => 13
+        'fk_funcionario_codLogin' => 13,
+        'fk_funcionario_codClinica' => 3
        ]); 
 
 
@@ -68,7 +71,8 @@ class FuncionarioSeeder extends Seeder
         'nome' => 'João Pedro Almeida',
         'cpf' => '32165498700',
         'telefone' => '41912346789',
-        'fk_funcionario_codLogin' => 14
+        'fk_funcionario_codLogin' => 14,
+        'fk_funcionario_codClinica' => 4
        ]); 
 
        Usuario::create([
@@ -82,7 +86,8 @@ class FuncionarioSeeder extends Seeder
         'nome' => 'Beatriz Gomes',
         'cpf' => '15975348600',
         'telefone' => '51923456789',
-        'fk_funcionario_codLogin' => 15
+        'fk_funcionario_codLogin' => 15,
+        'fk_funcionario_codClinica' => 5
        ]); 
     }
 }

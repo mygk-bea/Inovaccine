@@ -1,6 +1,6 @@
 export interface Login {
     email: string;
-    senha: number;
+    senha: string;
 }
 
 export interface Autenticacao {

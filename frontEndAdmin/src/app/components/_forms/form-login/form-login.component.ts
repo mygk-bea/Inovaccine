@@ -3,6 +3,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { InputTextListComponent } from '../../_inputs/input-text-list/input-text-list.component';
+import { LoginService } from 'src/app/core/service/login.service';
+import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-login',
@@ -13,8 +16,10 @@ import { InputTextListComponent } from '../../_inputs/input-text-list/input-text
     IonicModule,
     CommonModule,
     ReactiveFormsModule,
-    InputTextListComponent
-  ]
+    InputTextListComponent,
+    HttpClientModule
+  ],
+  providers: [LoginService]
 })
 export class FormLoginComponent  implements OnInit {
   form: FormGroup;
@@ -23,19 +28,26 @@ export class FormLoginComponent  implements OnInit {
   @Input() title: string = '';
 
   inputsData = [
-    {size: 12, name: "usuario", label: "Usuário", placeholder: "ex: e-mail, nome..."},
+    {size: 12, name: "email", label: "Usuário", placeholder: "ex: e-mail, nome..."},
     {size: 12, name: "senha", label: "Senha", placeholder: "Insira uma senha forte..."}
   ];
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder, private login: LoginService, private router: Router) { 
     this.form = new FormGroup({});
   }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      usuario:[null],
+      email:[null],
       senha:[null]
     });
+  }
+
+  onSubmit(){
+    const login = this.form.value;
+    console.log(login);
+    this.login.autenticarLogin(login);
+    this.router.navigate(['/clinica/home/']);
   }
 
 }

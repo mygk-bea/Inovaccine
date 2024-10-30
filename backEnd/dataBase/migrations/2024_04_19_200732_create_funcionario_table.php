@@ -17,8 +17,10 @@ return new class extends Migration
             $table->char('cpf', 11)->nullable(false);
             $table->char('telefone', 11)->nullable(false);
             $table->unsignedInteger('fk_funcionario_codLogin')->nullable(false);
+            $table->unsignedInteger('fk_funcionario_codClinica')->nullable(false);
 
             $table->foreign('fk_funcionario_codLogin')->references('codLogin')->on('Usuario');
+            $table->foreign('fk_funcionario_codClinica')->references('codClinica')->on('Clinica');
             $table->timestamps();
         });
     }
