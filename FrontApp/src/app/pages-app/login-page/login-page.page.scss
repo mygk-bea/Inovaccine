@@ -32,10 +32,8 @@
   }
   .login-container {
     text-align: center;
-    background-color: #ffffff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 .login-container h2 {
     color: #008080;
@@ -68,5 +66,31 @@
 @media (min-width: 300px) and (max-width:800px){
   .header{
     display: none;
+  }
+  
+}
+@media (max-width: 768px) {
+  .footer{
+
+    img {
+      width: 70%; 
+      top: -200px; 
+    }
+  }
+}
+
+
+@media (max-width: 480px) {
+  .footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      display: flex;
+      width: 35%; 
+       top: -65px;
+       left: 120px;
+      margin: 0 10px; 
+    }
   }
 }

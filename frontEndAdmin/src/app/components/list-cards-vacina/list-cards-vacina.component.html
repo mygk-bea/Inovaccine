@@ -1,0 +1,37 @@
+<ion-row class="container__vacinas__content">
+  <ion-col size="3" *ngFor="let vacina of dados; let i = index">
+    <div class="card" [id]="'vacina-' + i">
+      <ion-title class="card__title">
+        {{ vacina.nome }}
+      </ion-title>
+      <ion-row class="card__footer ion-align-items-center ion-justify-content-between">
+        <button class="card__footer__icon__info" id="open-modal-{{i}}" (click)="onSelectVacina(vacina.codVacina)">
+          <img src="assets/icon/icon_info.svg" alt="">
+        </button>
+        
+        <ion-text>
+          <p>R$ {{ vacina.preco }}</p>
+        </ion-text>
+      </ion-row>
+    </div>
+    
+    <ion-modal #modal trigger="open-modal-{{i}}" class="modal">
+      <ng-content>
+        <div class="modal__card__info">
+          <ion-toolbar>
+            <ion-title class="modal__title">{{ vacina.nome }}</ion-title>
+          </ion-toolbar>
+
+          <ion-row class="modal__card__info__desc">
+            <ion-col size="12">
+              <p>{{ vacina.informacao }}</p>
+            </ion-col>
+          </ion-row>
+          <p><span>Período:</span> {{ vacina.periodo }}</p>
+          <p><span>Dias de Aplicação:</span> {{ vacina.diasAplicacao }}</p>
+          <p><span>Valor:</span> R$ {{ vacina.preco }}</p>
+        </div>
+      </ng-content>
+    </ion-modal>
+  </ion-col>
+</ion-row>

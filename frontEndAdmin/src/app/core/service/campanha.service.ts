@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Campanha } from '../interfaces/campanha';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -24,5 +24,11 @@ export class CampanhaService {
 
   listarCampanha (): Observable<any>{
     return this.http.get<any>(`${ this.url }/listagemCampanha`)
+  }
+
+  listarCampanhaVacina(codVacina: string): Observable<any>{
+    const params = new HttpParams().set('fk_lote_codVacina', codVacina);
+
+    return this.http.get<any>(`${ this.url }/listagemCampanhaVacina?codvacina=${params}`)
   }
 }

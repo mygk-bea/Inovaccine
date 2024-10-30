@@ -1,14 +1,41 @@
-import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../../components/header/header.component';
+import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
+import { ItemCampanhaComponent } from 'src/app/components/item-campanha/item-campanha.component';
+import { CommonModule } from '@angular/common';
+import { CampanhaService } from 'src/app/core/service/campanha.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, HeaderComponent],
+  imports: [
+    IonicModule, 
+    HeaderComponent, 
+    RouterModule, 
+    CommonModule,
+    HttpClientModule,
+    ItemCampanhaComponent
+  ],
+  providers: [
+    CampanhaService
+  ]
 })
-export class HomePage {
-  constructor() {}
+export class HomePage implements OnInit {
+  dados: any;
+
+  constructor(private dadosCampanha: CampanhaService) {}
+
+  ngOnInit() {
+    this.dadosCampanha.listarCampanha().subscribe(
+      (response) => {
+        this.dados = response;
+        console.log(this.dados);
+      },
+      (error) => {console.error("ERRO: ", error);}
+    )  
+  }
 }
