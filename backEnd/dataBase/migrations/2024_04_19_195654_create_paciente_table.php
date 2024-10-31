@@ -19,8 +19,6 @@ return new class extends Migration
             $table->char('telefone', 11)->nullable(false);
             $table->unsignedInteger('fk_paciente_codEndereco')->nullable();
             $table->unsignedInteger('fk_paciente_codLogin')->nullable();
-            $table->string('senha', 10)->nullable(false);
-            $table->string('email', 100)->unique()->nullable(false);
             $table->boolean('responsavel');
 
             $table->foreign('fk_paciente_codEndereco')->references('codEndereco')->on('Endereco');

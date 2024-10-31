@@ -11,7 +11,7 @@ class Paciente extends Model
 
     protected $primaryKey = 'codPaciente';
 
-    protected $fillable = ['codPaciente', 'nome', 'dataNasc', 'cpf', 'telefone', 'fk_paciente_codEndereco', 'fk_paciente_codLogin', 'login', 'email', 'senha', 'responsavel']; // Campos que podem ser atribuídos em massa
+    protected $fillable = ['codPaciente', 'nome', 'dataNasc', 'cpf', 'telefone', 'fk_paciente_codEndereco', 'fk_paciente_codLogin', 'responsavel']; // Campos que podem ser atribuídos em massa
 
     public function endereco(){
         return $this->belongsTo(Endereco::class, 'fk_paciente_codEndereco');
