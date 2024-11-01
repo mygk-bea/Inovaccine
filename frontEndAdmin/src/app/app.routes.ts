@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'clinica/home',
+    redirectTo: 'clinica/login',
     pathMatch: 'full',
   },
   {
