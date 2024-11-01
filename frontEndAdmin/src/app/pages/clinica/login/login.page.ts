@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormLoginComponent } from 'src/app/components/_forms/form-login/form-login.component';
 import { AuthService } from 'src/app/core/service/auth.service';
 import { Router } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -15,8 +16,10 @@ import { Router } from '@angular/router';
     IonicModule, 
     CommonModule, 
     FormsModule,
-    FormLoginComponent
-  ]
+    FormLoginComponent,
+    HttpClientModule
+  ], 
+  providers: [AuthService]
 })
 export class LoginPage implements OnInit {
 

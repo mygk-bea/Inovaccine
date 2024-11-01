@@ -16,15 +16,14 @@ import { Router } from '@angular/router';
     CommonModule, 
     FormsModule,
     FormLoginComponent
-  ]
+  ], 
+  providers: [AuthService]
 })
 export class LoginPage implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   handleLogin(data: { email: string; senha: string }) {
     this.authService.login(data.email, data.senha).subscribe(

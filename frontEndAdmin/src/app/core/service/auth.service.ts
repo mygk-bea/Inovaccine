@@ -8,7 +8,6 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
   private url: string = "http://localhost:8000/api";
-
   constructor(private http: HttpClient) { }
 
   login(email: string, senha: string): Observable<any> {
