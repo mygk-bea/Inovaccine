@@ -1,24 +1,27 @@
 import { Injectable } from '@angular/core';
+import { Postagem } from '../interfaces/postagem';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Denuncia } from '../interfaces/disk_denuncia'; // Importe a interface
 
 @Injectable({
   providedIn: 'root'
 })
-export class DenunciaService {
+export class PostagemService {
+
   private url: string = "http://localhost:8000/api";
+
   constructor(private http : HttpClient) { }
 
-  cadastrarDenuncia (denuncia: Denuncia){
-    console.log(denuncia);
-    this.http.post(`${ this.url }/cadDenuncia`, denuncia)
+  cadastrarVacina (postagem: Postagem){
+    console.log(postagem);
+    this.http.post(`${ this.url }/cadPostagem`, postagem)
     .subscribe(response => {
       console.log(response)
     })
   }
 
-  listarADenuncia(): Observable<any>{
-    return this.http.get<any>(`${ this.url }/listagemDenuncia`)
+  listarPostagem(): Observable<any>{
+    return this.http.get<any>(`${ this.url }/mural`)
   }
+
 }
