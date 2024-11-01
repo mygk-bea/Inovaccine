@@ -23,6 +23,8 @@ Route::post('/cadFornecedor', [App\Http\Controllers\FornecedorController::class,
 Route::post('/cadLote', [App\Http\Controllers\LoteController::class, 'store']);
 Route::post('/cadPaciente', [App\Http\Controllers\PacienteController::class, 'store']);
 Route::post('/cadCampanha', [App\Http\Controllers\CampanhaController::class, 'store']);
+// Route::post('/cadAgendamento', [App\Http\Controllers\AgendamentoController::class, 'store']);
+// Route::post('/cadPostagem', [App\Http\Controllers\PostagemController::class, 'store']);
 
 // pesquisa
 Route::get('/pesquisaMedico', [App\Http\Controllers\MedicoController::class, 'pesquisa']);
@@ -38,8 +40,9 @@ Route::get('/listagemLote', [App\Http\Controllers\LoteController::class, 'list']
 Route::get('/listagemCampanha', [App\Http\Controllers\CampanhaController::class, 'list']);
 Route::get('/listagemCampanhaVacina', [App\Http\Controllers\CampanhaController::class, 'listCampanhaVacina']);
 Route::get('/listagemVacina', [App\Http\Controllers\VacinaController::class, 'list']);
-
 Route::get('/listagemMedico', [App\Http\Controllers\MedicoController::class, 'list']);
 Route::get('/listagemPaciente', [App\Http\Controllers\PacienteController::class, 'list']);
+// Route::get('/listagemAgendamento', [App\Http\Controllers\AgendamentoController::class, 'list']);
+// Route::get('/mural', [App\Http\Controllers\PostagemController::class, 'list']);
 
 Route::post('/login', [App\Http\Controllers\LoginController::class, 'autenticar']);
