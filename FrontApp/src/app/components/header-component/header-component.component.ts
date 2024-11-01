@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { IonHeader, IonIcon,NavController, AnimationController } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { logOutOutline, navigate, personOutline } from 'ionicons/icons';
-import { AuthService } from 'src/app/core/services/login/auth-service.service';
+import { AuthLoginService } from 'src/app/core/services/login/auth-login.service';
 
 @Component({
   selector: 'app-header-component',
@@ -12,11 +12,11 @@ import { AuthService } from 'src/app/core/services/login/auth-service.service';
   styleUrls: ['./header-component.component.scss'],
   standalone:true,
   imports:[IonIcon,IonHeader,HttpClientModule],
-  providers: [AuthService] 
+  providers: [AuthLoginService] 
 })
 export class HeaderComponentComponent  implements OnInit {
 
-  constructor(private navCtrl: NavController, private animationCtrl: AnimationController, private authService: AuthService, private router: Router) { 
+  constructor(private navCtrl: NavController, private animationCtrl: AnimationController, private authLoginService: AuthLoginService, private router: Router) { 
     addIcons({logOutOutline,personOutline});
   }
 
@@ -27,7 +27,7 @@ export class HeaderComponentComponent  implements OnInit {
     this.navCtrl.navigateForward(path, { animation });
   }
   sair() {
-    this.authService.logout().subscribe(
+    this.authLoginService.logout().subscribe(
       () => {
         this.router.navigate(['login-page']);
       },
