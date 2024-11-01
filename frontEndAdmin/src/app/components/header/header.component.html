@@ -34,11 +34,15 @@
             src="../../../assets/icon/icon_profile.svg"
             alt="Profile_Icon"
           ></ion-img>
-          <ion-img
-            class="header__icon"
-            src="../../../assets/icon/icon_sign-out.svg"
-            alt="Profile_Icon"
-          ></ion-img>
+          <div id="logout">
+            <ion-img
+              class="header__icon"
+              src="../../../assets/icon/icon_sign-out.svg"
+              alt="Profile_Icon"
+              (click)="onLogout()"
+            ></ion-img>
+            <p>Sair</p>
+          </div>
         </ion-row>
       </ion-col>
     </ion-row>

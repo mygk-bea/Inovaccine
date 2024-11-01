@@ -25,9 +25,7 @@ export class LoginPage implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   handleLogin(data: { email: string; senha: string }) {
     this.authService.login(data.email, data.senha).subscribe(
@@ -42,6 +40,4 @@ export class LoginPage implements OnInit {
       error => console.error('Erro de autenticação:', error)
     );
   }
-
-
 }

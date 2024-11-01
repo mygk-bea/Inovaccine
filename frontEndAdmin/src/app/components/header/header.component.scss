@@ -35,5 +35,23 @@
   &__icon{
     height: 35px;
     padding: 0 5px;
+    cursor: pointer;
+
+  }
+}
+
+#logout{
+  display: flex;
+  p{
+    display: none;
+    color: white;
+    line-height: 0.25;
+    text-decoration: underline;
+    position: absolute;
+    right: -20px;
+  }
+
+  &:hover p{
+    display: block;
   }
 }

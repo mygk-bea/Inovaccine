@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './core/auth/auth.guard';
 
 export const routes: Routes = [
   {
@@ -8,27 +9,29 @@ export const routes: Routes = [
   },
   {
     path:'super-user',
+    canActivate: [AuthGuard],
     children: [
-        {
-          path: 'cadastro-medico',
-          loadComponent: () => import('./pages/admin/cadastro-medico/cadastro-medico.page').then( m => m.CadastroMedicoPage)
-        },
-        {
-          path: 'cadastro-clinica',
-          loadComponent: () => import('./pages/admin/cadastro-clinica/cadastro-clinica.page').then( m => m.CadastroClinicaPage)
-        },
-        {
-          path: 'listagem-clinicas',
-          loadComponent: () => import('./pages/admin/listagem-clinicas/listagem-clinicas.page').then( m => m.ListagemClinicasPage)
-        },
-        {
-          path: 'login',
-          loadComponent: () => import('./pages/admin/login/login.page').then( m => m.LoginPage)
-        },
+      {
+        path: 'cadastro-medico',
+        loadComponent: () => import('./pages/admin/cadastro-medico/cadastro-medico.page').then( m => m.CadastroMedicoPage),
+      },
+      {
+        path: 'cadastro-clinica',
+        loadComponent: () => import('./pages/admin/cadastro-clinica/cadastro-clinica.page').then( m => m.CadastroClinicaPage)
+      },
+      {
+        path: 'listagem-clinicas',
+        loadComponent: () => import('./pages/admin/listagem-clinicas/listagem-clinicas.page').then( m => m.ListagemClinicasPage)
+      },
     ]
   },
   {
+    path: 'super-user/login',
+    loadComponent: () => import('./pages/admin/login/login.page').then( m => m.LoginPage)
+  },
+  {
     path:'clinica',
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'home',
@@ -55,14 +58,14 @@ export const routes: Routes = [
         loadComponent: () => import('./pages/clinica/listagem-vacinas/listagem-vacinas.page').then( m => m.ListagemVacinasPage)
       },
       {
-        path: 'login',
-        loadComponent: () => import('./pages/clinica/login/login.page').then( m => m.LoginPage)
-      },
-      {
         path: 'listagem-campanhas',
         loadComponent: () => import('./pages/clinica/listagem-campanhas/listagem-campanhas.page').then( m => m.ListagemCampanhasPage)
       },
     ]
+  },
+  {
+    path: 'clinica/login',
+    loadComponent: () => import('./pages/clinica/login/login.page').then( m => m.LoginPage)
   },
 
 ];
