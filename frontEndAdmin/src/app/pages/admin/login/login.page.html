@@ -4,7 +4,9 @@
       <app-form-login 
         [imgPath]="'assets/images/logo_admin.svg'"
         [title]="'Super Usuário'"
-      ></app-form-login>
+        (loginData)="handleLogin($event)">
+      </app-form-login>
+      
     </ion-col>
   </ion-row>
 

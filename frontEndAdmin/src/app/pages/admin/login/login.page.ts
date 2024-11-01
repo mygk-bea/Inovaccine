@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { FormLoginComponent } from 'src/app/components/_forms/form-login/form-login.component';
+import { AuthService } from 'src/app/core/service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,9 +20,23 @@ import { FormLoginComponent } from 'src/app/components/_forms/form-login/form-lo
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
+    
   }
 
+  handleLogin(data: { email: string; senha: string }) {
+    this.authService.login(data.email, data.senha).subscribe(
+      () => {
+        const userData = this.authService.getUserData();
+        if (userData?.type === 'super-user') {
+          this.router.navigate(['/super-user/listagem-clinicas']);
+        } else {
+          console.error('Tipo de usuário incorreto');
+        }
+      },
+      error => console.error('Erro de autenticação:', error)
+    );
+  }
 }

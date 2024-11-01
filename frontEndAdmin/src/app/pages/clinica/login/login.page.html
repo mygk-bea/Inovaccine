@@ -13,10 +13,11 @@
 
   <ion-row class="container ion-justify-content-center ion-align-items-center">
     <ion-col size="10">
-      <app-form-login 
+      <app-form-login
         [imgPath]="'assets/images/logo_main.svg'"
         [title]="'Administrador'"
-      ></app-form-login>
+        (loginData)="handleLogin($event)">
+      </app-form-login>
     </ion-col>
   </ion-row>
 
