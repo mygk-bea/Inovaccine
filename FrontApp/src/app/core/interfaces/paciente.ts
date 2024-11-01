@@ -4,6 +4,7 @@ export interface Paciente{
       cidade: string;
       numero: string;
       uf: string;
+      cep: string;
       nome: string;
       dataNasc: string;
       cpf: string;
