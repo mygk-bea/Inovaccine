@@ -1,0 +1,40 @@
+.container{
+    min-height: 80vh;
+  }
+  .login-container {
+    text-align: center;
+    padding: 20px;
+
+}
+.login-container h2 {
+    color: #008080;
+    margin-bottom: 20px;
+}
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+}
+.login-container a {
+    color: #008080;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+}
+.login-container button {
+    background-color: #00bfa5;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.error-message {
+    color: red; /* Cor da mensagem de erro */
+    margin-top: 10px; /* Espaçamento superior */
+  }

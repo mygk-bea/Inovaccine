@@ -1,0 +1,18 @@
+<ion-row class="container ion-justify-content-center ion-align-items-center">
+  <ion-col size="4 xs-8">
+    <img src="./assets/img/logo_inovaccine.png" alt="">
+    <div class="login-container">
+      <h2>Fazer Login</h2>
+      <form (ngSubmit)="Logar()">
+        <input type="text" placeholder="Usuário" [(ngModel)]="login.email" name="email" required>
+        <input type="password" placeholder="Senha" [(ngModel)]="login.senha" name="senha" required>
+        <a href="#">Esqueceu a senha?</a>
+        <a href="cadastro-page">Não tem conta? Clique aqui</a>
+        <button type="submit">ENTRAR</button>
+      </form>
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </ion-col>
+</ion-row>
