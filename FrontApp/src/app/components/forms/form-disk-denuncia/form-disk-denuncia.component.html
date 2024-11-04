@@ -1,8 +1,6 @@
 <div class="css_grandient">
   <div class="text_css">
-    <p>
-      #TODOSCONTRAOMOSQUITO  
-    </p>
+    <p>#TODOSCONTRAOMOSQUITO</p>
   </div>
 </div>
 
@@ -10,41 +8,70 @@
   <ion-col size-md="10" size-sm="12" size-lg="6" size-xs="12">
     <div class="info_campanha">
       <div class="img_virus_div">
-        <p style="font-size: 35px; color: gray;font-weight: bolder;">Denuncie um Posível Criadouro de Dengue:</p>
-        <img class="virus_img" src="./assets/img/Virus Disinfection-pana.png" alt="">
+        <p style="font-size: 35px; color: gray; font-weight: bolder;">
+          Denuncie um Possível Criadouro de Dengue:
+        </p>
+        <img class="virus_img" src="./assets/img/Virus Disinfection-pana.png" alt="Imagem de prevenção ao vírus">
       </div>
     </div>
   </ion-col>
 
-<ion-col size-md="10" size-sm="12" size-lg="6" size-xs="12">
-  <div class="component">
-    <form action="" class="formulario">
-      <div class="texto_dengue">
-        Deixe Aqui Sua Denúncia
-      </div>
-      <div class="inputs">
-        <label for="custom">Nome Completo*</label>
-        <ion-input placeholder="Nome" class="custom "  [counter]="true"></ion-input>
-      <label for="custom">Descrição</label>
-      <ion-input  placeholder="Escreva mais detalhes aqui" class="custom desc"  [counter]="true"></ion-input>
-      <label for="custom">Localização* <ion-icon name="location-sharp"></ion-icon></label>
-      <ion-input placeholder="Coloque aqui sua localização" class="custom localizacao"  [counter]="true"></ion-input>
-      <i class="i_style">Imagem* <ion-icon name="cloud-upload-sharp"></ion-icon></i>
-      <i class="i_style">
-        <ion-checkbox style="padding: 3px;" ></ion-checkbox>
-        Concordo e Aceito os Termos de Uso e Política de Privacidade
-      </i>
-      <i class="i_style">* Obrigatório</i>
+  <ion-col size-md="10" size-sm="12" size-lg="6" size-xs="12">
+    <div class="component">
+      <form class="formulario">
+        <div class="texto_dengue">Deixe Aqui Sua Denúncia</div>
+        <div class="inputs">
+          <!-- Campo de Nome -->
+          <label for="custom">Nome Completo*</label>
+          <ion-input
+            placeholder="Nome"
+            class="custom"
+            [disabled]="isAnonymous"
+            [counter]="true">
+          </ion-input>
+
+          <!-- Checkbox de Anonimato -->
+          <div style="margin: 15px; display: flex; gap: 5px;">
+            <ion-checkbox slot="start" (ionChange)="toggleAnonymous($event)"></ion-checkbox>
+            <ion-label>Denúncia anônima</ion-label>
+          </div>
+
+          <!-- Campo de Descrição -->
+          <label for="custom">Descrição</label>
+          <ion-input
+            placeholder="Escreva mais detalhes aqui"
+            class="custom desc"
+            [counter]="true">
+          </ion-input>
+
+          <!-- Campo de Localização -->
+          <label for="custom">Localização* <ion-icon name="location-sharp"></ion-icon></label>
+          <ion-input
+            placeholder="Coloque aqui sua localização"
+            class="custom localizacao"
+            [counter]="true">
+          </ion-input> 
+
+          <!-- Checkbox de Concordância -->
+          <i class="i_style">
+            <ion-checkbox style="padding: 3px;"></ion-checkbox>
+            Concordo e Aceito os Termos de Uso e Política de Privacidade
+          </i>
+          <i class="i_style" style="color: red;">* Obrigatório</i>
+        </div>
+
+        <!-- Botão de Envio -->
+        <ion-button class="btn_enviar" size="small" (click)="openModal()">
+          Enviar
+        </ion-button>
+        
+        <!-- Informação Adicional -->
+        <i class="i_style">
+          Saiba mais o que acontecerá após fazer a denúncia
+        </i>
+      </form>
     </div>
-    <ion-button class="btn_enviar" size="small" (click)="openModal()">
-      Enviar
-    </ion-button>    
-    <i class="i_style">
-      Saiba mais o que acontecerá após fazer a denúncia
-    </i>
-    
-  </form>
-</div>
-</ion-col>
+  </ion-col>
 </ion-row>
-<app-menu></app-menu> 
+
+<app-menu></app-menu>
