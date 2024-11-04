@@ -5,7 +5,7 @@
         {{ vacina.nome }}
       </ion-title>
       <ion-row class="card__footer ion-align-items-center ion-justify-content-between">
-        <button class="card__footer__icon__info" id="open-modal-{{i}}" (click)="onSelectVacina(vacina.codVacina)">
+        <button class="card__footer__icon__info" id="open-modal-{{i}}" (click)="onSelectVacina(vacina.codVacina, modal)">
           <img src="assets/icon/icon_info.svg" alt="">
         </button>
         
@@ -15,11 +15,16 @@
       </ion-row>
     </div>
     
-    <ion-modal #modal trigger="open-modal-{{i}}" class="modal">
+    <ion-modal #modal class="modal">
       <ng-content>
         <div class="modal__card__info">
           <ion-toolbar>
             <ion-title class="modal__title">{{ vacina.nome }}</ion-title>
+            <ion-buttons slot="end">
+              <div class="btn__exit" (click)="modal.dismiss()">
+                <img src="assets/icon/icon_x.svg" alt="">
+              </div>
+            </ion-buttons>
           </ion-toolbar>
 
           <ion-row class="modal__card__info__desc">
@@ -31,6 +36,14 @@
           <p><span>Dias de Aplicação:</span> {{ vacina.diasAplicacao }}</p>
           <p><span>Valor:</span> R$ {{ vacina.preco }}</p>
         </div>
+
+        <ion-row>
+          <ion-col size="12">
+            <!-- <app-item-campanha [dados]="dadosCampanha"></app-item-campanha> -->
+          </ion-col>
+          <ion-col size="12">
+          </ion-col>
+        </ion-row>
       </ng-content>
     </ion-modal>
   </ion-col>
