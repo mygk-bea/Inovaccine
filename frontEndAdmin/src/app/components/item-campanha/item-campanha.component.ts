@@ -15,6 +15,10 @@ import { IonicModule } from '@ionic/angular';
 export class ItemCampanhaComponent  implements OnInit {
   @Input() dados: any;
 
+  getStatusText(status: number): string {
+    return status === 1 ? 'Ativo' : 'Inativo';
+  }
+
   constructor() { }
 
   ngOnInit() {}

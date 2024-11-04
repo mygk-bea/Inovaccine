@@ -24,3 +24,14 @@
     height: 25px;
   }
 }
+
+.inativo {
+  .item__container__status{
+    .dot{
+      background: $grayscale-color;
+    }
+  }
+
+  .item__container__img {
+    filter: brightness(0) saturate(100%) invert(66%) sepia(100%) saturate(0%) hue-rotate(7deg) brightness(95%) contrast(91%);  }
+}

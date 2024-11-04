@@ -1,5 +1,7 @@
 <ion-item lines="none">
-  <ion-row class="item__container ion-justify-content-between ion-align-items-center">
+  <ion-row 
+    class="item__container ion-justify-content-between ion-align-items-center"
+    [ngClass]="{'inativo': dados.status === 0}">
     <ion-col size="1">
       <p>{{ dados.codCampanha }}</p>
     </ion-col>
@@ -19,7 +21,7 @@
     <ion-col size="">
       <ion-row class="item__container__status ion-align-items-center">
         <span class="dot"></span>
-        <p>{{ dados.status }}</p>
+        <p>{{ getStatusText(dados.status) }}</p>
       </ion-row>
     </ion-col>
     <img class="item__container__img" src="../../../assets/icon/icon_edit.svg" alt="">
