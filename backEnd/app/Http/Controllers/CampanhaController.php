@@ -25,7 +25,7 @@ class CampanhaController extends Controller
         return response()->json($campanha);
     } 
 
-    public function listCampanhaVacina(Request $request) {
+    public function listarCampanhaVacina(Request $request) {
         $codVacina = $request->input('fk_campanha_codVacina');
     
         $campanha = Campanha::with('vacina')
