@@ -19,8 +19,8 @@ export class FormCadastroVacinaComponent  implements OnInit {
   form: FormGroup;
 
   inputsData = [
-    {size: 6, name: "nome", label: "Nome da Vacina", placeholder: "Insira o nome da vacina..."},
-    {size: 6, name: "preco", label: "Valor", placeholder: "R$ 000,00"}
+    {size: 6, name: "nome", label: "Nome da Vacina", placeholder: "Insira o nome da vacina...", type: "text"},
+    {size: 6, name: "preco", label: "Valor", placeholder: "R$ 000,00", type: "text"}
   ];
 
   radioValues = [

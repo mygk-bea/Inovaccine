@@ -24,8 +24,8 @@ export class FormLoginComponent implements OnInit {
   @Output() loginData = new EventEmitter<{ email: string; senha: string }>();
 
   inputsData = [
-    { size: 12, name: 'email', label: 'Usuário', placeholder: 'ex: e-mail, nome...' },
-    { size: 12, name: 'senha', label: 'Senha', placeholder: 'Insira uma senha forte...' }
+    { size: 12, name: 'email', label: 'Usuário', placeholder: 'ex: e-mail, nome...', type: "email"},
+    { size: 12, name: 'senha', label: 'Senha', placeholder: 'Insira uma senha forte...', type: "password"}
   ];
 
   constructor(private formBuilder: FormBuilder) {

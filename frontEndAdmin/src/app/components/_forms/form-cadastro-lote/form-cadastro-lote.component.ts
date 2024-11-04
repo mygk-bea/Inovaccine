@@ -29,16 +29,16 @@ export class FormCadastroLoteComponent  implements OnInit {
   vacinaId!: number;
 
   inputsDataLote = [
-    {size: 6, name: "codLote", label: "Número do Lote", placeholder: "0000-0000-0000"},
-    {size: 6, name: "valor", label: "Valor", placeholder: "R$ 00000,00"},
-    {size: 6, name: "qtd", label: "Quantidade de Vacinas", placeholder: "0000"},
-    {size: 6, name: "qtd_minimo", label: "Quantidade Min de Vacinas", placeholder: "0000"},
+    {size: 6, name: "codLote", label: "Número do Lote", placeholder: "0000-0000-0000", type: "text"},
+    {size: 6, name: "valor", label: "Valor", placeholder: "R$ 00000,00", type: "text"},
+    {size: 6, name: "qtd", label: "Quantidade de Vacinas", placeholder: "0000", type: "text"},
+    {size: 6, name: "qtd_minimo", label: "Quantidade Min de Vacinas", placeholder: "0000", type: "text"},
   ];
 
   inputsDataFornecedor = [
-    {size: 12, name: "nome", label: "Nome", placeholder: "ex: Instituto..."},
-    {size: 12, name: "cnpj", label: "CNPJ", placeholder: "00.000.000/0000-00"},
-    {size: 12, name: "telefone", label: "Telefone", placeholder: "(00) 00000-0000"},
+    {size: 12, name: "nome", label: "Nome", placeholder: "ex: Instituto...", type: "text"},
+    {size: 12, name: "cnpj", label: "CNPJ", placeholder: "00.000.000/0000-00", type: "text"},
+    {size: 12, name: "telefone", label: "Telefone", placeholder: "(00) 00000-0000", type: "text"},
   ]
 
   constructor(private formBuilder: FormBuilder, private lote: LoteService, private dadosVacina: VacinaService) { 

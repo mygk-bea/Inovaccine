@@ -18,12 +18,12 @@ export class FormCadastroMedicoComponent  implements OnInit {
   form: FormGroup;
 
   inputsData = [
-    {size: 8, name: 'nome', label: 'Nome do Médico', placeholder: 'Digite o nome'},
-    {size: 4, name: 'telefone', label: 'Telefone', placeholder: '(00) 00000-0000'},
-    {size: 6, name: 'cpf', label: 'CPF', placeholder: '000.000.000-00'},
-    {size: 6, name: 'crm', label: 'CRM', placeholder: 'CRM/SP 000000'},
-    {size: 6, name: 'email', label: 'E-mail', placeholder: 'ex@dominio.com'},
-    {size: 6, name: 'senha', label: 'Senha', placeholder: 'Insira uma senha forte...'},
+    {size: 8, name: 'nome', label: 'Nome do Médico', placeholder: 'Digite o nome', type: "text"},
+    {size: 4, name: 'telefone', label: 'Telefone', placeholder: '(00) 00000-0000', type: "text"},
+    {size: 6, name: 'cpf', label: 'CPF', placeholder: '000.000.000-00', type: "text"},
+    {size: 6, name: 'crm', label: 'CRM', placeholder: 'CRM/SP 000000', type: "text"},
+    {size: 6, name: 'email', label: 'E-mail', placeholder: 'ex@dominio.com', type: "text"},
+    {size: 6, name: 'senha', label: 'Senha', placeholder: 'Insira uma senha forte...', type: "text"},
   ];
 
   constructor(private formBuilder: FormBuilder, private medico: MedicoService, private router: Router) {

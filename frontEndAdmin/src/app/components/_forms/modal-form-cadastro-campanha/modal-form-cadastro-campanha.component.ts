@@ -29,7 +29,7 @@ export class ModalFormCadastroCampanhaComponent  implements OnInit {
   vacinaId!: number;
 
   inputsData = [
-    {size: 12, name: "nome", label: "Nome da Campanha", placeholder: "Digite..."},
+    {size: 12, name: "nome", label: "Nome da Campanha", placeholder: "Digite...", type: "text"},
   ];
 
   constructor(private formBuilder: FormBuilder, private campanha: CampanhaService, private dadosVacina: VacinaService) { 

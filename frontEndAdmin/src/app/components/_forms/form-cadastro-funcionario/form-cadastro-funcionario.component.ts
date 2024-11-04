@@ -18,11 +18,11 @@ export class FormCadastroFuncionarioComponent  implements OnInit {
   form: FormGroup;
 
   inputsData = [
-    {size: 12, name: "nome", label: "Nome do Funcionário", placeholder: "Insira o nome do funcionário..."},
-    {size: 6, name: "cpf", label: "CPF", placeholder: "000.000.000-00"},
-    {size: 6, name: "telefone", label: "Telefone", placeholder: "(00) 00000-0000"},
-    {size: 6, name: "email", label: "E-mail", placeholder: "email@exemplo.com"},
-    {size: 6, name: "senha", label: "Senha", placeholder: "Insira uma senha forte..."},
+    {size: 12, name: "nome", label: "Nome do Funcionário", placeholder: "Insira o nome do funcionário...", type: "text"},
+    {size: 6, name: "cpf", label: "CPF", placeholder: "000.000.000-00", type: "text"},
+    {size: 6, name: "telefone", label: "Telefone", placeholder: "(00) 00000-0000", type: "text"},
+    {size: 6, name: "email", label: "E-mail", placeholder: "email@exemplo.com", type: "text"},
+    {size: 6, name: "senha", label: "Senha", placeholder: "Insira uma senha forte...", type: "text"},
   ];
 
   constructor(private formBuilder: FormBuilder, private funcionario: FuncionarioService, private router: Router) { 

@@ -16,6 +16,6 @@ export class InputTextListComponent  implements OnInit {
 
   ngOnInit() {}
 
-  @Input() inputs: {size: number; name: string; label: string; placeholder: string}[] = [];
+  @Input() inputs: {size: number; name: string; label: string; placeholder: string; type: string}[] = [];
   @Input() formGroup!: FormGroup;
 }
