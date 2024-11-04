@@ -34,24 +34,24 @@ export class FormCadastroClinicaComponent  implements OnInit {
   medicoId!: number;
 
   inputsDataGeral = [
-    {size: 12, name: "nome_cli", label: "Nome da Clínica", placeholder: "Insira o nome da clínica"},
-    {size: 3, name: "cnpj", label: "CNPJ", placeholder: "00.000.000/0000-00"},
-    {size: 3, name: "telefone", label: "Telefone", placeholder: "(00) 00000-0000"}
+    {size: 12, name: "nome_cli", label: "Nome da Clínica", placeholder: "Insira o nome da clínica", type: "text"},
+    {size: 3, name: "cnpj", label: "CNPJ", placeholder: "00.000.000/0000-00", type: "text"},
+    {size: 3, name: "telefone", label: "Telefone", placeholder: "(00) 00000-0000", type: "text"}
   ];
 
   inputsDataLogin = [
-    {size: 6, name: "email", label: "E-mail", placeholder: "Insira o e-mail da clínica"},
-    {size: 6, name: "senha", label: "Senha", placeholder: "Insira uma senha forte"}
+    {size: 6, name: "email", label: "E-mail", placeholder: "Insira o e-mail da clínica", type: "text"},
+    {size: 6, name: "senha", label: "Senha", placeholder: "Insira uma senha forte", type: "text"}
   ];
 
   inputsDataEndereco = [
-    {size: 3, name: "cep", label: "CEP", placeholder: "00000-000"},
-    {size: 5, name: "logradouro", label: "Logradouro", placeholder: "ex: Rua..."},
-    {size: 4, name: "bairro", label: "Bairro", placeholder: "ex: Vila..."},
-    {size: 3, name: "cidade", label: "Cidade", placeholder: "ex: São..."},
-    {size: 2, name: "uf", label: "UF", placeholder: "SP"},
-    {size: 3, name: "numero", label: "Número", placeholder: "00000"},
-    {size: 4, name: "complemento", label: "Complemento", placeholder: "ex: Casa, Ap..."}
+    {size: 3, name: "cep", label: "CEP", placeholder: "00000-000", type: "text"},
+    {size: 5, name: "logradouro", label: "Logradouro", placeholder: "ex: Rua...", type: "text"},
+    {size: 4, name: "bairro", label: "Bairro", placeholder: "ex: Vila...", type: "text"},
+    {size: 3, name: "cidade", label: "Cidade", placeholder: "ex: São...", type: "text"},
+    {size: 2, name: "uf", label: "UF", placeholder: "SP", type: "text"},
+    {size: 3, name: "numero", label: "Número", placeholder: "00000", type: "text"},
+    {size: 4, name: "complemento", label: "Complemento", placeholder: "ex: Casa, Ap...", type: "text"}
   ];
 
   constructor(private formBuilder: FormBuilder, private clinica: ClinicaService, private dadosMedico: MedicoService, private router: Router) { 

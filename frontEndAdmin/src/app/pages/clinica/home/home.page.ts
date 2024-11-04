@@ -32,7 +32,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.dadosCampanha.listarCampanha().subscribe(
       (response) => {
-        this.dados = response;
+        this.dados = response.filter((campanha: any) => campanha.status === 1);
         console.log(this.dados);
       },
       (error) => {console.error("ERRO: ", error);}
