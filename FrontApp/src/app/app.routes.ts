@@ -37,6 +37,14 @@ export const routes: Routes = [
   {
     path: 'cadastro-page',
     loadComponent: () => import('./pages-app/cadastro-page/cadastro-page.page').then( m => m.CadastroPagePage)
+  },  {
+    path: 'responsavel',
+    loadComponent: () => import('./pages-app/responsavel/responsavel.page').then( m => m.ResponsavelPage)
   },
+  {
+    path: 'cad-dependente',
+    loadComponent: () => import('./pages-app/cad-dependente/cad-dependente.page').then( m => m.CadDependentePage)
+  },
+
 
 ];
