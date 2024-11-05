@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { throwError, Observable, of } from 'rxjs';
-import { Login } from '../../interfaces/login'; // Certifique-se de que essa interface está correta
+import { Login } from '../../interfaces/login';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,6 @@ export class AuthLoginService {
         }
       }),
       catchError(error => {
-        // Aqui você pode tratar o erro, por exemplo, registrando no console ou mostrando uma mensagem ao usuário
         console.error('Erro ao autenticar:', error);
         return throwError(() => new Error('Erro na autenticação. Tente novamente.'));
       })
@@ -34,11 +33,27 @@ export class AuthLoginService {
 
   logout(): Observable<void> {
     sessionStorage.clear();
-    return of(undefined); // Retorna um Observable vazio
+    return of(undefined);
   }
 
   getUserId() : any{
     const id = sessionStorage.getItem('userId');
     return id;
+  }
+
+  getUserData(): { id: string, type: string, name: string } | null {
+    const id = sessionStorage.getItem('userId');
+    const type = sessionStorage.getItem('userType');
+    const name = sessionStorage.getItem('userName');
+
+    return id && type && name ? { id, type, name } : null;
+  }
+
+  isAuthenticated(): boolean {
+    return !!sessionStorage.getItem('userId');
+  }
+
+  getUserName(): string | null {
+    return sessionStorage.getItem('userName');
   }
 }
