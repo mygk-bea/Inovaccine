@@ -64,7 +64,7 @@ class SuperUserSeeder extends Seeder
         ]);
 
         Usuario::create([
-            'codLogin' => 25,
+            'codLogin' => 35,
             'tipo' => 'super-user',
             'email' => 'super@admin.com.br',
             'senha' => '123'
@@ -72,7 +72,7 @@ class SuperUserSeeder extends Seeder
         SuperUser::create([
             'codSuperUser' => 4,
             'nome' => 'Super admin',
-            'fk_superuser_codLogin' => 25
+            'fk_superuser_codLogin' => 35
         ]);
     }
 }
