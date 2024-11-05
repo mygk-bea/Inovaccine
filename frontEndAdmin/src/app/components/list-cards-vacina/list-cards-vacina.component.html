@@ -67,7 +67,7 @@
             <ion-col size="12">
               <ion-row class="table">
                 <ion-col>
-                  <ion-item lines="none">
+                  <ion-item class="top" lines="none">
                     <ion-col *ngFor="let title of titlesTable" size="{{ title.size }}">
                       <ion-label >{{ title.name }}</ion-label>
                     </ion-col>
@@ -76,7 +76,7 @@
 
                   <ion-accordion-group class="accordion" expand="inset">
                     <ion-accordion class="accordion__item" *ngFor="let item of dadosLotes" value="{{ item.codLote }}">
-                      <ion-item slot="header" >
+                      <ion-item slot="header" class="top__header">
                         <ion-label>{{ item.codLote }}</ion-label>
                         <ion-label>{{ item.qtd }}/{{ item.qtd }}</ion-label>
                         <ion-label>{{ item.dataCompra }}</ion-label>
@@ -89,11 +89,13 @@
                             <ion-title class="info__title">Fornecedor</ion-title>
                             <p>{{ item.fornecedor.nome }}</p>
                           </ion-item>
-                        </ion-row>
-                        <ion-row class="info ion-align-items-center">
                           <ion-item lines="none">
-                            <ion-title class="info__title">Dados do Médico</ion-title>
-                            <p>CPF: {{ item.fornecedor.cpf }} | Telefone: {{ item.fornecedor.telefone }}</p>
+                            <ion-title class="info__title">CNPJ</ion-title>
+                            <p>{{ item.fornecedor.cnpj }}</p>
+                          </ion-item>
+                          <ion-item lines="none">
+                            <ion-title class="info__title">Telefone</ion-title>
+                            <p>{{ item.fornecedor.telefone }}</p>
                           </ion-item>
                         </ion-row>
                       </div>
