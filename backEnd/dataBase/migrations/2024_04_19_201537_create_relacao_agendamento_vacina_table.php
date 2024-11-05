@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('relacao_agendamento_vacina', function (Blueprint $table) {
             $table->unsignedInteger('fk_paciente_codPaciente');
             $table->unsignedInteger('fk_vacina_codVacina');
-            $table->string('nome', 100)->nullable(false);
+            $table->unsignedInteger('fk_agendamento_codAgendamento');
+            // $table->string('nome', 100)->nullable(false);
 
             $table->foreign('fk_vacina_codVacina')->references('codVacina')->on('Vacina');
             $table->foreign('fk_paciente_codPaciente')->references('codPaciente')->on('Paciente');
+            $table->foreign('fk_agendamento_codAgendamento')->references('codAgendamento')->on('agendamento');
 
             $table->primary(['fk_paciente_codPaciente', 'fk_vacina_codVacina']);
 
