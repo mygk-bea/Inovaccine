@@ -18,32 +18,59 @@
     <ion-modal #modal class="modal">
       <ng-content>
         <div class="modal__card__info">
-          <ion-toolbar>
-            <ion-title class="modal__title">{{ vacina.nome }}</ion-title>
-            <ion-buttons slot="end">
-              <div class="btn__exit" (click)="modal.dismiss()">
-                <img src="assets/icon/icon_x.svg" alt="">
-              </div>
-            </ion-buttons>
-          </ion-toolbar>
+          <div class="description">
+            <ion-toolbar>
+              <ion-title class="modal__title">{{ vacina.nome }}</ion-title>
+              <ion-buttons slot="end">
+                <div class="btn__exit" (click)="modal.dismiss()">
+                  <img src="assets/icon/icon_x.svg" alt="">
+                </div>
+              </ion-buttons>
+            </ion-toolbar>
+  
+            <ion-row class="modal__card__info__desc">
+              <ion-col size="12">
+                <p>{{ vacina.informacao }}</p>
+              </ion-col>
+            </ion-row>
+            <p><span>Período:</span> {{ vacina.periodo }}</p>
+            <p><span>Dias de Aplicação:</span> {{ vacina.diasAplicacao }}</p>
+            <p><span>Valor:</span> R$ {{ vacina.preco }}</p>
+          </div>
 
-          <ion-row class="modal__card__info__desc">
+          <ion-row>
+            <ion-title class="modal__info__content">Última campanha</ion-title>
+            <a 
+              (click)="modal.dismiss()"
+              class="modal__info__campanhas"
+              [routerLink]="'/clinica/listagem-campanhas'"
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{ exact: true }">
+              Ver todas as campanhas
+            </a>
             <ion-col size="12">
-              <p>{{ vacina.informacao }}</p>
+              <app-item-campanha [dados]="dadosCampanha"></app-item-campanha>
             </ion-col>
           </ion-row>
-          <p><span>Período:</span> {{ vacina.periodo }}</p>
-          <p><span>Dias de Aplicação:</span> {{ vacina.diasAplicacao }}</p>
-          <p><span>Valor:</span> R$ {{ vacina.preco }}</p>
-        </div>
 
-        <ion-row>
-          <ion-col size="12">
-            <!-- <app-item-campanha [dados]="dadosCampanha"></app-item-campanha> -->
-          </ion-col>
-          <ion-col size="12">
-          </ion-col>
-        </ion-row>
+          <ion-row>
+            <ion-title class="modal__info__content">Lotes</ion-title>
+            <ion-item lines="none">
+              <!-- <app-input-search [searchFunction]="pesquisarCampanha" (searchResults)="onSearchCampanha($event)"></app-input-search> -->
+              <button [routerLink]="'/clinica/cadastro-lote'" (click)="modal.dismiss()" class="button__add">
+                <span>+</span>
+                <div class="button__add__inner">
+                  <p>Adicionar Lote</p>
+                </div>
+              </button>
+            </ion-item>
+            <ion-col size="12">
+              <app-table-accordion [titlesTable]="titlesTable">
+
+              </app-table-accordion>
+            </ion-col>
+          </ion-row>
+        </div>
       </ng-content>
     </ion-modal>
   </ion-col>

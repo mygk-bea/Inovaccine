@@ -35,10 +35,9 @@ export class ListagemCampanhasPage implements OnInit {
 
   titlesTable = [
     {size:'1', name:'Id'},
-    {size:'3', name:'Nome'},
-    {size:'3', name:'Vacina'},
-    {size:'3', name:'Data de Atividade'},
-    {size:'', name:'Status'}
+    {size:'', name:'Nome'},
+    {size:'', name:'Data de Atividade'},
+    {size:'2', name:'Status'}
   ];
 
   constructor(private dadosCampanha: CampanhaService) { }

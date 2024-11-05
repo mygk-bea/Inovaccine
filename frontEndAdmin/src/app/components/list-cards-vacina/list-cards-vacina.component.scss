@@ -26,6 +26,7 @@
 
 .modal{
     --border-radius: 10px;
+    --width: 75vw;
 
     &__title {
         font-size: 1.5rem;
@@ -35,7 +36,10 @@
     }
 
     &__card__info{
-        padding: 0 20px;
+        .description{
+            padding: 0 20px;
+        }
+
         background: $light-color;
         margin-top: 10px;
         height: fit-content;
@@ -57,4 +61,49 @@
             height: 35px;
         }
     }
+
+    &__info{
+        &__content, &__campanhas{
+            padding: 0 20px;
+            color: $green-secondary-color;
+        }
+
+        &__content{
+            font-weight: bold;
+        }
+    }
 }
+
+.button__add{
+    height: 45px;
+    padding: 0 5px;
+    border: 3px solid $green-primary-color;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: $green-primary-color;
+    background: transparent;
+    transition: .2s all;
+  
+    &__inner{
+      overflow: hidden;
+      transition: .2s all;
+    }
+  
+    p{
+      font-weight: 600;
+    }
+  
+    span{
+      font-size: 2.5rem;
+    }
+  
+    &:hover{
+      background: $green-primary-color;
+      color: $green-light-color;
+    }
+  }
+  

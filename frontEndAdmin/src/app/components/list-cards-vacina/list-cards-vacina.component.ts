@@ -6,6 +6,8 @@ import { ItemCampanhaComponent } from '../item-campanha/item-campanha.component'
 import { IonModal } from '@ionic/angular/common';
 import { forkJoin } from 'rxjs';
 import { LoteService } from 'src/app/core/service/lote.service';
+import { RouterModule } from '@angular/router';
+import { TableAccordionComponent } from '../table-accordion/table-accordion.component';
 
 @Component({
   selector: 'app-list-cards-vacina',
@@ -15,7 +17,9 @@ import { LoteService } from 'src/app/core/service/lote.service';
   imports: [
     IonicModule, 
     CommonModule,
-    ItemCampanhaComponent
+    ItemCampanhaComponent,
+    TableAccordionComponent,
+    RouterModule
   ], 
   providers: [
     CampanhaService,
@@ -27,6 +31,14 @@ export class ListCardsVacinaComponent  implements OnInit {
   @ViewChild(IonModal) modal!: IonModal;
   dadosCampanha: any;
   dadosLotes: any;
+
+  titlesTable = [
+    {name:'Código'},
+    {name:'Quantidade'},
+    {name:'Data de Compra'},
+    {name:'Data de Validade'},
+    {name:'Valor'},
+  ];
 
   constructor(private Campanha: CampanhaService, private Lotes: LoteService) { }
 
