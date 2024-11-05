@@ -62,5 +62,17 @@ class SuperUserSeeder extends Seeder
             'nome' => 'Vitor Fantes',
             'fk_superuser_codLogin' => 24
         ]);
+
+        Usuario::create([
+            'codLogin' => 25,
+            'tipo' => 'super-user',
+            'email' => 'super@admin.com.br',
+            'senha' => '123'
+        ]);
+        SuperUser::create([
+            'codSuperUser' => 4,
+            'nome' => 'Super admin',
+            'fk_superuser_codLogin' => 25
+        ]);
     }
 }

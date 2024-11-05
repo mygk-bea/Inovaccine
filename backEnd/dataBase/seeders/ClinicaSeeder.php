@@ -159,5 +159,34 @@ class ClinicaSeeder extends Seeder
             'periodoFunc_fim' => '15:00',
             'fk_clinica_codMedico' => 5
         ]);
+
+
+        Usuario::create([
+            'codLogin' => 25,
+            'tipo' => 'clinica',
+            'email' => 'clinica6@gmail.com',
+            'senha' => '123'
+        ]);
+        Endereco::create([
+            'codEndereco' => 6,
+            'logradouro' => 'aaaaa',
+            'bairro' => 'aaaa',
+            'numero' => 234,
+            'cidade' => 'aaaa',
+            'complemento' => 'Sala 2',
+            'cep' => 'aaaaa',
+            'uf'=> 'SP'
+        ]);
+        Clinica::create([
+            'codClinica' => 6,
+            'nome' => 'Vacinas de Sampa',
+            'cnpj' => '12345678000167',
+            'fk_clinica_codEndereco' => 6,
+            'telefone' => '51923456789',
+            'fk_clinica_codLogin' => 10,
+            'periodoFunc_inicio' => '08:00',
+            'periodoFunc_fim' => '15:00',
+            'fk_clinica_codMedico' => 5
+        ]);
     }
 }
