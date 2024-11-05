@@ -168,7 +168,7 @@ class ClinicaSeeder extends Seeder
             'senha' => '123'
         ]);
         Endereco::create([
-            'codEndereco' => 6,
+            'codEndereco' => 20,
             'logradouro' => 'aaaaa',
             'bairro' => 'aaaa',
             'numero' => 234,
@@ -181,7 +181,7 @@ class ClinicaSeeder extends Seeder
             'codClinica' => 6,
             'nome' => 'Vacinas de Sampa',
             'cnpj' => '12345678000167',
-            'fk_clinica_codEndereco' => 6,
+            'fk_clinica_codEndereco' => 20,
             'telefone' => '51923456789',
             'fk_clinica_codLogin' => 10,
             'periodoFunc_inicio' => '08:00',
