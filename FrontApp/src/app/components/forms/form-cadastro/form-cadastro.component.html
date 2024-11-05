@@ -37,22 +37,26 @@
   <div *ngIf="etapaAtual === 2">
     <div class="form-group">
       <label for="nome">Nome Completo<span class="required">*</span></label>
-      <input type="text" id="nome" [(ngModel)]="dados.nome" placeholder="Digite Seu Nome">
+      <input type="text" id="nome" [(ngModel)]="dados.nome" placeholder="Digite Seu Nome" name="nome">
       <div class="error-message" *ngIf="campoEstaVazio('nome')">O campo Nome Completo é obrigatório.</div>
     </div>
     <div class="form-group">
       <label for="dataNasc">Data de Nascimento<span class="required">*</span></label>
-      <input type="date" id="dataNasc" [(ngModel)]="dados.dataNasc" placeholder="12/12/1980">
+      <input type="date" id="dataNasc" [(ngModel)]="dados.dataNasc" placeholder="12/12/1980" name="dataNasc">
       <div class="error-message" *ngIf="campoEstaVazio('dataNasc')">O campo Data de Nascimento é obrigatório.</div>
     </div>
     <div class="form-group">
       <label for="cpf">CPF<span class="required">*</span></label>
-      <input type="text" id="cpf" [(ngModel)]="dados.cpf" placeholder="123.456.789-10">
+      <input type="text" id="cpf" [(ngModel)]="dados.cpf" placeholder="123.456.789-10" name="cpf">
       <div class="error-message" *ngIf="campoEstaVazio('cpf')">O campo CPF é obrigatório.</div>
     </div>
     <div class="form-group">
+      <label for="responsável">Você tem pessoa dependetes?(se sim marque para ser o responsável)<span class="required">*</span></label>
+      <ion-checkbox [(ngModel)]="dados.responsavel" id='responsavel' name="responsavel" >Sou o Responsável</ion-checkbox>
+    </div>
+    <div class="form-group">
       <label for="telefone">Telefone<span class="required">*</span></label>
-      <input type="text" id="telefone" [(ngModel)]="dados.telefone" placeholder="15 99999-9999">
+      <input type="text" id="telefone" [(ngModel)]="dados.telefone" placeholder="15 99999-9999" name="telefone">
       <div class="error-message" *ngIf="campoEstaVazio('telefone')">O campo Telefone é obrigatório.</div>
     </div>
   </div>
@@ -60,12 +64,12 @@
   <div *ngIf="etapaAtual === 3">
     <div class="form-group">
       <label for="email">Email<span class="required">*</span></label>
-      <input type="email" id="email" [(ngModel)]="dados.email" placeholder="Digite Seu Email">
+      <input type="email" id="email" [(ngModel)]="dados.email" placeholder="Digite Seu Email" name="emial">
       <div class="error-message" *ngIf="campoEstaVazio('email')">O campo Email é obrigatório.</div>
     </div>
     <div class="form-group">
       <label for="senha">Senha<span class="required">*</span></label>
-      <input type="password" id="senha" [(ngModel)]="dados.senha" placeholder="Digite Sua Senha">
+      <input type="password" id="senha" [(ngModel)]="dados.senha" placeholder="Digite Sua Senha" name="senha">
       <div class="error-message" *ngIf="campoEstaVazio('senha')">O campo Senha é obrigatório.</div>
     </div>
   </div>

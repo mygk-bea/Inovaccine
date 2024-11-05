@@ -8,6 +8,7 @@ export interface Paciente{
       nome: string;
       dataNasc: string;
       cpf: string;
+      responsavel: boolean
       telefone: string;
       email: string;
       senha: string;

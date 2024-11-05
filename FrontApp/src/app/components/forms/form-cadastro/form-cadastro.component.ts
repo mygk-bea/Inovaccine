@@ -29,6 +29,7 @@ export class FormCadastroComponent  implements OnInit {
       nome: '',
       dataNasc: '',
       cpf: '',
+      responsavel: false,
       telefone: '',
       email: '',
       senha: ''
@@ -108,7 +109,12 @@ export class FormCadastroComponent  implements OnInit {
           response => {
             console.log('Cadastro realizado com sucesso!', response);
             alert('Cadastro finalizado com sucesso!');
-            this.router.navigate(['/tela-inicial']);  // Redirecionar para a home se necessário
+            if (this.dados.responsavel === true) {
+              this.router.navigate(['/responsavel']);  
+            }else{
+
+              this.router.navigate(['/tela-inicial']);  // Redirecionar para a home se necessário
+            }
             // Redirecionar ou resetar os dados se necessário
           },
           error => {
