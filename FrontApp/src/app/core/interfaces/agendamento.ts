@@ -1,9 +1,11 @@
 export interface Agendamento {
     valor: string;
-    fk_vacina_codVacina: number;
-    fk_paciente_codPaciente: number;
-    fk_clinica_codClinica: number;
+    fk_paciente_codPaciente: string;
+    fk_clinica_codClinica: string;
+    fk_campanha_codCampanha: string;
     dataHora: string;
     comparecimento: boolean;
-    fk_campanha_codCampanha: number;
+    forma_Pagamento: string;
+    residencial: boolean;
+    // fk_campanha_codCampanha: number;
 }

@@ -36,4 +36,9 @@ export class AuthLoginService {
     sessionStorage.clear();
     return of(undefined); // Retorna um Observable vazio
   }
+
+  getUserId() : any{
+    const id = sessionStorage.getItem('userId');
+    return id;
+  }
 }

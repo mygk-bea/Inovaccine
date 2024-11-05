@@ -14,17 +14,19 @@ return new class extends Migration
         Schema::create('agendamento', function (Blueprint $table) {
             $table->increments('codAgendamento')->unsigned();
             $table->decimal('valor', 10, 2)->nullable(false);
-            $table->unsignedInteger('fk_vacina_codVacina');
             $table->unsignedInteger('fk_paciente_codPaciente');
             $table->unsignedInteger('fk_clinica_codClinica');
+            $table->unsignedInteger('fk_endereco_codEndereco');
             $table->dateTime('dataHora')->nullable(false);
             $table->boolean('comparecimento');
             $table->unsignedInteger('fk_campanha_codCampanha')->nullable();
+            $table->string('forma_Pagamento')->nullable(false);
 
-            $table->foreign('fk_vacina_codVacina')->references('codVacina')->on('Vacina');
+            // $table->foreign('fk_vacina_codVacina')->references('codVacina')->on('Vacina');
             $table->foreign('fk_paciente_codPaciente')->references('codPaciente')->on('Paciente');
             $table->foreign('fk_clinica_codClinica')->references('codClinica')->on('Clinica');
             $table->foreign('fk_campanha_codCampanha')->references('codCampanha')->on('campanha');
+            $table->foreign('fk_endereco_codEndereco')->references('codEndereco')->on('Endereco');
 
             $table->timestamps();
         });
