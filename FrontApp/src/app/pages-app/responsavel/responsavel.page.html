@@ -1,0 +1,17 @@
+<ion-content [fullscreen]="true">
+  <app-header-component></app-header-component>
+  <div class="container">
+    <h1>Quem vai entrar?</h1>
+    <div class="profiles">
+      <div class="profile" (click)="entrarPerfil()">
+        <img alt="Profile image" src="./assets/icon/User.svg" />
+        <span>{{ userName }}</span>
+      </div>
+      <div class="profile" >
+        <img alt="Add profile icon" src="./assets/icon/AdicionarUser.svg" />
+        <p>Adicionar perfil</p>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<app-footer></app-footer>
