@@ -31,7 +31,8 @@ export class LoginPage implements OnInit {
     this.authService.login(data.email, data.senha).subscribe(
       () => {
         const userData = this.authService.getUserData();
-        if (userData?.type === 'clinica') {
+        console.log(userData?.type);
+        if (userData?.type == 'clinica') {
           this.router.navigate(['/clinica/home']);
         } else {
           console.error('Tipo de usuário incorreto');

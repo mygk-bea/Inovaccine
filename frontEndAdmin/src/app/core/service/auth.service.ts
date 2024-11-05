@@ -26,12 +26,12 @@ export class AuthService {
     sessionStorage.clear();
   }
 
-  getUserData(): { id: string, type: string, name: string } | null {
+  getUserData(): any {
     const id = sessionStorage.getItem('userId');
     const type = sessionStorage.getItem('userType');
     const name = sessionStorage.getItem('userName');
 
-    return id && type && name ? { id, type, name } : null;
+    return id && type && name ? {id, type, name}: null;
   }
 
   isLoggedIn(): boolean {
