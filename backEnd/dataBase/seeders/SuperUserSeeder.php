@@ -70,7 +70,7 @@ class SuperUserSeeder extends Seeder
             'senha' => '123'
         ]);
         SuperUser::create([
-            'codSuperUser' => 4,
+            'codSuperUser' => 5,
             'nome' => 'Super admin',
             'fk_superuser_codLogin' => 35
         ]);
