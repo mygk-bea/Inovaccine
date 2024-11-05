@@ -33,11 +33,11 @@ export class ListCardsVacinaComponent  implements OnInit {
   dadosLotes: any;
 
   titlesTable = [
-    {name:'Código'},
-    {name:'Quantidade'},
-    {name:'Data de Compra'},
-    {name:'Data de Validade'},
-    {name:'Valor'},
+    {name:'Código', size:''},
+    {name:'Quantidade', size:''},
+    {name:'Data de Compra', size:''},
+    {name:'Data de Validade', size:''},
+    {name:'Valor', size:''},
   ];
 
   constructor(private Campanha: CampanhaService, private Lotes: LoteService) { }
