@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Agendamento;
+use App\Models\RelacaoAgendVacina;
 
 class AgendamentoController extends Controller
 {
@@ -28,7 +30,7 @@ class AgendamentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

@@ -24,7 +24,7 @@ Route::post('/cadLote', [App\Http\Controllers\LoteController::class, 'store']);
 Route::post('/cadPaciente', [App\Http\Controllers\PacienteController::class, 'store']);
 Route::post('/cadCampanha', [App\Http\Controllers\CampanhaController::class, 'store']);
 Route::post('/cadDenuncia', [App\Http\Controllers\DenunciaController::class, 'store']);
-// Route::post('/cadAgendamento', [App\Http\Controllers\AgendamentoController::class, 'store']);
+Route::post('/cadAgendamento', [App\Http\Controllers\AgendamentoController::class, 'store']);
 // Route::post('/cadPostagem', [App\Http\Controllers\PostagemController::class, 'store']);
 
 // pesquisa

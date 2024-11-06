@@ -17,7 +17,8 @@ return new class extends Migration
             $table->unsignedInteger('fk_paciente_codPaciente');
             $table->unsignedInteger('fk_clinica_codClinica');
             $table->unsignedInteger('fk_endereco_codEndereco');
-            $table->dateTime('dataHora')->nullable(false);
+            $table->date('data')->nullable(false);
+            $table->time('hora')->nullable(false);
             $table->boolean('comparecimento');
             $table->unsignedInteger('fk_campanha_codCampanha')->nullable();
             $table->string('forma_Pagamento')->nullable(false);
