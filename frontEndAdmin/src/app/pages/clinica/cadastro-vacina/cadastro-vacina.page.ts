@@ -10,7 +10,13 @@ import { FormCadastroVacinaComponent } from 'src/app/components/_forms/form-cada
   templateUrl: './cadastro-vacina.page.html',
   styleUrls: ['./cadastro-vacina.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, HeaderComponent, FormCadastroVacinaComponent]
+  imports: [
+    IonicModule, 
+    CommonModule, 
+    FormsModule, 
+    HeaderComponent, 
+    FormCadastroVacinaComponent
+  ]
 })
 export class CadastroVacinaPage implements OnInit {
 

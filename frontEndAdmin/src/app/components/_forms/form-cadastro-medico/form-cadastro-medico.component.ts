@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { InputTextListComponent } from '../../_inputs/input-text-list/input-text-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MedicoService } from 'src/app/core/service/medico.service';
+import { MaskDirective } from "../../_inputs/directives/mask.directive";
 
 @Component({
   selector: 'app-form-cadastro-medico',
@@ -19,14 +20,18 @@ export class FormCadastroMedicoComponent  implements OnInit {
 
   inputsData = [
     {size: 8, name: 'nome', label: 'Nome do Médico', placeholder: 'Digite o nome', type: "text"},
-    {size: 4, name: 'telefone', label: 'Telefone', placeholder: '(00) 00000-0000', type: "text"},
-    {size: 6, name: 'cpf', label: 'CPF', placeholder: '000.000.000-00', type: "text"},
-    {size: 6, name: 'crm', label: 'CRM', placeholder: 'CRM/SP 000000', type: "text"},
+    {size: 4, name: 'telefone', label: 'Telefone', placeholder: '(00) 00000-0000', type: "text", mask: "telefone"},
+    {size: 6, name: 'cpf', label: 'CPF', placeholder: '000.000.000-00', type: "text", mask: "cpf"},
+    {size: 6, name: 'crm', label: 'CRM', placeholder: 'CRM/SP 000000', type: "text", mask: "crm"},
     {size: 6, name: 'email', label: 'E-mail', placeholder: 'ex@dominio.com', type: "text"},
     {size: 6, name: 'senha', label: 'Senha', placeholder: 'Insira uma senha forte...', type: "text"},
   ];
 
-  constructor(private formBuilder: FormBuilder, private medico: MedicoService, private router: Router) {
+  constructor(
+    private formBuilder: FormBuilder, 
+    private medico: MedicoService, 
+    private router: Router
+  ) {
     this.form = new FormGroup({});
   }
 
@@ -42,6 +47,11 @@ export class FormCadastroMedicoComponent  implements OnInit {
   }
 
   onSubmit() {
+    this.form.patchValue({
+      telefone: MaskDirective.removeMask(this.form.value.telefone, 'telefone'),
+      cpf: MaskDirective.removeMask(this.form.value.cpf, 'cpf')
+    });
+  
     const medico = this.form.value;
     console.log(medico);
     this.medico.cadastrarMedico(medico);

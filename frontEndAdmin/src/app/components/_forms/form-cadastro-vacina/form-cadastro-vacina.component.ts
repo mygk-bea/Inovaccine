@@ -6,6 +6,7 @@ import { InputTextListComponent } from '../../_inputs/input-text-list/input-text
 import { VacinaService } from 'src/app/core/service/vacina.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { MaskDirective } from '../../_inputs/directives/mask.directive';
 
 @Component({
   selector: 'app-form-cadastro-vacina',
@@ -20,7 +21,7 @@ export class FormCadastroVacinaComponent  implements OnInit {
 
   inputsData = [
     {size: 6, name: "nome", label: "Nome da Vacina", placeholder: "Insira o nome da vacina...", type: "text"},
-    {size: 6, name: "preco", label: "Valor", placeholder: "R$ 000,00", type: "text"}
+    {size: 6, name: "preco", label: "Valor", placeholder: "R$ 000,00", type: "text", mask: "preco"}
   ];
 
   radioValues = [
@@ -39,7 +40,11 @@ export class FormCadastroVacinaComponent  implements OnInit {
     {text: "Sexta-feira", value:"Sexta-feira"},
   ]
 
-  constructor(private formBuilder: FormBuilder, private vacina: VacinaService, private router: Router) { 
+  constructor(
+    private formBuilder: FormBuilder, 
+    private vacina: VacinaService, 
+    private router: Router
+  ) { 
     this.form = new FormGroup({});
   }
 
@@ -55,6 +60,10 @@ export class FormCadastroVacinaComponent  implements OnInit {
   
 
   onSubmit() {
+    this.form.patchValue({
+      preco: MaskDirective.removeMask(this.form.value.preco, 'preco'),
+    });
+
     const vacina = this.form.value;
     vacina.diasAplicacao = this.checkboxValues.filter((_, index) => vacina.diasAplicacao[index]).map(option => option.value); 
     console.log(vacina);

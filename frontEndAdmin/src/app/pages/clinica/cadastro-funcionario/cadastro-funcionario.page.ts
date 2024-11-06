@@ -10,7 +10,13 @@ import { FormCadastroFuncionarioComponent } from 'src/app/components/_forms/form
   templateUrl: './cadastro-funcionario.page.html',
   styleUrls: ['./cadastro-funcionario.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, HeaderComponent, FormCadastroFuncionarioComponent]
+  imports: [
+    IonicModule, 
+    CommonModule, 
+    FormsModule, 
+    HeaderComponent, 
+    FormCadastroFuncionarioComponent
+  ]
 })
 export class CadastroFuncionarioPage implements OnInit {
 

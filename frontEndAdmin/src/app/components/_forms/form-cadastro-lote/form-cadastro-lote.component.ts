@@ -8,6 +8,8 @@ import { VacinaService } from 'src/app/core/service/vacina.service';
 import { InputSearchCadastroComponent } from '../../_inputs/input-search-cadastro/input-search-cadastro.component';
 import { InputDateComponent } from '../../_inputs/input-date/input-date.component';
 import { AuthService } from 'src/app/core/service/auth.service';
+import { Router } from '@angular/router';
+import { MaskDirective } from '../../_inputs/directives/mask.directive';
 
 @Component({
   selector: 'app-form-cadastro-lote',
@@ -30,19 +32,25 @@ export class FormCadastroLoteComponent  implements OnInit {
   vacinaId!: number;
   
   inputsDataLote = [
-    {size: 6, name: "codLote", label: "Número do Lote", placeholder: "0000-0000-0000", type: "text"},
-    {size: 6, name: "valor", label: "Valor", placeholder: "R$ 00000,00", type: "text"},
+    {size: 6, name: "codLote", label: "Número do Lote", placeholder: "#00000", type: "text", mask: "codigo"},
+    {size: 6, name: "valor", label: "Valor", placeholder: "R$ 00000,00", type: "text", mask: "preco"},
     {size: 6, name: "qtd", label: "Quantidade de Vacinas", placeholder: "0000", type: "text"},
     {size: 6, name: "qtd_minimo", label: "Quantidade Min de Vacinas", placeholder: "0000", type: "text"},
   ];
   
   inputsDataFornecedor = [
     {size: 12, name: "nome", label: "Nome", placeholder: "ex: Instituto...", type: "text"},
-    {size: 12, name: "cnpj", label: "CNPJ", placeholder: "00.000.000/0000-00", type: "text"},
-    {size: 12, name: "telefone", label: "Telefone", placeholder: "(00) 00000-0000", type: "text"},
+    {size: 12, name: "cnpj", label: "CNPJ", placeholder: "00.000.000/0000-00", type: "text", mask: "cnpj"},
+    {size: 12, name: "telefone", label: "Telefone", placeholder: "(00) 00000-0000", type: "text", mask: "telefone"},
   ]
   
-  constructor(private formBuilder: FormBuilder, private lote: LoteService, private dadosVacina: VacinaService, private authService: AuthService) { 
+  constructor(
+    private formBuilder: FormBuilder, 
+    private lote: LoteService, 
+    private dadosVacina: VacinaService, 
+    private authService: AuthService,
+    private router: Router
+  ) { 
     this.form = new FormGroup({});
   }
   clinicaId: string = this.authService.getUserData()?.id;
@@ -70,10 +78,15 @@ export class FormCadastroLoteComponent  implements OnInit {
   onSubmit() {
     this.form.patchValue({
       fk_lote_codVacina: this.vacinaId,
-      fk_lote_codClinica: this.clinicaId
+      fk_lote_codClinica: this.clinicaId,
+      valor: MaskDirective.removeMask(this.form.value.valor, 'preco'),
+      telefone: MaskDirective.removeMask(this.form.value.telefone, 'telefone'),
+      cnpj: MaskDirective.removeMask(this.form.value.cnpj, 'cnpj'),
     });
+
     console.log(this.form.value);
     const lote = this.form.value;
     this.lote.cadastrarLote(lote);
+    this.router.navigate(['/clinica/listagem-vacinas']);
   }
 }

@@ -9,6 +9,7 @@ import { MedicoService } from 'src/app/core/service/medico.service';
 import { CommonModule } from '@angular/common';
 import { InputSearchCadastroComponent } from '../../_inputs/input-search-cadastro/input-search-cadastro.component';
 import { Router } from '@angular/router';
+import { MaskDirective } from '../../_inputs/directives/mask.directive';
 
 @Component({
   selector: 'app-form-cadastro-clinica',
@@ -23,7 +24,7 @@ import { Router } from '@angular/router';
     InputTextListComponent, 
     InputTimeComponent, 
     InputSearchCadastroComponent,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers:[ClinicaService, MedicoService]
 })
@@ -35,8 +36,8 @@ export class FormCadastroClinicaComponent  implements OnInit {
 
   inputsDataGeral = [
     {size: 12, name: "nome_cli", label: "Nome da Clínica", placeholder: "Insira o nome da clínica", type: "text"},
-    {size: 3, name: "cnpj", label: "CNPJ", placeholder: "00.000.000/0000-00", type: "text"},
-    {size: 3, name: "telefone", label: "Telefone", placeholder: "(00) 00000-0000", type: "text"}
+    {size: 3, name: "cnpj", label: "CNPJ", placeholder: "00.000.000/0000-00", type: "text", mask: "cnpj"},
+    {size: 3, name: "telefone", label: "Telefone", placeholder: "(00) 00000-0000", type: "text", mask: "telefone"}
   ];
 
   inputsDataLogin = [
@@ -45,7 +46,7 @@ export class FormCadastroClinicaComponent  implements OnInit {
   ];
 
   inputsDataEndereco = [
-    {size: 3, name: "cep", label: "CEP", placeholder: "00000-000", type: "text"},
+    {size: 3, name: "cep", label: "CEP", placeholder: "00000-000", type: "text", mask: "cep"},
     {size: 5, name: "logradouro", label: "Logradouro", placeholder: "ex: Rua...", type: "text"},
     {size: 4, name: "bairro", label: "Bairro", placeholder: "ex: Vila...", type: "text"},
     {size: 3, name: "cidade", label: "Cidade", placeholder: "ex: São...", type: "text"},
@@ -54,7 +55,12 @@ export class FormCadastroClinicaComponent  implements OnInit {
     {size: 4, name: "complemento", label: "Complemento", placeholder: "ex: Casa, Ap...", type: "text"}
   ];
 
-  constructor(private formBuilder: FormBuilder, private clinica: ClinicaService, private dadosMedico: MedicoService, private router: Router) { 
+  constructor(
+    private formBuilder: FormBuilder, 
+    private clinica: ClinicaService, 
+    private dadosMedico: MedicoService, 
+    private router: Router
+  ) { 
     this.form = new FormGroup({});
   }
 
@@ -84,8 +90,12 @@ export class FormCadastroClinicaComponent  implements OnInit {
 
   onSubmit() {
     this.form.patchValue({
-      nome_medico: this.medicoId
+      nome_medico: this.medicoId,
+      cnpj: MaskDirective.removeMask(this.form.value.cnpj, 'cnpj'),
+      telefone: MaskDirective.removeMask(this.form.value.telefone, 'telefone'),
+      cep: MaskDirective.removeMask(this.form.value.cep, 'cep')
     });
+
     const clinica = this.form.value;
     console.log(clinica);
     this.clinica.cadastrarClinica(clinica);

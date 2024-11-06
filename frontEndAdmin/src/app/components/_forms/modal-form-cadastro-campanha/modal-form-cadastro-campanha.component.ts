@@ -32,7 +32,11 @@ export class ModalFormCadastroCampanhaComponent  implements OnInit {
     {size: 12, name: "nome", label: "Nome da Campanha", placeholder: "Digite...", type: "text"},
   ];
 
-  constructor(private formBuilder: FormBuilder, private campanha: CampanhaService, private dadosVacina: VacinaService) { 
+  constructor(
+    private formBuilder: FormBuilder, 
+    private campanha: CampanhaService, 
+    private dadosVacina: VacinaService
+  ) { 
     this.form = new FormGroup({});
   }
 

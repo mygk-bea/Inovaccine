@@ -10,7 +10,13 @@ import { FormCadastroLoteComponent } from 'src/app/components/_forms/form-cadast
   templateUrl: './cadastro-lote.page.html',
   styleUrls: ['./cadastro-lote.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, HeaderComponent, FormCadastroLoteComponent]
+  imports: [
+    IonicModule, 
+    CommonModule, 
+    FormsModule, 
+    HeaderComponent, 
+    FormCadastroLoteComponent
+  ]
 })
 export class CadastroLotePage implements OnInit {
 
