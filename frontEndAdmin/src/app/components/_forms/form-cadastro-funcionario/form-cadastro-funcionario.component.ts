@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FuncionarioService } from 'src/app/core/service/funcionario.service';
 import { Router } from '@angular/router';
 import { MaskDirective } from '../../_inputs/directives/mask.directive';
+import { AuthService } from 'src/app/core/service/auth.service';
 
 @Component({
   selector: 'app-form-cadastro-funcionario',
@@ -13,7 +14,7 @@ import { MaskDirective } from '../../_inputs/directives/mask.directive';
   standalone: true,
   styleUrls: ['./form-cadastro-funcionario.component.scss'],
   imports: [IonicModule, ReactiveFormsModule, InputTextListComponent, HttpClientModule],
-  providers: [FuncionarioService]
+  providers: [FuncionarioService, AuthService]
 })
 export class FormCadastroFuncionarioComponent  implements OnInit {
   form: FormGroup;
@@ -29,10 +30,13 @@ export class FormCadastroFuncionarioComponent  implements OnInit {
   constructor(
     private formBuilder: FormBuilder, 
     private funcionario: FuncionarioService, 
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { 
     this.form = new FormGroup({});
   }
+
+  clinicaId: string = this.authService.getUserData()?.id;
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -41,11 +45,13 @@ export class FormCadastroFuncionarioComponent  implements OnInit {
       telefone: [null],
       email: [null],
       senha: [null],
+      fk_funcionario_codClinica: [null]
     });
   }
 
   onSubmit() {
     this.form.patchValue({
+      fk_funcionario_codClinica: this.clinicaId,
       cpf: MaskDirective.removeMask(this.form.value.cpf, 'cpf'),
       telefone: MaskDirective.removeMask(this.form.value.telefone, 'telefone'),
     });
