@@ -7,37 +7,28 @@ use Illuminate\Database\Eloquent\Model;
 
 class RelacaoAgendVacina extends Model
 {
-    protected $table = "Agendamento";
+    protected $table = "relacao_agendamento_vacina";
 
-    protected $primaryKey = 'codAgendamento';
+    protected $primaryKey = ['fk_paciente_codPaciente', 'fk_vacina_codVacina'];
 
     protected $fillable = [
-        'codAgendamento',
-        'valor',
         'fk_paciente_codPaciente',
-        'fk_clinica_codClinica',
-        'fk_endereco_codEndereco',
-        'data',
-        'hora',
-        'comparecimento',
-        'fk_campanha_codCampanha',
-        'forma_Pagamento'
+        'fk_vacina_codVacina',
+        'fk_agendamento_codAgendamento'
     ]; 
 
     public function paciente(){
         return $this->belongsTo(Paciente::class, 'fk_paciente_codPaciente');
     }
 
-    public function clinica(){
-        return $this->belongsTo(Clinica::class, 'fk_clinica_codClinica');
+    public function vacina(){
+        return $this->belongsTo(Vacina::class, 'fk_vacina_codVacina');
     }
 
-    public function endereco(){
-        return $this->belongsTo(Endereco::class, 'fk_endereco_codEndereco');
+    public function agendamento(){
+        return $this->belongsTo(Agendamento::class, 'fk_agendamento_codAgendamento');
     }
 
-    public function campanha(){
-        return $this->belongsTo(Campanha::class, 'fk_campanha_codCampanha');
-    }
+
     use HasFactory;
 }
