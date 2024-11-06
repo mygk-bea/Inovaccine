@@ -1,4 +1,5 @@
 export interface Agendamento {
+    modalidade: string;
     valor: string;
     fk_paciente_codPaciente: string;
     fk_clinica_codClinica: string;

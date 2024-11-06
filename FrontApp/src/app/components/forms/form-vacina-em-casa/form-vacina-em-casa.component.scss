@@ -81,10 +81,25 @@ ion-select, ion-input {
 
 /* Botão de Agendamento */
 .agd_btn {
-  width: 100%;
   --background: var(--primary-color);
   padding: 12px; /* Aumenta o padding do botão para maior área clicável */
   font-size: 16px; /* Aumenta o tamanho da fonte do botão */
+  width: 900px; /* Ajuste conforme o tamanho desejado */
+  margin: 0 auto;
+}
+
+.custom-date-input {
+  padding: 20px;
+  border: none; /* Cor da borda */
+  border-radius: 5px; /* Cantos arredondados */
+  font-size: 16px;
+  background-color: var(--background-input); /* Fundo branco */
+  border-bottom: 1px solid #000;
+  width: 91%;
+}
+
+.custom-date-input::-webkit-calendar-picker-indicator {
+  border-radius: 5px; /* Cantos arredondados do ícone */
 }
 
 
@@ -118,5 +133,12 @@ ion-select, ion-input {
   .agd_btn {
     padding: 10px; /* Ajusta o padding do botão para telas menores */
     font-size: 12px; /* Ajusta o tamanho da fonte do botão para telas menores */
+    width: 60%;
   }
+  .date-input-container {
+    width: 80%;
+}
+.custom-date-input{
+    width: 285px;
+}
 }
