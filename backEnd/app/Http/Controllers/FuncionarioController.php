@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Funcionario;
 use App\Models\Usuario;
+use App\Models\Clinica;
 
 
 class FuncionarioController extends Controller
@@ -25,6 +26,7 @@ class FuncionarioController extends Controller
         $funcionario->cpf = $request->input('cpf');
         $funcionario->telefone = $request->input('telefone');
         $funcionario->fk_funcionario_codLogin = $usuarioId;
+        $funcionario->fk_funcionario_codClinica = $request->input('fk_funcionario_codClinica');
         $funcionario->save();
     }
 

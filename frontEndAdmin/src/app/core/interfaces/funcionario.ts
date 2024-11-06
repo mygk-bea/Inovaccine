@@ -4,4 +4,5 @@ export interface Funcionario {
     senha: string;
     cpf: string;
     telefone: string;
+    fk_funcionario_codClinica: number;
 }
