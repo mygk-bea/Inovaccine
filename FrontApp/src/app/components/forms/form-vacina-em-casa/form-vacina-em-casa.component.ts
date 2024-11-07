@@ -61,7 +61,6 @@ export class FormVacinaEmCasaComponent implements OnInit {
   }
   pacienteId: string = this.authService.getUserId();
   ngOnInit() {
-    this.clinics = ['Clínica A', 'Clínica B', 'Clínica C'];
     this.loadVacinas(); //carrega as vacina
     this.loadClinicas(); // carrega as clinicas
   }
@@ -114,15 +113,14 @@ export class FormVacinaEmCasaComponent implements OnInit {
       console.error('Erro ao carregar vacinas', error);
     }
   }
-  getVacinasSelecionadas(): string { // pega o array de vacinas e procura onde ta o codigo do id pra retornar o nome da vacina
-    const selectedVacinas = this.agendamentoForm.value.vacina || [];
-    console.log('IDs das vacinas selecionadas:', selectedVacinas);
+  getVacinasSelecionadas(): string {
+    const selectedCodVacinas = this.agendamentoForm.value.vacina || [];
+    console.log('Códigos das vacinas selecionadas:', selectedCodVacinas);
   
-    const vacinaNomes = selectedVacinas.map((vacina: any) => {
-      const vacinaId = vacina.codVacina; 
-  
-      const vacinaEncontrada = this.vacina.find(v => v.codVacina === vacinaId);
-  
+    const vacinaNomes = selectedCodVacinas.map((codVacina: string) => {
+      // Garante que ambos os tipos sejam compatíveis convertendo o codVacina para string
+      const vacinaEncontrada = this.vacina.find(v => v.codVacina.toString() === codVacina.toString());
+      
       // Retorna o nome da vacina ou "Vacina não encontrada"
       return vacinaEncontrada ? vacinaEncontrada.nome : 'Vacina não encontrada';
     });
@@ -139,13 +137,17 @@ export class FormVacinaEmCasaComponent implements OnInit {
     return clinica ? clinica.nome : 'Clínica não encontrada';
   }
 
-  onCheckboxChange(event: any, vacina: Vacina): void { // mostra os id da checkbox e manda pro array de vacina
+  onCheckboxChange(event: any, vacina: Vacina): void {
     console.log('ID da vacina:', vacina.codVacina);
     const vacinaArray = this.vacinaArray;
+    
+    // Verifica se a checkbox foi marcada
     if (event.detail.checked) {
-      vacinaArray.push(this.fb.control(vacina));
+      // Adiciona apenas o código da vacina no array
+      vacinaArray.push(this.fb.control(vacina.codVacina));
     } else {
-      const index = vacinaArray.controls.findIndex(x => x.value.nome === vacina.nome);
+      // Remove o código da vacina do array
+      const index = vacinaArray.controls.findIndex(x => x.value === vacina.codVacina);
       if (index >= 0) {
         vacinaArray.removeAt(index);
       }
