@@ -101,6 +101,7 @@
               <div *ngFor="let vacinas of vacina" class="vacina-checkbox">
                 <ion-label>{{ vacinas.nome }}</ion-label>
                 <ion-checkbox
+                  [formControlName]="i"
                   slot="start"
                   (ionChange)="onCheckboxChange($event, vacinas)">
                 </ion-checkbox>

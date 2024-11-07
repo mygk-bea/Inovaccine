@@ -33,46 +33,44 @@ class AgendamentoController extends Controller
      */
     public function store(Request $request)
     {
-        $vacinas = $request->vacina;
+        $vacinas = $request->input('vacina', []);
         $valor = 0;
-        $todasVacinas = new Vacina();
-        
-
-        // pegar a soma do valor total do atendimento
+    
+        // Calcular o valor das vacinas
         foreach ($vacinas as $codVacina) {
-            $vacinaEspecifica = Vacina::where('codVacina', $codVacina)->get()->first();
-            $valorVacina = $vacinaEspecifica->valor;
-            $valor += $valorVacina;
+            $vacinaEspecifica = Vacina::where('codVacina', $codVacina)->first();
+            $valor += $vacinaEspecifica->preco;
         }
-
+    
+        // Criar o agendamento
         $agendamento = new Agendamento();
+        $agendamento->valor = $valor;
+        $agendamento->fk_paciente_codPaciente = $request->input('paciente');
+        $agendamento->fk_clinica_codClinica = $request->input('clinica');
         
-        $agendamento->valor =  $valor;
-        $agendamento->fk_paciente_codPaciente = $request->paciente;
-        $agendamento->fk_clinica_codClinica = $request->clinica;
-        if($request->modalidade == 'clinica'){
-            $clinicaEspecifica = Clinica::where('codClinica', $request->clinica)->get()->first();
-            $codEndereco = $clinicaEspecifica->fk_clinica_codEndereco;
-            $agendamento->fk_endereco_codEndereco = $codEndereco;
-        }elseif ($request->modalidade == 'casa') {
-            $paciente = Paciente::where('codPaciente', $request->paciente)->get()->first();
-            $codEndereco = $paciente->fk_paciente_codEndereco;
-            $agendamento->fk_endereco_codEndereco = $codEndereco;
-        }
-        $agendamento->data= $request->data;
-        $agendamento->hora= $request->hora;
-        $agendamento->comparecimento= false;
-        $agendamento->forma_Pagamento= $request->formaPagamento;
+        // Verificar a modalidade e atribuir o endereço
+        if ($request->input('modalidade') == 'clinica') {
+            $clinicaEspecifica = Clinica::where('codClinica', $request->input('clinica'))->first();
+            $agendamento->fk_endereco_codEndereco = $clinicaEspecifica->fk_clinica_codEndereco;
+            
+        } elseif ($request->input('modalidade') == 'casa') {
+            $paciente = Paciente::where('codPaciente', $request->input('paciente'))->first();
+            $agendamento->fk_endereco_codEndereco = $paciente->fk_paciente_codEndereco;
+            
+        } 
+    
+        $agendamento->data = $request->input('data');
+        $agendamento->hora = $request->input('hora');
+        $agendamento->comparecimento = false;
+        $agendamento->forma_Pagamento = $request->input('formaPagamento');
         $agendamento->save();
-        $codAgendamento= $agendamento->codAgendamento;
-        
-        // insert na relação agendamento e vacina
+    
         foreach ($vacinas as $codVacina) {
-        $relacao_agend_vacina = new RelacaoAgendVacina();
-        $relacao_agend_vacina->fk_paciente_codPaciente = $request->paciente;
-        $relacao_agend_vacina->fk_vacina_codVacina = $request->vacina;
-        $relacao_agend_vacina->fk_agendamento_codAgendamento = $codAgendamento;
-        $relacao_agend_vacina->save();
+            $relacao_agend_vacina = new RelacaoAgendVacina();
+            $relacao_agend_vacina->fk_paciente_codPaciente = $request->input('paciente');
+            $relacao_agend_vacina->fk_vacina_codVacina = $codVacina;
+            $relacao_agend_vacina->fk_agendamento_codAgendamento = $agendamento->codAgendamento;
+            $relacao_agend_vacina->save();
         }
     }
 
