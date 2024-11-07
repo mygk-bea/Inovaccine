@@ -9,6 +9,8 @@ import { addIcons } from 'ionicons';
 import { alertCircleOutline, calendar, documentTextSharp, logOutOutline, personOutline, searchOutline, checkmarkOutline } from 'ionicons/icons';
 import { MenuComponent } from '../menu/menu.component';
 import { LoadingController } from '@ionic/angular';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-cards-vacina',
@@ -23,7 +25,7 @@ export class CardsVacinaComponent implements OnInit {
   vacina: Vacina[] = []; // Inicializa com um array vazio
   isLoading: boolean = false; 
 
-  constructor(private vacinaService: VacinaService, private loadingController: LoadingController) { 
+  constructor(private vacinaService: VacinaService, private loadingController: LoadingController,private router: Router) { 
     addIcons({searchOutline,documentTextSharp,checkmarkOutline,alertCircleOutline,calendar,logOutOutline,personOutline});
   }
 
@@ -31,6 +33,13 @@ export class CardsVacinaComponent implements OnInit {
     await this.loadVacinas();
   }
 
+  navigateToCarteirinha() {
+    this.router.navigate(['/carteirinha']);
+  }
+
+  navigateToServicos() {
+    this.router.navigate(['/agendamento-page']);
+  }
   async loadVacinas() {
     const loading = await this.loadingController.create({
       message: 'Carregando vacinas...',

@@ -1,0 +1,43 @@
+
+<ion-content [fullscreen]="true">
+  <app-header-component></app-header-component>
+  <div class="parte_superior">
+    <div class="icon">
+      <ion-icon
+        name="arrow-back"
+        class="icone_seta"
+        size="large"
+        (click)="navigateTo('tela-inicial', 'back')"
+        style="cursor: pointer; width: 64px"
+      ></ion-icon>
+    </div>
+    <div class="logo">
+      <img
+        src="./assets/img/logo_inovaccine.png"
+        alt="Logo"
+        class="ajuste_logo"
+      />
+    </div>
+  </div>
+  <div class="container">
+    <div class="card" *ngFor="let vacinas of vacina ">
+     <h2>
+    {{vacinas.nome}}
+    <ion-icon name="information-circle-outline" class="info_icon"></ion-icon>
+     </h2>
+     <p>
+      Assinatura do Médico/Enfermeiro
+     </p>
+     <p>
+      Dias de Aplicação : {{vacinas.diasAplicacao}}
+     </p>
+    </div>
+
+    <div class="button-container">
+     <ion-button>
+      Emitir Carteirinha
+     </ion-button>
+    </div>
+   </div>
+</ion-content>
+<app-footer></app-footer>

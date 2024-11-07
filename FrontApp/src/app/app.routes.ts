@@ -41,7 +41,11 @@ export const routes: Routes = [
   {
     path: 'cad-dependente',
     loadComponent: () => import('./pages-app/cad-dependente/cad-dependente.page').then( m => m.CadDependentePage)
+  },  {
+    path: 'carteirinha',
+    loadComponent: () => import('./pages-app/carteirinha/carteirinha.page').then( m => m.CarteirinhaPage)
   },
+
 
 
 ];
