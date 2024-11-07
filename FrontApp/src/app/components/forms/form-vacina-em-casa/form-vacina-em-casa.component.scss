@@ -51,13 +51,38 @@ body {
 }
 
 /* Grupos de Formulário */
-.form-group {
+.form-group{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   margin: 10px 0;
+}
+.form-group-vacina{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+}
+.form-group-data{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+  .custom-date-input {
+    padding: 20px;
+    border: none; /* Cor da borda */
+    border-radius: 5px; /* Cantos arredondados */
+    font-size: 16px;
+    background-color: var(--background-input); /* Fundo branco */
+    border-bottom: 1px solid #000;
+    width: 62%;
+  }
 }
 .group-vacinca {
   display: flex;
@@ -118,7 +143,7 @@ ion-select, ion-input {
   font-size: 16px;
   background-color: var(--background-input); /* Fundo branco */
   border-bottom: 1px solid #000;
-  width: 62%;
+  width: 53%;
 }
 
 .custom-date-input::-webkit-calendar-picker-indicator {
@@ -148,7 +173,16 @@ ion-select, ion-input {
     margin: 6px 0; /* Diminui a margem em telas pequenas */
     width: 100%;
   }
-
+  .form-group-data{
+    width: 100%;
+   width: 100%;
+   .date-input-container {
+     width: 80%;
+ }
+ .custom-date-input{
+     width: 285px;
+ }
+ }
   ion-select, ion-input {
     width: 30%; /* Garante que os inputs ocupem 100% em telas pequenas */
   }
@@ -188,6 +222,16 @@ ion-select, ion-input {
     font-size: 12px; /* Ajusta o tamanho da fonte do botão para telas menores */
     width: 60%;
   }
+  .form-group-data{
+     width: 100%;
+    width: 100%;
+    .date-input-container {
+      width: 90%;
+  }
+  .custom-date-input{
+      width: 485px;
+  }
+  }
   .date-input-container {
     width: 90%;
 }
@@ -217,6 +261,16 @@ ion-select, ion-input {
     padding: 10px; /* Ajusta o padding do botão para telas menores */
     font-size: 12px; /* Ajusta o tamanho da fonte do botão para telas menores */
     width: 60%;
+  }
+
+  .form-group-data{
+    width: 100%;
+    .date-input-container {
+      width: 90%;
+  }
+  .custom-date-input{
+      width: 985px;
+  }
   }
   .date-input-container {
     width: 90%;
