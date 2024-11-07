@@ -137,10 +137,27 @@ export class FormVacinaEmCasaComponent implements OnInit {
     return clinica ? clinica.nome : 'Clínica não encontrada';
   }
 
+  // onCheckboxChange(event: any, vacina: Vacina): void {
+  //   console.log('ID da vacina:', vacina.codVacina);
+  //   const vacinaArray = this.vacinaArray;
+    
+  //   // Verifica se a checkbox foi marcada
+  //   if (event.detail.checked) {
+  //     // Adiciona apenas o código da vacina no array
+  //     vacinaArray.push(this.fb.control(vacina.codVacina));
+  //   } else {
+  //     // Remove o código da vacina do array
+  //     const index = vacinaArray.controls.findIndex(x => x.value === vacina.codVacina);
+  //     if (index >= 0) {
+  //       vacinaArray.removeAt(index);
+  //     }
+  //   }
+  // }
+
   onCheckboxChange(event: any, vacina: Vacina): void {
     console.log('ID da vacina:', vacina.codVacina);
     const vacinaArray = this.vacinaArray;
-    
+  
     // Verifica se a checkbox foi marcada
     if (event.detail.checked) {
       // Adiciona apenas o código da vacina no array
@@ -153,6 +170,7 @@ export class FormVacinaEmCasaComponent implements OnInit {
       }
     }
   }
+  
   onModalityChange(event: any) {
     this.selectedMode = event.detail.value;
     this.isHomeVisit = this.selectedMode === 'casa';
@@ -224,20 +242,46 @@ export class FormVacinaEmCasaComponent implements OnInit {
     this.showConfirmation = false;// Ajuste o caminho conforme necessário
   }
 
+  // onSubmit() {
+  //   this.agendamentoForm.patchValue({
+  //     paciente: this.pacienteId
+
+  //   });
+
+  //   if (this.agendamentoForm.valid) {
+  //     console.log('Form submitted with data: ', this.agendamentoForm.value);
+  //     this.showConfirmation = true;
+
+
+  //   } else {
+  //     console.log('Form is invalid');
+  //     console.log('Invalid fields:', this.agendamentoForm.controls);
+  //   }
+  // }
   onSubmit() {
     this.agendamentoForm.patchValue({
       paciente: this.pacienteId
-
     });
-
+  
     if (this.agendamentoForm.valid) {
       console.log('Form submitted with data: ', this.agendamentoForm.value);
       this.showConfirmation = true;
-
-
+  
+      // Enviar os dados para o backend
+      this.agendamentoService.cadastrarAgendamento(this.agendamentoForm.value).subscribe(
+        response => {
+          console.log('Agendamento cadastrado com sucesso:', response);
+          this.showConfirmation = true;
+          this.agendamentoForm.reset(); // Reseta o formulário
+        },
+        error => {
+          console.error('Erro ao cadastrar agendamento:', error);
+        }
+      );
     } else {
       console.log('Form is invalid');
       console.log('Invalid fields:', this.agendamentoForm.controls);
     }
   }
+  
 }
