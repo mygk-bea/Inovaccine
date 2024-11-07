@@ -5,14 +5,7 @@ ion-modal#example-modal {
     --border-radius: 6px;
     --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
   }
-  .btn_clinicas{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  ion-button{
-    --background: var(--primary-color);
-  }
+  
   
   ion-modal#example-modal h1 {
     margin: 20px 20px 10px 20px;
