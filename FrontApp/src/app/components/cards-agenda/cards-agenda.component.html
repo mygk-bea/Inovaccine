@@ -5,23 +5,12 @@
     <div class="alinha_conteudo">
       <div class="conteudo_btn">
         <ion-icon name="home" style="font-size: 16px;"></ion-icon>
-        <div><strong>Tomar Vacina em Casa</strong></div>
+        <div><strong>Tomar Vacina </strong></div>
         <ion-icon name="arrow-forward" style="display: flex;color: var(--secondary-color); font-size: 24px;"></ion-icon>
       </div>
-      <div>Descrição: A gende um dia e horário para os 
-        profissionais irem em sua casa aplicar a vacina.</div>
+      <div>Descrição: Agende um dia e horário para os 
+       tomar sua vacina.</div>
       </div>
-  </ion-button>
-
-  <ion-button class="Vacina" (click)="navigateTo('vacina-clinica-page', 'forward')">
-    <div class="alinha_conteudo">
-      <div class="conteudo_btn">
-        <ion-icon name="help-buoy" style="font-size: 16px;"></ion-icon>
-        <i style="display: flex;justify-content: center;"><strong>Agendamento na Clínica</strong></i>
-        <ion-icon name="arrow-forward" style="display: flex;color: var(--secondary-color); font-size: 24px;"></ion-icon>
-      </div>
-      <div>Descrição: Selecione a Clínica para Tomar a Vacina</div>
-    </div>
   </ion-button>
 
   <h1 style="display: flex;justify-content: center;">Consultas</h1>
@@ -36,4 +25,5 @@
     </div>
   </ion-button>
   <modal-clinicas></modal-clinicas>
+  <ion-button id="clinicas_disponiveis" expand="block" class="btn_clinicas">Clinicas Disponíveis</ion-button>
 </div>

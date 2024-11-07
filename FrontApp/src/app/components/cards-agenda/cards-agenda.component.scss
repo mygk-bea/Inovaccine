@@ -26,6 +26,14 @@
     justify-content: space-between; 
     align-items: center;
 }
+.btn_clinicas{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  ion-button{
+    --background: var(--primary-color);
+  }
 @media (min-width: 268px) {
     .Vacina {
         width:85%; 
