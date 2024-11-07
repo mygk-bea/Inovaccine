@@ -59,6 +59,29 @@ body {
   width: 100%;
   margin: 10px 0;
 }
+.group-vacinca {
+  display: flex;
+  flex-direction: column; /* A label ficará em cima dos checkboxes */
+  align-items: center;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.vacina-checkbox-container {
+  display: flex;
+  flex-direction: row; /* Organiza os checkboxes horizontalmente */
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* Permite que os checkboxes quebrem para a próxima linha, se necessário */
+  gap: 15px; /* Espaçamento entre os checkboxes */
+}
+
+.vacina-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 
 ion-select, ion-input {
   width: 100%; /* Garante que os inputs ocupem 100% */
@@ -95,7 +118,7 @@ ion-select, ion-input {
   font-size: 16px;
   background-color: var(--background-input); /* Fundo branco */
   border-bottom: 1px solid #000;
-  width: 91%;
+  width: 62%;
 }
 
 .custom-date-input::-webkit-calendar-picker-indicator {
@@ -103,7 +126,7 @@ ion-select, ion-input {
 }
 
 
-@media (min-width: 370px) and (max-width: 868px) {
+@media (min-width: 370px) and (max-width: 1000px) {
   app-header-component{
     display: none;
   }
@@ -140,5 +163,65 @@ ion-select, ion-input {
 }
 .custom-date-input{
     width: 285px;
+}
+}
+@media (min-width: 1020px) and (max-width: 1300px) {
+  .ajuste_logo {
+    max-width: 100%; /* Logo ocupa 100% em telas muito pequenas */
+  }
+
+  .div_form {
+    padding: 10px; /* Reduz o padding em telas pequenas */
+  }
+
+  .form-group {
+    margin: 6px 0; /* Diminui a margem em telas pequenas */
+    width: 100%;
+  }
+
+  ion-select, ion-input {
+    width: 50%; /* Garante que os inputs ocupem 100% em telas pequenas */
+  }
+
+  .agd_btn {
+    padding: 10px; /* Ajusta o padding do botão para telas menores */
+    font-size: 12px; /* Ajusta o tamanho da fonte do botão para telas menores */
+    width: 60%;
+  }
+  .date-input-container {
+    width: 90%;
+}
+.custom-date-input{
+    width: 485px;
+}
+}
+@media (min-width: 1320px) and (max-width: 1440px) {
+  .ajuste_logo {
+    max-width: 100%; /* Logo ocupa 100% em telas muito pequenas */
+  }
+
+  .div_form {
+    padding: 10px; /* Reduz o padding em telas pequenas */
+  }
+
+  .form-group {
+    margin: 6px 0; /* Diminui a margem em telas pequenas */
+    width: 100%;
+  }
+
+  ion-select, ion-input {
+    width: 80%; /* Garante que os inputs ocupem 100% em telas pequenas */
+  }
+
+  .agd_btn {
+    padding: 10px; /* Ajusta o padding do botão para telas menores */
+    font-size: 12px; /* Ajusta o tamanho da fonte do botão para telas menores */
+    width: 60%;
+  }
+  .date-input-container {
+    width: 90%;
+}
+.custom-date-input{
+    width: 985px;
 }
 }

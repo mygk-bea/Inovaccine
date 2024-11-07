@@ -78,22 +78,6 @@
           </div>
 
           <div class="form-group">
-            <label for="vacina">Vacina</label>
-            <ion-select
-              fill="solid"
-              aria-label="Vacina"
-              placeholder="Selecione a vacina"
-              formControlName="vacina"
-            >
-              <ion-select-option value="vacina1">Vacina 1</ion-select-option>
-              <ion-select-option value="vacina2">Vacina 2</ion-select-option>
-            </ion-select>
-            <div *ngIf="agendamentoForm.get('vacina')?.invalid && agendamentoForm.get('vacina')?.touched">
-              <small class="error-text">Este campo é obrigatório.</small>
-            </div>
-          </div>
-
-          <div class="form-group">
             <label for="formaPagamento">Forma de Pagamento</label>
             <ion-select
               fill="solid"
@@ -110,6 +94,22 @@
               <small class="error-text">Este campo é obrigatório.</small>
             </div>
           </div>
+
+          <div class="group-vacinca">
+            <label>Vacina</label>
+            <ion-list class="vacina-checkbox-container">
+              <div *ngFor="let vacinas of vacina" class="vacina-checkbox">
+                <ion-label>{{ vacinas.nome }}</ion-label>
+                <ion-checkbox
+                  slot="start"
+                  (ionChange)="onCheckboxChange($event, vacinas)">
+                </ion-checkbox>
+              </div>
+            </ion-list>
+            <div *ngIf="agendamentoForm.get('vacina')?.invalid && agendamentoForm.get('vacina')?.touched">
+              <small class="error-text">Este campo é obrigatório.</small>
+            </div>
+          </div>
         </ion-row>
 
         <ion-row *ngIf="!isHomeVisit">
@@ -121,10 +121,10 @@
               formControlName="clinica"
             >
               <ion-select-option
-                *ngFor="let clinic of clinics"
-                [value]="clinic"
+                *ngFor="let clinica of clinicas"
+                [value]="clinica.codClinica"
               >
-                {{ clinic }}
+                {{ clinica.nome }}
               </ion-select-option>
             </ion-select>
             <div *ngIf="agendamentoForm.get('clinica')?.invalid && agendamentoForm.get('clinica')?.touched">
@@ -164,17 +164,18 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="vacina">Vacina</label>
-            <ion-select
-              fill="solid"
-              aria-label="Vacina"
-              placeholder="Selecione a vacina"
-              formControlName="vacina"
-            >
-              <ion-select-option value="vacina1">Vacina 1</ion-select-option>
-              <ion-select-option value="vacina2">Vacina 2</ion-select-option>
-            </ion-select>
+          <div class="group-vacinca">
+            <label>Vacina</label>
+            <ion-list class="vacina-checkbox-container">
+              <div *ngFor="let vacinas of vacina" class="vacina-checkbox">
+                <ion-label>{{ vacinas.nome }}</ion-label>
+                <ion-checkbox
+                  slot="start"
+                  [value]="vacinas.codVacina"
+                  (ionChange)="onCheckboxChange($event, vacinas)">
+                </ion-checkbox>
+              </div>
+            </ion-list>
             <div *ngIf="agendamentoForm.get('vacina')?.invalid && agendamentoForm.get('vacina')?.touched">
               <small class="error-text">Este campo é obrigatório.</small>
             </div>
@@ -193,15 +194,20 @@
       <p><strong>Modalidade:</strong> {{ agendamentoForm.value.modalidade }}</p>
       <p><strong>Data:</strong> {{ agendamentoForm.value.data }}</p>
       <p><strong>Hora:</strong> {{ agendamentoForm.value.hora }}</p>
-      <p><strong>Vacina:</strong> {{ agendamentoForm.value.vacina }}</p>
-      <p *ngIf="!isHomeVisit"><strong>Clínica:</strong> {{ agendamentoForm.value.clinica }}</p>
+    
+      <!-- Chama o método getVacinasSelecionadas() para exibir os nomes das vacinas -->
+      <p><strong>Vacina:</strong> {{ getVacinasSelecionadas() }}</p>
+    
+      <p *ngIf="!isHomeVisit"><strong>Clínica:</strong> {{ getClinicaNome() }}</p>
       <p *ngIf="isHomeVisit"><strong>Forma de Pagamento:</strong> {{ agendamentoForm.value.formaPagamento }}</p>
-
+    
       <div>
-        <ion-button (click)="onConfirm()" expand="full" color="success">Confirmar</ion-button>
+        <ion-button (click)="onConfirm()" expand="full" class="btn_confirmar">Confirmar</ion-button>
         <ion-button (click)="onCancel()" expand="full" color="danger">Cancelar</ion-button>
       </div>
     </div>
+    
+
   </div>
 
   <app-footer></app-footer>

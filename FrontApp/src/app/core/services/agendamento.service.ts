@@ -7,18 +7,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AgendamentoService {
-  private url: string = "http://localhost:8000/api";
-  constructor(private http : HttpClient) { }
+  private url: string = "http://localhost:8000/api";  // URL da sua API
 
-  cadastrarAgendamento (agendamento: Agendamento){
+  constructor(private http: HttpClient) {}
+
+  cadastrarAgendamento(agendamento: Agendamento): Observable<Agendamento> {
     console.log(agendamento);
-    this.http.post(`${ this.url }/cadAgendamento`, agendamento)
-    .subscribe(response => {
-      console.log(response)
-    })
+    // Retorna o Observable, permitindo que o componente faça o subscribe
+    return this.http.post<Agendamento>(`${this.url}/cadAgendamento`, agendamento);
   }
 
-  listarAgendamento(): Observable<any>{
-    return this.http.get<any>(`${ this.url }/listagemAgendamento`)
+  listarAgendamento(): Observable<Agendamento[]> {
+    return this.http.get<Agendamento[]>(`${this.url}/listagemAgendamento`);
   }
 }
