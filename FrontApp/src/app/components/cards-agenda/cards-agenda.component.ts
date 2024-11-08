@@ -3,14 +3,15 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonIcon, IonLab
 import { addIcons } from 'ionicons';
 import { arrowForward, calendarNumber, helpBuoy, home, personCircle } from 'ionicons/icons';
 import { NavController, AnimationController, AnimationBuilder } from '@ionic/angular';
-import { ModalClinicasComponent } from '../modals/modal-clinicas/modal-clinicas.component';
+import { ModalClinicaAppComponent } from '../modals/modal-clinica-app/modal-clinica-app.component';
+
 
 @Component({
   selector: 'app-cards-agenda',
   templateUrl: './cards-agenda.component.html',
   styleUrls: ['./cards-agenda.component.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonIcon, IonLabel, IonItem, IonList, IonModal, ModalClinicasComponent]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonIcon, IonLabel, IonItem, IonList, IonModal,ModalClinicaAppComponent]
 })
 export class CardsAgendaComponent implements OnInit {
 

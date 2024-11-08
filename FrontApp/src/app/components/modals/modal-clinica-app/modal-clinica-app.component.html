@@ -1,0 +1,17 @@
+<div class="btn_clinicas">
+  <span style="text-align: center;">Consulte as Clínicas Disponíveis Aqui</span>
+<ion-modal id="example-modal" #modal trigger="clinicas_disponiveis_app" expand="block">
+  <ng-template>
+    <div class="wrapper">
+      <h1>Clínicas Disponíveis</h1>
+
+      <ion-list lines="none">
+        <ion-item button="false" detail="false" (click)="modal.dismiss() " *ngFor=" let clinica of clinicas">
+          <img src="./assets/img/hospital.png" alt="" srcset="">
+          <ion-label>{{clinica.nome}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ng-template>
+</ion-modal>
+</div>

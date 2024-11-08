@@ -42,7 +42,16 @@ body {
  
     transform: scale(1.05); 
   }
-  
+  .btn_clinicas{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+  }
+  ion-button{
+    --background: var(--primary-color);
+  }
   /* Estilo responsivo */
   @media (min-width: 768px) {
     .button-group {

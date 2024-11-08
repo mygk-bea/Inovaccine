@@ -6,16 +6,16 @@ import { ClinicaService } from 'src/app/core/services/lista-clinica/lista-clinic
 import { Clinica } from 'src/app/core/interfaces/clinica';
 import { CommonModule } from '@angular/common';
 
-
 @Component({
-  selector: 'modal-clinicas',
-  templateUrl: './modal-clinicas.component.html',
+  selector: 'modal-app',
+  templateUrl: './modal-clinica-app.component.html',
+  styleUrls: ['./modal-clinica-app.component.scss'],
   standalone: true,
-  styleUrls: ['./modal-clinicas.component.scss'],
   imports: [IonContent, IonHeader, IonTitle, IonToolbar,IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonButton, IonIcon,IonList,IonModal,IonItem,IonLabel,CommonModule],
   providers:[ClinicaService]
 })
-export class ModalClinicasComponent  implements OnInit {
+export class ModalClinicaAppComponent  implements OnInit {
+
   clinicas: Clinica[] = [];
 
   constructor(private clinicaService:ClinicaService) {
