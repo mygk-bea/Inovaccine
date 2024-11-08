@@ -29,12 +29,11 @@ import { Agendamento } from 'src/app/core/interfaces/agendamento';
   providers: [AuthLoginService, AgendamentoService, VacinaService, ClinicaService]
 })
 export class FormVacinaEmCasaComponent implements OnInit {
+  formAgenda!: FormGroup;
   vacina: Vacina[] = [];
   clinicas: Clinica[] = [];
-  agendamentoForm: FormGroup;
   selectedMode: string | undefined;
   isHomeVisit: boolean = false;
-  clinics: string[] = [];
   showPaymentMethodLabel: boolean = false;
   showConfirmation: boolean = false;
   
@@ -49,22 +48,33 @@ export class FormVacinaEmCasaComponent implements OnInit {
   ) {
     addIcons({ arrowBack });
 
-    this.agendamentoForm = this.fb.group({
-      modalidade: [null, Validators.required],
-      data: [null, Validators.required],
-      hora: [null, Validators.required],
-      vacina: this.fb.array([], Validators.required),
-      formaPagamento: [null, Validators.required],
-      clinica: [null, Validators.required],
-      paciente: [null]
-    });
+    
   }
   pacienteId: string = this.authService.getUserId();
   ngOnInit() {
-    this.loadVacinas(); //carrega as vacina
-    this.loadClinicas(); // carrega as clinicas
+    this.loadVacinas();
+    this.loadClinicas(); 
+    this.formAgenda = this.fb.group({
+      modalidade: ['', Validators.required],
+      clinica: ['', Validators.required],
+      dia: ['', Validators.required],
+      hora: ['', Validators.required],
+      formaPagamento: ['', Validators.required],
+      vacinas: this.fb.array([]) 
+    });
   }
-
+  get vacinas() {
+    return (this.formAgenda.get('vacinas') as FormArray);
+  }
+  onCheckboxChange(e: any) {
+    const vacinaControl = this.vacinas;
+    if (e.target.checked) {
+      vacinaControl.push(this.fb.control(e.target.value));  // Adiciona o número ao FormArray
+    } else {
+      const index = vacinaControl.controls.findIndex(x => x.value === e.target.value);
+      vacinaControl.removeAt(index);  // Remove o número do FormArray
+    }
+  }
 // animação de rota
   navigateTo(path: string, direction: 'back') {
     const animation = direction === 'back' ? this.createBackwardAnimation() : undefined;
@@ -91,8 +101,11 @@ export class FormVacinaEmCasaComponent implements OnInit {
         .addAnimation([enterAnimation, leaveAnimation]);
     };
   }
+  onModalityChange(event: any) {
+    this.selectedMode = event.detail.value;
+    this.isHomeVisit = this.selectedMode === 'casa';
+  }
   // 
-
   async loadVacinas() { 
     try {
       // Aguarda a resolução da Promise e atribui o resultado a vacinasDisponiveis
@@ -102,9 +115,6 @@ export class FormVacinaEmCasaComponent implements OnInit {
     }
   }
 
-  get vacinaArray(): FormArray { // pega o array de vacinas
-    return this.agendamentoForm.get('vacina') as FormArray;
-  }
   async loadClinicas() {
     try {
       // Aguarda a resolução da Promise e atribui o resultado a vacinasDisponiveis
@@ -113,175 +123,57 @@ export class FormVacinaEmCasaComponent implements OnInit {
       console.error('Erro ao carregar vacinas', error);
     }
   }
-  getVacinasSelecionadas(): string {
-    const selectedCodVacinas = this.agendamentoForm.value.vacina || [];
-    console.log('Códigos das vacinas selecionadas:', selectedCodVacinas);
   
-    const vacinaNomes = selectedCodVacinas.map((codVacina: string) => {
-      // Garante que ambos os tipos sejam compatíveis convertendo o codVacina para string
-      const vacinaEncontrada = this.vacina.find(v => v.codVacina.toString() === codVacina.toString());
-      
-      // Retorna o nome da vacina ou "Vacina não encontrada"
-      return vacinaEncontrada ? vacinaEncontrada.nome : 'Vacina não encontrada';
-    });
-  
-    // Retorna a lista de vacinas como uma string separada por vírgulas
-    return vacinaNomes.join(', ');
-  }
-  
-  
-  
-  getClinicaNome(): string { // pega o nome da clinca pelo id 
-    const clinicaId = this.agendamentoForm.value.clinica;
-    const clinica = this.clinicas.find(c => c.codClinica === clinicaId);
-    return clinica ? clinica.nome : 'Clínica não encontrada';
-  }
-
-  // onCheckboxChange(event: any, vacina: Vacina): void {
-  //   console.log('ID da vacina:', vacina.codVacina);
-  //   const vacinaArray = this.vacinaArray;
-    
-  //   // Verifica se a checkbox foi marcada
-  //   if (event.detail.checked) {
-  //     // Adiciona apenas o código da vacina no array
-  //     vacinaArray.push(this.fb.control(vacina.codVacina));
-  //   } else {
-  //     // Remove o código da vacina do array
-  //     const index = vacinaArray.controls.findIndex(x => x.value === vacina.codVacina);
-  //     if (index >= 0) {
-  //       vacinaArray.removeAt(index);
-  //     }
-  //   }
-  // }
-
-  onCheckboxChange(event: any, vacina: Vacina): void {
-    console.log('ID da vacina:', vacina.codVacina);
-    const vacinaArray = this.vacinaArray;
-  
-    // Verifica se a checkbox foi marcada
-    if (event.detail.checked) {
-      // Adiciona apenas o código da vacina no array
-      vacinaArray.push(this.fb.control(vacina.codVacina));
-    } else {
-      // Remove o código da vacina do array
-      const index = vacinaArray.controls.findIndex(x => x.value === vacina.codVacina);
-      if (index >= 0) {
-        vacinaArray.removeAt(index);
-      }
-    }
-  }
-  
-  onModalityChange(event: any) {
-    this.selectedMode = event.detail.value;
-    this.isHomeVisit = this.selectedMode === 'casa';
-
-    if (this.selectedMode === 'casa') {
-      this.updateFormValidators(true, false);
-    } else if (this.selectedMode === 'clinica') {
-      this.updateFormValidators(false, true);
-    }
-
-    this.agendamentoForm.patchValue({ modalidade: this.selectedMode });
-  }
-
-  updateFormValidators(isHomeVisit: boolean, isClinicRequired: boolean) {
-    const formaPagamentoValidators = isHomeVisit ? [Validators.required] : [];
-    const clinicaValidators = isClinicRequired ? [Validators.required] : [];
-
-    this.agendamentoForm.controls['formaPagamento'].setValidators(formaPagamentoValidators);
-    this.agendamentoForm.controls['clinica'].setValidators(clinicaValidators);
-
-    this.agendamentoForm.controls['formaPagamento'].updateValueAndValidity();
-    this.agendamentoForm.controls['clinica'].updateValueAndValidity();
-  }
-
-  onPaymentChange(event: any) {
-    this.showPaymentMethodLabel = event.detail.value;
-    this.agendamentoForm.patchValue({ formaPagamento: this.showPaymentMethodLabel });
-  }
-
-  onDateChange(event: any) {
-    const selectedDate = event.detail.value;
-    console.log('Date changed: ', selectedDate);
-    this.agendamentoForm.patchValue({ data: selectedDate });
-  }
-
-  onTimeChange(event: any) {
-    const selectedTime = event.detail.value;
-    console.log('Time changed: ', selectedTime);
-    this.agendamentoForm.patchValue({ hora: selectedTime });
-  }
-
   // Função Confirmar
  onConfirm() { //botão de confirmar agendamento e fazer a requisição da API
-  console.log('Form values:', this.agendamentoForm.value);
 
-  if (this.agendamentoForm.valid) {
-    console.log('Form is valid. Submitting...');
+    // this.agendamentoService.cadastrarAgendamento().subscribe(
+    //   response => {
+    //     console.log('Agendamento cadastrado com sucesso:', response);
+    //     this.showConfirmation = true; 
+    //   },
+    //   error => {
+    //     console.error('Erro ao cadastrar agendamento:', error);
+    //   }
+    // );
+  } 
 
-    const agendamento = this.agendamentoForm.value;
-
-    this.agendamentoService.cadastrarAgendamento(agendamento).subscribe(
-      response => {
-        console.log('Agendamento cadastrado com sucesso:', response);
-        this.showConfirmation = true; 
-        this.agendamentoForm.reset(); 
-      },
-      error => {
-        console.error('Erro ao cadastrar agendamento:', error);
-      }
-    );
-  } else {
-    console.log('Form is invalid. Please correct the following fields:');
-  }
-}
 
   onCancel() {
-    this.agendamentoForm.reset(); // Reseta o formulário
-    console.log('Form has been reset');
+
     this.showConfirmation = false;// Ajuste o caminho conforme necessário
   }
 
-  // onSubmit() {
-  //   this.agendamentoForm.patchValue({
-  //     paciente: this.pacienteId
-
-  //   });
-
-  //   if (this.agendamentoForm.valid) {
-  //     console.log('Form submitted with data: ', this.agendamentoForm.value);
-  //     this.showConfirmation = true;
-
-
-  //   } else {
-  //     console.log('Form is invalid');
-  //     console.log('Invalid fields:', this.agendamentoForm.controls);
-  //   }
-  // }
   onSubmit() {
-    this.agendamentoForm.patchValue({
-      paciente: this.pacienteId
-    });
+    const vacinasArray = this.formAgenda.get('vacinas') as FormArray;
   
-    if (this.agendamentoForm.valid) {
-      console.log('Form submitted with data: ', this.agendamentoForm.value);
-      this.showConfirmation = true;
+    // Obtendo os valores (verdadeiro ou falso) dos checkboxes
+    const vacinasValores = vacinasArray.value;
+    
+    // Mostra os valores do FormArray (true para vacinas selecionadas, false para desmarcadas)
+    const formValues = this.formAgenda.value;
   
-      // Enviar os dados para o backend
-      this.agendamentoService.cadastrarAgendamento(this.agendamentoForm.value).subscribe(
-        response => {
-          console.log('Agendamento cadastrado com sucesso:', response);
-          this.showConfirmation = true;
-          this.agendamentoForm.reset(); // Reseta o formulário
-        },
-        error => {
-          console.error('Erro ao cadastrar agendamento:', error);
-        }
-      );
-    } else {
-      console.log('Form is invalid');
-      console.log('Invalid fields:', this.agendamentoForm.controls);
+  // Exibe os valores no console
+  const agendamento: Agendamento = {
+    clinica: formValues.clinica,        // ID da clínica selecionada
+    modalidade: formValues.modalidade,   // Tipo de agendamento
+    paciente: +this.pacienteId,         // ID do paciente, certifique-se que seja um número
+    vacinas: formValues.vacinas,         // Vacinas selecionadas (em formato de array de números)
+    data: formValues.dia,               // Data escolhida
+    hora: formValues.hora,              // Hora escolhida
+    formaPagamento: formValues.formaPagamento,  // Forma de pagamento selecionada
+  };
+  console.log(agendamento);
+  this.agendamentoService.cadastrarAgendamento(agendamento).subscribe(
+    response => {
+      console.log('Agendamento cadastrado com sucesso:', response);
+      // this.showConfirmation = true; 
+    },
+    error => {
+      console.error('Erro ao cadastrar agendamento:', error);
+      console.log(agendamento)
     }
+  );
   }
   
 }

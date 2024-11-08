@@ -81,7 +81,7 @@ body {
     font-size: 16px;
     background-color: var(--background-input); /* Fundo branco */
     border-bottom: 1px solid #000;
-    width: 62%;
+    width: 53%;
   }
 }
 .group-vacinca {
@@ -151,7 +151,7 @@ ion-select, ion-input {
 }
 
 
-@media (min-width: 370px) and (max-width: 1000px) {
+@media (min-width: 320px) and (max-width: 1000px) {
   app-header-component{
     display: none;
   }
@@ -199,7 +199,7 @@ ion-select, ion-input {
     width: 285px;
 }
 }
-@media (min-width: 1020px) and (max-width: 1300px) {
+@media (min-width: 1020px) and (max-width: 1196px) {
   .ajuste_logo {
     max-width: 100%; /* Logo ocupa 100% em telas muito pequenas */
   }
@@ -239,7 +239,7 @@ ion-select, ion-input {
     width: 485px;
 }
 }
-@media (min-width: 1320px) and (max-width: 1440px) {
+@media (min-width: 1210px) and (max-width: 1540px) {
   .ajuste_logo {
     max-width: 100%; /* Logo ocupa 100% em telas muito pequenas */
   }
@@ -270,6 +270,46 @@ ion-select, ion-input {
   }
   .custom-date-input{
       width: 985px;
+  }
+  }
+  .date-input-container {
+    width: 90%;
+}
+.custom-date-input{
+    width: 985px;
+}
+}
+@media (min-width: 1196px) and (max-width: 1220px) {
+  .ajuste_logo {
+    max-width: 100%; /* Logo ocupa 100% em telas muito pequenas */
+  }
+
+  .div_form {
+    padding: 10px; /* Reduz o padding em telas pequenas */
+  }
+
+  .form-group {
+    margin: 6px 0; /* Diminui a margem em telas pequenas */
+    width: 100%;
+  }
+
+  ion-select, ion-input {
+    width: 80%; /* Garante que os inputs ocupem 100% em telas pequenas */
+  }
+
+  .agd_btn {
+    padding: 10px; /* Ajusta o padding do botão para telas menores */
+    font-size: 12px; /* Ajusta o tamanho da fonte do botão para telas menores */
+    width: 60%;
+  }
+
+  .form-group-data{
+    width: 100%;
+    .date-input-container {
+      width: 80%;
+  }
+  .custom-date-input{
+      width: 945px;
   }
   }
   .date-input-container {

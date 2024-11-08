@@ -21,7 +21,7 @@
   </div>
 
   <div class="div_form">
-    <form *ngIf="!showConfirmation" [formGroup]="agendamentoForm" id="form_consulta">
+    <form *ngIf="!showConfirmation" id="form_consulta" [formGroup]="formAgenda" (ngSubmit)="onSubmit()">
       <ion-row>
         <ion-col size="12">
           <div class="form-group">
@@ -30,28 +30,26 @@
               fill="solid"
               aria-label="Modalidade"
               placeholder="Escolha a forma do Agendamento"
-              formControlName="modalidade"
               (ionChange)="onModalityChange($event)"
+              formControlName="modalidade"
             >
               <ion-select-option value="casa">Vacina em Casa</ion-select-option>
               <ion-select-option value="clinica">Vacina na Clínica</ion-select-option>
             </ion-select>
-            <div *ngIf="agendamentoForm.get('modalidade')?.invalid && agendamentoForm.get('modalidade')?.touched">
-              <small class="error-text">Este campo é obrigatório.</small>
-            </div>
           </div>
         </ion-col>
       </ion-row>
 
+      <!-- Detalhes do Agendamento Baseado na Modalidade -->
       <ion-row *ngIf="selectedMode">
         <ion-row *ngIf="isHomeVisit">
+          <!-- Modalidade Vacina em Casa -->
           <div class="form-group">
             <label for="clinica">Clínicas Disponíveis</label>
             <ion-select
               fill="solid"
               placeholder="Selecione a Clínica"
-              formControlName="clinica"
-            >
+              formControlName="clinica">
               <ion-select-option
                 *ngFor="let clinica of clinicas"
                 [value]="clinica.codClinica"
@@ -59,23 +57,16 @@
                 {{ clinica.nome }}
               </ion-select-option>
             </ion-select>
-            <div *ngIf="agendamentoForm.get('clinica')?.invalid && agendamentoForm.get('clinica')?.touched">
-              <small class="error-text">Este campo é obrigatório.</small>
-            </div>
           </div>
-          
-          <div class="form-group-vacina">
+
+          <div class="form-group-data">
             <label for="data">Escolha o Dia</label>
-              <input
-                type="date"
-                id="data"
-                class="custom-date-input"
-                formControlName="data"
-                (ionChange)="onDateChange($event)"
-              />
-            <div *ngIf="agendamentoForm.get('data')?.invalid && agendamentoForm.get('data')?.touched">
-              <small class="error-text">Este campo é obrigatório.</small>
-            </div>
+            <input
+              type="date"
+              id="data"
+              class="custom-date-input"
+              formControlName="dia"
+            />
           </div>
 
           <div class="form-group">
@@ -85,17 +76,12 @@
               aria-label="Hora"
               placeholder="Selecione o Horário"
               formControlName="hora"
-              (ionChange)="onTimeChange($event)"
             >
               <ion-select-option value="11:00">11:00</ion-select-option>
               <ion-select-option value="15:00">15:00</ion-select-option>
               <ion-select-option value="17:30">17:30</ion-select-option>
             </ion-select>
-            <div *ngIf="agendamentoForm.get('hora')?.invalid && agendamentoForm.get('hora')?.touched">
-              <small class="error-text">Este campo é obrigatório.</small>
-            </div>
           </div>
-         
 
           <div class="form-group">
             <label for="formaPagamento">Forma de Pagamento</label>
@@ -104,42 +90,35 @@
               aria-label="Forma de Pagamento"
               placeholder="Selecione a Forma de Pagamento"
               formControlName="formaPagamento"
-              (ionChange)="onPaymentChange($event)"
             >
               <ion-select-option value="cartao">Cartão de Crédito/Débito</ion-select-option>
               <ion-select-option value="boleto">Boleto Bancário</ion-select-option>
               <ion-select-option value="pix">PIX</ion-select-option>
             </ion-select>
-            <div *ngIf="agendamentoForm.get('formaPagamento')?.invalid && agendamentoForm.get('formaPagamento')?.touched">
-              <small class="error-text">Este campo é obrigatório.</small>
-            </div>
           </div>
 
           <div class="group-vacinca">
             <label>Vacina</label>
             <ion-list class="vacina-checkbox-container">
-              <div *ngFor="let vacinas of vacina" class="vacina-checkbox">
-                <ion-label>{{ vacinas.nome }}</ion-label>
+              <div *ngFor="let vacina of vacina" class="vacina-checkbox">
+                <ion-label>{{ vacina.nome }}</ion-label>
                 <ion-checkbox
-                  formControlName="vacina"
                   slot="start"
-                  (ionChange)="onCheckboxChange($event, vacinas)">
+                  [value]="vacina.codVacina"
+                  (ionChange)="onCheckboxChange($event)">
                 </ion-checkbox>
               </div>
             </ion-list>
-            <div *ngIf="agendamentoForm.get('vacina')?.invalid && agendamentoForm.get('vacina')?.touched">
-              <small class="error-text">Este campo é obrigatório.</small>
-            </div>
           </div>
         </ion-row>
 
         <ion-row *ngIf="!isHomeVisit">
+          <!-- Modalidade Vacina na Clínica -->
           <div class="form-group">
             <label for="clinica">Clínicas Disponíveis</label>
             <ion-select
               fill="solid"
               placeholder="Selecione a Clínica"
-              formControlName="clinica"
             >
               <ion-select-option
                 *ngFor="let clinica of clinicas"
@@ -148,23 +127,15 @@
                 {{ clinica.nome }}
               </ion-select-option>
             </ion-select>
-            <div *ngIf="agendamentoForm.get('clinica')?.invalid && agendamentoForm.get('clinica')?.touched">
-              <small class="error-text">Este campo é obrigatório.</small>
-            </div>
           </div>
 
           <div class="form-group-data">
             <label for="data">Escolha o Dia</label>
-              <input
-                type="date"
-                id="data"
-                class="custom-date-input"
-                formControlName="data"
-                (ionChange)="onDateChange($event)"
-              />
-            <div *ngIf="agendamentoForm.get('data')?.invalid && agendamentoForm.get('data')?.touched">
-              <small class="error-text">Este campo é obrigatório.</small>
-            </div>
+            <input
+              type="date"
+              id="data"
+              class="custom-date-input"
+            />
           </div>
 
           <div class="form-group">
@@ -173,16 +144,25 @@
               fill="solid"
               aria-label="Hora"
               placeholder="Selecione o Horário"
-              formControlName="hora"
-              (ionChange)="onTimeChange($event)"
             >
               <ion-select-option value="11:00">11:00</ion-select-option>
               <ion-select-option value="15:00">15:00</ion-select-option>
               <ion-select-option value="17:30">17:30</ion-select-option>
             </ion-select>
-            <div *ngIf="agendamentoForm.get('hora')?.invalid && agendamentoForm.get('hora')?.touched">
-              <small class="error-text">Este campo é obrigatório.</small>
-            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="formaPagamento">Forma de Pagamento</label>
+            <ion-select
+              fill="solid"
+              aria-label="Forma de Pagamento"
+              placeholder="Selecione a Forma de Pagamento"
+              formControlName="formaPagamento"
+            >
+              <ion-select-option value="cartao">Cartão de Crédito/Débito</ion-select-option>
+              <ion-select-option value="boleto">Boleto Bancário</ion-select-option>
+              <ion-select-option value="pix">PIX</ion-select-option>
+            </ion-select>
           </div>
 
           <div class="group-vacinca">
@@ -191,16 +171,11 @@
               <div *ngFor="let vacinas of vacina" class="vacina-checkbox">
                 <ion-label>{{ vacinas.nome }}</ion-label>
                 <ion-checkbox
-                formControlName="vacina"
                   slot="start"
-                  [value]="vacinas.codVacina"
-                  (ionChange)="onCheckboxChange($event, vacinas)">
+                  [value]="vacinas.codVacina">
                 </ion-checkbox>
               </div>
             </ion-list>
-            <div *ngIf="agendamentoForm.get('vacina')?.invalid && agendamentoForm.get('vacina')?.touched">
-              <small class="error-text">Este campo é obrigatório.</small>
-            </div>
           </div>
         </ion-row>
       </ion-row>
@@ -211,25 +186,17 @@
         </ion-col>
       </ion-row>
     </form>
+
     <div *ngIf="showConfirmation" class="confirmation-container">
       <h3>Dados do Agendamento</h3>
-      <p><strong>Modalidade:</strong> {{ agendamentoForm.value.modalidade }}</p>
-      <p><strong>Data:</strong> {{ agendamentoForm.value.data }}</p>
-      <p><strong>Hora:</strong> {{ agendamentoForm.value.hora }}</p>
-    
-      <!-- Chama o método getVacinasSelecionadas() para exibir os nomes das vacinas -->
-      <p><strong>Vacina:</strong> {{ getVacinasSelecionadas() }}</p>
-    
-      <p><strong>Clínica:</strong> {{ getClinicaNome() }}</p>
-      <p *ngIf="isHomeVisit"><strong>Forma de Pagamento:</strong> {{ agendamentoForm.value.formaPagamento }}</p>
-    
-      <div>
-        <ion-button (click)="onConfirm()" expand="full" class="btn_confirmar">Confirmar</ion-button>
-        <ion-button (click)="onCancel()" expand="full" color="danger">Cancelar</ion-button>
-      </div>
+      <p><strong>Modalidade:</strong> </p>
+      <p><strong>Data:</strong> </p>
+      <p><strong>Horário:</strong> </p>
+      <p><strong>Forma de Pagamento:</strong></p>
+      <p><strong>Vacinas Selecionadas:</strong> </p>
+      <ion-button expand="full" (click)="onConfirm()">Confirmar</ion-button>
+      <ion-button expand="full" color="light" (click)="onCancel()">Cancelar</ion-button>
     </div>
-    
-
   </div>
 
   <app-footer></app-footer>

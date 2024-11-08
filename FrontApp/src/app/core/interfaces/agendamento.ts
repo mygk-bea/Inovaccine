@@ -2,7 +2,7 @@ export interface Agendamento {
     modalidade: string;
     paciente: number;
     clinica: number;
-    vacina: [number];
+    vacinas: Number[];
     data: string;
     hora: string;
     formaPagamento: string;
