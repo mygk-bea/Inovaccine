@@ -145,10 +145,6 @@ export class FormVacinaEmCasaComponent implements OnInit {
   }
 
   onSubmit() {
-    const vacinasArray = this.formAgenda.get('vacinas') as FormArray;
-  
-    // Obtendo os valores (verdadeiro ou falso) dos checkboxes
-    const vacinasValores = vacinasArray.value;
     
     // Mostra os valores do FormArray (true para vacinas selecionadas, false para desmarcadas)
     const formValues = this.formAgenda.value;
@@ -167,11 +163,13 @@ export class FormVacinaEmCasaComponent implements OnInit {
   this.agendamentoService.cadastrarAgendamento(agendamento).subscribe(
     response => {
       console.log('Agendamento cadastrado com sucesso:', response);
-      // this.showConfirmation = true; 
+      this.formAgenda.reset()
+      alert("agendamento concluido")
     },
     error => {
       console.error('Erro ao cadastrar agendamento:', error);
       console.log(agendamento)
+      alert("erro ao realizar agendamento")
     }
   );
   }

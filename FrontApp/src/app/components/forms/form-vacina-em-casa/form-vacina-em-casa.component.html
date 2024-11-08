@@ -119,7 +119,7 @@
             <ion-select
               fill="solid"
               placeholder="Selecione a Clínica"
-            >
+              formControlName="clinica">
               <ion-select-option
                 *ngFor="let clinica of clinicas"
                 [value]="clinica.codClinica"
@@ -135,7 +135,7 @@
               type="date"
               id="data"
               class="custom-date-input"
-            />
+              formControlName="dia">
           </div>
 
           <div class="form-group">
@@ -144,7 +144,7 @@
               fill="solid"
               aria-label="Hora"
               placeholder="Selecione o Horário"
-            >
+              formControlName="hora">
               <ion-select-option value="11:00">11:00</ion-select-option>
               <ion-select-option value="15:00">15:00</ion-select-option>
               <ion-select-option value="17:30">17:30</ion-select-option>
@@ -172,7 +172,9 @@
                 <ion-label>{{ vacinas.nome }}</ion-label>
                 <ion-checkbox
                   slot="start"
+                  (ionChange)="onCheckboxChange($event)"
                   [value]="vacinas.codVacina">
+                  
                 </ion-checkbox>
               </div>
             </ion-list>
