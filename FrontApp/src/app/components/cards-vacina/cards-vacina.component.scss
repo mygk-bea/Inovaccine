@@ -1,5 +1,6 @@
 .ultilidades {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px;
@@ -35,14 +36,15 @@ app-menu{
 }
 
 .btn_services {
-    display: none;
-    flex-direction: row;
+    display:flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5px;
 }
 
 .btn_serviços {
+    display: none;
     width: 30%;
     height: 20px;
     --background: var(--secondary-color);
@@ -50,7 +52,7 @@ app-menu{
 }
 
 .btn_carteirinha {
-    width: 50%;
+    width: 100%;
     height: 20px;
     --background: var(--secondary-color);
     --border-radius: 15px;
@@ -271,12 +273,14 @@ div[slot='content'] {
         gap: 5px;
         width: 100%;
         display: flex;
+        flex-direction: row;
     }
 
     .btn_serviços {
         width: 25%;
         font-size: 15px;
         --border-radius: 40px;
+        display: flex;
     }
 
     .btn_carteirinha {
