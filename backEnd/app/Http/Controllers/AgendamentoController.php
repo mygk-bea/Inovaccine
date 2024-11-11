@@ -33,22 +33,23 @@ class AgendamentoController extends Controller
      */
     public function store(Request $request)
     {
-        $vacinas = $request->input('vacina', []);
+        $vacinas = $request->input('vacinas', []);
+        $vacina = new Vacina();
         $valor = 0;
     
-        // Calcular o valor das vacinas
         foreach ($vacinas as $codVacina) {
-            $vacinaEspecifica = Vacina::where('codVacina', $codVacina)->first();
-            $valor += $vacinaEspecifica->preco;
+            if($codVacina != null){
+                $vacinaEspecifica = $vacina->where('codVacina', $codVacina)->first();
+                $valor += $vacinaEspecifica->preco;
+            }
+        
         }
-    
-        // Criar o agendamento
+
         $agendamento = new Agendamento();
         $agendamento->valor = $valor;
         $agendamento->fk_paciente_codPaciente = $request->input('paciente');
         $agendamento->fk_clinica_codClinica = $request->input('clinica');
-        
-        // Verificar a modalidade e atribuir o endereço
+
         if ($request->input('modalidade') == 'clinica') {
             $clinicaEspecifica = Clinica::where('codClinica', $request->input('clinica'))->first();
             $agendamento->fk_endereco_codEndereco = $clinicaEspecifica->fk_clinica_codEndereco;
@@ -63,15 +64,8 @@ class AgendamentoController extends Controller
         $agendamento->hora = $request->input('hora');
         $agendamento->comparecimento = false;
         $agendamento->forma_Pagamento = $request->input('formaPagamento');
+        $agendamento->fk_vacina_codVacina = implode(',',$request->input('vacina', []));
         $agendamento->save();
-    
-        foreach ($vacinas as $codVacina) {
-            $relacao_agend_vacina = new RelacaoAgendVacina();
-            $relacao_agend_vacina->fk_paciente_codPaciente = $request->input('paciente');
-            $relacao_agend_vacina->fk_vacina_codVacina = $codVacina;
-            $relacao_agend_vacina->fk_agendamento_codAgendamento = $agendamento->codAgendamento;
-            $relacao_agend_vacina->save();
-        }
     }
 
     /**

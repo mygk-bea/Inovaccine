@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('comparecimento');
             $table->unsignedInteger('fk_campanha_codCampanha')->nullable();
             $table->string('forma_Pagamento')->nullable(false);
+            $table->string('vacinas')->nullable(false);
 
             // $table->foreign('fk_vacina_codVacina')->references('codVacina')->on('Vacina');
             $table->foreign('fk_paciente_codPaciente')->references('codPaciente')->on('Paciente');
