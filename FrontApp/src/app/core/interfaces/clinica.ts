@@ -6,8 +6,8 @@ export interface Clinica {
     senha: string;
     cnpj: string;
     telefone: string;
-    hora_inicio: string;
-    hora_fim: string;
+    periodoFunc_inicio: string;
+    periodoFunc_fim: string;
     cep: string;
     logradouro: string;
     bairro: string;
