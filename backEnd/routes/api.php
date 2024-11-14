@@ -43,6 +43,7 @@ Route::get('/listagemCampanhaVacina', [App\Http\Controllers\CampanhaController::
 Route::get('/listagemVacina', [App\Http\Controllers\VacinaController::class, 'list']);
 Route::get('/listagemMedico', [App\Http\Controllers\MedicoController::class, 'list']);
 Route::get('/listagemPaciente', [App\Http\Controllers\PacienteController::class, 'list']);
+Route::get('/listagemAgendamento/{userId}', [App\Http\Controllers\AgendamentoController::class, 'show']);
 // Route::get('/listagemAgendamento', [App\Http\Controllers\AgendamentoController::class, 'list']);
 // Route::get('/mural', [App\Http\Controllers\PostagemController::class, 'list']);
 

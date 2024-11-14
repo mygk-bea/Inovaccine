@@ -71,10 +71,15 @@ class AgendamentoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
+    public function show($userId) {
+        // Filtra os funcionários pelo ID (caso esteja relacionado a um usuário)
+        $agendamento = Agendamento::where('fk_paciente_codPaciente', $userId)
+                                   ->orderBy('created_at', 'desc')
+                                   ->get();
+        
+        return response()->json($agendamento);
     }
+    
 
     /**
      * Show the form for editing the specified resource.
