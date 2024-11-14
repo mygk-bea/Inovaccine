@@ -5,5 +5,5 @@ export interface Agendamento {
     vacinas: Number[];
     data: string;
     hora: string;
-    formaPagamento: string;
+    forma_Pagamento: string;
 }

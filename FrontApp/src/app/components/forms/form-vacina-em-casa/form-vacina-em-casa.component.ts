@@ -219,7 +219,7 @@ export class FormVacinaEmCasaComponent implements OnInit {
       vacinas: formValues.vacinas, 
       data: formValues.dia,
       hora: formValues.hora,
-      formaPagamento: formValues.formaPagamento,
+      forma_Pagamento: formValues.formaPagamento,
     };
   
   
