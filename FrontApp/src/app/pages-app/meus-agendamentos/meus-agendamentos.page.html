@@ -1,0 +1,35 @@
+<ion-content [fullscreen]="true">
+  <div class="parte_superior">
+    <div class="icon">
+      <ion-icon name="arrow-back-outline" class="icone_seta" size="large" (click)="navigateTo('agendamento-page', 'back')" style="cursor: pointer; width: 64px"></ion-icon>
+    </div>
+    <div class="logo">
+      <img src="./assets/img/logo_inovaccine.png" alt="Logo" class="ajuste_logo" />
+    </div>
+  </div>
+
+  
+  <app-header-component></app-header-component>
+
+  
+  <ion-content>
+    <div *ngIf="agendamentos.length > 0; else noAgendamentos">
+      <div *ngFor="let agendamento of agendamentos" class="card">
+        <div class="info">
+          <p>Agendado para dia: {{ agendamento.data }}</p>
+          <p>Horário: {{ agendamento.hora }}</p>
+          <p>Forma de pagamento: {{ agendamento.forma_Pagamento }}</p>
+        </div>
+        <i class="fas fa-info-circle"></i>
+      </div>
+    </div>
+    
+    <ng-template #noAgendamentos>
+      <ion-item>
+        <ion-label>
+          <p>Você não possui agendamentos.</p>
+        </ion-label>
+      </ion-item>
+    </ng-template>
+  </ion-content>
+</ion-content>

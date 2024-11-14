@@ -1,0 +1,54 @@
+.parte_superior {
+    display: none; /* Muda para flex para que o conteúdo possa ser alinhado */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  .icon {
+    width: 32px;
+    color:var( --primary-color);
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  /* Logo */
+  .ajuste_logo {
+    max-width: 120px;
+    height: auto;
+  }
+  .card {
+    width: 100%;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+}
+.card .info {
+    display: flex;
+    flex-direction: column;
+}
+.card .info p {
+    margin: 0;
+    color: #000000;
+}
+.card .info p:first-child {
+    font-weight: bold;
+}
+.card i {
+    font-size: 18px;
+    color: #00bfa5;
+}
+
+  @media (min-width: 320px) and (max-width: 980px) {
+    .parte_superior{
+        display: flex;
+    }
+    app-header-component{
+      display: none;
+    }
+  }
