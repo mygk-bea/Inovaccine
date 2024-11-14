@@ -17,7 +17,7 @@ export class AgendamentoService {
     return this.http.post<Agendamento>(`${this.url}/cadAgendamento`, agendamento);
   }
 
-  listarAgendamento(): Observable<Agendamento[]> {
-    return this.http.get<Agendamento[]>(`${this.url}/listagemAgendamento`);
+  listarAgendamento(userId : number): Observable<Agendamento[]> {
+    return this.http.get<Agendamento[]>(`${this.url}/listagemAgendamento/${userId}`);
   }
 }

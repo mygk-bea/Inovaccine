@@ -45,6 +45,10 @@ export const routes: Routes = [
     path: 'carteirinha',
     loadComponent: () => import('./pages-app/carteirinha/carteirinha.page').then( m => m.CarteirinhaPage)
   },
+  {
+    path: 'meus-agendamentos',
+    loadComponent: () => import('./pages-app/meus-agendamentos/meus-agendamentos.page').then( m => m.MeusAgendamentosPage)
+  },
 
 
 
