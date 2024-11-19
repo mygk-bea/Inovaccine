@@ -62,7 +62,7 @@ export class FormVacinaEmCasaComponent implements OnInit {
       clinica: ['', Validators.required],
       dia: ['', Validators.required],
       hora: ['', Validators.required],
-      formaPagamento: ['', Validators.required],
+      forma_Pagamento: ['', Validators.required],
       vacinas: this.fb.array([]),
     });
   }
@@ -184,6 +184,7 @@ export class FormVacinaEmCasaComponent implements OnInit {
   
   onConfirm() {
     if (this.agendamentoConfirmado) {
+      console.log(this.agendamentoConfirmado)
       this.agendamentoService.cadastrarAgendamento(this.agendamentoConfirmado).subscribe(
         response => {
           console.log('Agendamento cadastrado com sucesso:', response);
@@ -193,6 +194,7 @@ export class FormVacinaEmCasaComponent implements OnInit {
         error => {
           console.error('Erro ao cadastrar agendamento:', error);
           alert("Erro ao realizar agendamento");
+          this.formAgenda.reset();
         }
       );
     } else {
@@ -219,13 +221,8 @@ export class FormVacinaEmCasaComponent implements OnInit {
       vacinas: formValues.vacinas, 
       data: formValues.dia,
       hora: formValues.hora,
-      forma_Pagamento: formValues.formaPagamento,
-    };
-  
-  
-    console.log(agendamento);
-  
-   
+      forma_Pagamento: formValues.forma_Pagamento,
+    };   
     this.agendamentoConfirmado = agendamento;
   
     
