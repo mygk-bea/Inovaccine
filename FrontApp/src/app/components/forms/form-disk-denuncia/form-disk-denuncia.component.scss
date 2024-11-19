@@ -105,8 +105,10 @@ ion-input.custom {
   ion-row {
     display: flex;
     flex-direction: column; /* Permite que as colunas empilhem em telas pequenas */
-    align-items: center;    /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    width: 100%;
   }
+
   .css_grandient {
     padding: 15px;
   }
@@ -125,17 +127,56 @@ ion-input.custom {
 
   .inputs .custom {
     font-size: 14px;
+    width: 90%; /* Ajusta a largura do input para que não ocupe 100% da tela */
+    margin-left: auto; /* Centraliza os inputs horizontalmente */
+    margin-right: auto; /* Centraliza os inputs horizontalmente */
   }
 
   .btn_enviar {
-    width: 95%;
+    width: 95%;  /* Ajusta o botão em telas menores */
+    max-width: 450px; /* Limita o tamanho máximo do botão */
+    margin: 10px;
   }
-  app-menu{
+
+  app-menu {
     display: flex;
-position: sticky; 
-bottom: 0;
-left: 0;
-width: 100%;
-z-index: 1000;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  /* Ajustando o tamanho do formulário para telas pequenas */
+  .formulario {
+    width: 85%; /* Deixa o formulário menor nas telas pequenas */
+    max-width: 500px; /* Limita a largura do formulário */
+    padding-left: 10px; /* Adiciona um pequeno espaço nas laterais */
+    padding-right: 10px; /* Adiciona um pequeno espaço nas laterais */
+  }
+
+  .inputs {
+    margin-top: 15px; /* Diminui o espaço entre os campos em telas pequenas */
+  }
 }
+
+/* Responsividade para telas menores que 320px */
+@media (max-width: 320px) {
+  .formulario {
+    width: 95%; /* O formulário fica ainda menor em telas muito pequenas */
+    max-width: 400px; /* Limita o tamanho máximo do formulário */
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .btn_enviar {
+    width: 100%;
+    max-width: 250px;
+    margin: 10px;
+  }
+
+  .inputs .custom {
+    width: 100%; /* Ajusta a largura para 100% em telas muito pequenas */
+    font-size: 12px; /* Reduz o tamanho da fonte dos inputs */
+  }
 }
