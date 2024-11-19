@@ -63,7 +63,7 @@ class AgendamentoController extends Controller
         $agendamento->data = $request->input('data');
         $agendamento->hora = $request->input('hora');
         $agendamento->comparecimento = false;
-        $agendamento->forma_Pagamento = $request->input('formaPagamento');
+        $agendamento->forma_Pagamento = $request->input('forma_Pagamento');
         $agendamento->vacinas = implode(',',$request->input('vacina', []));
         $agendamento->save();
     }
