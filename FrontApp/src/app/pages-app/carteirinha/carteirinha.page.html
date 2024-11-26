@@ -1,6 +1,6 @@
 
+<app-header-component></app-header-component>
 <ion-content [fullscreen]="true">
-  <app-header-component></app-header-component>
   <div class="parte_superior">
     <div class="icon">
       <ion-icon
@@ -21,12 +21,14 @@
   </div>
   <div class="container">
     <div class="card" *ngFor="let vacinas of vacina ">
-     <h2>
-    {{vacinas.nome}}
-    <ion-icon name="information-circle-outline" class="info_icon"></ion-icon>
-     </h2>
+     <div class="info_principal">
+       <h2>
+         {{vacinas.nome}}
+        </h2>
+        <ion-icon name="information-circle-outline" class="info_icon" size="large"></ion-icon>
+      </div>
      <p>
-      Assinatura do Médico/Enfermeiro
+      {{vacinas.informacao}}
      </p>
      <p>
       Dias de Aplicação : {{vacinas.diasAplicacao}}
@@ -40,4 +42,3 @@
     </div>
    </div>
 </ion-content>
-<app-footer></app-footer>

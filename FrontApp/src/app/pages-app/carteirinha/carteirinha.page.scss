@@ -21,7 +21,7 @@
   /* Ícone de Navegação */
   .icon {
     width: 32px;
-    color:var( --secondary-color);
+    color:var( --primary-color);
     display: flex;
     justify-content: flex-start;
   }
@@ -32,7 +32,8 @@
     height: auto;
   }
   .info_icon{
-        color:var(--header-color)
+        color:var(--header-color);
+        cursor:pointer;
   }
 .card {
     width: 100%;
@@ -41,6 +42,13 @@
     padding: 15px;
     margin: 10px 0;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+.info_principal{
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 .card h2 {
     font-size: 18px;
