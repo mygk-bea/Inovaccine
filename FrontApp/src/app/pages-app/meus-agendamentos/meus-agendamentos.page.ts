@@ -6,6 +6,8 @@ import { HeaderComponentComponent } from 'src/app/components/header-component/he
 import { AuthLoginService } from 'src/app/core/services/login/auth-login.service';
 import { AgendamentoService } from 'src/app/core/services/agendamento.service';
 import { Agendamento } from 'src/app/core/interfaces/agendamento';
+import { addIcons } from 'ionicons';
+import { arrowBack, arrowBackOutline, calendarOutline, informationCircleOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-meus-agendamentos',
@@ -18,7 +20,9 @@ import { Agendamento } from 'src/app/core/interfaces/agendamento';
 export class MeusAgendamentosPage implements OnInit {
   agendamentos: Agendamento[] = [];
   constructor(private navCtrl: NavController, private animationCtrl: AnimationController,private authService: AuthLoginService,
-    private agendamentoService: AgendamentoService,) { }
+    private agendamentoService: AgendamentoService,) {
+      addIcons({ informationCircleOutline,arrowBack,calendarOutline });
+     }
 
   ngOnInit() {
     this.carregarAgendamentos();
