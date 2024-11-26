@@ -80,6 +80,16 @@ class AgendamentoController extends Controller
         return response()->json($agendamento);
     }
     
+    public function showClinic($clinicId) {
+        
+        $agendamento = Agendamento::with(['paciente', 'endereco', 'campanha'])
+                                    ->where('fk_clinica_codClinica', $clinicId)
+                                    ->orderBy('created_at', 'desc')
+                                    ->get();
+        
+        return response()->json($agendamento);
+    }
+    
 
     /**
      * Show the form for editing the specified resource.

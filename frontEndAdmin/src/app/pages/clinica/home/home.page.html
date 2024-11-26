@@ -11,17 +11,52 @@
   <ion-row class="container ion-justify-content-center">
     <ion-col size="10">
       <ion-toolbar>
-        <ion-row>
+        <ion-row class="ion-align-items-center">
           <ion-title  class="container__title">
             Agendamentos do dia
           </ion-title>
 
+          <a 
+            class="pagina-agendamento-link"
+            [routerLink]="'/clinica/listagem-agendamentos'"
+            routerLinkActive="active-link"
+            [routerLinkActiveOptions]="{ exact: true }">
+            Ver todos os agendamentos
+          </a>
         </ion-row>
       </ion-toolbar>
 
-      <ion-row>
-    
-      </ion-row>
+      <ion-row class="table">
+        <ion-col>
+          <ion-item class="top" lines="none">
+            <ion-col *ngFor="let title of titlesTable" size="{{ title.size }}">
+              <ion-label >{{ title.name }}</ion-label>
+            </ion-col>
+
+            <span class="table__space"></span>
+          </ion-item>
+
+          <ion-accordion-group class="accordion" expand="inset">
+            <ion-accordion class="accordion__item" *ngFor="let item of dados_agendamentos" value="{{ item.codAgendamento }}">
+              <ion-item slot="header" class="top__header">
+                <ion-label>{{ item.paciente.nome }}</ion-label>
+                <ion-label>{{ item.paciente.telefone }}</ion-label>
+                <ion-label>{{ item.data | date:'dd/MM/yyyy' }}</ion-label>
+                <ion-label>{{ item.valor | number: '1.2-2' }}</ion-label>
+                <ion-label>{{ item.comparecimento }}</ion-label>
+              </ion-item>
+              <div class="ion-padding" slot="content">
+                <ion-row class="info ion-align-items-center">
+                  <ion-item lines="none">
+                    <!-- <ion-title class="info__title">Fornecedor</ion-title>
+                    <p>{{ item.fornecedor.nome }}</p> -->
+                  </ion-item>
+                </ion-row>
+              </div>
+            </ion-accordion>
+          </ion-accordion-group>
+        </ion-col>
+      </ion-row> 
     
       <ion-row>
         <ion-toolbar>

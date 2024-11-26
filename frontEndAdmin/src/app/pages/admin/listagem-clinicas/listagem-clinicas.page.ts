@@ -12,7 +12,14 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './listagem-clinicas.page.html',
   styleUrls: ['./listagem-clinicas.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, HeaderComponent, TableAccordionComponent, HttpClientModule],
+  imports: [
+    IonicModule, 
+    CommonModule, 
+    FormsModule, 
+    HeaderComponent, 
+    TableAccordionComponent, 
+    HttpClientModule
+  ],
   providers: [ClinicaService]
 })
 export class ListagemClinicasPage implements OnInit {
