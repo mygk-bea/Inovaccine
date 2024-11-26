@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('Endereco', function (Blueprint $table) {
             $table->increments('codEndereco')->unsigned();
             $table->string('logradouro', 100)->nullable(false);
-            $table->string('bairro', 100)->nullable(false);
+            $table->string('bairro', 100)->nullable();
             $table->string('numero', 100)->nullable(false);
             $table->string('cidade', 100)->nullable(false);
-            $table->string('uf', 2)->nullable(false);
+            $table->string('uf', 2)->nullable();
             $table->string('complemento', 100)->nullable();
             $table->char('cep', 8)->nullable();
             
