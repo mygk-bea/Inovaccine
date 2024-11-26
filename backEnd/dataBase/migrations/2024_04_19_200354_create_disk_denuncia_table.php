@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('disk_Denuncia', function (Blueprint $table) {
             $table->increments('codDenuncia')->unsigned();
             $table->boolean('anonimo');
+            $table->boolean('termos');
             $table->string('nome', 100)->nullable();
             $table->unsignedInteger('fk_endereco_codEndereco');
             $table->string('observacao', 100)->nullable(false);

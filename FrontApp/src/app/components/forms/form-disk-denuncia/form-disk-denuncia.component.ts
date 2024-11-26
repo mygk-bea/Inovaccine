@@ -20,6 +20,8 @@ import { MenuComponent } from '../../menu/menu.component';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms'; // Importando os controles de formulário
 import { ViaCepService } from 'src/app/core/services/via-cep/via-cep.service';
+import { DenunciaService } from 'src/app/core/services/form-disk-denuncia.service';
+import { Disk_denuncia } from 'src/app/core/interfaces/disk_denuncia';
 
 @Component({
   selector: 'form-disk-denuncia',
@@ -27,7 +29,7 @@ import { ViaCepService } from 'src/app/core/services/via-cep/via-cep.service';
   styleUrls: ['./form-disk-denuncia.component.scss'],
   standalone: true,
   imports: [IonLabel, IonItem, IonContent, IonInput, IonIcon, IonCheckbox, IonButton, IonToast, ModalPageComponent, IonRow, IonCol, MenuComponent, CommonModule, ReactiveFormsModule,IonProgressBar],
-  providers: [ViaCepService]
+  providers: [ViaCepService,DenunciaService]
 })
 export class FormDiskDenunciaComponent implements OnInit {
   isAnonymous = false;
@@ -35,7 +37,7 @@ export class FormDiskDenunciaComponent implements OnInit {
   isToastOpen = false;
   toastMessage = ''; // Mensagem dinâmica do toast
 
-  constructor(private modalCtrl: ModalController, private ViaCepService: ViaCepService) {
+  constructor(private modalCtrl: ModalController, private ViaCepService: ViaCepService, private denunciaService: DenunciaService) {
     addIcons({ locationSharp, cloudUploadSharp,closeCircle });
 
     this.form = new FormGroup({
@@ -111,7 +113,7 @@ export class FormDiskDenunciaComponent implements OnInit {
   // Função para submeter o formulário
   submitForm() {
     if (this.form.valid && this.form.get('termos')?.value) {
-      const formData = this.form.value;
+      const formData: Disk_denuncia = this.form.value;
 
       // Se o anonimato estiver ativado, limpar o campo 'nome'
       if (this.isAnonymous) {
@@ -119,7 +121,7 @@ export class FormDiskDenunciaComponent implements OnInit {
       }
 
       console.log(formData);
-
+      this.denunciaService.cadastrarDenuncia(formData);
       // Abre o modal de confirmação
       this.openModal();
 

@@ -15,6 +15,7 @@ class DiskDenuncia extends Model
         'codDenuncia',
         'anonimo',
         'nome',
+        'termos',
         'fk_endereco_codEndereco',
         'observacao'
     ]; 

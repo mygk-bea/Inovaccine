@@ -4,6 +4,8 @@ export interface Disk_denuncia {
     descricao: string;  
     localizacao: string;
     termos: boolean;
-    id_paciente: number;
+    cidade: string;
+    rua: string;
+    numero: number;
+    cep: string;
   }
-  
