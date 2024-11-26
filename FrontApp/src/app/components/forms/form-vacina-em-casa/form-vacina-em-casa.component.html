@@ -164,6 +164,16 @@
       <ion-button expand="full" color="danger" (click)="onCancel()">Cancelar</ion-button>
     </div>
   </div>
-
+  <ion-modal id="example-modal" #modal [isOpen]="openModal" (ionModalDidDismiss)="closeModal()">
+    <ng-template>
+      <div class="modal-content">
+        <h1>{{ modalTitle }}</h1>
+        <img [src]="modalIcon" alt="">
+        <p>{{ modalMessage }}</p>
+        <ion-button (click)="closeModal()" color="danger">Fechar</ion-button>
+      </div>
+    </ng-template>
+  </ion-modal>
+  
   <app-footer></app-footer>
 </body>

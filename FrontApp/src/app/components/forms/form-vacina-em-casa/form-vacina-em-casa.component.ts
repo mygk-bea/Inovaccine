@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { arrowBack } from 'ionicons/icons';
 import { addIcons } from 'ionicons';
-import { NavController, AnimationController, IonicModule } from '@ionic/angular';
+import { NavController, AnimationController } from '@ionic/angular';
+import { IonRow,IonCol,IonIcon,IonModal,IonButton,IonCheckbox,IonLabel,IonList,IonSelectOption,IonSelect} from '@ionic/angular/standalone';
 import { HeaderComponentComponent } from '../../header-component/header-component.component';
 import { FooterComponent } from '../../footer/footer.component';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormArray } from '@angular/forms';
@@ -13,6 +14,7 @@ import { VacinaService } from 'src/app/core/services/vacina.service';
 import { ClinicaService } from 'src/app/core/services/lista-clinica/lista-clinica.service';
 import { Clinica } from 'src/app/core/interfaces/clinica';
 import { Agendamento } from 'src/app/core/interfaces/agendamento';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'FormVacinaEmCasa',
@@ -23,12 +25,12 @@ import { Agendamento } from 'src/app/core/interfaces/agendamento';
     CommonModule,
     HeaderComponentComponent,
     FooterComponent,
-    IonicModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, IonRow,IonCol,IonIcon,IonModal,IonButton,IonCheckbox,IonLabel,IonList,IonSelectOption,IonSelect
   ],
   providers: [AuthLoginService, AgendamentoService, VacinaService, ClinicaService]
 })
 export class FormVacinaEmCasaComponent implements OnInit {
+  @ViewChild(IonModal) modal!: IonModal;
   formAgenda!: FormGroup;
   vacina: Vacina[] = [];
   clinicas: Clinica[] = [];
@@ -37,6 +39,9 @@ export class FormVacinaEmCasaComponent implements OnInit {
   showPaymentMethodLabel: boolean = false;
   showConfirmation: boolean = false;
   agendamentoConfirmado: Agendamento | null = null;
+  modalTitle: string = '';
+  modalMessage: string = '';
+  modalIcon: string = '';
 
   availableTimes: string[] = []; // Armazenar os horários de 30 em 30 minutos
 
@@ -48,6 +53,7 @@ export class FormVacinaEmCasaComponent implements OnInit {
     private agendamentoService: AgendamentoService,
     private vacinaService: VacinaService,
     private clinicaService: ClinicaService,
+    private router:Router
   ) {
     addIcons({ arrowBack });
   }
@@ -66,7 +72,24 @@ export class FormVacinaEmCasaComponent implements OnInit {
       vacinas: this.fb.array([]),
     });
   }
+  openModal(messageType: string) {
+    if (messageType === 'success') {
+      this.modalTitle = 'Sucesso!';
+      this.modalMessage = 'A operação foi concluída com êxito';
+      this.modalIcon = 'assets/img/check.png'; 
+    } else if (messageType === 'error') {
+      this.modalTitle = 'Erro!';
+      this.modalMessage = 'Algo deu errado. Tente novamente.';
+      this.modalIcon = 'assets/img/close.png'; 
+    }
 
+    this.modal.present(); // Exibe o modal
+  }
+
+  // Fechar o modal
+  closeModal() {
+    this.modal.dismiss();
+  }
   get vacinas() {
     return (this.formAgenda.get('vacinas') as FormArray);
   }
@@ -108,7 +131,7 @@ export class FormVacinaEmCasaComponent implements OnInit {
   formatTime(date: Date): string {
     const hours = date.getHours().toString().padStart(2, '0');
     const minutes = date.getMinutes().toString().padStart(2, '0');
-    return `${hours}:${minutes}`;
+    return  `${hours}:${minutes}`;
   }
   
 
@@ -184,25 +207,28 @@ export class FormVacinaEmCasaComponent implements OnInit {
   
   onConfirm() {
     if (this.agendamentoConfirmado) {
-      console.log(this.agendamentoConfirmado)
+      console.log(this.agendamentoConfirmado);
       this.agendamentoService.cadastrarAgendamento(this.agendamentoConfirmado).subscribe(
         response => {
           console.log('Agendamento cadastrado com sucesso:', response);
           this.formAgenda.reset();
-          alert("Agendamento concluído");
+          this.openModal('success');
+          setTimeout(()=>{
+            this.router.navigate(['/meus-agendamentos'])
+          },3000)  // Abre o modal de sucesso após o cadastro bem-sucedido
         },
         error => {
           console.error('Erro ao cadastrar agendamento:', error);
-          alert("Erro ao realizar agendamento");
+          this.openModal('error');  // Abre o modal de erro se houver um erro
           this.formAgenda.reset();
         }
       );
     } else {
-
       console.error('Agendamento não encontrado para confirmação.');
-      alert("Erro: Agendamento não encontrado.");
+      this.openModal('error');  // Abre o modal de erro caso não haja agendamento para confirmar
     }
-
+  
+    // Esconde a confirmação após tentar cadastrar o agendamento
     this.showConfirmation = false;
     this.agendamentoConfirmado = null;
   }

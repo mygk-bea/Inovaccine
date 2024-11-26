@@ -28,6 +28,32 @@ body {
   display: flex;
   justify-content: flex-start;
 }
+ion-modal#example-modal {
+  --width: fit-content;
+  --min-width: 350px;
+  --height: fit-content;
+  --border-radius: 6px;
+  --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+  .modal-content {
+    display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+
+ion-modal#example-modal h1 {
+  margin: 20px 0 10px 0;
+}
+
+ion-modal#example-modal .wrapper {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #000;
+}
+}
+
+
+
+
 
 /* Logo */
 .ajuste_logo {
