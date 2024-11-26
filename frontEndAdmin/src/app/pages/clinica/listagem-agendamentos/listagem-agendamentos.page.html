@@ -1,0 +1,54 @@
+<app-header 
+[backgroundColor]="'main__palette'"
+[pagesMenu]="[
+  {name:'Home', route:'/clinica/home'},
+  {name:'Vacinas', route:'/clinica/listagem-vacinas'},
+  {name:'Funcionários', route:'/clinica/listagem-funcionarios'},
+  {name:'Estoque', route:'/clinica/listagem-funcionarios'}
+]"></app-header>
+
+<ion-content [fullscreen]="true" class="main__palette">
+  <ion-row class="container ion-justify-content-center">
+    <ion-col size="10">
+      <ion-toolbar>
+        <ion-row>
+          <ion-title  class="container__title">
+            Agendamentos
+          </ion-title>
+
+          <!-- <ion-item lines="none">
+            <app-input-search [searchFunction]="pesquisarCampanha" (searchResults)="onSearchCampanha($event)"></app-input-search>
+            <button id="open-modal" class="button__add">
+              <span>+</span>
+              <div class="button__add__inner">
+                <p>Adicionar Campanha</p>
+              </div>
+            </button>
+          </ion-item> -->
+        </ion-row>
+      </ion-toolbar>
+
+      <ion-row class="container__listagem">
+        <ion-col size="12">
+          <ion-row class="table">
+            <ion-col>
+              <ion-item lines="none">
+                <ion-col *ngFor="let title of titlesTable" size="{{ title.size }}">
+                  <ion-label >{{ title.name }}</ion-label>
+                </ion-col>
+                <span class="table__space"></span>
+              </ion-item>
+            </ion-col>
+          </ion-row>          
+
+          <ion-row>
+            <ion-col size="12" *ngFor="let agendamento of dados">
+              <!-- <app-item-campanha [dados]="campanha"></app-item-campanha> -->
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+
+    </ion-col>
+  </ion-row>
+</ion-content>

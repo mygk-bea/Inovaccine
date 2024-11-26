@@ -30,8 +30,9 @@ class FuncionarioController extends Controller
         $funcionario->save();
     }
 
-    public function list(){
-        $funcionario = Funcionario::orderBy('created_at', 'desc')->get();
+    public function list($clinicId){
+        $funcionario = Funcionario::orderBy('created_at', 'desc')->where('fk_funcionario_codClinica', $clinicId)->get();
+
         return response()->json($funcionario);
     }
 

@@ -22,8 +22,8 @@ export class FuncionarioService {
     return this.http.get<any>(`${ this.url }/pesquisaFuncionario?search=${value}`)
   }
 
-  listarFuncionario (): Observable<any>{
-    return this.http.get<any>(`${ this.url }/listagemFuncionario`)
+  listarFuncionario (clinicId: number): Observable<any>{
+    return this.http.get<any>(`${ this.url }/listagemFuncionario/${clinicId}`)
   }
 
 }

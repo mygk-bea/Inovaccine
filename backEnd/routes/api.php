@@ -36,7 +36,7 @@ Route::get('/pesquisaVacina', [App\Http\Controllers\VacinaController::class, 'pe
 
 // listagens
 Route::get('/listagemClinica', [App\Http\Controllers\ClinicaController::class, 'list']);
-Route::get('/listagemFuncionario', [App\Http\Controllers\FuncionarioController::class, 'list']);
+Route::get('/listagemFuncionario/{clinicId}', [App\Http\Controllers\FuncionarioController::class, 'list']);
 Route::get('/listagemLote', [App\Http\Controllers\LoteController::class, 'list']);
 Route::get('/listagemCampanha', [App\Http\Controllers\CampanhaController::class, 'list']);
 Route::get('/listagemCampanhaVacina', [App\Http\Controllers\CampanhaController::class, 'listarCampanhaVacina']);
@@ -44,6 +44,7 @@ Route::get('/listagemVacina', [App\Http\Controllers\VacinaController::class, 'li
 Route::get('/listagemMedico', [App\Http\Controllers\MedicoController::class, 'list']);
 Route::get('/listagemPaciente', [App\Http\Controllers\PacienteController::class, 'list']);
 Route::get('/listagemAgendamento/{userId}', [App\Http\Controllers\AgendamentoController::class, 'show']);
+Route::get('/listagemAgendamentoClinica/{clinicId}', [App\Http\Controllers\AgendamentoController::class, 'showClinic']);
 // Route::get('/listagemAgendamento', [App\Http\Controllers\AgendamentoController::class, 'list']);
 // Route::get('/mural', [App\Http\Controllers\PostagemController::class, 'list']);
 
