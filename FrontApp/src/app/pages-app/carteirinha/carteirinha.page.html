@@ -1,5 +1,5 @@
-
 <app-header-component></app-header-component>
+
 <ion-content [fullscreen]="true">
   <div class="parte_superior">
     <div class="icon">
@@ -19,26 +19,52 @@
       />
     </div>
   </div>
+
   <div class="container">
-    <div class="card" *ngFor="let vacinas of vacina ">
-     <div class="info_principal">
-       <h2>
-         {{vacinas.nome}}
-        </h2>
-        <ion-icon name="information-circle-outline" class="info_icon" size="large"></ion-icon>
+    <div class="card" *ngFor="let vacinas of vacina">
+      <div class="info_principal">
+        <h2>{{ vacinas.nome }}</h2>
+        <!-- Clicar neste ícone vai abrir o modal -->
+        <ion-icon
+          name="information-circle-outline"
+          class="info_icon"
+          size="large"
+          (click)="openModal(vacinas)"
+          style="cursor: pointer;"
+        ></ion-icon>
       </div>
-     <p>
-      {{vacinas.informacao}}
-     </p>
-     <p>
-      Dias de Aplicação : {{vacinas.diasAplicacao}}
-     </p>
+      <p>{{ vacinas.informacao }}</p>
+      <p>Dias de Aplicação: {{ vacinas.diasAplicacao }}</p>
     </div>
 
     <div class="button-container">
-     <ion-button>
-      Emitir Carteirinha
-     </ion-button>
+      <ion-button>
+        Emitir Carteirinha
+      </ion-button>
     </div>
-   </div>
+  </div>
+
+  <!-- Modal Template -->
+  <ion-modal [isOpen]="isModalOpen" id="example-modal" (didDismiss)="closeModal()">
+    <ng-template>
+      <div class="wrapper">
+        <div class="modal-content">
+
+          <h1>Vacina: {{ selectedVacina?.nome }}</h1>
+          
+              <label style="display: flex; justify-content: center;align-items: center;"><ion-icon name="information-circle-outline" size="large"></ion-icon>Informação: </label>
+              <p style="font-size: 12px;">{{ selectedVacina?.informacao }}</p>
+            
+              <label style="display: flex; justify-content: center;align-items: center;"for=""><ion-icon name="calendar-outline" size="large"></ion-icon>Dias de Aplicação:</label>
+              <p>{{ selectedVacina?.diasAplicacao }}</p>
+
+              <label style="display: flex; justify-content: center;align-items: center;"for=""><ion-icon name="hourglass-outline" size="large"></ion-icon>Período:</label>
+              <p>{{ selectedVacina?.periodo }}</p>
+          
+          <ion-button expand="full" (click)="closeModal()" color="danger">Fechar</ion-button>
+        </div>
+      </div>
+    </ng-template>
+  </ion-modal>
+
 </ion-content>
