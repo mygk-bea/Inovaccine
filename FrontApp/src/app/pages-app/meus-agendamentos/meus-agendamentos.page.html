@@ -1,42 +1,73 @@
 <ion-content [fullscreen]="true">
   <app-header-component></app-header-component>
+
   <div class="parte_superior">
     <div class="icon">
-      <ion-icon name="arrow-back" class="icone_seta" size="large" (click)="navigateTo('agendamento-page', 'back')"
-        style="cursor: pointer; width: 64px"></ion-icon>
+      <ion-icon
+        name="arrow-back"
+        class="icone_seta"
+        size="large"
+        (click)="navigateTo('tela-inicial', 'back')"
+        style="cursor: pointer; width: 64px"
+      ></ion-icon>
     </div>
     <div class="logo">
       <img src="./assets/img/logo_inovaccine.png" alt="Logo" class="ajuste_logo" />
     </div>
   </div>
 
-  
-
-  
-    <div *ngIf="agendamentos.length > 0; else noAgendamentos" class="agendamentos">
-      <div *ngFor="let agendamento of agendamentos" class="card">
-        <div class="info">
-          <div class="calendar_icon">
-            <ion-icon name="calendar-outline" size="large"></ion-icon>
-          </div>
-          <div class="info_agendamento">
-            <p>Agendado para dia: {{ agendamento.data }}</p>
-            <p>Horário: {{ agendamento.hora }}</p>
-            <p>Forma de pagamento: {{ agendamento.forma_Pagamento }}</p>
-          </div>
-          <div class="info_icon">
-          <ion-icon name="information-circle-outline" class="icone_info" size="large" ></ion-icon>
-          </div>
+  <div *ngIf="agendamentos.length > 0; else noAgendamentos" class="agendamentos">
+    <div *ngFor="let agendamento of agendamentos" class="card">
+      <div class="info">
+        <div class="calendar_icon">
+          <ion-icon name="calendar-outline" size="large"></ion-icon>
+        </div>
+        <div class="info_agendamento">
+          <p>Agendado para dia: {{ agendamento.data }}</p>
+          <p>Horário: {{ agendamento.hora }}</p>
+          <p>Forma de pagamento: {{ agendamento.forma_Pagamento }}</p>
+        </div>
+        <div class="info_icon">
+          <!-- Ícone para abrir o modal -->
+          <ion-icon
+            name="information-circle-outline"
+            class="icone_info"
+            size="large"
+            (click)="openModal(agendamento)"
+          ></ion-icon>
         </div>
       </div>
     </div>
-    
-    <ng-template #noAgendamentos>
-      <ion-item>
-        <ion-label>
-          <p>Você não possui agendamentos.</p>
-        </ion-label>
-      </ion-item>
-    </ng-template>
-  </ion-content>
+  </div>
 
+  <ng-template #noAgendamentos>
+    <ion-item>
+      <ion-label>
+        <p>Você não possui agendamentos.</p>
+      </ion-label>
+    </ion-item>
+  </ng-template>
+
+  <!-- Modal Template para mostrar detalhes do agendamento -->
+  <ion-modal [isOpen]="isModalOpen" (didDismiss)="closeModal()" id="example-modal">
+    <ng-template>
+      <div class="wrapper">
+        <div class="modal-content">
+
+          <h1>Detalhes do Agendamento</h1>
+          
+              <label style="display: flex; justify-content: center;align-items: center;"><ion-icon name="calendar-outline" size="large"></ion-icon><strong>Data:</strong> </label>
+              <p> {{ selectedAgendamento?.data }}</p>
+            
+              <label style="display: flex; justify-content: center;align-items: center;"for=""><ion-icon name="alarm-outline" size="large"></ion-icon><strong>Hora:</strong></label>
+              <p> {{ selectedAgendamento?.hora }}</p>
+
+              <label style="display: flex; justify-content: center;align-items: center;"for=""><ion-icon name="cash-outline" size="large"></ion-icon><strong>Forma de Pagamento:</strong></label>
+              <p>{{ selectedAgendamento?.forma_Pagamento }}</p>
+          
+          <ion-button expand="full" (click)="closeModal()" color="danger">Fechar</ion-button>
+        </div>
+      </div>
+    </ng-template>
+  </ion-modal>
+</ion-content>
