@@ -28,7 +28,7 @@ import { Disk_denuncia } from 'src/app/core/interfaces/disk_denuncia';
   templateUrl: './form-disk-denuncia.component.html',
   styleUrls: ['./form-disk-denuncia.component.scss'],
   standalone: true,
-  imports: [IonLabel, IonItem, IonContent, IonInput, IonIcon, IonCheckbox, IonButton, IonToast, ModalPageComponent, IonRow, IonCol, MenuComponent, CommonModule, ReactiveFormsModule,IonProgressBar],
+  imports: [IonLabel, IonItem, IonContent, IonInput, IonIcon, IonCheckbox, IonButton, IonToast, ModalPageComponent, IonRow, IonCol, MenuComponent, CommonModule, ReactiveFormsModule,IonProgressBar,IonContent],
   providers: [ViaCepService,DenunciaService]
 })
 export class FormDiskDenunciaComponent implements OnInit {

@@ -3,18 +3,22 @@
   message="Carregando vacinas..."
   spinner="crescent">
 </ion-loading>
+<ion-content>
 <div class="ultilidades">
   <div class="input_pesquisa">
-    <input type="text" placeholder="Buscar Vacina" class="search-input">
-    <ion-icon name="search-outline" class="search-icon"></ion-icon>
-  </div>
-  <div class="btn_services">
-    <ion-button class="btn_serviços" (click)="navigateToServicos()">Serviços</ion-button>
-    <ion-button class="btn_carteirinha" (click)="navigateToCarteirinha()">Emitir Carteirinha
-      <ion-icon name="document-text-sharp" size="large"></ion-icon>
-    </ion-button>
-  </div>
+    <input type="text" placeholder="Buscar Vacina" class="search-input"
+  [(ngModel)]="searchQuery" 
+  (input)="searchVacinas()" >
+  <ion-icon name="search-outline" class="search-icon"></ion-icon>
 </div>
+<div class="btn_services">
+  <ion-button class="btn_serviços" (click)="navigateToServicos()">Serviços</ion-button>
+  <ion-button class="btn_carteirinha" (click)="navigateToCarteirinha()">Emitir Carteirinha
+    <ion-icon name="document-text-sharp" size="large"></ion-icon>
+  </ion-button>
+</div>
+</div>
+
 
 <ion-row class="cards">
   <ion-col size-md="10" size-sm="12" size-lg="6">
@@ -50,10 +54,10 @@
       </ion-accordion-group>
     </div>
   </ion-col>
-
+  
   <ion-col  size-md="10" size-sm="10" size-lg="6">
     <div class="vacinas_pendentes">
-
+      
       <div class="txt_vacina_pendente">VACINAS PENDENTES
         <ion-icon name="alert-circle-outline" size="large"></ion-icon>
       </div>
@@ -61,7 +65,7 @@
         <ion-card-header>
           <ion-card-title class="title_VacPendente">
             {{vacinas.nome}}
-            <ion-button class="btn-agendar" size="medium">Agendar
+            <ion-button class="btn-agendar" size="medium" (click)="navigateToAgendamentos()">Agendar
               <ion-icon name="calendar" size="medium" style="color: white; margin-left: 5px;"></ion-icon>
             </ion-button>
           </ion-card-title>
@@ -82,4 +86,6 @@
     </div>
   </ion-col>
 </ion-row>
+</ion-content>  
 <app-menu></app-menu>
+

@@ -7,13 +7,14 @@ import { calendar, checkmarkOutline, documentTextSharp, personAddSharp, searchOu
 import { HttpClientModule } from '@angular/common/http';
 import { CardsVacinaComponent } from 'src/app/components/cards-vacina/cards-vacina.component';
 import { HeaderComponentComponent } from 'src/app/components/header-component/header-component.component';
+import { MenuComponent } from 'src/app/components/menu/menu.component';
 
 @Component({
   selector: 'app-tela-inicial',
   templateUrl: './tela-inicial.page.html',
   styleUrls: ['./tela-inicial.page.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonButton,IonIcon,IonAccordionGroup,IonItem,IonAccordion,HttpClientModule,CardsVacinaComponent,HeaderComponentComponent],
+  imports: [CommonModule, FormsModule, IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonButton,IonIcon,IonAccordionGroup,IonItem,IonAccordion,HttpClientModule,CardsVacinaComponent,HeaderComponentComponent,MenuComponent],
 
 })
 export class TelaInicialPage implements OnInit {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonButton, IonIcon, IonAccordionGroup, IonItem, IonAccordion, IonRow, IonCol, IonLoading } from '@ionic/angular/standalone';
+import { IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonButton, IonIcon, IonAccordionGroup, IonItem, IonAccordion, IonRow, IonCol, IonLoading, IonFooter, IonContent } from '@ionic/angular/standalone';
 import { VacinaService } from 'src/app/core/services/vacina.service';
 import { Vacina } from 'src/app/core/interfaces/vacina';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,13 +17,14 @@ import { Router } from '@angular/router';
   templateUrl: './cards-vacina.component.html',
   styleUrls: ['./cards-vacina.component.scss'],
   standalone: true,
-  imports: [IonLoading, CommonModule, FormsModule, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonButton, IonIcon, IonAccordionGroup, IonItem, IonAccordion, HttpClientModule, IonRow, IonCol, MenuComponent],
+  imports: [IonLoading, CommonModule, FormsModule, IonTitle, IonToolbar, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonButton, IonIcon, IonAccordionGroup, IonItem, IonAccordion, HttpClientModule, IonRow, IonCol, MenuComponent,IonFooter,IonContent],
   providers: [VacinaService]
 })
 export class CardsVacinaComponent implements OnInit {
 
   vacina: Vacina[] = []; // Inicializa com um array vazio
   isLoading: boolean = false; 
+  searchQuery: string = '';
 
   constructor(private vacinaService: VacinaService, private loadingController: LoadingController,private router: Router) { 
     addIcons({searchOutline,documentTextSharp,checkmarkOutline,alertCircleOutline,calendar,logOutOutline,personOutline});
@@ -40,6 +41,9 @@ export class CardsVacinaComponent implements OnInit {
   navigateToServicos() {
     this.router.navigate(['/agendamento-page']);
   }
+  navigateToAgendamentos() {
+    this.router.navigate(['/vacina-em-casa-page']);
+  }
   async loadVacinas() {
     const loading = await this.loadingController.create({
       message: 'Carregando vacinas...',
@@ -54,6 +58,17 @@ export class CardsVacinaComponent implements OnInit {
       console.error('Erro ao carregar vacinas', error);
     } finally {
       await loading.dismiss(); // Esconde o loader
+    }
+  }
+  searchVacinas() {
+    if (this.searchQuery.trim() !== '') {
+      this.vacinaService.pesquisarVacinas().subscribe((data) => {   
+        this.vacina = data.filter((vacina) =>
+          vacina.nome.toLowerCase().includes(this.searchQuery.toLowerCase())
+        );
+      });
+    } else {
+      this.loadVacinas();
     }
   }
 }

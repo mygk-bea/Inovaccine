@@ -1,10 +1,12 @@
-<div class="css_grandient">
-  <div class="text_css">
-    <p>#TODOSCONTRAOMOSQUITO</p>
-  </div>
-</div>
+<ion-content>
 
-<ion-row class="form-row">
+  <div class="css_grandient">
+    <div class="text_css">
+      <p>#TODOSCONTRAOMOSQUITO</p>
+    </div>
+  </div>
+  
+  <ion-row class="form-row">
   <ion-col size-md="10" size-sm="12" size-lg="6" size-xs="12">
     <div class="info_campanha">
       <div class="img_virus_div">
@@ -15,19 +17,19 @@
       </div>
     </div>
   </ion-col>
-
+  
   <ion-col size-md="10" size-sm="12" size-lg="6" size-xs="12">
     <div class="component">
       <form [formGroup]="form" class="formulario">
 
-
+        
         <!-- Segunda Parte do Formulário: Nome, Descrição, Localização -->
           <div class="texto_dengue">Deixe Aqui Sua Denúncia</div>
           <div class="inputs">
             <!-- Campo de Nome -->
             <label for="nome">Nome Completo*</label>
             <ion-input formControlName="nome" placeholder="Nome" class="custom" [disabled]="isAnonymous" [counter]="true"></ion-input>
-
+            
             <!-- Checkbox de Anonimato -->
             <div style="margin: 15px; display: flex; gap: 5px;">
               <ion-checkbox formControlName="anonimato" slot="start" (ionChange)="toggleAnonymous($event)"></ion-checkbox>
@@ -66,16 +68,16 @@
           <ion-button class="btn_enviar" size="small" (click)="submitForm()">
             Enviar
           </ion-button>
-
+          
           <!-- Informação Adicional -->
           <i class="i_style">
             Saiba mais o que acontecerá após fazer a denúncia
           </i>
-        
-      </form>
-    </div>
-  </ion-col>
-</ion-row>
+          
+        </form>
+      </div>
+    </ion-col>
+  </ion-row>
 <ion-toast 
   style="--background: var(--card-vacPendentes); color: black;" 
   [isOpen]="isToastOpen" 
@@ -84,4 +86,4 @@
   icon="close-circle">
 </ion-toast>
 <app-menu></app-menu>
-  
+</ion-content>
