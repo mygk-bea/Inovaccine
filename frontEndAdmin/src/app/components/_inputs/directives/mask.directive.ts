@@ -89,12 +89,13 @@ export class MaskDirective {
       case 'telefone':
       case 'cep':
       case 'codigo':
-        return cleanValue; // Apenas retorna os números sem formatação
-      case 'preco':
-        // Para o preço, remove o 'R$' e formata como decimal
         return cleanValue;
+      case 'preco':
+        let cleanValuePrice = value.replace('.', '');
+        cleanValuePrice = cleanValuePrice.replace(',', '.');
+        return cleanValuePrice.replace("R$ ", '');;
       case 'crm':
-        return cleanValue.slice(0, 6); // Apenas os números do CRM
+        return cleanValue.slice(0, 6);
       default:
         return cleanValue;
     }

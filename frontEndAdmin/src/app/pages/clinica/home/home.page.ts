@@ -37,6 +37,7 @@ export class HomePage implements OnInit {
     {size:'', name:'Paciente'},
     {size:'', name:'Telefone'},
     {size:'', name:'Data'},
+    {size:'', name:'Hora'},
     {size:'', name:'Valor'},
     {size:'', name:'Comparecimento'},
   ];
@@ -64,5 +65,9 @@ export class HomePage implements OnInit {
       },
       (error) => {console.error("ERRO: ", error);}
     )  
+  }
+
+  getStatusText(status: number): string {
+    return status === 1 ? 'Sim' : 'Não';
   }
 }

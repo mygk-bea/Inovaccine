@@ -42,14 +42,25 @@
                 <ion-label>{{ item.paciente.nome }}</ion-label>
                 <ion-label>{{ item.paciente.telefone }}</ion-label>
                 <ion-label>{{ item.data | date:'dd/MM/yyyy' }}</ion-label>
+                <ion-label>{{ ('1970-01-01T' + item.hora) | date:'HH:mm' }}</ion-label>
                 <ion-label>{{ item.valor | number: '1.2-2' }}</ion-label>
-                <ion-label>{{ item.comparecimento }}</ion-label>
+                <ion-label>{{ getStatusText(item.comparecimento) }}</ion-label>
               </ion-item>
               <div class="ion-padding" slot="content">
                 <ion-row class="info ion-align-items-center">
                   <ion-item lines="none">
-                    <!-- <ion-title class="info__title">Fornecedor</ion-title>
-                    <p>{{ item.fornecedor.nome }}</p> -->
+                    <ion-title class="info__title">Endereço da Clínica</ion-title>
+                    <p>CEP: {{ item.endereco.cep }} - {{ item.endereco.logradouro }}, {{ item.endereco.numero }} - {{ item.endereco.bairro }}, {{ item.endereco.cidade }}-{{ item.endereco.uf }}</p>
+                    <p class="info__complemento" *ngIf="item.endereco.complemento"> Complemento: {{ item.endereco.complemento }}</p>
+                  </ion-item>
+                  <ion-item lines="none">
+                    <ion-title class="info__title">Campanha</ion-title>
+                    <p class="info__complemento" *ngIf="item.campanha">{{ item.campanha.nome }}</p>
+                    <p class="info__complemento" *ngIf="!item.campanha">Nenhuma Campanha</p>
+                  </ion-item>
+                  <ion-item lines="none">
+                    <ion-title class="info__title">Forma de Pagamento</ion-title>
+                    <ion-label>{{ item.forma_Pagamento }}</ion-label>
                   </ion-item>
                 </ion-row>
               </div>

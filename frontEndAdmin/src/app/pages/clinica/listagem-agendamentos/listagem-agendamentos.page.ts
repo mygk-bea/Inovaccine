@@ -25,10 +25,12 @@ export class ListagemAgendamentosPage implements OnInit {
   dados: any;
 
   titlesTable = [
-    {size:'1', name:'Id'},
-    {size:'', name:'Nome'},
-    {size:'', name:'Data de Atividade'},
-    {size:'2', name:'Status'}
+    {size:'', name:'Paciente'},
+    {size:'', name:'Telefone'},
+    {size:'', name:'Data'},
+    {size:'', name:'Hora'},
+    {size:'', name:'Valor'},
+    {size:'', name:'Comparecimento'},
   ];
 
   constructor(private dadosAgendamento: AgendamentoService) { }

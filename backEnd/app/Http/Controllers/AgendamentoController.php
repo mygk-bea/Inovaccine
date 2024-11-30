@@ -84,7 +84,7 @@ class AgendamentoController extends Controller
         
         $agendamento = Agendamento::with(['paciente', 'endereco', 'campanha'])
                                     ->where('fk_clinica_codClinica', $clinicId)
-                                    ->orderBy('created_at', 'desc')
+                                    ->orderBy('hora', 'asc')
                                     ->get();
         
         return response()->json($agendamento);
