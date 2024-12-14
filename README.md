@@ -24,8 +24,7 @@ O **Inovaccine** é uma solução digital para a gestão de clínicas e carteira
 ## 🚀 **Funcionalidades Principais**  
 - 📅 **Gestão de agendamentos de vacinação**.  
 - 🩺 **Carteira de vacinação digital** acessível a qualquer momento.  
-- 📊 **Painel administrativo** para acompanhamento de registros.  
-- 🔒 **Segurança de dados** garantindo a privacidade dos usuários.
+- 📊 **Painel administrativo** para acompanhamento de registros.
 
 ---
 
